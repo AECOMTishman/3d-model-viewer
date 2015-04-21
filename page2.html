@@ -28,7 +28,41 @@
           <iframe src="https://3dwarehouse.sketchup.com/embed.html?mid=f19c9ecbfe58509c333925f6d0329b3f&width=500&height=500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="500" height="500" allowfullscreen></iframe>
         </div>
         <div class="3d">
-          
+          <p>
+            <script>
+              var scene, camera, renderer;
+              var geometry, material, mesh;
+
+              init();
+              animate();
+
+              function init() {
+                  scene = new THREE.Scene();
+
+                  camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+                  camera.position.z = 1000;
+
+                  geometry = new THREE.BoxGeometry( 200, 200, 200 );
+                  material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+
+                  mesh = new THREE.Mesh( geometry, material );
+                  scene.add( mesh );
+
+                  renderer = new THREE.WebGLRenderer();
+                  renderer.setSize( window.innerWidth, window.innerHeight );
+
+                  document.body.appendChild( renderer.domElement );
+              }
+              function animate() {
+                  requestAnimationFrame( animate );
+
+                  mesh.rotation.x += 0.01;
+                  mesh.rotation.y += 0.02;
+
+                  renderer.render( scene, camera );
+              }
+            </script>
+          </p>
         </div>
       </section>
       <footer>
@@ -36,5 +70,6 @@
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
+    <script src="js/three.min.js"></script>
   </body>
 </html>
