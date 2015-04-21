@@ -55,7 +55,7 @@
       renderer = new THREE.WebGLRenderer();
       renderer.setSize( window.innerWidth, window.innerHeight );
 
-      document.body.appendChild( renderer.domElement );
+      document.getElementById('3d').appendChild( renderer.domElement );
     }
     function animate() {
       requestAnimationFrame( animate );
