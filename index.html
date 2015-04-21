@@ -26,37 +26,95 @@
         <h3>Tishman BIM</h3>
         <p>AECOM delivers program and construction management services to clients around the world – from project concept to completion and commissioning. Led by our Tishman Construction and Hunt Construction Group operations—AECOM’s construction services business brings together the world’s leading builders. Across the United States, Hunt and Tishman's strengths in diverse regions and complementary sectors form one of the nation’s leading builders and a powerful force in the industry.</p>
         <p>The construction services team offers clients a single and comprehensive source of solutions backed by AECOM’s combined local knowledge and global expertise. Our construction services experts provide clients with an extensive range of pre-construction and construction-related services and solutions for projects of varying scope, budget, schedule and complexity. Along with managing the complexity of each project, our construction services professionals build longstanding relationships with clients and design professionals. As an essential team member on each project, we play a crucial role in helping clients realize their visions. As a project progresses—or increases in complexity—we customize our services to fit each client’s unique needs and requirements. Our suite of services covers every aspect of a client’s project, from design to completion.</p>
-        <div id="3d"></div>
+        <div class="3d"><iframe src="https://www.autocadws.com/main/publish?link=SFtmaVVuQ0VTVzk3MEtH" width="650" height="700"></iframe></div>
+        <div id="viewport" class="3d"></div>
       </section>
       <footer>
         <p><a href="http://www.aecom.com/What+We+Do/Construction+Services">Tishman Construction, An AECOM Company</a></p>
       </footer>
     </div>
-  </body>
-  <script>
-    var camera, scene, renderer, mesh, loader;
-    init();
-    animate();
-    function init() {
-        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-        camera.position.z = 1000;
+      <script>
+      
+        var container, scene, renderer, camera, light, clock, loader;
+        var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
+
+        container = document.querySelector('.viewport');
+
+        clock = new THREE.Clock();
+
+        WIDTH = window.innerWidth,
+        HEIGHT = window.innerHeight;
+
+        VIEW_ANGLE = 45,
+        ASPECT = WIDTH / HEIGHT,
+        NEAR = 1,
+        FAR = 10000;
+
         scene = new THREE.Scene();
+
+        renderer = new THREE.WebGLRenderer({antialias: true});
+
+        renderer.setSize(WIDTH, HEIGHT);
+        renderer.shadowMapEnabled = true;
+        renderer.shadowMapSoft = true;
+        renderer.shadowMapType = THREE.PCFShadowMap;
+        renderer.shadowMapAutoUpdate = true;
+
+        container.appendChild(renderer.domElement);
+
+        camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+
+        camera.position.set(0, 100, 300);
+        camera.rotation.x = -Math.PI / 12;
+
+        scene.add(camera);
+
+        light = new THREE.DirectionalLight(0xffffff);
+
+        light.position.set(0, 100, 60);
+        light.castShadow = true;
+        light.shadowCameraLeft = -60;
+        light.shadowCameraTop = -60;
+        light.shadowCameraRight = 60;
+        light.shadowCameraBottom = 60;
+        light.shadowCameraNear = 1;
+        light.shadowCameraFar = 1000;
+        light.shadowBias = -.0001
+        light.shadowMapWidth = light.shadowMapHeight = 1024;
+        light.shadowDarkness = .7;
+
+        scene.add(light);
+
         loader = new THREE.JSONLoader();
-        loader.load( "little_house.rvt.js", function( geometry ) {
-            mesh = new THREE.Mesh( geometry, new THREE.MeshNormalMaterial() );
-            mesh.scale.set( 10, 10, 10 );
-            mesh.position.y = 150;
-            mesh.position.x = 0;
-            scene.add( mesh );
-        } );
-        var ambientLight = new THREE.AmbientLight(0x555555);
-        scene.add(ambientLight);
-        var directionalLight = new THREE.DirectionalLight(0xffffff);
-        directionalLight.position.set(1, 1, 1).normalize();
-        scene.add(directionalLight);
-        renderer = new THREE.WebGLRenderer();
-        renderer.setSize( window.innerWidth, window.innerHeight );
-        document.getElementById('3d').appendChild( renderer.domElement );
-    }
-  </script>
+        var mesh;
+        loader.load('/js/threejs/models/car.js', function (geometry, materials) {
+          var material = new THREE.MeshLambertMaterial({
+            map: THREE.ImageUtils.loadTexture('/js/threejs/models/textures/gtare.jpg'),   
+            colorAmbient: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+            colorDiffuse: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+            colorSpecular: [0.8999999761581421, 0.8999999761581421, 0.8999999761581421]
+          });
+          
+          mesh = new THREE.Mesh(
+            geometry,
+            material
+          );
+
+          mesh.receiveShadow = true;
+          mesh.castShadow = true;
+          mesh.rotation.y = -Math.PI/5;
+
+          scene.add(mesh);
+          render(); 
+        });
+
+        function render() {
+         var time = clock.getElapsedTime();
+         mesh.rotation.y += .01;
+
+         renderer.render(scene, camera);
+         requestAnimationFrame(render);
+        }
+      </script>
+  </body>
 </html>
