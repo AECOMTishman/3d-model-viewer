@@ -7,9 +7,6 @@
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/pygment_trac.css">
-    <script src="js/scale.fix.js"></script>
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/three.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -36,38 +33,9 @@
         <p><a href="http://www.aecom.com/What+We+Do/Construction+Services">Tishman Construction, An AECOM Company</a></p>
       </footer>
     </div>
+    <script src="js/scale.fix.js"></script>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
-  <script>
-    var scene, camera, renderer;
-    var geometry, material, mesh;
-
-    init();
-    animate();
-
-    function init() {
-      scene = new THREE.Scene();
-
-      camera = new THREE.PerspectiveCamera( 75, 500 / 500, 1, 10000 );
-      camera.position.z = 1000;
-
-      geometry = new THREE.BoxGeometry( 200, 200, 200 );
-      material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
-
-      mesh = new THREE.Mesh( geometry, material );
-      scene.add( mesh );
-
-      renderer = new THREE.WebGLRenderer();
-      renderer.setSize( 500, 500 );
-
-      document.getElementById('3d').appendChild( renderer.domElement );
-    }
-    function animate() {
-      requestAnimationFrame( animate );
-
-      mesh.rotation.x += 0.01;
-      mesh.rotation.y += 0.02;
-
-      renderer.render( scene, camera );
-    }
-  </script>
 </html>
