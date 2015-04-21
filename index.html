@@ -86,7 +86,7 @@
 
         loader = new THREE.JSONLoader();
         var mesh;
-        loader.load('/js/threejs/models/car.js', function (geometry, materials) {
+        loader.load('arrowhead.js', function (geometry, materials) {
           var material = new THREE.MeshLambertMaterial({
             map: THREE.ImageUtils.loadTexture('/js/threejs/models/textures/gtare.jpg'),   
             colorAmbient: [0.480000026226044, 0.480000026226044, 0.480000026226044],
