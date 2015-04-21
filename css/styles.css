@@ -261,3 +261,8 @@ header a, footer a {
 div.3d {
   border: 1px solid #ccc;
 }
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
