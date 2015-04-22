@@ -45,7 +45,7 @@ function setupCamera()
 function addDuckMesh()
 {
   var loader = new THREE.JSONLoader();
-  loader.load("/beginningwebgl/code/meshes/duck_three.js", function(geometry){
+  loader.load("duck_three.js", function(geometry){
             mesh = new THREE.Mesh( 
       geometry, 
       geometry.materials[0]
