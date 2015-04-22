@@ -19,7 +19,6 @@ function init() {
   renderer = new THREE.WebGLRenderer();
   renderer.setSize( 500, 500 );
 
-  document.getElementById('3d2').appendChild( renderer.domElement );
   document.getElementById('3d').appendChild( renderer.domElement );
 }
 function animate() {
