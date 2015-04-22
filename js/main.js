@@ -1,31 +1,88 @@
-var scene, camera, renderer;
-var geometry, material, mesh;
+var CANVAS_WIDTH = 400,
+  CANVAS_HEIGHT= 300;
 
-init();
-animate();
+var renderer = null,  //WebGL or 2D
+  scene = null,   //scene object
+  camera = null;    //camera object
+var mesh = null,
+  angle=0.0;
 
-function init() {
-  scene = new THREE.Scene();
+function initWebGL()
+{
+  setupRenderer();
+  setupScene();
 
-  camera = new THREE.PerspectiveCamera( 75, 500 / 500, 1, 10000 );
-  camera.position.z = 1000;
+}
 
-  geometry = new THREE.BoxGeometry( 200, 400, 600 );
-  material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
-
-  mesh = new THREE.Mesh( geometry, material );
-  scene.add( mesh );
-
+function setupRenderer()
+{
   renderer = new THREE.WebGLRenderer();
-  renderer.setSize( 500, 500 );
-
+  renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+  
+  //where to add the canvas element
   document.getElementById('3d').appendChild( renderer.domElement );
 }
-function animate() {
-  requestAnimationFrame( animate );
 
-  mesh.rotation.x += 0.01;
-  mesh.rotation.y += 0.02;
+function setupScene()
+{
+  scene = new THREE.Scene();        
+  addDuckMesh();
+}
 
-  renderer.render( scene, camera );
+function setupCamera()
+{
+  camera = new THREE.PerspectiveCamera(
+      45,                   // Field of view
+      CANVAS_WIDTH / CANVAS_HEIGHT,   // Aspect ratio
+      .1,                   // Near clip plane
+      10000                   // Far clip plane
+  );
+  camera.position.set( 10, 10, 10 );
+  camera.lookAt( scene.position );
+  scene.add( camera );
+}
+
+function addDuckMesh()
+{
+  var loader = new THREE.JSONLoader();
+  loader.load("/beginningwebgl/code/meshes/duck_three.js", function(geometry){
+            mesh = new THREE.Mesh( 
+      geometry, 
+      geometry.materials[0]
+    );
+
+    mesh.position.y -= 5.0;
+    mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.05;
+    mesh.rotation.x = .25*Math.PI;
+    mesh.rotation.y = .25*Math.PI;
+    scene.add(mesh);
+
+    //make sure mesh is loaded before renderering
+    loadRestOfScene()
+  });       
+}
+
+function loadRestOfScene()
+{
+  addLight();
+  setupCamera();
+    
+  (function animLoop(){
+    mesh.rotation.z = angle;
+    angle += 0.005;
+
+    renderer.render(scene, camera); 
+    requestAnimationFrame( animLoop );
+  })(); 
+}
+
+function addLight()
+{
+  var light = new THREE.DirectionalLight( 0x777777 );
+  light.position.set( 10, 30, 20 );
+  scene.add(light);
+
+  var light = new THREE.PointLight( 0xFFFFFF );
+  light.position.set( 20, 30, 20 );
+  scene.add(light);
 }
