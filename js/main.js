@@ -1,5 +1,5 @@
-var CANVAS_WIDTH = 400,
-  CANVAS_HEIGHT= 300;
+var CANVAS_WIDTH = 500,
+  CANVAS_HEIGHT= 500;
 
 var renderer = null,  //WebGL or 2D
   scene = null,   //scene object
