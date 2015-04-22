@@ -42,7 +42,7 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
         container = document.createElement( 'div' );
         document.getElementById('3d').appendChild( container );
 
-        camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
+        camera = new THREE.PerspectiveCamera( 50, 500 / 500, 1, 2000 );
         camera.position.set( 2, 4, 5 );
 
         scene = new THREE.Scene();
@@ -116,7 +116,7 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
         renderer = new THREE.WebGLRenderer();
         renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( 500, 500 );
         container.appendChild( renderer.domElement );
 
         // Stats
@@ -134,9 +134,9 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
       function onWindowResize( event ) {
 
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( 500, 500 );
 
-        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.aspect = 500 / 500;
         camera.updateProjectionMatrix();
 
       }
