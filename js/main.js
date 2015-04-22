@@ -40,7 +40,7 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
       function init() {
 
         container = document.createElement( 'div' );
-        document.body.appendChild( container );
+        document.getElementById('3d').appendChild( container );
 
         camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
         camera.position.set( 2, 4, 5 );
