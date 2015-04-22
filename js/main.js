@@ -1,88 +1,180 @@
-var CANVAS_WIDTH = 500,
-  CANVAS_HEIGHT= 500;
+if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var renderer = null,  //WebGL or 2D
-  scene = null,   //scene object
-  camera = null;    //camera object
-var mesh = null,
-  angle=0.0;
+      var container, stats;
 
-function initWebGL()
-{
-  setupRenderer();
-  setupScene();
+      var camera, scene, renderer, objects;
+      var particleLight, pointLight;
+      var dae;
 
-}
+      var clock = new THREE.Clock();
+      var morphs = [];
 
-function setupRenderer()
-{
-  renderer = new THREE.WebGLRenderer();
-  renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
-  
-  //where to add the canvas element
-  document.getElementById('3d').appendChild( renderer.domElement );
-}
+      // Collada model
 
-function setupScene()
-{
-  scene = new THREE.Scene();        
-  addDuckMesh();
-}
+      var loader = new THREE.ColladaLoader();
+      loader.options.convertUpAxis = true;
+      loader.load( 'monster.dae', function ( collada ) {
 
-function setupCamera()
-{
-  camera = new THREE.PerspectiveCamera(
-      45,                   // Field of view
-      CANVAS_WIDTH / CANVAS_HEIGHT,   // Aspect ratio
-      .1,                   // Near clip plane
-      10000                   // Far clip plane
-  );
-  camera.position.set( 10, 10, 10 );
-  camera.lookAt( scene.position );
-  scene.add( camera );
-}
+        dae = collada.scene;
 
-function addDuckMesh()
-{
-  var loader = new THREE.JSONLoader();
-  loader.load("duck_three.js", function(geometry){
-            mesh = new THREE.Mesh( 
-      geometry, 
-      geometry.materials[0]
-    );
+        dae.traverse( function ( child ) {
 
-    mesh.position.y -= 5.0;
-    mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.05;
-    mesh.rotation.x = .25*Math.PI;
-    mesh.rotation.y = .25*Math.PI;
-    scene.add(mesh);
+          if ( child instanceof THREE.SkinnedMesh ) {
 
-    //make sure mesh is loaded before renderering
-    loadRestOfScene()
-  });       
-}
+            var animation = new THREE.Animation( child, child.geometry.animation );
+            animation.play();
 
-function loadRestOfScene()
-{
-  addLight();
-  setupCamera();
-    
-  (function animLoop(){
-    mesh.rotation.z = angle;
-    angle += 0.005;
+          }
 
-    renderer.render(scene, camera); 
-    requestAnimationFrame( animLoop );
-  })(); 
-}
+        } );
 
-function addLight()
-{
-  var light = new THREE.DirectionalLight( 0x777777 );
-  light.position.set( 10, 30, 20 );
-  scene.add(light);
+        dae.scale.x = dae.scale.y = dae.scale.z = 0.002;
+        dae.position.x = -1;
+        dae.updateMatrix();
 
-  var light = new THREE.PointLight( 0xFFFFFF );
-  light.position.set( 20, 30, 20 );
-  scene.add(light);
-}
+        init();
+        animate();
+
+      } );
+
+      function init() {
+
+        container = document.createElement( 'div' );
+        document.body.appendChild( container );
+
+        camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
+        camera.position.set( 2, 4, 5 );
+
+        scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2( 0x000000, 0.035 );
+
+        // Add Blender exported Collada model
+
+        var loader = new THREE.JSONLoader();
+        loader.load( 'monster.js', function ( geometry, materials ) {
+
+          // adjust color a bit
+
+          var material = materials[ 0 ];
+          material.morphTargets = true;
+          material.color.setHex( 0xffaaaa );
+
+          var faceMaterial = new THREE.MeshFaceMaterial( materials );
+
+          for ( var i = 0; i < 729; i ++ ) {
+
+            // random placement in a grid
+
+            var x = ( ( i % 27 )  - 13.5 ) * 2 + THREE.Math.randFloatSpread( 1 );
+            var z = ( Math.floor( i / 27 ) - 13.5 ) * 2 + THREE.Math.randFloatSpread( 1 );
+
+            // leave space for big monster
+
+            if ( Math.abs( x ) < 2 && Math.abs( z ) < 2 ) continue;
+
+            morph = new THREE.MorphAnimMesh( geometry, faceMaterial );
+
+            // one second duration
+
+            morph.duration = 1000;
+
+            // random animation offset
+
+            morph.time = 1000 * Math.random();
+
+            var s = THREE.Math.randFloat( 0.00075, 0.001 );
+            morph.scale.set( s, s, s );
+
+            morph.position.set( x, 0, z );
+            morph.rotation.y = THREE.Math.randFloat( -0.25, 0.25 );
+
+            morph.matrixAutoUpdate = false;
+            morph.updateMatrix();
+
+            scene.add( morph );
+
+            morphs.push( morph );
+
+          }
+
+        } );
+
+
+        // Add the COLLADA
+
+        scene.add( dae );
+
+        // Lights
+
+        scene.add( new THREE.AmbientLight( 0xcccccc ) );
+
+        pointLight = new THREE.PointLight( 0xff4400, 5, 30 );
+        pointLight.position.set( 5, 0, 0 );
+        scene.add( pointLight );
+
+        // Renderer
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        container.appendChild( renderer.domElement );
+
+        // Stats
+
+        stats = new Stats();
+        container.appendChild( stats.domElement );
+
+        // Events
+
+        window.addEventListener( 'resize', onWindowResize, false );
+
+      }
+
+      //
+
+      function onWindowResize( event ) {
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+      }
+
+      //
+
+      function animate() {
+
+        requestAnimationFrame( animate );
+
+        var delta = clock.getDelta();
+
+        // animate Collada model
+
+        THREE.AnimationHandler.update( delta );
+
+        if ( morphs.length ) {
+
+          for ( var i = 0; i < morphs.length; i ++ )
+            morphs[ i ].updateAnimation( 1000 * delta );
+
+        }
+
+        render();
+        stats.update();
+
+      }
+
+      function render() {
+
+        var timer = Date.now() * 0.0005;
+
+        camera.position.x = Math.cos( timer ) * 10;
+        camera.position.y = 4;
+        camera.position.z = Math.sin( timer ) * 10;
+
+        camera.lookAt( scene.position );
+
+        renderer.render( scene, camera );
+
+      }
