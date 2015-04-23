@@ -56,7 +56,7 @@ function init() {
  
   // You can set the texture properties in this function. 
   // The string has to be the path to your texture file.
-  loader.load( 'female_croupier_2013-03-26.png', function ( image ) {
+  loader.load( 'medieval-house-2./DoorType1_1.jpg', function ( image ) {
     texture.image = image;
     texture.needsUpdate = true;
     // I wanted a nearest neighbour filtering for my low-poly character,
@@ -71,7 +71,7 @@ function init() {
  
   // As soon as the OBJ has been loaded this function looks for a mesh
   // inside the data and applies the texture to it.
-  loader.load( 'female_croupier_2013-03-26.obj', function ( event ) {
+  loader.load( 'medieval-house-2.obj/medieval-house-2.obj', function ( event ) {
     var object = event;
     object.traverse( function ( child ) {
       if ( child instanceof THREE.Mesh ) {
