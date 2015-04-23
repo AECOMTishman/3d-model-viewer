@@ -102,7 +102,7 @@ function init() {
   //
 
   var loader = new THREE.JSONLoader();
-  loader.load( "models/skinned/knight.js", function ( geometry, materials ) {
+  loader.load( "knight.js", function ( geometry, materials ) {
 
     createScene( geometry, materials, 0, FLOOR, -300, 60 )
 
