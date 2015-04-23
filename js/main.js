@@ -1,5 +1,5 @@
 var SCREEN_WIDTH = 660;
-var SCREEN_HEIGHT = 800;
+var SCREEN_HEIGHT = 480;
 var FLOOR = -250;
 
 var container,stats;
