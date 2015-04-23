@@ -1,5 +1,5 @@
-var SCREEN_WIDTH = window.innerWidth;
-var SCREEN_HEIGHT = window.innerHeight;
+var SCREEN_WIDTH = 660;
+var SCREEN_HEIGHT = 800;
 var FLOOR = -250;
 
 var container,stats;
@@ -11,8 +11,8 @@ var mesh, helper;
 
 var mouseX = 0, mouseY = 0;
 
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
+var windowHalfX = SCREEN_WIDTH / 2;
+var windowHalfY = SCREEN_HEIGHT / 2;
 
 var clock = new THREE.Clock();
 
@@ -120,13 +120,13 @@ function init() {
 
 function onWindowResize() {
 
-  windowHalfX = window.innerWidth / 2;
-  windowHalfY = window.innerHeight / 2;
+  windowHalfX = SCREEN_WIDTH / 2;
+  windowHalfY = SCREEN_HEIGHT / 2;
 
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
   camera.updateProjectionMatrix();
 
-  renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 
 }
 
