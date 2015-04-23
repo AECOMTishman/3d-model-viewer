@@ -55,7 +55,7 @@
 
 
         var loader = new THREE.ImageLoader( manager );
-        loader.load( 'textures/UV_Grid_Sm.jpg', function ( image ) {
+        loader.load( 'UV_Grid_Sm.jpg', function ( image ) {
 
           texture.image = image;
           texture.needsUpdate = true;
@@ -65,7 +65,7 @@
         // model
 
         var loader = new THREE.OBJLoader( manager );
-        loader.load( 'obj/male02/male02.obj', function ( object ) {
+        loader.load( 'male02.obj', function ( object ) {
 
           object.traverse( function ( child ) {
 
