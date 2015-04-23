@@ -84,9 +84,10 @@
 
         //
 
-        renderer = new THREE.WebGLRenderer();
+        renderer = new THREE.WebGLRenderer({ alpha: true });
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setClearColor( 0xffffff, 1);
         container.appendChild( renderer.domElement );
 
         document.addEventListener( 'mousemove', onDocumentMouseMove, false );
