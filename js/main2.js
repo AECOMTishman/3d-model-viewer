@@ -5,8 +5,11 @@
 
       var mouseX = 0, mouseY = 0;
 
-      var windowHalfX = window.innerWidth / 2;
-      var windowHalfY = window.innerHeight / 2;
+      var WIDTH = 500;
+      var HEIGHT = 500;
+
+      var windowHalfX = WIDTH / 2;
+      var windowHalfY = HEIGHT / 2;
 
 
       init();
@@ -18,7 +21,7 @@
         container = document.getElementById( '3d' );
         document.body.appendChild( container );
 
-        camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
+        camera = new THREE.PerspectiveCamera( 45, WIDTH / HEIGHT, 1, 2000 );
         camera.position.z = 100;
 
         // scene
@@ -86,7 +89,7 @@
 
         renderer = new THREE.WebGLRenderer({ alpha: true });
         renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( WIDTH, HEIGHT );
         renderer.setClearColor( 0xffffff, 1);
         container.appendChild( renderer.domElement );
 
@@ -100,13 +103,13 @@
 
       function onWindowResize() {
 
-        windowHalfX = window.innerWidth / 2;
-        windowHalfY = window.innerHeight / 2;
+        windowHalfX = WIDTH / 2;
+        windowHalfY = HEIGHT / 2;
 
-        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.aspect = WIDTH / HEIGHT;
         camera.updateProjectionMatrix();
 
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( WIDTH, HEIGHT );
 
       }
 
