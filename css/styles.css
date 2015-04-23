@@ -256,6 +256,7 @@ footer {
 
 header a, footer a {
   color: #393939;
+  z-index: 100;
 }
 
 .3d {

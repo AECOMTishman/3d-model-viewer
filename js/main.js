@@ -23,7 +23,7 @@ animate();
 
 function init() {
 
-  container = document.getElementById( 'container' );
+  container = document.getElementById( '3d' );
 
   camera = new THREE.PerspectiveCamera( 30, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
   camera.position.z = 2200;
