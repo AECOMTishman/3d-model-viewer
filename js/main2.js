@@ -2,8 +2,8 @@ var container;
 var camera, scene, renderer;
 var mouseX = 0, mouseY = 0;
 
-var WIDTH = 500;
-var HEIGHT = 500;
+var WIDTH = window.innerWidth;
+var HEIGHT = window.innerWidth;
  
 var windowHalfX = WIDTH / 2;
 var windowHalfY = HEIGHT / 2;
