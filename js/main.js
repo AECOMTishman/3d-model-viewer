@@ -1,180 +1,283 @@
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+var SCREEN_WIDTH = window.innerWidth;
+var SCREEN_HEIGHT = window.innerHeight;
+var FLOOR = -250;
 
-      var container, stats;
+var container,stats;
 
-      var camera, scene, renderer, objects;
-      var particleLight, pointLight;
-      var dae;
+var camera, scene;
+var renderer;
 
-      var clock = new THREE.Clock();
-      var morphs = [];
+var mesh, helper;
 
-      // Collada model
+var mouseX = 0, mouseY = 0;
 
-      var loader = new THREE.ColladaLoader();
-      loader.options.convertUpAxis = true;
-      loader.load( 'monster.dae', function ( collada ) {
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
 
-        dae = collada.scene;
+var clock = new THREE.Clock();
 
-        dae.traverse( function ( child ) {
+document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
-          if ( child instanceof THREE.SkinnedMesh ) {
+init();
+animate();
 
-            var animation = new THREE.Animation( child, child.geometry.animation );
-            animation.play();
+function init() {
 
-          }
+  container = document.getElementById( 'container' );
 
-        } );
+  camera = new THREE.PerspectiveCamera( 30, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
+  camera.position.z = 2200;
 
-        dae.scale.x = dae.scale.y = dae.scale.z = 0.002;
-        dae.position.x = -1;
-        dae.updateMatrix();
+  scene = new THREE.Scene();
 
-        init();
-        animate();
+  scene.fog = new THREE.Fog( 0xffffff, 2000, 10000 );
 
-      } );
+  scene.add( camera );
 
-      function init() {
+  // GROUND
 
-        container = document.createElement( 'div' );
-        document.getElementById('3d').appendChild( container );
+  var geometry = new THREE.PlaneBufferGeometry( 16000, 16000 );
+  var material = new THREE.MeshPhongMaterial( { emissive: 0xbbbbbb } );
 
-        camera = new THREE.PerspectiveCamera( 50, 500 / 500, 1, 2000 );
-        camera.position.set( 2, 4, 5 );
+  var ground = new THREE.Mesh( geometry, material );
+  ground.position.set( 0, FLOOR, 0 );
+  ground.rotation.x = -Math.PI/2;
+  scene.add( ground );
 
-        scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2( 0x000000, 0.035 );
+  ground.receiveShadow = true;
 
-        // Add Blender exported Collada model
 
-        var loader = new THREE.JSONLoader();
-        loader.load( 'monster.js', function ( geometry, materials ) {
+  // LIGHTS
 
-          // adjust color a bit
+  var ambient = new THREE.AmbientLight( 0x222222 );
+  scene.add( ambient );
 
-          var material = materials[ 0 ];
-          material.morphTargets = true;
-          material.color.setHex( 0xffaaaa );
 
-          var faceMaterial = new THREE.MeshFaceMaterial( materials );
+  var light = new THREE.DirectionalLight( 0xebf3ff, 1.6 );
+  light.position.set( 0, 140, 500 ).multiplyScalar( 1.1 );
+  scene.add( light );
 
-          for ( var i = 0; i < 729; i ++ ) {
+  light.castShadow = true;
 
-            // random placement in a grid
+  light.shadowMapWidth = 1024;
+  light.shadowMapHeight = 2048;
 
-            var x = ( ( i % 27 )  - 13.5 ) * 2 + THREE.Math.randFloatSpread( 1 );
-            var z = ( Math.floor( i / 27 ) - 13.5 ) * 2 + THREE.Math.randFloatSpread( 1 );
+  var d = 390;
 
-            // leave space for big monster
+  light.shadowCameraLeft = -d;
+  light.shadowCameraRight = d;
+  light.shadowCameraTop = d * 1.5;
+  light.shadowCameraBottom = -d;
 
-            if ( Math.abs( x ) < 2 && Math.abs( z ) < 2 ) continue;
+  light.shadowCameraFar = 3500;
+  //light.shadowCameraVisible = true;
 
-            morph = new THREE.MorphAnimMesh( geometry, faceMaterial );
+  //
 
-            // one second duration
+  var light = new THREE.DirectionalLight( 0x493f13, 1 );
+  light.position.set( 0, -1, 0 );
+  scene.add( light );
 
-            morph.duration = 1000;
+  // RENDERER
 
-            // random animation offset
+  renderer = new THREE.WebGLRenderer( { antialias: true } );
+  renderer.setClearColor( scene.fog.color );
+  renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
+  renderer.domElement.style.position = "relative";
 
-            morph.time = 1000 * Math.random();
+  container.appendChild( renderer.domElement );
 
-            var s = THREE.Math.randFloat( 0.00075, 0.001 );
-            morph.scale.set( s, s, s );
+  renderer.gammaInput = true;
+  renderer.gammaOutput = true;
 
-            morph.position.set( x, 0, z );
-            morph.rotation.y = THREE.Math.randFloat( -0.25, 0.25 );
+  renderer.shadowMapEnabled = true;
 
-            morph.matrixAutoUpdate = false;
-            morph.updateMatrix();
 
-            scene.add( morph );
+  // STATS
 
-            morphs.push( morph );
+  stats = new Stats();
+  container.appendChild( stats.domElement );
 
-          }
+  //
 
-        } );
+  var loader = new THREE.JSONLoader();
+  loader.load( "models/skinned/knight.js", function ( geometry, materials ) {
 
+    createScene( geometry, materials, 0, FLOOR, -300, 60 )
 
-        // Add the COLLADA
+  } );
 
-        scene.add( dae );
+  // GUI
 
-        // Lights
+  initGUI();
 
-        scene.add( new THREE.AmbientLight( 0xcccccc ) );
+  //
 
-        pointLight = new THREE.PointLight( 0xff4400, 5, 30 );
-        pointLight.position.set( 5, 0, 0 );
-        scene.add( pointLight );
+  window.addEventListener( 'resize', onWindowResize, false );
 
-        // Renderer
+}
 
-        renderer = new THREE.WebGLRenderer();
-        renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( 500, 500 );
-        container.appendChild( renderer.domElement );
+function onWindowResize() {
 
-        // Stats
+  windowHalfX = window.innerWidth / 2;
+  windowHalfY = window.innerHeight / 2;
 
-        stats = new Stats();
-        container.appendChild( stats.domElement );
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 
-        // Events
+  renderer.setSize( window.innerWidth, window.innerHeight );
 
-        window.addEventListener( 'resize', onWindowResize, false );
+}
 
-      }
+function ensureLoop( animation ) {
 
-      //
+  for ( var i = 0; i < animation.hierarchy.length; i ++ ) {
 
-      function onWindowResize( event ) {
+    var bone = animation.hierarchy[ i ];
 
-        renderer.setSize( 500, 500 );
+    var first = bone.keys[ 0 ];
+    var last = bone.keys[ bone.keys.length - 1 ];
 
-        camera.aspect = 500 / 500;
-        camera.updateProjectionMatrix();
+    last.pos = first.pos;
+    last.rot = first.rot;
+    last.scl = first.scl;
 
-      }
+  }
 
-      //
+}
 
-      function animate() {
+function createScene( geometry, materials, x, y, z, s ) {
 
-        requestAnimationFrame( animate );
+  ensureLoop( geometry.animation );
 
-        var delta = clock.getDelta();
+  geometry.computeBoundingBox();
+  var bb = geometry.boundingBox;
 
-        // animate Collada model
+  var path = "textures/cube/Park2/";
+  var format = '.jpg';
+  var urls = [
+      path + 'posx' + format, path + 'negx' + format,
+      path + 'posy' + format, path + 'negy' + format,
+      path + 'posz' + format, path + 'negz' + format
+    ];
 
-        THREE.AnimationHandler.update( delta );
 
-        if ( morphs.length ) {
+  //var envMap = THREE.ImageUtils.loadTextureCube( urls );
 
-          for ( var i = 0; i < morphs.length; i ++ )
-            morphs[ i ].updateAnimation( 1000 * delta );
+  //var map = THREE.ImageUtils.loadTexture( "textures/UV_Grid_Sm.jpg" );
 
-        }
+  //var bumpMap = THREE.ImageUtils.generateDataTexture( 1, 1, new THREE.Color() );
+  //var bumpMap = THREE.ImageUtils.loadTexture( "textures/water.jpg" );
 
-        render();
-        stats.update();
+  for ( var i = 0; i < materials.length; i ++ ) {
 
-      }
+    var m = materials[ i ];
+    m.skinning = true;
+    m.morphTargets = true;
 
-      function render() {
+    m.specular.setHSL( 0, 0, 0.1 );
 
-        var timer = Date.now() * 0.0005;
+    m.color.setHSL( 0.6, 0, 0.6 );
 
-        camera.position.x = Math.cos( timer ) * 10;
-        camera.position.y = 4;
-        camera.position.z = Math.sin( timer ) * 10;
+    //m.map = map;
+    //m.envMap = envMap;
+    //m.bumpMap = bumpMap;
+    //m.bumpScale = 2;
 
-        camera.lookAt( scene.position );
+    //m.combine = THREE.MixOperation;
+    //m.reflectivity = 0.75;
 
-        renderer.render( scene, camera );
+    m.wrapAround = true;
 
-      }
+  }
+
+  mesh = new THREE.SkinnedMesh( geometry, new THREE.MeshFaceMaterial( materials ) );
+  mesh.position.set( x, y - bb.min.y * s, z );
+  mesh.scale.set( s, s, s );
+  scene.add( mesh );
+
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+
+  helper = new THREE.SkeletonHelper( mesh );
+  helper.material.linewidth = 3;
+  helper.visible = false;
+  scene.add( helper );
+
+  var animation = new THREE.Animation( mesh, geometry.animation );
+  animation.play();
+
+}
+
+function initGUI() {
+
+  var API = {
+    'show model'    : true,
+    'show skeleton' : false
+  };
+
+  var gui = new dat.GUI();
+
+  gui.add( API, 'show model' ).onChange( function() { mesh.visible = API[ 'show model' ]; } );
+
+  gui.add( API, 'show skeleton' ).onChange( function() { helper.visible = API[ 'show skeleton' ]; } );
+
+}
+
+function onDocumentMouseMove( event ) {
+
+  mouseX = ( event.clientX - windowHalfX );
+  mouseY = ( event.clientY - windowHalfY );
+
+}
+
+//
+
+function animate() {
+
+  requestAnimationFrame( animate );
+
+  render();
+  stats.update();
+
+}
+
+function render() {
+
+  var delta = 0.75 * clock.getDelta();
+
+  camera.position.x += ( mouseX - camera.position.x ) * .05;
+  camera.position.y = THREE.Math.clamp( camera.position.y + ( - mouseY - camera.position.y ) * .05, 0, 1000 );
+
+  camera.lookAt( scene.position );
+
+  // update skinning
+
+  THREE.AnimationHandler.update( delta );
+
+  if ( helper !== undefined ) helper.update();
+
+  // update morphs
+
+  if ( mesh ) {
+
+    var time = Date.now() * 0.001;
+
+    // mouth
+
+    mesh.morphTargetInfluences[ 1 ] = ( 1 + Math.sin( 4 * time ) ) / 2;
+
+    // frown ?
+
+    mesh.morphTargetInfluences[ 2 ] = ( 1 + Math.sin( 2 * time ) ) / 2;
+
+    // eyes
+
+    mesh.morphTargetInfluences[ 3 ] = ( 1 + Math.cos( 4 * time ) ) / 2;
+
+  }
+
+  renderer.render( scene, camera );
+
+}
