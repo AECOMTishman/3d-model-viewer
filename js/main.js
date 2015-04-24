@@ -16,8 +16,8 @@ function init() {
 
   container = document.getElementById( '3d' );
 
-  camera = new THREE.PerspectiveCamera( 45, WIDTH / HEIGHT, 1, 2000 );
-  camera.position.z = 2000;
+  camera = new THREE.PerspectiveCamera( 45, WIDTH / HEIGHT, 1, 4000 );
+  camera.position.z = 2500;
 
   // scene
 
@@ -129,15 +129,7 @@ function render() {
   camera.position.x = ( mouseX / WIDTH ) * 500 - 250;
   camera.position.y = - ( ( mouseY / HEIGHT ) * 500 - 250 );
 
-  console.log("camera x: " + camera.position.x)
-  console.log("camera y: " + camera.position.y)
-  console.log("camera z: " + camera.position.z)
-
   camera.lookAt( scene.position );
-
-  console.log("scene x: " + scene.position.x)
-  console.log("scene y: " + scene.position.y)
-  console.log("scene z: " + scene.position.z)
 
   renderer.render( scene, camera );
 
