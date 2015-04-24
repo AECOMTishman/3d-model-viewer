@@ -3,7 +3,7 @@ var container;
 var camera, scene, renderer;
 
 var WIDTH = 500;
-var HEIGHT = 830;
+var HEIGHT = 500;
 
 var mouseX = WIDTH / 2, mouseY = HEIGHT / 2;
 
@@ -128,7 +128,7 @@ function render() {
 
   camera.position.x = ( mouseX / WIDTH ) * 1000 - 500;
   camera.position.y = 2000 - ( ( mouseY / HEIGHT ) * 1000 - 500 );
-  camera.position.z = 2000 + ( ( mouseX / WIDTH ) * 1000 - 500 );
+  camera.position.z = 2000 + ( ( mouseX / WIDTH ) * 1000 - 500 ).abs();
 
   camera.lookAt( scene.position );
 
