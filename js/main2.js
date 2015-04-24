@@ -1,6 +1,4 @@
-var viewport = document.getElementById( '3d' );
-
-var scene, camera, renderer, loader, light, controls;
+var viewport, scene, camera, renderer, loader, controls;
 
 var WIDTH = 498, /*window.innerWidth*/
     HEIGHT = 498; /*window.innerHeight*/
@@ -10,7 +8,13 @@ var VIEW_ANGLE = 45,
     NEAR = 1,
     FAR = 10000;
 
+viewport = document.getElementById( '3d' );
+
 scene = new THREE.Scene();
+
+camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+camera.position.y = 1000;
+scene.add(camera);
 
 renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.shadowMapEnabled = true;
@@ -18,16 +22,9 @@ renderer.shadowMapSoft = true;
 renderer.shadowMapType = THREE.PCFShadowMap;
 renderer.shadowMapAutoUpdate = true;
 
-camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-camera.position.y = 1000;
-
-scene.add(camera);
-
 controls = new THREE.OrbitControls(camera);
 
 renderer.setSize(WIDTH, HEIGHT);
-
-viewport = document.getElementById( '3d' );
 
 loader = new THREE.JSONLoader();
 
@@ -43,21 +40,6 @@ loader.load('sample.js', function (geometry, materials) {
 
   scene.add(mesh);
 });
-
-light = new THREE.DirectionalLight(0xffffff);
-light.shadowCameraTop = -1000;
-light.shadowCameraLeft = -1000;
-light.shadowCameraRight = 1000;
-light.shadowCameraBottom = 1000;
-light.shadowCameraNear = 20;
-light.shadowCameraFar = 10000;
-light.shadowBias = -.0001;
-light.shadowMapHeight = light.shadowMapWidth = 4096;
-light.shadowDarkness = .5;
-light.castShadow = true;
-light.position.set(0, 1000, -400);
-
-scene.add(light);
 
 animate();
 
