@@ -17,7 +17,7 @@ function init() {
   container = document.getElementById( '3d' );
 
   camera = new THREE.PerspectiveCamera( 45, WIDTH / HEIGHT, 1, 2000 );
-  camera.position.z = 500;
+  camera.position.z = 1000;
 
   // scene
 
