@@ -101,7 +101,7 @@ function init() {
 
 function onWindowResize() {
 
-  windowHalfX = WIDTH / 2;
+  windowHalfX = window.Wi / 2;
   windowHalfY = HEIGHT / 2;
 
   camera.aspect = WIDTH / HEIGHT;
@@ -113,8 +113,8 @@ function onWindowResize() {
 
 function onDocumentMouseMove( event ) {
 
-  mouseX = ( event.clientX - windowHalfX ) / 2;
-  mouseY = ( event.clientY - windowHalfY ) / 2;
+  mouseX = event.clientX;
+  mouseY = event.clientY;
 
 }
 
