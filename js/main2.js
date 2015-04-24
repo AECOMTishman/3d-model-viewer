@@ -30,10 +30,10 @@ function init() {
 
   var loader = new THREE.JSONLoader();
 
-  loader.load('sample.js', function (geometry) {
+  loader.load('sample.js', function (geometry, materials) {
 
     var mesh = new THREE.Mesh(
-      geometry
+      geometry, materials
     );
     
     scene.add(mesh);
