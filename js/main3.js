@@ -110,10 +110,14 @@ function onWindowResize() {
 
 }
 
-$( "#3d" ).mousemove(function( event ) {
+function onDocumentMouseMove( event ) {
+
+      $( "#3d" ).mousemove(function( event ) {
         mouseX = ( event.pageX - windowHalfX ) / 2;
         mouseY = ( event.pageY - windowHalfY ) / 2;
       });
+
+}
 
 //
 
