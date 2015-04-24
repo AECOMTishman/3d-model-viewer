@@ -2,10 +2,10 @@ var container;
 
 var camera, scene, renderer;
 
-var mouseX = 0, mouseY = 0;
-
 var WIDTH = 600;
 var HEIGHT = 700;
+
+var mouseX = WIDTH / 2, mouseY = HEIGHT / 2;
 
 var offset = $( "#3d ").offset();
 
@@ -109,8 +109,8 @@ function onWindowResize() {
 function onDocumentMouseMove( event ) {
 
   $( "#3d" ).mousemove(function( event ) {
-    mouseX = ( event.pageX - offset.left ) / 2;
-    mouseY = ( event.pageY - offset.top ) / 2;
+    mouseX = ( event.pageX - offset.left );
+    mouseY = ( event.pageY - offset.top );
   });
 
   console.log(mouseX + " ," + mouseY);
