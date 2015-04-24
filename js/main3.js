@@ -5,7 +5,7 @@ var camera, scene, renderer;
 var mouseX = 0, mouseY = 0;
 
 var WIDTH = 600;
-var HEIGHT = 800;
+var HEIGHT = 700;
 
 var windowHalfX = WIDTH / 2;
 var windowHalfY = HEIGHT / 2;
