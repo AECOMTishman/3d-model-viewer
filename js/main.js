@@ -126,8 +126,8 @@ function animate() {
 
 function render() {
 
-  camera.position.x = ( mouseX / WIDTH ) * 100 - 50;
-  camera.position.y = - ( ( mouseY / HEIGHT ) * 100 - 50 );
+  camera.position.x = ( mouseX / WIDTH ) * 500 - 250;
+  camera.position.y = - ( ( mouseY / HEIGHT ) * 500 - 250 );
 
   console.log("camera x: " + camera.position.x)
   console.log("camera y: " + camera.position.y)
