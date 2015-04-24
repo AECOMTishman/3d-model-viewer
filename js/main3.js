@@ -7,9 +7,10 @@ var mouseX = 0, mouseY = 0;
 var WIDTH = 600;
 var HEIGHT = 700;
 
+var offset = $( "#3d ").offset();
+
 init();
 animate();
-
 
 function init() {
 
@@ -101,13 +102,15 @@ function onWindowResize() {
 
   renderer.setSize( WIDTH, HEIGHT );
 
+  offset = $( "#3d ").offset();
+
 }
 
 function onDocumentMouseMove( event ) {
 
   $( "#3d" ).mousemove(function( event ) {
-    mouseX = ( event.pageX - self.offset.left ) / 2;
-    mouseY = ( event.pageY - self.offset.top ) / 2;
+    mouseX = ( event.pageX - offset.left ) / 2;
+    mouseY = ( event.pageY - offset.top ) / 2;
   });
 
 }
