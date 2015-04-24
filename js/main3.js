@@ -113,8 +113,8 @@ function onWindowResize() {
 
 function onDocumentMouseMove( event ) {
 
-  mouseX = event.clientX;
-  mouseY = event.clientY;
+  mouseX = ( event.clientX - windowHalfX ) / 2;
+  mouseY = ( event.clientY - windowHalfY ) / 2;
 
 }
 
@@ -129,8 +129,8 @@ function animate() {
 
 function render() {
 
-  camera.position.x = 5000;
-  camera.position.y = -5000;
+  camera.position.x += ( mouseX - camera.position.x ) * .05;
+  camera.position.y += ( - mouseY - camera.position.y ) * .05;
 
   camera.lookAt( scene.position );
 
