@@ -101,7 +101,7 @@ function init() {
 
 function onWindowResize() {
 
-  windowHalfX = window.Wi / 2;
+  windowHalfX = WIDTH / 2;
   windowHalfY = HEIGHT / 2;
 
   camera.aspect = WIDTH / HEIGHT;
