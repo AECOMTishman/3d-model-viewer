@@ -131,8 +131,13 @@ function render() {
 
   console.log("camera x: " + camera.position.x)
   console.log("camera y: " + camera.position.y)
+  console.log("camera z: " + camera.position.z)
 
   camera.lookAt( scene.position );
+
+  console.log("scene x: " + scene.position.x)
+  console.log("scene y: " + scene.position.y)
+  console.log("scene z: " + scene.position.z)
 
   renderer.render( scene, camera );
 
