@@ -113,6 +113,8 @@ function onDocumentMouseMove( event ) {
     mouseY = ( event.pageY - offset.top ) / 2;
   });
 
+  console.log(mouseX + " ," + mouseY);
+
 }
 
 //
