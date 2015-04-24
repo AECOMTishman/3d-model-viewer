@@ -128,7 +128,7 @@ function render() {
 
   camera.position.x = ( mouseX / WIDTH ) * 1000 - 500;
   camera.position.y = 2000 - ( ( mouseY / HEIGHT ) * 1000 - 500 );
-  camera.position.z = 2000 + ( ( mouseX / WIDTH ) * 1000 - 500 ).abs();
+  camera.position.z = 2000 + ( ( mouseX / WIDTH ) * 1000 - 500 );
 
   camera.lookAt( scene.position );
 
