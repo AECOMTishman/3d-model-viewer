@@ -4,8 +4,8 @@
  
   var scene, camera, renderer, loader, light, controls;
  
-  var WIDTH = 498/*window.innerWidth*/,
-      HEIGHT = 498/*window.innerHeight*/;
+  var WIDTH = 498, /*window.innerWidth*/
+      HEIGHT = 498; /*window.innerHeight*/
  
   var VIEW_ANGLE = 45,
       ASPECT = WIDTH / HEIGHT,
@@ -33,7 +33,7 @@
  
   loader = new THREE.JSONLoader();
  
-  loader.load('sample.js', function (geometry, materials) {
+  loader.load('pressure.json', function (geometry, materials) {
     var mesh, material;
  
     material = new THREE.MeshFaceMaterial(materials);
