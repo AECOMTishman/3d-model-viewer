@@ -24,6 +24,7 @@
         <p>.obj files, .json files</p>
         <p>view code on <a target="_blank" href="https://github.com/tishmanconstruction/test-website">github</a></p>
         <div id="3d"></div>
+        <div id="log"></div>
       </section>
       <footer>
         <p><a target="_blank" href="http://www.aecom.com/What+We+Do/Construction+Services"><img src="TishmanLogoBig.png"></a></p>
@@ -31,10 +32,17 @@
     </div>
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/three.min.js"></script>
-    <script src="js/Detector.js"></script>
     <script src="js/stats.min.js"></script>
     <script src="js/dat.gui.min.js"></script>
+    <script src="js/Detector.js"></script>
     <script src="js/OBJLoader.js"></script>
     <script src="js/main3.js"></script>
+    <script>
+      $( "#3d" ).mousemove(function( event ) {
+        var msg = "Handler for .mousemove() called at ";
+        msg += event.pageX + ", " + event.pageY;
+        $( "#log" ).append( "<div>" + msg + "</div>" );
+      });
+    </script>
     </body>
 </html>
