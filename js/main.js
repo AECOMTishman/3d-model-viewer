@@ -2,8 +2,8 @@ var container;
 
 var camera, scene, renderer;
 
-var WIDTH = 500;
-var HEIGHT = 500;
+var WIDTH = 498;
+var HEIGHT = 498;
 
 var mouseX = WIDTH / 2, mouseY = HEIGHT / 2;
 
