@@ -126,8 +126,11 @@ function animate() {
 
 function render() {
 
-  camera.position.x = ( mouseX / $( "3d" ).width() ) * 10 - 5;
-  camera.position.y = ( mouseY / $( "3d" ).height() ) * 10 - 5;
+  camera.position.x = ( mouseX / WIDTH ) * 100 - 50;
+  camera.position.y = ( mouseY / HEIGHT ) * 100 - 50;
+
+  console.log("camera x: " + camera.position.x)
+  console.log("camera y: " + camera.position.y)
 
   camera.lookAt( scene.position );
 
