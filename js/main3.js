@@ -130,7 +130,7 @@ function animate() {
 function render() {
 
   camera.position.x = 5000;
-  camera.position.y = 5000;
+  camera.position.y = -5000;
 
   camera.lookAt( scene.position );
 
