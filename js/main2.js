@@ -4,8 +4,8 @@
  
   var scene, camera, renderer, loader, light, controls;
  
-  var WIDTH = window.innerWidth,
-      HEIGHT = window.innerHeight;
+  var WIDTH = 498/*window.innerWidth*/,
+      HEIGHT = 498/*window.innerHeight*/;
  
   var VIEW_ANGLE = 45,
       ASPECT = WIDTH / HEIGHT,
