@@ -29,11 +29,11 @@
  
   renderer.setSize(WIDTH, HEIGHT);
  
-  viewport.appendChild(renderer.domElement);
+  viewport = document.getElementById( '3d' );
  
   loader = new THREE.JSONLoader();
  
-  loader.load('map.js', function (geometry, materials) {
+  loader.load('sample.js', function (geometry, materials) {
     var mesh, material;
  
     material = new THREE.MeshFaceMaterial(materials);
