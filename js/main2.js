@@ -19,8 +19,6 @@ function init() {
   camera = new THREE.PerspectiveCamera( 60, WIDTH / HEIGHT, 1, 5000 );
   camera.position.z = 2000;
 
-  // scene
-
   scene = new THREE.Scene();
 
   var ambient = new THREE.AmbientLight( 0x101030 );
@@ -30,23 +28,16 @@ function init() {
   directionalLight.position.set( 0, 0, 1 );
   scene.add( directionalLight );
 
-  // model
+  var loader = new THREE.JSONLoader();
 
-  var loader = new THREE.JSONLoader(); // init the loader util
+  loader.load('sample.js', function (geometry) {
 
-  // init loading
-  loader.load('sample.js', function (geometry, materials) {
-
-    // create a mesh with models geometry and materials
     var mesh = new THREE.Mesh(
-      geometry,
-      materials
+      geometry
     );
     
     scene.add(mesh);
   });
-
-  //
 
   renderer = new THREE.WebGLRenderer({ alpha: true });
   renderer.setPixelRatio( window.devicePixelRatio );
@@ -55,8 +46,6 @@ function init() {
   container.appendChild( renderer.domElement );
 
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-
-  //
 
   window.addEventListener( 'resize', onWindowResize, false );
 
@@ -81,8 +70,6 @@ function onDocumentMouseMove( event ) {
   });
 
 }
-
-//
 
 function animate() {
 
