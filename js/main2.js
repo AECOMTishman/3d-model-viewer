@@ -35,22 +35,13 @@ function init() {
   var loader = new THREE.JSONLoader(); // init the loader util
 
   // init loading
-  loader.load('sample.js', function (geometry) {
-    // create a new material
-    var material = new THREE.MeshLambertMaterial({
-      map: THREE.ImageUtils.loadTexture('sample.js'),  // specify and load the texture
-      colorAmbient: [0.480000026226044, 0.480000026226044, 0.480000026226044],
-      colorDiffuse: [0.480000026226044, 0.480000026226044, 0.480000026226044],
-      colorSpecular: [0.8999999761581421, 0.8999999761581421, 0.8999999761581421]
-    });
-    
-    // create a mesh with models geometry and material
+  loader.load('sample.js', function (geometry, material) {
+
+    // create a mesh with models geometry and materials
     var mesh = new THREE.Mesh(
       geometry,
-      material
+      materials
     );
-    
-    mesh.rotation.y = -Math.PI/5;
     
     scene.add(mesh);
   });
