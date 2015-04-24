@@ -96,7 +96,10 @@ function init() {
 
 function onWindowResize() {
 
+  camera.aspect = WIDTH / HEIGHT;
   camera.updateProjectionMatrix();
+
+  renderer.setSize( WIDTH, HEIGHT );
 
 }
 
