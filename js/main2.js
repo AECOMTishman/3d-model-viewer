@@ -5,8 +5,8 @@ container = document.querySelector('#3d');
 
 clock = new THREE.Clock();
 
-WIDTH = window.innerWidth,
-HEIGHT = window.innerHeight;
+WIDTH = 498,
+HEIGHT = 498;
 
 VIEW_ANGLE = 45,
 ASPECT = WIDTH / HEIGHT,
