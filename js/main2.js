@@ -4,6 +4,9 @@ var container, stats;
 
 var camera, controls, scene, renderer;
 
+var WIDTH = 498;
+var HEIGHT = 498;
+
 init();
 render();
 
@@ -16,7 +19,7 @@ function animate() {
 
 function init() {
 
-  camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
+  camera = new THREE.PerspectiveCamera( 60, WIDTH / HEIGHT, 1, 1000 );
   camera.position.z = 500;
 
   controls = new THREE.OrbitControls( camera );
@@ -63,7 +66,7 @@ function init() {
   renderer = new THREE.WebGLRenderer( { antialias: false } );
   renderer.setClearColor( scene.fog.color );
   renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.setSize( WIDTH, HEIGHT );
 
   container = document.getElementById( '3d' );
   container.appendChild( renderer.domElement );
@@ -84,10 +87,10 @@ function init() {
 
 function onWindowResize() {
 
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = WIDTH / HEIGHT;
   camera.updateProjectionMatrix();
 
-  renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.setSize( WIDTH, HEIGHT );
 
   render();
 
