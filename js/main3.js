@@ -100,8 +100,8 @@ function init() {
 
 function onWindowResize() {
 
-  windowHalfX = WIDTH / 2;
-  windowHalfY = HEIGHT / 2;
+  windowHalfX = window.innerWidth / 2;
+  windowHalfY = window.innerHeight / 2;
 
   camera.aspect = WIDTH / HEIGHT;
   camera.updateProjectionMatrix();
@@ -112,8 +112,8 @@ function onWindowResize() {
 
 function onDocumentMouseMove( event ) {
 
-  mouseX = ( event.clientX - windowHalfX ) / 2;
-  mouseY = ( event.clientY - windowHalfY ) / 2;
+  mouseX = ( event.pageX - windowHalfX ) / 2;
+  mouseY = ( event.pageY - windowHalfY ) / 2;
 
 }
 
