@@ -39,7 +39,7 @@ function init() {
 
     scene.add( object );
 
-  }, onProgress, onError );
+  });
 
   //
 
