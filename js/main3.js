@@ -113,8 +113,6 @@ function onDocumentMouseMove( event ) {
     mouseY = ( event.pageY - offset.top );
   });
 
-  console.log(mouseX + " ," + mouseY);
-
 }
 
 //
@@ -129,7 +127,7 @@ function animate() {
 function render() {
 
   camera.position.x = mouseX;
-  camera.position.y = mouseY;
+  camera.position.y = -mouseY;
 
   camera.lookAt( scene.position );
 
