@@ -1,7 +1,7 @@
 var container, scene, renderer, camera, light, clock, loader;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
-container = document.querySelector('#3d');
+container = document.getElementById( '3d' );
 
 clock = new THREE.Clock();
 
