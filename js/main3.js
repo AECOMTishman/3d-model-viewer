@@ -7,10 +7,6 @@ var mouseX = 0, mouseY = 0;
 var WIDTH = 600;
 var HEIGHT = 700;
 
-var windowHalfX = WIDTH / 2;
-var windowHalfY = HEIGHT / 2;
-
-
 init();
 animate();
 
@@ -100,22 +96,16 @@ function init() {
 
 function onWindowResize() {
 
-  windowHalfX = window.innerWidth / 2;
-  windowHalfY = window.innerHeight / 2;
-
-  camera.aspect = WIDTH / HEIGHT;
   camera.updateProjectionMatrix();
-
-  renderer.setSize( WIDTH, HEIGHT );
 
 }
 
 function onDocumentMouseMove( event ) {
 
-      $( "#3d" ).mousemove(function( event ) {
-        mouseX = ( event.pageX - windowHalfX ) / 2;
-        mouseY = ( event.pageY - windowHalfY ) / 2;
-      });
+  $( "#3d" ).mousemove(function( event ) {
+    mouseX = ( event.pageX - self.position.x ) / 2;
+    mouseY = ( event.pageY - self.position.y ) / 2;
+  });
 
 }
 
