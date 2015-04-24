@@ -78,7 +78,6 @@ function init() {
 
     } );
 
-    object.position.y = 0;
     scene.add( object );
 
   }, onProgress, onError );
@@ -113,7 +112,7 @@ function onWindowResize() {
 
 function onDocumentMouseMove( event ) {
 
-  mouseX = ( event.clientX - window. ) / 2;
+  mouseX = ( event.clientX - windowHalfX ) / 2;
   mouseY = ( event.clientY - windowHalfY ) / 2;
 
 }
