@@ -35,7 +35,7 @@ function init() {
   var loader = new THREE.JSONLoader(); // init the loader util
 
   // init loading
-  loader.load('sample.js', function (geometry, material) {
+  loader.load('sample.js', function (geometry, materials) {
 
     // create a mesh with models geometry and materials
     var mesh = new THREE.Mesh(
