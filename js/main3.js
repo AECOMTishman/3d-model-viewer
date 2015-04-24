@@ -78,6 +78,7 @@ function init() {
 
     } );
 
+    object.position.y = 0;
     scene.add( object );
 
   }, onProgress, onError );
