@@ -16,8 +16,8 @@ function init() {
 
   container = document.getElementById( '3d' );
 
-  camera = new THREE.PerspectiveCamera( 45, WIDTH / HEIGHT, 1, 4000 );
-  camera.position.z = 2500;
+  camera = new THREE.PerspectiveCamera( 60, WIDTH / HEIGHT, 1, 5000 );
+  camera.position.z = 2000;
 
   // scene
 
@@ -127,9 +127,7 @@ function animate() {
 function render() {
 
   camera.position.x = ( mouseX / WIDTH ) * 500 - 250;
-  camera.position.y = - ( ( mouseY / HEIGHT ) * 500 - 250 );
-
-  scene.position.y = -1000
+  camera.position.y = 2000 - ( ( mouseY / HEIGHT ) * 500 - 250 );
 
   camera.lookAt( scene.position );
 
