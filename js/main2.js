@@ -1,4 +1,4 @@
-var viewport = document.querySelector('.viewport');
+var viewport = document.getElementById( '3d' );
 
 var scene, camera, renderer, loader, light, controls;
 
@@ -31,7 +31,7 @@ viewport = document.getElementById( '3d' );
 
 loader = new THREE.JSONLoader();
 
-loader.load('pressure.json', function (geometry, materials) {
+loader.load('sample.js', function (geometry, materials) {
   var mesh, material;
 
   material = new THREE.MeshFaceMaterial(materials);
