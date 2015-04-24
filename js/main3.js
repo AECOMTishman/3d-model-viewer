@@ -106,8 +106,8 @@ function onWindowResize() {
 function onDocumentMouseMove( event ) {
 
   $( "#3d" ).mousemove(function( event ) {
-    mouseX = ( event.pageX - self.position.x ) / 2;
-    mouseY = ( event.pageY - self.position.y ) / 2;
+    mouseX = ( event.pageX - self.offset.left ) / 2;
+    mouseY = ( event.pageY - self.offset.top ) / 2;
   });
 
 }
