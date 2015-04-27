@@ -28,6 +28,11 @@ camera.position.set(0, 500, 3000);
 
 scene.add(camera);
 
+var light;
+light = new THREE.DirectionalLight();
+light.position.set(0, 500, 3000);
+scene.add(light);
+
 loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
