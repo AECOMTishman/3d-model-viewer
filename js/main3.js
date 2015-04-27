@@ -26,7 +26,7 @@ container.appendChild(renderer.domElement);
 
 camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-camera.position.set(0, 0, 3000);
+camera.position.set(0, 500, 4000);
 
 scene.add(camera);
 
@@ -36,8 +36,6 @@ loader.load('sample3.js', function (geometry, materials) {
   mesh = new THREE.Mesh(
     geometry
   );
-
-  mesh.rotation.x = -Math.PI / 2;
 
   scene.add(mesh);
   render(); 
