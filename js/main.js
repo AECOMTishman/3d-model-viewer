@@ -31,8 +31,10 @@ scene.add(camera);
 loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
+  material = new THREE.MeshDepthMaterial();
+
   mesh = new THREE.Mesh(
-    geometry, new THREE.MeshDepthMaterial()
+    geometry, material
   );
 
   mesh.rotation.x = -Math.PI / 2;
