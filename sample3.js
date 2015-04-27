@@ -13,15 +13,25 @@
 "materials": 1
 },
 
-"materials": [
-{
-"DbgIndex" : 0,
-"DbgName"  : "dummy",
-"colorDiffuse"  : [1.0000, 0.0000, 0.0000],
-"vertexColors" : false
-}
-
-],
+"materials": [{
+	"DbgColor" : 15658734,
+	"DbgIndex" : 0,
+	"DbgName" : "Material",
+	"blending" : "NormalBlending",
+	"colorAmbient" : [0.44769230556029527, 0.44769230556029527, 0.44769230556029527],
+	"colorDiffuse" : [0.44769230556029527, 0.44769230556029527, 0.44769230556029527],
+	"colorSpecular" : [0.0, 0.0, 0.0],
+	"depthTest" : true,
+	"depthWrite" : true,
+	"mapNormal" : "texture3.jpg",
+	"mapNormalFactor" : -0.058823585510253906,
+	"mapNormalWrap" : ["repeat", "repeat"],
+	"shading" : "Phong",
+	"specularCoef" : 50,
+	"transparency" : 1.0,
+	"transparent" : false,
+	"vertexColors" : false
+}],
 
 "vertices": [-522.709,0.0,-457.347,717.573,0.0,-457.347,-522.709,0.0,-1730.77,717.573,0.0,-1730.77,-522.709,1339.38,-457.347,717.573,1339.38,-457.347,-522.709,1339.38,-1730.77,717.573,1339.38,-1730.77],
 
