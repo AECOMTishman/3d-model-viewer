@@ -34,17 +34,7 @@ scene.add(camera);
 
 light = new THREE.DirectionalLight(0xffffff);
 
-light.position.set(0, 100, 60);
-light.castShadow = true;
-light.shadowCameraLeft = -60;
-light.shadowCameraTop = -60;
-light.shadowCameraRight = 60;
-light.shadowCameraBottom = 60;
-light.shadowCameraNear = 1;
-light.shadowCameraFar = 1000;
-light.shadowBias = -.0001
-light.shadowMapWidth = light.shadowMapHeight = 1024;
-light.shadowDarkness = .7;
+light.position.set(3000, 3000, 100);
 
 scene.add(light);
 
