@@ -1,104 +1,80 @@
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+var container, scene, renderer, camera, light, clock, loader;
+var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
-var container, stats;
+container = document.getElementById( '3d' );
 
-var camera, controls, scene, renderer;
+clock = new THREE.Clock();
 
-var WIDTH = 498;
-var HEIGHT = 498;
+WIDTH = 498,
+HEIGHT = 498;
 
-init();
-render();
+VIEW_ANGLE = 45,
+ASPECT = WIDTH / HEIGHT,
+NEAR = 1,
+FAR = 10000;
 
-function animate() {
+scene = new THREE.Scene();
 
-  requestAnimationFrame(animate);
-  controls.update();
+renderer = new THREE.WebGLRenderer({antialias: true});
 
-}
+renderer.setSize(WIDTH, HEIGHT);
+renderer.shadowMapEnabled = true;
+renderer.shadowMapSoft = true;
+renderer.shadowMapType = THREE.PCFShadowMap;
+renderer.shadowMapAutoUpdate = true;
 
-function init() {
+container.appendChild(renderer.domElement);
 
-  camera = new THREE.PerspectiveCamera( 60, WIDTH / HEIGHT, 1, 1000 );
-  camera.position.z = 500;
+camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-  controls = new THREE.OrbitControls( camera );
-  controls.damping = 0.2;
-  controls.addEventListener( 'change', render );
+camera.position.set(0, 100, 300);
+camera.rotation.x = -Math.PI / 12;
 
-  scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
+scene.add(camera);
 
-  // world
+light = new THREE.DirectionalLight(0xffffff);
 
-  var geometry = new THREE.CylinderGeometry( 0, 10, 30, 4, 1 );
-  var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading } );
+light.position.set(0, 100, 60);
+light.castShadow = true;
+light.shadowCameraLeft = -60;
+light.shadowCameraTop = -60;
+light.shadowCameraRight = 60;
+light.shadowCameraBottom = 60;
+light.shadowCameraNear = 1;
+light.shadowCameraFar = 1000;
+light.shadowBias = -.0001
+light.shadowMapWidth = light.shadowMapHeight = 1024;
+light.shadowDarkness = .7;
 
-  for ( var i = 0; i < 500; i ++ ) {
+scene.add(light);
 
-    var mesh = new THREE.Mesh( geometry, material );
-    mesh.position.x = ( Math.random() - 0.5 ) * 1000;
-    mesh.position.y = ( Math.random() - 0.5 ) * 1000;
-    mesh.position.z = ( Math.random() - 0.5 ) * 1000;
-    mesh.updateMatrix();
-    mesh.matrixAutoUpdate = false;
-    scene.add( mesh );
+loader = new THREE.JSONLoader();
+var mesh;
+loader.load('car.js', function (geometry, materials) {
+  var material = new THREE.MeshLambertMaterial({
+    map: THREE.ImageUtils.loadTexture('gtare.jpg'),   
+    colorAmbient: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+    colorDiffuse: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+    colorSpecular: [0.8999999761581421, 0.8999999761581421, 0.8999999761581421]
+  });
+  
+  mesh = new THREE.Mesh(
+    geometry,
+    material
+  );
 
-  }
+  mesh.receiveShadow = true;
+  mesh.castShadow = true;
+  mesh.rotation.y = -Math.PI/5;
 
-
-  // lights
-
-  light = new THREE.DirectionalLight( 0xffffff );
-  light.position.set( 1, 1, 1 );
-  scene.add( light );
-
-  light = new THREE.DirectionalLight( 0x002288 );
-  light.position.set( -1, -1, -1 );
-  scene.add( light );
-
-  light = new THREE.AmbientLight( 0x222222 );
-  scene.add( light );
-
-
-  // renderer
-
-  renderer = new THREE.WebGLRenderer( { antialias: false } );
-  renderer.setClearColor( scene.fog.color );
-  renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( WIDTH, HEIGHT );
-
-  container = document.getElementById( '3d' );
-  container.appendChild( renderer.domElement );
-
-  stats = new Stats();
-  stats.domElement.style.position = 'absolute';
-  stats.domElement.style.top = '0px';
-  stats.domElement.style.zIndex = 100;
-  container.appendChild( stats.domElement );
-
-  //
-
-  window.addEventListener( 'resize', onWindowResize, false );
-
-  animate();
-
-}
-
-function onWindowResize() {
-
-  camera.aspect = WIDTH / HEIGHT;
-  camera.updateProjectionMatrix();
-
-  renderer.setSize( WIDTH, HEIGHT );
-
-  render();
-
-}
+  scene.add(mesh);
+  render(); 
+});
 
 function render() {
+ var time = clock.getElapsedTime();
+ mesh.rotation.y += .01;
 
-  renderer.render( scene, camera );
-  stats.update();
-
+ renderer.render(scene, camera);
+ requestAnimationFrame(render);
 }
