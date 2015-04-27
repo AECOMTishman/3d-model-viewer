@@ -8,7 +8,7 @@ clock = new THREE.Clock();
 WIDTH = 498,
 HEIGHT = 498;
 
-VIEW_ANGLE = 45,
+VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 1,
 FAR = 10000;
@@ -28,7 +28,7 @@ container.appendChild(renderer.domElement);
 camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
 camera.lookAt(0, 0 ,0);
-camera.position.set(1000, 2000, 1000);
+camera.position.set(0, 0, 2000);
 
 scene.add(camera);
 
