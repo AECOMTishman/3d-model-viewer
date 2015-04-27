@@ -28,15 +28,8 @@ container.appendChild(renderer.domElement);
 camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
 camera.position.set(0, 100, 300);
-camera.rotation.x = -Math.PI / 12;
 
 scene.add(camera);
-
-light = new THREE.DirectionalLight(0xffffff);
-
-light.position.set(3000, 3000, 100);
-
-scene.add(light);
 
 loader = new THREE.JSONLoader();
 var mesh;
@@ -46,17 +39,12 @@ loader.load('sample.js', function (geometry, materials) {
     THREE.MeshFaceMaterial(materials)
   );
 
-  mesh.receiveShadow = true;
-  mesh.castShadow = true;
-  mesh.rotation.y = -Math.PI/5;
-
   scene.add(mesh);
   render(); 
 });
 
 function render() {
  var time = clock.getElapsedTime();
- mesh.rotation.y += .01;
 
  renderer.render(scene, camera);
  requestAnimationFrame(render);
