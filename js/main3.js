@@ -26,7 +26,7 @@ container.appendChild(renderer.domElement);
 
 camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-camera.position.set(0, 0, 30);
+camera.position.set(0, -10, 30);
 
 scene.add(camera);
 
