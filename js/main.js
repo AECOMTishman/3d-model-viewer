@@ -25,6 +25,13 @@ renderer.shadowMapAutoUpdate = true;
 
 container.appendChild(renderer.domElement);
 
+camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+
+camera.lookAt(0, 0 ,0);
+camera.position.set(1000, 2000, 1000);
+
+scene.add(camera);
+
 loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
@@ -36,13 +43,6 @@ loader.load('sample.js', function (geometry, materials) {
   scene.add(mesh);
   render(); 
 });
-
-camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-
-camera.lookAt(target.position);
-camera.position.set(1000, 2000, 1000);
-
-scene.add(camera);
 
 function render() {
  var time = clock.getElapsedTime();
