@@ -43,7 +43,7 @@ var mesh;
 loader.load('sample.js', function (geometry, materials) {  
   mesh = new THREE.Mesh(
     geometry,
-    materials
+    THREE.MeshFaceMaterial(materials)
   );
 
   mesh.receiveShadow = true;
