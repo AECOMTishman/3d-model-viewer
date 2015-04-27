@@ -32,9 +32,9 @@ scene.add(camera);
 
 loader = new THREE.JSONLoader();
 var mesh;
-loader.load('sample2.js', function (geometry, materials) {  
+loader.load('sample2.js', function (geometry) {  
   mesh = new THREE.Mesh(
-    geometry, materials
+    geometry
   );
 
   mesh.rotation.x = -Math.PI / 2;

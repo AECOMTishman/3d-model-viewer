@@ -26,13 +26,13 @@ container.appendChild(renderer.domElement);
 
 camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-camera.position.set(0, 500, 3000);
+camera.position.set(0, 10, 30);
 
 scene.add(camera);
 
 loader = new THREE.JSONLoader();
 var mesh;
-loader.load('sample2.js', function (geometry, materials) {  
+loader.load('sample3.js', function (geometry, materials) {  
   mesh = new THREE.Mesh(
     geometry, materials
   );
