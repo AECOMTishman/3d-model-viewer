@@ -18,9 +18,7 @@
 "DbgColor" : 15658734,
 "DbgIndex" : 0,
 "DbgName" : "Mat.1",
-"colorDiffuse" : [1.0, 1.0, 1.0],
-"colorSpecular" : [0.4, 0.52, 0.53],
-"illumination" : 4,
+"colorDiffuse" : [1.0, 1.0, 1.0]
 }
 
 ],
