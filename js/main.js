@@ -32,9 +32,26 @@ scene.add(camera);
 
 loader = new THREE.JSONLoader();
 var mesh;
-loader.load('sample2.js', function (geometry, materials) {  
-  console.log( materials );
-  material = new THREE.MeshFaceMaterial( materials );
+loader.load('sample2.js', function (geometry) {  
+
+  var materials = [];
+
+  for (var i=0; i<6; i++) {
+    var img = new Image();
+    img.src = i + '.png';
+    var tex = new THREE.Texture(img);
+    img.tex = tex;
+
+    img.onload = function() {
+        this.tex.needsUpdate = true;
+    };
+
+    var mat = new THREE.MeshBasicMaterial({color: 0xffffff, map: tex});
+    materials.push(mat);
+  }
+
+  var cubeGeo = new THREE.CubeGeometry(400, 400, 400, 1, 1, 1, materials);
+  var cube = new THREE.Mesh(cubeGeo, new THREE.MeshFaceMaterial());
 
   mesh = new THREE.Mesh(
     geometry, material
@@ -42,12 +59,13 @@ loader.load('sample2.js', function (geometry, materials) {
 
   mesh.rotation.x = -Math.PI / 2;
 
-  scene.add(mesh);
+  scene.add(cube);
   render(); 
 });
 
 function render() {
  mesh.rotation.z += .01;
+ cube.rotation.z += .01;
 
  renderer.render(scene, camera);
  requestAnimationFrame(render);
