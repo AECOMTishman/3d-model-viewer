@@ -27,7 +27,7 @@ function init() {
 	};
 	THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 	var loader = new THREE.OBJMTLLoader();
-	loader.load( 'anothertest.obj', 'anothertest.mtl', function ( object ) {
+	loader.load( 'anothertest2.obj', 'anothertest2.mtl', function ( object ) {
 		object.position.y = - 80;
 		scene.add( object );
 	}, onProgress, onError );
