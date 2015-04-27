@@ -37,6 +37,8 @@ loader.load('sample.js', function (geometry, materials) {
     THREE.MeshFaceMaterial(materials)
   );
 
+  mesh.rotation.z = Math.PI / 4;
+
   scene.add(mesh);
   render(); 
 });
