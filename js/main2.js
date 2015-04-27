@@ -10,72 +10,41 @@ clock = new THREE.Clock();
 WIDTH = 498,
 HEIGHT = 498;
 
-VIEW_ANGLE = 45,
+VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 1,
 FAR = 10000;
 
 scene = new THREE.Scene();
 
-renderer = new THREE.WebGLRenderer({antialias: true});
+renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
 renderer.setSize(WIDTH, HEIGHT);
-renderer.shadowMapEnabled = true;
-renderer.shadowMapSoft = true;
-renderer.shadowMapType = THREE.PCFShadowMap;
-renderer.shadowMapAutoUpdate = true;
+renderer.setClearColor( 0x000000, 0 );
 
 container.appendChild(renderer.domElement);
 
 camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-camera.position.set(0, 100, 300);
-camera.rotation.x = -Math.PI / 12;
+camera.position.set(0, 500, 3000);
 
 scene.add(camera);
 
-light = new THREE.DirectionalLight(0xffffff);
-
-light.position.set(0, 100, 60);
-light.castShadow = true;
-light.shadowCameraLeft = -60;
-light.shadowCameraTop = -60;
-light.shadowCameraRight = 60;
-light.shadowCameraBottom = 60;
-light.shadowCameraNear = 1;
-light.shadowCameraFar = 1000;
-light.shadowBias = -.0001
-light.shadowMapWidth = light.shadowMapHeight = 1024;
-light.shadowDarkness = .7;
-
-scene.add(light);
-
 loader = new THREE.JSONLoader();
 var mesh;
-loader.load('car.js', function (geometry, materials) {
-  var material = new THREE.MeshLambertMaterial({
-    map: THREE.ImageUtils.loadTexture('gtare.jpg'),   
-    colorAmbient: [0.480000026226044, 0.480000026226044, 0.480000026226044],
-    colorDiffuse: [0.480000026226044, 0.480000026226044, 0.480000026226044],
-    colorSpecular: [0.8999999761581421, 0.8999999761581421, 0.8999999761581421]
-  });
-  
+loader.load('sample2.js', function (geometry, materials) {  
   mesh = new THREE.Mesh(
-    geometry,
-    material
+    geometry, materials
   );
 
-  mesh.receiveShadow = true;
-  mesh.castShadow = true;
-  mesh.rotation.y = -Math.PI/5;
+  mesh.rotation.x = -Math.PI / 2;
 
   scene.add(mesh);
   render(); 
 });
 
 function render() {
- var time = clock.getElapsedTime();
- mesh.rotation.y += .01;
+ mesh.rotation.z += .01;
 
  renderer.render(scene, camera);
  requestAnimationFrame(render);
