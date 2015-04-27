@@ -15,13 +15,10 @@ FAR = 10000;
 
 scene = new THREE.Scene();
 
-renderer = new THREE.WebGLRenderer({antialias: true});
+renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
 renderer.setSize(WIDTH, HEIGHT);
-renderer.shadowMapEnabled = true;
-renderer.shadowMapSoft = true;
-renderer.shadowMapType = THREE.PCFShadowMap;
-renderer.shadowMapAutoUpdate = true;
+renderer.setClearColor( 0x000000, 0 );
 
 container.appendChild(renderer.domElement);
 
