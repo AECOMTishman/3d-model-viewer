@@ -28,17 +28,11 @@ camera.position.set(0, 500, 3000);
 
 scene.add(camera);
 
-var light;
-light = new THREE.DirectionalLight();
-light.position.set(1, 1, 1);
-scene.add(light);
-
 loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
   mesh = new THREE.Mesh(
-    geometry,
-    THREE.MeshFaceMaterial(materials)
+    geometry, MeshDepthMaterial( { color: 0xffff00 } );
   );
 
   mesh.rotation.x = -Math.PI / 2;
@@ -48,8 +42,6 @@ loader.load('sample.js', function (geometry, materials) {
 });
 
 function render() {
- var time = clock.getElapsedTime();
-
  mesh.rotation.z += .01;
 
  renderer.render(scene, camera);
