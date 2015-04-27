@@ -32,7 +32,7 @@ loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
   mesh = new THREE.Mesh(
-    geometry, THREE.MeshDepthMaterial()
+    geometry, THREE.MeshDepthMaterial( wireframe = false )
   );
 
   mesh.rotation.x = -Math.PI / 2;
