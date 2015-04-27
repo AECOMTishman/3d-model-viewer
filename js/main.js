@@ -1,137 +1,73 @@
-var container;
+var container, scene, renderer, camera, light, clock, loader;
+var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
-var camera, scene, renderer;
+container = document.getElementById( '3d' );
 
-var WIDTH = 498;
-var HEIGHT = 498;
+clock = new THREE.Clock();
 
-var mouseX = WIDTH / 2, mouseY = HEIGHT / 2;
+WIDTH = 498,
+HEIGHT = 498;
 
-var offset = $( "#3d ").offset();
+VIEW_ANGLE = 45,
+ASPECT = WIDTH / HEIGHT,
+NEAR = 1,
+FAR = 10000;
 
-init();
-animate();
+scene = new THREE.Scene();
 
-function init() {
+renderer = new THREE.WebGLRenderer({antialias: true});
 
-  container = document.getElementById( '3d' );
+renderer.setSize(WIDTH, HEIGHT);
+renderer.shadowMapEnabled = true;
+renderer.shadowMapSoft = true;
+renderer.shadowMapType = THREE.PCFShadowMap;
+renderer.shadowMapAutoUpdate = true;
 
-  camera = new THREE.PerspectiveCamera( 60, WIDTH / HEIGHT, 1, 5000 );
-  camera.position.z = 2000;
+container.appendChild(renderer.domElement);
 
-  // scene
+camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-  scene = new THREE.Scene();
+camera.position.set(0, 100, 300);
+camera.rotation.x = -Math.PI / 12;
 
-  var ambient = new THREE.AmbientLight( 0x101030 );
-  scene.add( ambient );
+scene.add(camera);
 
-  var directionalLight = new THREE.DirectionalLight( 0xffeedd );
-  directionalLight.position.set( 0, 0, 1 );
-  scene.add( directionalLight );
+light = new THREE.DirectionalLight(0xffffff);
 
-  // texture
+light.position.set(0, 100, 60);
+light.castShadow = true;
+light.shadowCameraLeft = -60;
+light.shadowCameraTop = -60;
+light.shadowCameraRight = 60;
+light.shadowCameraBottom = 60;
+light.shadowCameraNear = 1;
+light.shadowCameraFar = 1000;
+light.shadowBias = -.0001
+light.shadowMapWidth = light.shadowMapHeight = 1024;
+light.shadowDarkness = .7;
 
-  var manager = new THREE.LoadingManager();
-  manager.onProgress = function ( item, loaded, total ) {
+scene.add(light);
 
-    console.log( item, loaded, total );
+loader = new THREE.JSONLoader();
+var mesh;
+loader.load('sample.js', function (geometry, materials) {  
+  mesh = new THREE.Mesh(
+    geometry,
+    materials
+  );
 
-  };
+  mesh.receiveShadow = true;
+  mesh.castShadow = true;
+  mesh.rotation.y = -Math.PI/5;
 
-  var texture = new THREE.Texture();
-
-  var onProgress = function ( xhr ) {
-    if ( xhr.lengthComputable ) {
-      var percentComplete = xhr.loaded / xhr.total * 100;
-      console.log( Math.round(percentComplete, 2) + '% downloaded' );
-    }
-  };
-
-  var onError = function ( xhr ) {
-  };
-
-
-  var loader = new THREE.ImageLoader( manager );
-  loader.load( 'UV_Grid_Sm.jpg', function ( image ) {
-
-    texture.image = image;
-    texture.needsUpdate = true;
-
-  } );
-
-  // model
-
-  var loader = new THREE.OBJLoader( manager );
-  loader.load( 'sample.obj', function ( object ) {
-
-    object.traverse( function ( child ) {
-
-      if ( child instanceof THREE.Mesh ) {
-
-        child.material.map = texture;
-
-      }
-
-    } );
-
-    scene.add( object );
-
-  }, onProgress, onError );
-
-  //
-
-  renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( WIDTH, HEIGHT );
-  renderer.setClearColor( 0xffffff, 1);
-  container.appendChild( renderer.domElement );
-
-  document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-
-  //
-
-  window.addEventListener( 'resize', onWindowResize, false );
-
-}
-
-function onWindowResize() {
-
-  camera.aspect = WIDTH / HEIGHT;
-  camera.updateProjectionMatrix();
-
-  renderer.setSize( WIDTH, HEIGHT );
-
-  offset = $( "#3d ").offset();
-
-}
-
-function onDocumentMouseMove( event ) {
-
-  $( "#3d" ).mousemove(function( event ) {
-    mouseX = ( event.pageX - offset.left );
-    mouseY = ( event.pageY - offset.top );
-  });
-
-}
-
-//
-
-function animate() {
-
-  requestAnimationFrame( animate );
-  render();
-
-}
+  scene.add(mesh);
+  render(); 
+});
 
 function render() {
+ var time = clock.getElapsedTime();
+ mesh.rotation.y += .01;
 
-  camera.position.x = ( mouseX / WIDTH ) * 1000 - 500;
-  camera.position.y = 2000 - ( ( mouseY / HEIGHT ) * 1000 - 500 );
-  camera.position.z = 2000 + Math.abs( ( mouseX / WIDTH ) * 1000 - 500 );
-
-  camera.lookAt( scene.position );
-
-  renderer.render( scene, camera );
-
+ renderer.render(scene, camera);
+ requestAnimationFrame(render);
 }
