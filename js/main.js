@@ -32,7 +32,7 @@ loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
   mesh = new THREE.Mesh(
-    geometry, MeshDepthMaterial( { color: 0xffff00 } );
+    geometry, MeshDepthMaterial( { color: 0xffff00 } )
   );
 
   mesh.rotation.x = -Math.PI / 2;
