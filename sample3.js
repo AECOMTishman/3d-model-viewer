@@ -17,7 +17,7 @@
 {
 "DbgIndex" : 0,
 "DbgName"  : "dummy",
-"colorDiffuse"  : [1.0000, 0.0000, 0.0000],
+"colorDiffuse"  : [1.0000, 1.0000, 0.0000],
 "vertexColors" : false
 }
 
