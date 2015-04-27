@@ -38,7 +38,7 @@ loader.load('sample.js', function (geometry, materials) {
   );
 
   mesh.rotation.x = Math.PI / 2;
-  mesh.rotation.z = Math.PI / 2;
+  mesh.rotation.y = Math.PI / 2;
 
   scene.add(mesh);
   render(); 
@@ -47,7 +47,7 @@ loader.load('sample.js', function (geometry, materials) {
 function render() {
  var time = clock.getElapsedTime();
 
- mesh.rotation.y += .01;
+ mesh.rotation.z += .01;
 
  renderer.render(scene, camera);
  requestAnimationFrame(render);
