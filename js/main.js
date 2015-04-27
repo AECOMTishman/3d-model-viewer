@@ -32,7 +32,7 @@ scene.add(camera);
 
 loader = new THREE.JSONLoader();
 var mesh;
-loader.load('sample.js', function (geometry, materials) {  
+loader.load('sample2.js', function (geometry, materials) {  
   material1 = new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x009900, shininess: 30, shading: THREE.FlatShading } );
   console.log(materials);
   material2 = new THREE.MeshFaceMaterial( materials );
