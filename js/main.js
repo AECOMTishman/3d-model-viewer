@@ -31,7 +31,9 @@ scene.add(camera);
 loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
-  material = new THREE.MeshDepthMaterial();
+  // material = new THREE.MeshDepthMaterial();
+  material = materials;
+  console.log(material);
 
   mesh = new THREE.Mesh(
     geometry, material
