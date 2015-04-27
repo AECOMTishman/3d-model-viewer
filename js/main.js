@@ -30,7 +30,7 @@ scene.add(camera);
 
 var light;
 light = new THREE.DirectionalLight();
-light.position.set(0, 500, 3000);
+light.position.set(1, 1, 1);
 scene.add(light);
 
 loader = new THREE.JSONLoader();
