@@ -19,10 +19,6 @@ renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
 renderer.setSize(WIDTH, HEIGHT);
 renderer.setClearColor( 0x000000, 0 );
-renderer.shadowMapEnabled = true;
-renderer.shadowMapSoft = true;
-renderer.shadowMapType = THREE.PCFShadowMap;
-renderer.shadowMapAutoUpdate = true;
 
 container.appendChild(renderer.domElement);
 
@@ -31,22 +27,6 @@ camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 camera.position.set(0, 500, 3000);
 
 scene.add(camera);
-
-light = new THREE.DirectionalLight(0xffffff);
-
-light.position.set(0, 100, 60);
-light.castShadow = true;
-light.shadowCameraLeft = -60;
-light.shadowCameraTop = -60;
-light.shadowCameraRight = 60;
-light.shadowCameraBottom = 60;
-light.shadowCameraNear = 1;
-light.shadowCameraFar = 1000;
-light.shadowBias = -.0001
-light.shadowMapWidth = light.shadowMapHeight = 1024;
-light.shadowDarkness = .7;
-
-scene.add(light);
 
 loader = new THREE.JSONLoader();
 var mesh;
@@ -57,8 +37,6 @@ loader.load('sample.js', function (geometry, materials) {
   );
 
   mesh.rotation.x = -Math.PI / 2;
-  mesh.receiveShadow = true;
-  mesh.castShadow = true;
 
   scene.add(mesh);
   render(); 
