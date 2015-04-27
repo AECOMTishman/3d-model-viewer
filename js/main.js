@@ -25,7 +25,7 @@ container.appendChild(renderer.domElement);
 camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
 camera.lookAt(0, 0 ,0);
-camera.position.set(0, 0, 2000);
+camera.position.set(0, 0, 0);
 
 scene.add(camera);
 
@@ -43,6 +43,8 @@ loader.load('sample.js', function (geometry, materials) {
 
 function render() {
  var time = clock.getElapsedTime();
+
+ camera.rotation
 
  renderer.render(scene, camera);
  requestAnimationFrame(render);
