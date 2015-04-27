@@ -34,11 +34,11 @@ loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
   material1 = new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x009900, shininess: 30, shading: THREE.FlatShading } );
-  //material2 = materials;
-  //console.log(material2);
+  console.log(materials);
+  material2 = new THREE.MeshFaceMaterials( materials );
 
   mesh = new THREE.Mesh(
-    geometry, material1
+    geometry, material2
   );
 
   mesh.rotation.x = -Math.PI / 2;
