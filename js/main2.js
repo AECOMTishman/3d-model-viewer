@@ -58,24 +58,24 @@ $( 'button#cw' ).click( function() {
 	$( 'button#cw' ).addClass('active')
 	$( 'button#pause' ).removeClass('active')
 	$( 'button#ccw' ).removeClass('active')
-	button1_clicked = true;
-	button2_clicked = false;
+	cw_clicked = true;
+	ccw_clicked = false;
 });
 
 $( 'button#pause' ).click( function() {
 	$( 'button#cw' ).removeClass('active')
 	$( 'button#pause' ).addClass('active')
 	$( 'button#ccw' ).removeClass('active')
-	button1_clicked = false;
-	button2_clicked = false;
+	cw_clicked = false;
+	ccw_clicked = false;
 });
 
 $( 'button#ccw' ).click( function() {
 	$( 'button#cw' ).removeClass('active')
 	$( 'button#pause' ).removeClass('active')
 	$( 'button#ccw' ).addClass('active')
-	button1_clicked = false;
-	button2_clicked = true;
+	cw_clicked = false;
+	ccw_clicked = true;
 });
 
 $( 'button#view1' ).addClass('active')
