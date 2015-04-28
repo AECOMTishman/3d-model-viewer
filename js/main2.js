@@ -55,12 +55,12 @@ var button2_clicked = false;
 document.getElementById( 'button1' ).click(function){
 	button1_clicked = true;
 	button2_clicked = false;
-});
+};
 
 document.getElementById( 'button2' ).click(function){
 	button1_clicked = false;
 	button2_clicked = true;
-});
+};
 
 function render() {
 	if (button1_clicked){
