@@ -64,10 +64,10 @@ $( 'button#button2' ).click( function() {
 
 function render() {
 	if (button1_clicked){
-		mesh.rotation.z += .01;
+		mesh.rotation.z += -.01;
 	}
 	if (button2_clicked){
-		mesh.rotation.z += -.01;
+		mesh.rotation.z += .01;
 	}
 
 	renderer.render(scene, camera);
