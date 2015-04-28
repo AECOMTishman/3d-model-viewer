@@ -1,64 +1,51 @@
-var container, stats;
-var camera, scene, renderer;
-var mouseX = 0, mouseY = 0;
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
-init();
-animate();
-function init() {
-	container = document.createElement( 'div' );
-	camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
-	camera.position.z = 100;
-	// scene
-	scene = new THREE.Scene();
-	var ambient = new THREE.AmbientLight( 0x444444 );
-	scene.add( ambient );
-	var directionalLight = new THREE.DirectionalLight( 0xffeedd );
-	directionalLight.position.set( 0, 0, 1 ).normalize();
-	scene.add( directionalLight );
-	// model
-	var onProgress = function ( xhr ) {
-		if ( xhr.lengthComputable ) {
-			var percentComplete = xhr.loaded / xhr.total * 100;
-			console.log( Math.round(percentComplete, 2) + '% downloaded' );
-		}
-	};
-	var onError = function ( xhr ) {
-	};
-	THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-	var loader = new THREE.OBJMTLLoader();
-	loader.load( 'anothertest2.obj', 'anothertest2.mtl', function ( object ) {
-		object.position.y = - 80;
-		scene.add( object );
-	}, onProgress, onError );
-	//
-	renderer = new THREE.WebGLRenderer();
-	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	container.appendChild( renderer.domElement );
-	document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-	//
-	window.addEventListener( 'resize', onWindowResize, false );
-}
-function onWindowResize() {
-	windowHalfX = window.innerWidth / 2;
-	windowHalfY = window.innerHeight / 2;
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-	renderer.setSize( window.innerWidth, window.innerHeight );
-}
-function onDocumentMouseMove( event ) {
-	mouseX = ( event.clientX - windowHalfX ) / 2;
-	mouseY = ( event.clientY - windowHalfY ) / 2;
-}
-//
-function animate() {
-	requestAnimationFrame( animate );
-	render();
-}
+if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+var container, scene, renderer, camera, light, clock, loader;
+var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
+
+container = document.getElementById( '3d' );
+
+clock = new THREE.Clock();
+
+WIDTH = 498,
+HEIGHT = 498;
+
+VIEW_ANGLE = 60,
+ASPECT = WIDTH / HEIGHT,
+NEAR = 1,
+FAR = 10000;
+
+scene = new THREE.Scene();
+
+renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+renderer.setSize(WIDTH, HEIGHT);
+renderer.setClearColor( 0x000000, 0 );
+
+container.appendChild(renderer.domElement);
+
+camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+
+camera.position.set(0, 500, 3000);
+
+scene.add(camera);
+
+loader = new THREE.JSONLoader();
+var mesh;
+loader.load('sample2.js', function (geometry, materials) {  
+  mesh = new THREE.Mesh(
+    geometry
+  );
+
+  mesh.rotation.x = -Math.PI / 2;
+
+  scene.add(mesh);
+  render(); 
+});
+
 function render() {
-	camera.position.x += ( mouseX - camera.position.x ) * .05;
-	camera.position.y += ( - mouseY - camera.position.y ) * .05;
-	camera.lookAt( scene.position );
-	renderer.render( scene, camera );
+ mesh.rotation.z += .01;
+
+ renderer.render(scene, camera);
+ requestAnimationFrame(render);
 }
