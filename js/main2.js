@@ -56,7 +56,7 @@ $( 'button#button1' ).addClass('active')
 
 $( 'button#button1' ).click( function() {
 	$( 'button#button1' ).addClass('active')
-	$( 'button#button2' ).RemoveClass('active')
+	$( 'button#button2' ).removeClass('active')
 	button1_clicked = true;
 	button2_clicked = false;
 });
