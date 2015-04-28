@@ -33,19 +33,19 @@ scene.add(camera);
 loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
-  mesh = new THREE.Mesh(
-    geometry, new THREE.MeshFaceMaterial(materials)
-  );
+	mesh = new THREE.Mesh(
+		geometry, new THREE.MeshFaceMaterial(materials)
+	);
 
-  mesh.rotation.x = -Math.PI / 2;
+	mesh.rotation.x = -Math.PI / 2;
 
-  scene.add(mesh);
-  render(); 
+	scene.add(mesh);
+	render(); 
 });
 
 function render() {
- mesh.rotation.z += .01;
+	mesh.rotation.z += .01;
 
- renderer.render(scene, camera);
- requestAnimationFrame(render);
+	renderer.render(scene, camera);
+	requestAnimationFrame(render);
 }
