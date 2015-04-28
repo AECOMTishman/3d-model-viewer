@@ -62,6 +62,18 @@ $( 'button#button2' ).click( function() {
 	button2_clicked = true;
 });
 
+$( 'button#view1' ).click( function() {
+	camera.position.set(0, 500, 3000);
+});
+
+$( 'button#view2' ).click( function() {
+	camera.position.set(0, 500, 0);
+});
+
+$( 'button#view3' ).click( function() {
+	camera.position.set(500, 1500, 2000);
+});
+
 function render() {
 	if (button1_clicked){
 		mesh.rotation.z += -.01;
