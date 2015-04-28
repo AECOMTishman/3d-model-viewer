@@ -52,15 +52,15 @@ loader.load('sample.js', function (geometry, materials) {
 var button1_clicked = true;
 var button2_clicked = false;
 
-document.getElementById( 'button1' ).click(function){
+document.getElementById( 'button1' ).click(function {
 	button1_clicked = true;
 	button2_clicked = false;
-};
+});
 
-document.getElementById( 'button2' ).click(function){
+document.getElementById( 'button2' ).click(function {
 	button1_clicked = false;
 	button2_clicked = true;
-};
+});
 
 function render() {
 	if (button1_clicked){
