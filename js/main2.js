@@ -30,6 +30,9 @@ camera.position.set(0, 500, 3000);
 
 scene.add(camera);
 
+var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( light );
+
 loader = new THREE.JSONLoader();
 var mesh;
 loader.load('sample.js', function (geometry, materials) {  
