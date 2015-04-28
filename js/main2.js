@@ -52,28 +52,44 @@ loader.load('sample.js', function (geometry, materials) {
 
 var button1_clicked = true;
 var button2_clicked = false;
+$( 'button#button1' ).addClass('active')
 
 $( 'button#button1' ).click( function() {
+	$( 'button#button1' ).addClass('active')
+	$( 'button#button2' ).RemoveClass('active')
 	button1_clicked = true;
 	button2_clicked = false;
 });
 
 $( 'button#button2' ).click( function() {
+	$( 'button#button1' ).removeClass('active')
+	$( 'button#button2' ).addClass('active')
 	button1_clicked = false;
 	button2_clicked = true;
 });
 
+$( 'button#view1' ).addClass('active')
+
 $( 'button#view1' ).click( function() {
+	$( 'button#view1' ).addClass('active')
+	$( 'button#view2' ).removeClass('active')
+	$( 'button#view3' ).removeClass('active')
 	camera.position.set(0, 500, 3000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 });
 
 $( 'button#view2' ).click( function() {
+	$( 'button#view1' ).removeClass('active')
+	$( 'button#view2' ).addClass('active')
+	$( 'button#view3' ).removeClass('active')
 	camera.position.set(0, 500, 100);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 });
 
 $( 'button#view3' ).click( function() {
+	$( 'button#view1' ).removeClass('active')
+	$( 'button#view2' ).removeClass('active')
+	$( 'button#view3' ).addClass('active')
 	camera.position.set(0, 2000, 2000);
 	camera.lookAt(new THREE.Vector3(0, 250, 0));
 });
