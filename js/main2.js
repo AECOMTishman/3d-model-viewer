@@ -50,20 +50,30 @@ loader.load('sample.js', function (geometry, materials) {
 	render(); 
 });
 
-var button1_clicked = true;
-var button2_clicked = false;
-$( 'button#button1' ).addClass('active')
+var cw_clicked = true;
+var ccw_clicked = false;
+$( 'button#cw' ).addClass('active')
 
-$( 'button#button1' ).click( function() {
-	$( 'button#button1' ).addClass('active')
-	$( 'button#button2' ).removeClass('active')
+$( 'button#cw' ).click( function() {
+	$( 'button#cw' ).addClass('active')
+	$( 'button#pause' ).removeClass('active')
+	$( 'button#ccw' ).removeClass('active')
 	button1_clicked = true;
 	button2_clicked = false;
 });
 
-$( 'button#button2' ).click( function() {
-	$( 'button#button1' ).removeClass('active')
-	$( 'button#button2' ).addClass('active')
+$( 'button#pause' ).click( function() {
+	$( 'button#cw' ).removeClass('active')
+	$( 'button#pause' ).addClass('active')
+	$( 'button#ccw' ).removeClass('active')
+	button1_clicked = false;
+	button2_clicked = false;
+});
+
+$( 'button#ccw' ).click( function() {
+	$( 'button#cw' ).removeClass('active')
+	$( 'button#pause' ).removeClass('active')
+	$( 'button#ccw' ).addClass('active')
 	button1_clicked = false;
 	button2_clicked = true;
 });
@@ -95,10 +105,10 @@ $( 'button#view3' ).click( function() {
 });
 
 function render() {
-	if (button1_clicked){
+	if (cw_clicked){
 		mesh.rotation.z += -.01;
 	}
-	if (button2_clicked){
+	if (ccw_clicked){
 		mesh.rotation.z += .01;
 	}
 
