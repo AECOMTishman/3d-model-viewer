@@ -45,9 +45,7 @@ loader.load('sample2.js', function (geometry, materials) {
     material
   );
 
-  mesh.receiveShadow = true;
-  mesh.castShadow = true;
-  mesh.rotation.y = -Math.PI/5;
+  mesh.rotation.x = -Math.PI / 2;
 
   scene.add(mesh);
   render(); 
