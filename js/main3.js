@@ -32,7 +32,7 @@ scene.add(camera);
 
 loader = new THREE.JSONLoader();
 var mesh;
-loader.load('sample2.js', function (geometry, materials) {  
+loader.load('sample.js', function (geometry, materials) {  
   mesh = new THREE.Mesh(
     geometry, new THREE.MeshFaceMaterial(materials)
   );
