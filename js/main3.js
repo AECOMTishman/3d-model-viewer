@@ -32,12 +32,22 @@ scene.add(camera);
 
 loader = new THREE.JSONLoader();
 var mesh;
-loader.load('sample2.js', function (geometry, materials) {  
+loader.load('sample2.js', function (geometry, materials) {
+  var material = new THREE.MeshLambertMaterial({
+    map: THREE.ImageUtils.loadTexture('GlassCompleteMap.tga'),   
+    colorAmbient: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+    colorDiffuse: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+    colorSpecular: [0.8999999761581421, 0.8999999761581421, 0.8999999761581421]
+  });
+  
   mesh = new THREE.Mesh(
-    geometry
+    geometry,
+    material
   );
 
-  mesh.rotation.x = -Math.PI / 2;
+  mesh.receiveShadow = true;
+  mesh.castShadow = true;
+  mesh.rotation.y = -Math.PI/5;
 
   scene.add(mesh);
   render(); 
