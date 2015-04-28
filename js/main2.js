@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, light, clock, loader;
+var container, scene, renderer, camera, controls, light, clock, loader;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 container = document.getElementById( '3d' );
@@ -30,6 +30,12 @@ camera.position.set(0, 500, 3000);
 camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 scene.add(camera);
+
+controls = new THREE.OrbitControls( camera );
+controls.damping = 0.2;
+controls.addEventListener( 'change', render );
+requestAnimationFrame(animate);
+controls.update();
 
 hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
 hemiLight.color.setHSL( 0.6, 1, 0.6 );
