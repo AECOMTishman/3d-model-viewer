@@ -31,11 +31,14 @@ camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 scene.add(camera);
 
+function animate() {
+	requestAnimationFrame(animate);
+	controls.update();
+}
+
 controls = new THREE.OrbitControls( camera );
 controls.damping = 0.2;
 controls.addEventListener( 'change', render );
-requestAnimationFrame(animate);
-controls.update();
 
 hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
 hemiLight.color.setHSL( 0.6, 1, 0.6 );
