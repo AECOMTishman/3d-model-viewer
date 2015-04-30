@@ -31,11 +31,11 @@ camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 scene.add(camera);
 
-hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
-hemiLight.color.setHSL( 0.6, 1, 0.6 );
-hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
-hemiLight.position.set( 0, 500, 0 );
-scene.add( hemiLight );
+light = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
+light.color.setHSL( 0.6, 1, 0.6 );
+light.groundColor.setHSL( 0.095, 1, 0.75 );
+light.position.set( 0, 500, 0 );
+scene.add( light );
 
 loader = new THREE.JSONLoader();
 var mesh;
@@ -102,6 +102,29 @@ $( 'button#view3' ).click( function() {
 	$( 'button#view3' ).addClass('active')
 	camera.position.set(0, 2000, 2000);
 	camera.lookAt(new THREE.Vector3(0, 250, 0));
+});
+
+$( 'button#light1' ).addClass('active')
+
+$( 'button#light1' ).click( function() {
+	$( 'button#light1' ).addClass('active')
+	$( 'button#light2' ).removeClass('active')
+	$( 'button#light3' ).removeClass('active')
+	light.position.set(0, 500, 3000);
+});
+
+$( 'button#light2' ).click( function() {
+	$( 'button#light1' ).removeClass('active')
+	$( 'button#light2' ).addClass('active')
+	$( 'button#light3' ).removeClass('active')
+	light.position.set(0, 500, 100);
+});
+
+$( 'button#light3' ).click( function() {
+	$( 'button#light1' ).removeClass('active')
+	$( 'button#light2' ).removeClass('active')
+	$( 'button#light3' ).addClass('active')
+	light.position.set(0, 2000, 2000);
 });
 
 function render() {
