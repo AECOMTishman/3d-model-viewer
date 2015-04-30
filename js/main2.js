@@ -110,21 +110,21 @@ $( 'button#light1' ).click( function() {
 	$( 'button#light1' ).addClass('active')
 	$( 'button#light2' ).removeClass('active')
 	$( 'button#light3' ).removeClass('active')
-	light.position.set(0, 500, 3000);
+	light.position.set(0, 500, 0);
 });
 
 $( 'button#light2' ).click( function() {
 	$( 'button#light1' ).removeClass('active')
 	$( 'button#light2' ).addClass('active')
 	$( 'button#light3' ).removeClass('active')
-	light.position.set(0, 500, 100);
+	light.position.set(0, 1000, 0);
 });
 
 $( 'button#light3' ).click( function() {
 	$( 'button#light1' ).removeClass('active')
 	$( 'button#light2' ).removeClass('active')
 	$( 'button#light3' ).addClass('active')
-	light.position.set(0, 2000, 2000);
+	light.position.set(0, 2000, 0);
 });
 
 function render() {
