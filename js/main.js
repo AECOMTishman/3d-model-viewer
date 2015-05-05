@@ -33,13 +33,13 @@ function init() {
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
-	controls.target = new THREE.Vector3(0, 1000, 0);
+	controls.target = new THREE.Vector3(0, 500, 0);
 	controls.minDistance = 200;
 	controls.maxDistance = 8000;
 	controls.maxPolarAngle = Math.PI/2;
 
 	camera.position.set(0, 2000, 2000);
-	camera.lookAt(new THREE.Vector3(0, 1000, 0));
+	camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 	scene.add(camera);
 
@@ -97,19 +97,16 @@ function onWindowResize() {
 
 $( 'button#view1' ).click( function() {
 	camera.position.set(0, 2000, 2000);
-	camera.lookAt(new THREE.Vector3(0, 1000, 0));
 	render();
 });
 
 $( 'button#view2' ).click( function() {
 	camera.position.set(0, 3000, 3000);
-	camera.lookAt(new THREE.Vector3(0, 1000, 0));
 	render();
 });
 
 $( 'button#view3' ).click( function() {
 	camera.position.set(0, 4000, 4000);
-	camera.lookAt(new THREE.Vector3(0, 1000, 0));
 	render();
 });
 
