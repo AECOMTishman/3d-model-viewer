@@ -32,8 +32,8 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-	camera.position.set(0, 700, 2500);
-	camera.lookAt(new THREE.Vector3(0, 700, 0));
+	camera.position.set(0, 400, 2500);
+	camera.lookAt(new THREE.Vector3(0, 400, 0));
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
@@ -92,32 +92,21 @@ function onWindowResize() {
 	render();
 }
 
-$( 'button#view1' ).addClass('active')
-
 $( 'button#view1' ).click( function() {
-	$( 'button#view1' ).addClass('active')
-	$( 'button#view2' ).removeClass('active')
-	$( 'button#view3' ).removeClass('active')
-	camera.position.set(0, 700, 2500);
-	camera.lookAt(new THREE.Vector3(0, 700, 0));
+	camera.position.set(0, 400, 2500);
+	camera.lookAt(new THREE.Vector3(0, 400, 0));
 	render();
 });
 
 $( 'button#view2' ).click( function() {
-	$( 'button#view1' ).removeClass('active')
-	$( 'button#view2' ).addClass('active')
-	$( 'button#view3' ).removeClass('active')
 	camera.position.set(0, 700, 100);
-	camera.lookAt(new THREE.Vector3(0, 700, 0));
+	camera.lookAt(new THREE.Vector3(0, 400, 0));
 	render();
 });
 
 $( 'button#view3' ).click( function() {
-	$( 'button#view1' ).removeClass('active')
-	$( 'button#view2' ).removeClass('active')
-	$( 'button#view3' ).addClass('active')
 	camera.position.set(0, 2000, 2500);
-	camera.lookAt(new THREE.Vector3(0, 700, 0));
+	camera.lookAt(new THREE.Vector3(0, 400, 0));
 	render();
 });
 
