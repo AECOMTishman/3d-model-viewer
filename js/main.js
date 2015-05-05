@@ -15,7 +15,6 @@ init();
 render();
 
 function animate() {
-	requestAnimationFrame(animate);
 	controls.update();
 }
 
