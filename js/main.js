@@ -1,18 +1,22 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, controls, group, mesh, light1, light2, light3, loader;
-var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
+var container, scene, renderer, camera, controls, mesh, light1, light2, light3, loader;
 
 var cw_clicked = false;
 var ccw_clicked = false;
-$( 'button#pause' ).addClass('active')
+$( 'button#pause' ).addClass('active');
+$( 'button#light1a' ).addClass('active');
+$( 'button#view1' ).addClass('active');
+$( 'button#light2' ).addClass('active')
+
+var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
 HEIGHT = window.innerHeight;
 
-VIEW_ANGLE = 60,
-ASPECT = WIDTH / HEIGHT,
-NEAR = 1,
+VIEW_ANGLE = 60;
+ASPECT = WIDTH / HEIGHT;
+NEAR = 1;
 FAR = 10000;
 
 init();
@@ -25,7 +29,7 @@ function animate() {
 
 function init() {
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-	camera.position.set(0, 500, 2500);
+	camera.position.set(0, 700, 2500);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 	controls = new THREE.OrbitControls( camera );
@@ -43,8 +47,6 @@ function init() {
 	scene.add( light2 );
 
 	light3 = new THREE.AmbientLight( 0xffffff );
-
-	group = new THREE.Object3D();
 
 	loader = new THREE.JSONLoader();
 	loader.load('sample.js', function (geometry, materials) {  
@@ -82,12 +84,6 @@ function render() {
 	requestAnimationFrame(animate);
 }
 
-function modelLoadedCallback(geometry) {
-    mesh = new THREE.Mesh( geometry, material );
-    group.add(mesh);
-    scene.add( group );
-}
-
 function onWindowResize() {
 	var win = $(this);
 	HEIGHT = win.height();
@@ -104,6 +100,7 @@ $( 'button#cw' ).click( function() {
 	$( 'button#ccw' ).removeClass('active')
 	cw_clicked = true;
 	ccw_clicked = false;
+	render();
 });
 
 $( 'button#pause' ).click( function() {
@@ -112,6 +109,7 @@ $( 'button#pause' ).click( function() {
 	$( 'button#ccw' ).removeClass('active')
 	cw_clicked = false;
 	ccw_clicked = false;
+	render();
 });
 
 $( 'button#ccw' ).click( function() {
@@ -120,16 +118,15 @@ $( 'button#ccw' ).click( function() {
 	$( 'button#ccw' ).addClass('active')
 	cw_clicked = false;
 	ccw_clicked = true;
+	render();
 });
-
-$( 'button#view1' ).addClass('active')
 
 $( 'button#view1' ).click( function() {
 	$( 'button#view1' ).addClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).removeClass('active')
-	camera.position.set(0, 500, 2500);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
+	camera.position.set(0, 700, 2500);
+	render();
 });
 
 $( 'button#view2' ).click( function() {
@@ -137,7 +134,7 @@ $( 'button#view2' ).click( function() {
 	$( 'button#view2' ).addClass('active')
 	$( 'button#view3' ).removeClass('active')
 	camera.position.set(0, 500, 100);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
+	render();
 });
 
 $( 'button#view3' ).click( function() {
@@ -145,10 +142,8 @@ $( 'button#view3' ).click( function() {
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).addClass('active')
 	camera.position.set(0, 2000, 2000);
-	camera.lookAt(new THREE.Vector3(0, 250, 0));
+	render();
 });
-
-$( 'button#light1a' ).addClass('active')
 
 $( 'button#light1a' ).click( function() {
 	$( 'button#light1a' ).addClass('active')
@@ -157,6 +152,7 @@ $( 'button#light1a' ).click( function() {
 	light1.position.set(0, 500, 0);
 	light1.color.setHSL( 0.6, 1, 0.6 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
+	render();
 });
 
 $( 'button#light1b' ).click( function() {
@@ -166,6 +162,7 @@ $( 'button#light1b' ).click( function() {
 	light1.position.set(0, 1000, 0);
 	light1.color.setHSL( 0.8, 1, 0.8 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
+	render();
 });
 
 $( 'button#light1c' ).click( function() {
@@ -175,9 +172,8 @@ $( 'button#light1c' ).click( function() {
 	light1.position.set(0, 2000, 0);
 	light1.color.setHSL( 1, 1, 1 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
+	render();
 });
-
-$( 'button#light2' ).addClass('active')
 
 $( 'button#light2' ).click( function() {
 	if( $( 'button#light2' ).hasClass('active') ){
@@ -187,6 +183,7 @@ $( 'button#light2' ).click( function() {
 		$( 'button#light2' ).addClass('active')
 		scene.add( light2 );
 	}
+	render();
 });
 
 $( 'button#light3' ).click( function() {
@@ -197,4 +194,5 @@ $( 'button#light3' ).click( function() {
 		$( 'button#light3' ).addClass('active')
 		scene.add( light3 );
 	}
+	render();
 });
