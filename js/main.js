@@ -100,6 +100,7 @@ $( 'button#view1' ).click( function() {
 	$( 'button#view3' ).removeClass('active')
 	camera.position.set(0, 700, 2500);
 	camera.lookAt(new THREE.Vector3(0, 700, 0));
+	render();
 });
 
 $( 'button#view2' ).click( function() {
@@ -108,6 +109,7 @@ $( 'button#view2' ).click( function() {
 	$( 'button#view3' ).removeClass('active')
 	camera.position.set(0, 700, 100);
 	camera.lookAt(new THREE.Vector3(0, 700, 0));
+	render();
 });
 
 $( 'button#view3' ).click( function() {
@@ -116,6 +118,7 @@ $( 'button#view3' ).click( function() {
 	$( 'button#view3' ).addClass('active')
 	camera.position.set(0, 2000, 2500);
 	camera.lookAt(new THREE.Vector3(0, 700, 0));
+	render();
 });
 
 $( 'button#light1a' ).addClass('active')
@@ -127,6 +130,7 @@ $( 'button#light1a' ).click( function() {
 	light1.position.set(0, 500, 0);
 	light1.color.setHSL( 0.6, 1, 0.6 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
+	render();
 });
 
 $( 'button#light1b' ).click( function() {
@@ -136,6 +140,7 @@ $( 'button#light1b' ).click( function() {
 	light1.position.set(0, 1000, 0);
 	light1.color.setHSL( 0.8, 1, 0.8 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
+	render();
 });
 
 $( 'button#light1c' ).click( function() {
@@ -145,6 +150,7 @@ $( 'button#light1c' ).click( function() {
 	light1.position.set(0, 2000, 0);
 	light1.color.setHSL( 1, 1, 1 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
+	render();
 });
 
 $( 'button#light2' ).addClass('active')
@@ -157,6 +163,7 @@ $( 'button#light2' ).click( function() {
 		$( 'button#light2' ).addClass('active')
 		scene.add( light2 );
 	}
+	render();
 });
 
 $( 'button#light3' ).click( function() {
@@ -167,4 +174,5 @@ $( 'button#light3' ).click( function() {
 		$( 'button#light3' ).addClass('active')
 		scene.add( light3 );
 	}
+	render();
 });
