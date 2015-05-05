@@ -89,7 +89,14 @@ function onWindowResize() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+function render() {
+    renderer.render(scene, camera);
+}
+
+>>>>>>> parent of bb6e986... removed render overwrite
 var cw_clicked = false;
 var ccw_clicked = false;
 $( 'button#pause' ).addClass('active')
@@ -125,28 +132,43 @@ $( 'button#view1' ).click( function() {
 	$( 'button#view1' ).addClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).removeClass('active')
+<<<<<<< HEAD
 	camera.position.set(0, 700, 2500);
 	render();
+=======
+	/*camera.position.set(0, 500, 2500);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
+>>>>>>> parent of bb6e986... removed render overwrite
 });
 
 $( 'button#view2' ).click( function() {
 	$( 'button#view1' ).removeClass('active')
 	$( 'button#view2' ).addClass('active')
 	$( 'button#view3' ).removeClass('active')
+<<<<<<< HEAD
 	camera.position.set(0, 500, 100);
 	render();
+=======
+	/*camera.position.set(0, 500, 100);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
+>>>>>>> parent of bb6e986... removed render overwrite
 });
 
 $( 'button#view3' ).click( function() {
 	$( 'button#view1' ).removeClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).addClass('active')
+<<<<<<< HEAD
 	camera.position.set(0, 2000, 2000);
 <<<<<<< HEAD
 	render();
 =======
 	camera.lookAt(new THREE.Vector3(0, 250, 0));*/
 >>>>>>> parent of 7830578... debug
+=======
+	/*camera.position.set(0, 2000, 2000);
+	camera.lookAt(new THREE.Vector3(0, 250, 0));*/
+>>>>>>> parent of bb6e986... removed render overwrite
 });
 
 $( 'button#light1a' ).click( function() {
