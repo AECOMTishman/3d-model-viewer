@@ -52,6 +52,8 @@ function init() {
 		);
 		mesh.rotation.x = -Math.PI / 2;
 		scene.add(mesh);
+
+		render();
 	});
 
 	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
