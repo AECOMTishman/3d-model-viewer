@@ -100,7 +100,6 @@ function onWindowResize() {
 
 function render() {
     renderer.render(scene, camera);
-    stats.update();
 }
 
 var cw_clicked = false;
