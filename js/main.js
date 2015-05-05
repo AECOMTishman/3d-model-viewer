@@ -77,6 +77,7 @@ function render() {
 	}
 
 	renderer.render(scene, camera);
+	requestAnimationFrame(animate);
 }
 
 function modelLoadedCallback(geometry) {
