@@ -92,7 +92,7 @@ function onWindowResize() {
 	var win = $(this); //this = window
 	HEIGHT = win.height();
 	WIDTH = win.width();
-	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.aspect = WIDTH / HEIGHT;
 	camera.updateProjectionMatrix();
 	renderer.setSize(WIDTH, HEIGHT);
 	render();
