@@ -101,7 +101,7 @@ function render() {
 
 function modelLoadedCallback(geometry) {
     mesh1 = new THREE.Mesh( geometry, material );
-    group.add( mesh1 );
+    group.add( mesh1ti );
     mesh2 = new THREE.Mesh( geometry, material );
     group.add( mesh2 );
     mesh3 = new THREE.Mesh( geometry, material );
