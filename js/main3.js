@@ -26,7 +26,7 @@ container.appendChild(renderer.domElement);
 
 camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-camera.position.set(0, 500, 3000);
+camera.position.set(0, 500, 2000);
 camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 scene.add(camera);
@@ -89,7 +89,7 @@ $( 'button#view1' ).click( function() {
 	$( 'button#view1' ).addClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).removeClass('active')
-	camera.position.set(0, 500, 3000);
+	camera.position.set(0, 500, 2000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 });
 
