@@ -1,19 +1,16 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, controls, mesh, light1, light2, light3, loader;
-
-$( 'button#light1a' ).addClass('active');
-$( 'button#view1' ).addClass('active');
-$( 'button#light2' ).addClass('active')
-
+var container, scene, renderer, camera, controls, light, clock, loader;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
-WIDTH = 0.99 * window.innerWidth;
-HEIGHT = 0.99 * window.innerHeight;
+container = document.getElementById( '3d' );
 
-VIEW_ANGLE = 45;
-ASPECT = WIDTH / HEIGHT;
-NEAR = 0;
+WIDTH = window.innerWidth;
+HEIGHT = window.innerHeight;
+
+VIEW_ANGLE = 60,
+ASPECT = WIDTH / HEIGHT,
+NEAR = 1,
 FAR = 10000;
 
 init();
@@ -25,14 +22,24 @@ function animate() {
 }
 
 function init() {
+	scene = new THREE.Scene();
+
+	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+	renderer.setSize(WIDTH, HEIGHT);
+	renderer.setClearColor( 0x000000, 0 );
+
+	container.appendChild(renderer.domElement);
+
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-	camera.position.set(0, 700, 2500);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
+
+	/*camera.position.set(0, 500, 2500);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
 
-	scene = new THREE.Scene();
+	scene.add(camera);
 
 	light1 = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
 	light1.color.setHSL( 0.6, 1, 0.6 );
@@ -46,21 +53,17 @@ function init() {
 	light3 = new THREE.AmbientLight( 0xffffff );
 
 	loader = new THREE.JSONLoader();
+	var mesh;
 	loader.load('sample.js', function (geometry, materials) {  
 		mesh = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial(materials)
 		);
+
 		mesh.rotation.x = -Math.PI / 2;
+
 		scene.add(mesh);
+		render(); 
 	});
-
-	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
-	renderer.setSize(WIDTH, HEIGHT);
-	renderer.setClearColor( 0x000000, 0 );
-
-	container = document.getElementById( '3d' );
-	container.appendChild(renderer.domElement);
 
     window.addEventListener( 'resize', onWindowResize, false );
 
@@ -68,43 +71,93 @@ function init() {
 }
 
 function render() {
+	if (cw_clicked){
+		mesh.rotation.z += -.01;
+	}
+	if (ccw_clicked){
+		mesh.rotation.z += .01;
+	}
+
 	renderer.render(scene, camera);
-	requestAnimationFrame(animate);
+	requestAnimationFrame(render);
+}
+
+function modelLoadedCallback(geometry) {
+    mesh = new THREE.Mesh( geometry, material );
+    group.add(mesh);
+    scene.add( group );
 }
 
 function onWindowResize() {
-	var win = $(this);
+	var win = $(this); //this = window
 	HEIGHT = win.height();
 	WIDTH = win.width();
-	camera.aspect = WIDTH / HEIGHT;
+	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 	renderer.setSize(WIDTH, HEIGHT);
 	render();
 }
 
+function render() {
+    renderer.render(scene, camera);
+    stats.update();
+}
+
+var cw_clicked = false;
+var ccw_clicked = false;
+$( 'button#pause' ).addClass('active')
+
+$( 'button#cw' ).click( function() {
+	$( 'button#cw' ).addClass('active')
+	$( 'button#pause' ).removeClass('active')
+	$( 'button#ccw' ).removeClass('active')
+	cw_clicked = true;
+	ccw_clicked = false;
+});
+
+$( 'button#pause' ).click( function() {
+	$( 'button#cw' ).removeClass('active')
+	$( 'button#pause' ).addClass('active')
+	$( 'button#ccw' ).removeClass('active')
+	cw_clicked = false;
+	ccw_clicked = false;
+});
+
+$( 'button#ccw' ).click( function() {
+	$( 'button#cw' ).removeClass('active')
+	$( 'button#pause' ).removeClass('active')
+	$( 'button#ccw' ).addClass('active')
+	cw_clicked = false;
+	ccw_clicked = true;
+});
+
+$( 'button#view1' ).addClass('active')
+
 $( 'button#view1' ).click( function() {
 	$( 'button#view1' ).addClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).removeClass('active')
-	camera.position.set(0, 700, 2500);
-	render();
+	/*camera.position.set(0, 500, 2500);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
 });
 
 $( 'button#view2' ).click( function() {
 	$( 'button#view1' ).removeClass('active')
 	$( 'button#view2' ).addClass('active')
 	$( 'button#view3' ).removeClass('active')
-	camera.position.set(0, 500, 100);
-	render();
+	/*camera.position.set(0, 500, 100);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
 });
 
 $( 'button#view3' ).click( function() {
 	$( 'button#view1' ).removeClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).addClass('active')
-	camera.position.set(0, 2000, 2000);
-	render();
+	/*camera.position.set(0, 2000, 2000);
+	camera.lookAt(new THREE.Vector3(0, 250, 0));*/
 });
+
+$( 'button#light1a' ).addClass('active')
 
 $( 'button#light1a' ).click( function() {
 	$( 'button#light1a' ).addClass('active')
@@ -113,7 +166,6 @@ $( 'button#light1a' ).click( function() {
 	light1.position.set(0, 500, 0);
 	light1.color.setHSL( 0.6, 1, 0.6 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
-	render();
 });
 
 $( 'button#light1b' ).click( function() {
@@ -123,7 +175,6 @@ $( 'button#light1b' ).click( function() {
 	light1.position.set(0, 1000, 0);
 	light1.color.setHSL( 0.8, 1, 0.8 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
-	render();
 });
 
 $( 'button#light1c' ).click( function() {
@@ -133,8 +184,9 @@ $( 'button#light1c' ).click( function() {
 	light1.position.set(0, 2000, 0);
 	light1.color.setHSL( 1, 1, 1 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
-	render();
 });
+
+$( 'button#light2' ).addClass('active')
 
 $( 'button#light2' ).click( function() {
 	if( $( 'button#light2' ).hasClass('active') ){
@@ -144,7 +196,6 @@ $( 'button#light2' ).click( function() {
 		$( 'button#light2' ).addClass('active')
 		scene.add( light2 );
 	}
-	render();
 });
 
 $( 'button#light3' ).click( function() {
@@ -155,5 +206,4 @@ $( 'button#light3' ).click( function() {
 		$( 'button#light3' ).addClass('active')
 		scene.add( light3 );
 	}
-	render();
 });
