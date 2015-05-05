@@ -6,7 +6,11 @@ $( 'button#light1a' ).addClass('active');
 $( 'button#view1' ).addClass('active');
 $( 'button#light2' ).addClass('active')
 
+<<<<<<< HEAD
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
+=======
+
+>>>>>>> parent of 7830578... debug
 
 WIDTH = 0.99 * window.innerWidth;
 HEIGHT = 0.99 * window.innerHeight;
@@ -84,6 +88,39 @@ function onWindowResize() {
 	render();
 }
 
+<<<<<<< HEAD
+=======
+var cw_clicked = false;
+var ccw_clicked = false;
+$( 'button#pause' ).addClass('active')
+
+$( 'button#cw' ).click( function() {
+	$( 'button#cw' ).addClass('active')
+	$( 'button#pause' ).removeClass('active')
+	$( 'button#ccw' ).removeClass('active')
+	cw_clicked = true;
+	ccw_clicked = false;
+});
+
+$( 'button#pause' ).click( function() {
+	$( 'button#cw' ).removeClass('active')
+	$( 'button#pause' ).addClass('active')
+	$( 'button#ccw' ).removeClass('active')
+	cw_clicked = false;
+	ccw_clicked = false;
+});
+
+$( 'button#ccw' ).click( function() {
+	$( 'button#cw' ).removeClass('active')
+	$( 'button#pause' ).removeClass('active')
+	$( 'button#ccw' ).addClass('active')
+	cw_clicked = false;
+	ccw_clicked = true;
+});
+
+$( 'button#view1' ).addClass('active')
+
+>>>>>>> parent of 7830578... debug
 $( 'button#view1' ).click( function() {
 	$( 'button#view1' ).addClass('active')
 	$( 'button#view2' ).removeClass('active')
@@ -105,7 +142,11 @@ $( 'button#view3' ).click( function() {
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).addClass('active')
 	camera.position.set(0, 2000, 2000);
+<<<<<<< HEAD
 	render();
+=======
+	camera.lookAt(new THREE.Vector3(0, 250, 0));*/
+>>>>>>> parent of 7830578... debug
 });
 
 $( 'button#light1a' ).click( function() {
