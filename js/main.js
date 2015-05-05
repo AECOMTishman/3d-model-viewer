@@ -66,8 +66,8 @@ function init() {
 
     window.addEventListener( 'resize', onWindowResize, false );
 
-    render();
     animate();
+    render();
 }
 
 var cw_clicked = false;
