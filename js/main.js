@@ -33,8 +33,8 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-	/*camera.position.set(0, 500, 2500);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
+	camera.position.set(0, 500, 2500);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
@@ -62,13 +62,17 @@ function init() {
 		mesh.rotation.x = -Math.PI / 2;
 
 		scene.add(mesh);
-		render(); 
 	});
 
     window.addEventListener( 'resize', onWindowResize, false );
 
+    render();
     animate();
 }
+
+var cw_clicked = false;
+var ccw_clicked = false;
+$( 'button#pause' ).addClass('active')
 
 function render() {
 	if (cw_clicked){
@@ -96,10 +100,6 @@ function onWindowResize() {
 	renderer.setSize(WIDTH, HEIGHT);
 	render();
 }
-
-var cw_clicked = false;
-var ccw_clicked = false;
-$( 'button#pause' ).addClass('active')
 
 $( 'button#cw' ).click( function() {
 	$( 'button#cw' ).addClass('active')
@@ -131,24 +131,24 @@ $( 'button#view1' ).click( function() {
 	$( 'button#view1' ).addClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).removeClass('active')
-	/*camera.position.set(0, 500, 2500);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
+	camera.position.set(0, 500, 2500);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));
 });
 
 $( 'button#view2' ).click( function() {
 	$( 'button#view1' ).removeClass('active')
 	$( 'button#view2' ).addClass('active')
 	$( 'button#view3' ).removeClass('active')
-	/*camera.position.set(0, 500, 100);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
+	camera.position.set(0, 500, 100);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));
 });
 
 $( 'button#view3' ).click( function() {
 	$( 'button#view1' ).removeClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).addClass('active')
-	/*camera.position.set(0, 2000, 2000);
-	camera.lookAt(new THREE.Vector3(0, 250, 0));*/
+	camera.position.set(0, 2000, 2000);
+	camera.lookAt(new THREE.Vector3(0, 250, 0));
 });
 
 $( 'button#light1a' ).addClass('active')
