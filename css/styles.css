@@ -163,6 +163,7 @@ section {
   width:100%;
   position: absolute;
   bottom: 40px;
+  text-align: center;
 }
 
 small {
@@ -191,10 +192,6 @@ header a, footer a {
 canvas {
   width: 100%;
   height: 100%;
-}
-
-section {
-  text-align: center;
 }
 
 .btn-group {
