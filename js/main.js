@@ -1,9 +1,9 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, controls, light, clock, loader;
+var container, scene, renderer, camera, controls, mesh, light, loader;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
-container = document.getElementById( '3d' );
+
 
 WIDTH = 0.99 * window.innerWidth;
 HEIGHT = 0.99 * window.innerHeight;
@@ -29,6 +29,7 @@ function init() {
 	renderer.setSize(WIDTH, HEIGHT);
 	renderer.setClearColor( 0x000000, 0 );
 
+	container = document.getElementById( '3d' );
 	container.appendChild(renderer.domElement);
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
@@ -52,22 +53,25 @@ function init() {
 
 	light3 = new THREE.AmbientLight( 0xffffff );
 
+	group = new THREE.Object3D();
+
 	loader = new THREE.JSONLoader();
-	var mesh;
+
 	loader.load('sample.js', function (geometry, materials) {  
 		mesh = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial(materials)
 		);
 
 		mesh.rotation.x = -Math.PI / 2;
-
+		group.add( mesh )
 		scene.add(mesh);
+
+		render();
 	});
 
     window.addEventListener( 'resize', onWindowResize, false );
 
     animate();
-    render();
 }
 
 var cw_clicked = false;
@@ -75,13 +79,6 @@ var ccw_clicked = false;
 $( 'button#pause' ).addClass('active')
 
 function render() {
-	if (cw_clicked){
-		mesh.rotation.z += -.01;
-	}
-	if (ccw_clicked){
-		mesh.rotation.z += .01;
-	}
-
 	renderer.render(scene, camera);
 }
 
