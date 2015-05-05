@@ -81,11 +81,11 @@ function render() {
 	renderer.render(scene, camera);
 }
 
-/*function modelLoadedCallback(geometry) {
+function modelLoadedCallback(geometry) {
     mesh = new THREE.Mesh( geometry, material );
-    group.add(mesh);
+    group.add( mesh );
     scene.add( group );
-}*/
+}
 
 function onWindowResize() {
 	var win = $(this); //this = window
