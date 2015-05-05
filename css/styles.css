@@ -101,10 +101,10 @@ strong {
 }
 
 section {
-  width:100%;
+  width:99%;
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+  bottom: 0px;
+  left: 0px;
   text-align: center;
 }
 
