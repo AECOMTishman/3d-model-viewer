@@ -176,4 +176,5 @@ $(window).on('resize', function(){
       var win = $(this); //this = window
       HEIGHT = 0.9 * win.height();
       WIDTH = 0.9 * win.width();
+      renderer.setSize(WIDTH, HEIGHT); 
 });
