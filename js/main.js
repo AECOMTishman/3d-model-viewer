@@ -3,7 +3,7 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 var container, scene, renderer, camera, controls, group, mesh, light1, light2, light3, loader;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
-container = document.getElementById( '3d' );
+
 
 WIDTH = window.innerWidth;
 HEIGHT = window.innerHeight;
@@ -60,11 +60,8 @@ function init() {
 	renderer.setSize(WIDTH, HEIGHT);
 	renderer.setClearColor( 0x000000, 0 );
 
+	container = document.getElementById( '3d' );
 	container.appendChild(renderer.domElement);
-
-	scene.add(camera);
-
-
 
     window.addEventListener( 'resize', onWindowResize, false );
 
@@ -80,7 +77,6 @@ function render() {
 	}
 
 	renderer.render(scene, camera);
-	requestAnimationFrame(render);
 }
 
 function modelLoadedCallback(geometry) {
@@ -150,7 +146,7 @@ $( 'button#view3' ).click( function() {
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).addClass('active')
 	camera.position.set(0, 2000, 2000);
-	camera.lookAt(new THREE.Vector3(0, 250, 0));
+	camera.lookAt(new THREE.Vector3(0, 250, 0));*/
 });
 
 $( 'button#light1a' ).addClass('active')
