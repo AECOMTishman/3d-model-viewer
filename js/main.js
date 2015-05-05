@@ -5,8 +5,6 @@ var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 container = document.getElementById( '3d' );
 
-clock = new THREE.Clock();
-
 WIDTH = window.innerWidth;
 HEIGHT = window.innerHeight;
 
@@ -15,49 +13,80 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 1,
 FAR = 10000;
 
-scene = new THREE.Scene();
+init();
+render();
 
-renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+function animate() {
 
-renderer.setSize(WIDTH, HEIGHT);
-renderer.setClearColor( 0x000000, 0 );
+	requestAnimationFrame(animate);
+	controls.update();
 
-container.appendChild(renderer.domElement);
+}
 
-camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+function init() {
+	scene = new THREE.Scene();
 
-camera.position.set(0, 700, 2500);
-camera.lookAt(new THREE.Vector3(0, 500, 0));
+	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
-scene.add(camera);
+	renderer.setSize(WIDTH, HEIGHT);
+	renderer.setClearColor( 0x000000, 0 );
 
-light1 = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
-light1.color.setHSL( 0.6, 1, 0.6 );
-light1.groundColor.setHSL( 0.095, 1, 0.75 );
-light1.position.set( 0, 500, 0 );
-scene.add( light1 );
+	container.appendChild(renderer.domElement);
 
-light2 = new THREE.AmbientLight( 0x404040 );
-scene.add( light2 );
+	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-light3 = new THREE.AmbientLight( 0xffffff );
+	camera.position.set(0, 700, 2500);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));
 
-loader = new THREE.JSONLoader();
-var mesh;
-loader.load('sample.js', function (geometry, materials) {  
-	mesh = new THREE.Mesh(
-		geometry, new THREE.MeshFaceMaterial(materials)
-	);
+	scene.add(camera);
 
-	mesh.rotation.x = -Math.PI / 2;
+	light1 = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
+	light1.color.setHSL( 0.6, 1, 0.6 );
+	light1.groundColor.setHSL( 0.095, 1, 0.75 );
+	light1.position.set( 0, 500, 0 );
+	scene.add( light1 );
 
-	scene.add(mesh);
-	render(); 
+	light2 = new THREE.AmbientLight( 0x404040 );
+	scene.add( light2 );
+
+	light3 = new THREE.AmbientLight( 0xffffff );
+
+	loader = new THREE.JSONLoader();
+	var mesh;
+	loader.load('sample.js', function (geometry, materials) {  
+		mesh = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial(materials)
+		);
+
+		mesh.rotation.x = -Math.PI / 2;
+
+		scene.add(mesh);
+		render(); 
+	});
+}
+
+function render() {
+	if (cw_clicked){
+		mesh.rotation.z += -.01;
+	}
+	if (ccw_clicked){
+		mesh.rotation.z += .01;
+	}
+
+	renderer.render(scene, camera);
+	requestAnimationFrame(render);
+}
+
+$(window).on('resize', function(){
+      var win = $(this); //this = window
+      HEIGHT = win.height();
+      WIDTH = win.width();
+      renderer.setSize(WIDTH, HEIGHT); 
 });
 
-var cw_clicked = true;
+var cw_clicked = false;
 var ccw_clicked = false;
-$( 'button#cw' ).addClass('active')
+$( 'button#pause' ).addClass('active')
 
 $( 'button#cw' ).click( function() {
 	$( 'button#cw' ).addClass('active')
@@ -158,23 +187,4 @@ $( 'button#light3' ).click( function() {
 		$( 'button#light3' ).addClass('active')
 		scene.add( light3 );
 	}
-});
-
-function render() {
-	if (cw_clicked){
-		mesh.rotation.z += -.01;
-	}
-	if (ccw_clicked){
-		mesh.rotation.z += .01;
-	}
-
-	renderer.render(scene, camera);
-	requestAnimationFrame(render);
-}
-
-$(window).on('resize', function(){
-      var win = $(this); //this = window
-      HEIGHT = win.height();
-      WIDTH = win.width();
-      renderer.setSize(WIDTH, HEIGHT); 
 });
