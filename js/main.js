@@ -66,6 +66,10 @@ function init() {
 		scene.add(mesh);
 		render(); 
 	});
+
+    window.addEventListener( 'resize', onWindowResize, false );
+
+    animate();
 }
 
 function render() {
@@ -80,12 +84,37 @@ function render() {
 	requestAnimationFrame(render);
 }
 
+function modelLoadedCallback(geometry) {
+ 
+        mesh = new THREE.Mesh( geometry, material );
+        group.add(mesh);
+        scene.add( group );
+ 
+}
+
 $(window).on('resize', function(){
       var win = $(this); //this = window
       HEIGHT = win.height();
       WIDTH = win.width();
       renderer.setSize(WIDTH, HEIGHT); 
 });
+
+function onWindowResize() {
+ 
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+ 
+        renderer.setSize( window.innerWidth, window.innerHeight );
+ 
+        render();
+ 
+}
+
+function render() {
+        renderer.render(scene, camera);
+        stats.update();
+ 
+}
 
 var cw_clicked = false;
 var ccw_clicked = false;
