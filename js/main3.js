@@ -7,8 +7,8 @@ container = document.getElementById( '3d' );
 
 clock = new THREE.Clock();
 
-WIDTH = window.innerWidth;
-HEIGHT = window.innerHeight;
+WIDTH = 0.9 * window.innerWidth;
+HEIGHT = 0.9 * window.innerHeight;
 
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
@@ -174,6 +174,6 @@ function render() {
 
 $(window).on('resize', function(){
       var win = $(this); //this = window
-      HEIGHT = win.height();
-      WIDTH = win.width();
+      HEIGHT = 0.9 * win.height();
+      WIDTH = 0.9 * win.width();
 });
