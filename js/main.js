@@ -34,9 +34,9 @@ function init() {
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
-	this.minDistance = 0;
-	this.maxDistance = 8000;
-	control.maxPolarAngle = Math.PI/2;
+	controls.minDistance = 0;
+	controls.maxDistance = 8000;
+	controls.maxPolarAngle = Math.PI/2;
 
 	camera.position.set(0, 2000, 2000);
 	camera.lookAt(new THREE.Vector3(0, 1000, 0));
