@@ -72,6 +72,9 @@ function init() {
     animate();
 }
 
+camera.position.set(0, 400, 2500);
+camera.lookAt(new THREE.Vector3(0, 0, 0));
+
 function render() {
 	renderer.render(scene, camera);
 }
