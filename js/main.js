@@ -119,6 +119,39 @@ function onWindowResize() {
 	render();
 }
 
+$( 'button#layer1' ).click( function() {
+	if( $( 'button#layer1' ).hasClass('active') ){
+		$( 'button#layer1' ).removeClass('active')
+		scene.remove( mesh1 );
+	} else {
+		$( 'button#layer1' ).addClass('active')
+		scene.add( mesh1 );
+	}
+	render();
+});
+
+$( 'button#layer2' ).click( function() {
+	if( $( 'button#layer2' ).hasClass('active') ){
+		$( 'button#layer2' ).removeClass('active')
+		scene.remove( mesh2 );
+	} else {
+		$( 'button#layer2' ).addClass('active')
+		scene.add( mesh2 );
+	}
+	render();
+});
+
+$( 'button#layer3' ).click( function() {
+	if( $( 'button#layer3' ).hasClass('active') ){
+		$( 'button#layer3' ).removeClass('active')
+		scene.remove( mesh3 );
+	} else {
+		$( 'button#layer3' ).addClass('active')
+		scene.add( mesh3 );
+	}
+	render();
+});
+
 $( 'button#view1' ).click( function() {
 	camera.position.set(0, 2000, 2000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
