@@ -24,8 +24,7 @@ function animate() {
 function init() {
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 	camera.position.set(0, 500, 2500);
-	
-	/*camera.lookAt(new THREE.Vector3(0, 500, 0));*/
+	camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
