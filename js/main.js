@@ -16,8 +16,8 @@ HEIGHT = 0.99 * window.innerHeight;
 
 VIEW_ANGLE = 60;
 ASPECT = WIDTH / HEIGHT;
-NEAR = 0.01;
-FAR = 100000;
+NEAR = 0;
+FAR = 10000;
 
 init();
 render();
