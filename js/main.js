@@ -33,8 +33,13 @@ function init() {
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
-	controls.minDistance = 0;
+	controls.minDistance = 200;
 	controls.maxDistance = 8000;
+	controls.damping = 0.4;
+	controls.userRotateSpeed = 500;
+    controls.momentumDampingFactor = 8;
+    controls.momentumScalingFactor = 0.005;
+
 	controls.maxPolarAngle = Math.PI/2;
 
 	camera.position.set(0, 2000, 2000);
