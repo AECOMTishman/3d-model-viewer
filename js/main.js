@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, controls, mesh, light, loader;
+var container, scene, renderer, camera, controls, mesh1, mesh2, mesh3, light1, light2, light3, loader;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = 0.99 * window.innerWidth;
@@ -58,14 +58,34 @@ function init() {
 
 	loader = new THREE.JSONLoader();
 
-	loader.load('sample.js', function (geometry, materials) {  
-		mesh = new THREE.Mesh(
+	loader.load('sample-concrete.js', function (geometry, materials) {  
+		mesh1 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial(materials)
 		);
 
-		mesh.rotation.x = -Math.PI / 2;
-		group.add( mesh )
-		scene.add(mesh);
+		mesh1.rotation.x = -Math.PI / 2;
+		group.add( mesh1 )
+		scene.add( mesh1 );
+	});
+
+	loader.load('sample-curtain-wall.js', function (geometry, materials) {  
+		mesh2 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial(materials)
+		);
+
+		mesh2.rotation.x = -Math.PI / 2;
+		group.add( mesh2 )
+		scene.add( mesh2 );
+	});
+
+	loader.load('sample-steel.js', function (geometry, materials) {  
+		mesh3 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial(materials)
+		);
+
+		mesh3.rotation.x = -Math.PI / 2;
+		group.add( mesh3 )
+		scene.add( mesh3 );
 
 		render();
 	});
@@ -80,8 +100,12 @@ function render() {
 }
 
 function modelLoadedCallback(geometry) {
-    mesh = new THREE.Mesh( geometry, material );
-    group.add( mesh );
+    mesh1 = new THREE.Mesh( geometry, material );
+    group.add( mesh1 );
+    mesh2 = new THREE.Mesh( geometry, material );
+    group.add( mesh2 );
+    mesh3 = new THREE.Mesh( geometry, material );
+    group.add( mesh3 );
     scene.add( group );
 }
 
