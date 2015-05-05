@@ -32,11 +32,11 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-	camera.position.set(0, 2000, 2000);
-	camera.lookAt(new THREE.Vector3(0, 1000, 0));
-
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
+
+	camera.position.set(0, 2000, 2000);
+	camera.lookAt(new THREE.Vector3(0, 1000, 0));
 
 	scene.add(camera);
 
