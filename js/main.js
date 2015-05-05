@@ -69,8 +69,7 @@ function init() {
 
 function render() {
 	renderer.render(scene, camera);
-
-	console.log('Render.');
+	requestAnimationFrame(animate);
 }
 
 function onWindowResize() {
