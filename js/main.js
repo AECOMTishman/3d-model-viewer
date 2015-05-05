@@ -6,11 +6,7 @@ $( 'button#light1a' ).addClass('active');
 $( 'button#view1' ).addClass('active');
 $( 'button#light2' ).addClass('active')
 
-<<<<<<< HEAD
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
-=======
-
->>>>>>> parent of 7830578... debug
 
 WIDTH = 0.99 * window.innerWidth;
 HEIGHT = 0.99 * window.innerHeight;
@@ -88,15 +84,6 @@ function onWindowResize() {
 	render();
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-function render() {
-    renderer.render(scene, camera);
-}
-
->>>>>>> parent of bb6e986... removed render overwrite
 var cw_clicked = false;
 var ccw_clicked = false;
 $( 'button#pause' ).addClass('active')
