@@ -3,7 +3,9 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 var container, scene, renderer, camera, controls, group, mesh, light1, light2, light3, loader;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
-
+var cw_clicked = false;
+var ccw_clicked = false;
+$( 'button#pause' ).addClass('active')
 
 WIDTH = window.innerWidth;
 HEIGHT = window.innerHeight;
@@ -96,10 +98,6 @@ function onWindowResize() {
 	render();
 }
 
-var cw_clicked = false;
-var ccw_clicked = false;
-$( 'button#pause' ).addClass('active')
-
 $( 'button#cw' ).click( function() {
 	$( 'button#cw' ).addClass('active')
 	$( 'button#pause' ).removeClass('active')
@@ -147,7 +145,7 @@ $( 'button#view3' ).click( function() {
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).addClass('active')
 	camera.position.set(0, 2000, 2000);
-	camera.lookAt(new THREE.Vector3(0, 250, 0));*/
+	camera.lookAt(new THREE.Vector3(0, 250, 0));
 });
 
 $( 'button#light1a' ).addClass('active')
