@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, controls, light, clock, loader;
+var container, scene, renderer, camera, controls, group, mesh, light1, light2, light3, loader;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 container = document.getElementById( '3d' );
@@ -22,24 +22,15 @@ function animate() {
 }
 
 function init() {
-	scene = new THREE.Scene();
-
-	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
-	renderer.setSize(WIDTH, HEIGHT);
-	renderer.setClearColor( 0x000000, 0 );
-
-	container.appendChild(renderer.domElement);
-
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-
-	/*camera.position.set(0, 500, 2500);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
+	camera.position.set(0, 500, 2500);
+	
+	/*camera.lookAt(new THREE.Vector3(0, 500, 0));*/
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
 
-	scene.add(camera);
+	scene = new THREE.Scene();
 
 	light1 = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
 	light1.color.setHSL( 0.6, 1, 0.6 );
@@ -52,18 +43,27 @@ function init() {
 
 	light3 = new THREE.AmbientLight( 0xffffff );
 
+	group = new THREE.Object3D();
+
 	loader = new THREE.JSONLoader();
-	var mesh;
 	loader.load('sample.js', function (geometry, materials) {  
 		mesh = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial(materials)
 		);
-
 		mesh.rotation.x = -Math.PI / 2;
-
 		scene.add(mesh);
-		render(); 
 	});
+
+	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+	renderer.setSize(WIDTH, HEIGHT);
+	renderer.setClearColor( 0x000000, 0 );
+
+	container.appendChild(renderer.domElement);
+
+	scene.add(camera);
+
+
 
     window.addEventListener( 'resize', onWindowResize, false );
 
@@ -89,7 +89,7 @@ function modelLoadedCallback(geometry) {
 }
 
 function onWindowResize() {
-	var win = $(this); //this = window
+	var win = $(this);
 	HEIGHT = win.height();
 	WIDTH = win.width();
 	camera.aspect = WIDTH / HEIGHT;
