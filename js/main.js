@@ -33,7 +33,7 @@ function init() {
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
 	camera.position.set(0, 400, 2500);
-	camera.lookAt(new THREE.Vector3(0, 400, 0));
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
@@ -94,19 +94,19 @@ function onWindowResize() {
 
 $( 'button#view1' ).click( function() {
 	camera.position.set(0, 400, 2500);
-	camera.lookAt(new THREE.Vector3(0, 400, 0));
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
 	render();
 });
 
 $( 'button#view2' ).click( function() {
 	camera.position.set(0, 700, 100);
-	camera.lookAt(new THREE.Vector3(0, 400, 0));
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
 	render();
 });
 
 $( 'button#view3' ).click( function() {
 	camera.position.set(0, 2000, 2500);
-	camera.lookAt(new THREE.Vector3(0, 400, 0));
+	camera.lookAt(new THREE.Vector3(400, 0, 400));
 	render();
 });
 
