@@ -2,9 +2,6 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 var container, scene, renderer, camera, controls, mesh, light1, light2, light3, loader;
 
-var cw_clicked = false;
-var ccw_clicked = false;
-$( 'button#pause' ).addClass('active');
 $( 'button#light1a' ).addClass('active');
 $( 'button#view1' ).addClass('active');
 $( 'button#light2' ).addClass('active')
@@ -14,7 +11,7 @@ var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 WIDTH = 0.99 * window.innerWidth;
 HEIGHT = 0.99 * window.innerHeight;
 
-VIEW_ANGLE = 60;
+VIEW_ANGLE = 45;
 ASPECT = WIDTH / HEIGHT;
 NEAR = 0;
 FAR = 10000;
@@ -73,13 +70,6 @@ function init() {
 }
 
 function render() {
-	if (cw_clicked){
-		mesh.rotation.z += -.01;
-	}
-	if (ccw_clicked){
-		mesh.rotation.z += .01;
-	}
-
 	renderer.render(scene, camera);
 	requestAnimationFrame(animate);
 }
@@ -93,33 +83,6 @@ function onWindowResize() {
 	renderer.setSize(WIDTH, HEIGHT);
 	render();
 }
-
-$( 'button#cw' ).click( function() {
-	$( 'button#cw' ).addClass('active')
-	$( 'button#pause' ).removeClass('active')
-	$( 'button#ccw' ).removeClass('active')
-	cw_clicked = true;
-	ccw_clicked = false;
-	render();
-});
-
-$( 'button#pause' ).click( function() {
-	$( 'button#cw' ).removeClass('active')
-	$( 'button#pause' ).addClass('active')
-	$( 'button#ccw' ).removeClass('active')
-	cw_clicked = false;
-	ccw_clicked = false;
-	render();
-});
-
-$( 'button#ccw' ).click( function() {
-	$( 'button#cw' ).removeClass('active')
-	$( 'button#pause' ).removeClass('active')
-	$( 'button#ccw' ).addClass('active')
-	cw_clicked = false;
-	ccw_clicked = true;
-	render();
-});
 
 $( 'button#view1' ).click( function() {
 	$( 'button#view1' ).addClass('active')
