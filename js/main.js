@@ -5,8 +5,8 @@ var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 container = document.getElementById( '3d' );
 
-WIDTH = window.innerWidth;
-HEIGHT = window.innerHeight;
+WIDTH = 0.99 * window.innerWidth;
+HEIGHT = 0.99 * window.innerHeight;
 
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
@@ -93,8 +93,8 @@ function modelLoadedCallback(geometry) {
 
 function onWindowResize() {
 	var win = $(this); //this = window
-	HEIGHT = win.height();
-	WIDTH = win.width();
+	HEIGHT = 0.99 * win.height();
+	WIDTH = 0.99 * win.width();
 	camera.aspect = WIDTH / HEIGHT;
 	camera.updateProjectionMatrix();
 	renderer.setSize(WIDTH, HEIGHT);
