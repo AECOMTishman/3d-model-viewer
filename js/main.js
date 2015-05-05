@@ -69,7 +69,6 @@ function init() {
 
 function render() {
 	renderer.render(scene, camera);
-	requestAnimationFrame(animate);
 
 	console.log('Render.');
 }
