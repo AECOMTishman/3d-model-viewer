@@ -38,6 +38,9 @@ function init() {
 	camera.position.set(0, 700, 2500);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 
+	controls = new THREE.OrbitControls( camera );
+	controls.addEventListener( 'change', render );
+
 	scene.add(camera);
 
 	light1 = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
