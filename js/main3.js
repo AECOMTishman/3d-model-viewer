@@ -171,3 +171,9 @@ function render() {
 	renderer.render(scene, camera);
 	requestAnimationFrame(render);
 }
+
+$(window).on('resize', function(){
+      var win = $(this); //this = window
+      HEIGHT = win.height();
+      WIDTH = win.width();
+});
