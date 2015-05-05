@@ -7,8 +7,8 @@ container = document.getElementById( '3d' );
 
 clock = new THREE.Clock();
 
-WIDTH = 0.9 * window.innerWidth;
-HEIGHT = 0.9 * window.innerHeight;
+WIDTH = window.innerWidth;
+HEIGHT = window.innerHeight;
 
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
@@ -26,7 +26,7 @@ container.appendChild(renderer.domElement);
 
 camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-camera.position.set(0, 500, 2000);
+camera.position.set(0, 500, 2500);
 camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 scene.add(camera);
@@ -89,7 +89,7 @@ $( 'button#view1' ).click( function() {
 	$( 'button#view1' ).addClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).removeClass('active')
-	camera.position.set(0, 500, 2000);
+	camera.position.set(0, 500, 2500);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 });
 
@@ -174,7 +174,7 @@ function render() {
 
 $(window).on('resize', function(){
       var win = $(this); //this = window
-      HEIGHT = 0.9 * win.height();
-      WIDTH = 0.9 * win.width();
+      HEIGHT = win.height();
+      WIDTH = win.width();
       renderer.setSize(WIDTH, HEIGHT); 
 });
