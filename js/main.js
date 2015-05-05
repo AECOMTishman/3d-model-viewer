@@ -17,10 +17,8 @@ init();
 render();
 
 function animate() {
-
 	requestAnimationFrame(animate);
 	controls.update();
-
 }
 
 function init() {
@@ -35,8 +33,8 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
-	camera.position.set(0, 700, 2500);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
+	/*camera.position.set(0, 500, 2500);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
@@ -85,11 +83,9 @@ function render() {
 }
 
 function modelLoadedCallback(geometry) {
- 
         mesh = new THREE.Mesh( geometry, material );
         group.add(mesh);
         scene.add( group );
- 
 }
 
 $(window).on('resize', function(){
@@ -100,20 +96,18 @@ $(window).on('resize', function(){
 });
 
 function onWindowResize() {
- 
+
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
  
         renderer.setSize( window.innerWidth, window.innerHeight );
  
         render();
- 
 }
 
 function render() {
         renderer.render(scene, camera);
         stats.update();
- 
 }
 
 var cw_clicked = false;
@@ -150,24 +144,24 @@ $( 'button#view1' ).click( function() {
 	$( 'button#view1' ).addClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).removeClass('active')
-	camera.position.set(0, 700, 2500);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
+	/*camera.position.set(0, 500, 2500);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
 });
 
 $( 'button#view2' ).click( function() {
 	$( 'button#view1' ).removeClass('active')
 	$( 'button#view2' ).addClass('active')
 	$( 'button#view3' ).removeClass('active')
-	camera.position.set(0, 500, 100);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
+	/*camera.position.set(0, 500, 100);
+	camera.lookAt(new THREE.Vector3(0, 500, 0));*/
 });
 
 $( 'button#view3' ).click( function() {
 	$( 'button#view1' ).removeClass('active')
 	$( 'button#view2' ).removeClass('active')
 	$( 'button#view3' ).addClass('active')
-	camera.position.set(0, 2000, 2000);
-	camera.lookAt(new THREE.Vector3(0, 250, 0));
+	/*camera.position.set(0, 2000, 2000);
+	camera.lookAt(new THREE.Vector3(0, 250, 0));*/
 });
 
 $( 'button#light1a' ).addClass('active')
