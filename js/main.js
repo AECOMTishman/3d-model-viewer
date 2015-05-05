@@ -11,8 +11,8 @@ $( 'button#light2' ).addClass('active')
 
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
-WIDTH = window.innerWidth;
-HEIGHT = window.innerHeight;
+WIDTH = 0.99 * window.innerWidth;
+HEIGHT = 0.99 * window.innerHeight;
 
 VIEW_ANGLE = 60;
 ASPECT = WIDTH / HEIGHT;
