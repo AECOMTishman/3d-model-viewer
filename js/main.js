@@ -19,7 +19,7 @@ function init() {
 
 	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 	renderer.setSize( WIDTH, HEIGHT );
-	renderer.setClearColor( 0xffffff, 0 );
+	renderer.setClearColor( 0xd6e7fb, 1.0 );
 	renderer.shadowMapEnabled = true;
 	renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
