@@ -44,7 +44,7 @@ function init() {
 	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
 	scene.add(camera);
 
-	light = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
+	light = new THREE.HemisphereLight( 0xffffff, 0xffffff, 1.0 );
 	light.color.setHSL( 1.0, 1.0, 1.0 );
 	light.groundColor.setHSL( 1.0, 1, 1.0 );
 	light.position.set( 0, 2000, 0 );
@@ -60,7 +60,7 @@ function init() {
 	spotLight.shadowCameraFar = 6000;
 	spotLight.shadowCameraFov = 30;
 	spotLight.shadowCameraVisible = true;
-	//scene.add( spotLight );
+	scene.add( spotLight );
 
 	group = new THREE.Object3D();
 
