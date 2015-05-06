@@ -157,7 +157,7 @@ $( 'input#layer3' ).change( function() {
 });
 
 $( 'a#view1' ).click( function() {
-	camera.position.set(0, 2000, 2000);
+	camera.position.set(0, 1000, 2000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 	controls.target = new THREE.Vector3(0, 500, 0);
 	render();
