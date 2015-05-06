@@ -46,8 +46,8 @@ function init() {
 
 	light = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
 	light.color.setHSL( 1.0, 1.0, 1.0 );
-	light.groundColor.setHSL( 0.095, 1, 0.75 );
-	light.position.set( 0, 500, 0 );
+	light.groundColor.setHSL( 1.0, 1, 1.0 );
+	light.position.set( 0, 2000, 0 );
 	scene.add( light );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
