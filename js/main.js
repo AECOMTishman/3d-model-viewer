@@ -44,7 +44,7 @@ function init() {
 	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
 	scene.add(camera);
 
-	light = new THREE.HemisphereLight( 0xffffff, 0xdd9b60, 1.0 );
+	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
