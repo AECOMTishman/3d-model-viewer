@@ -177,7 +177,3 @@ $( 'a#view3' ).click( function() {
 	controls.target = new THREE.Vector3(0, 500, 0);
 	render();
 });
-
-document.body.addEventListener("keydown", function() {
-  THREEx.FullScreen.request();
-}, false);
