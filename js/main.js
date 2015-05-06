@@ -110,6 +110,8 @@ function init() {
 		mesh3.receiveShadow = true;
 		group.add( mesh3 )
 		scene.add( mesh3 );
+
+		render();
 	});
 
 	terrain = new THREE.Mesh(
@@ -119,17 +121,12 @@ function init() {
 	terrain.receiveShadow = true;
 	terrain.position.set(0, -2, 0);
 	terrain.rotation.set(0, 0, 0);
-
 	scene.add(terrain);
-
-	render();
 
     window.addEventListener( 'resize', onWindowResize, false );
 
     animate();
 }
-
-
 
 function animate() {
 	controls.update();
