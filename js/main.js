@@ -126,9 +126,6 @@ function animate() {
 }
 
 function render() {
-	spotLight.position.x = ;
-	spotLight.position.y = ;
-	spotLight.position.z = ;
 	renderer.render( scene, camera );
 }
 
