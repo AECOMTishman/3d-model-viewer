@@ -25,6 +25,8 @@ function init() {
 
 	renderer.setSize(WIDTH, HEIGHT);
 	renderer.setClearColor( 0x000000, 0 );
+	renderer.shadowMapEnabled = true;
+	renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
 	container = document.getElementById( '3d' );
 	container.appendChild(renderer.domElement);
@@ -44,11 +46,28 @@ function init() {
 
 	scene.add(camera);
 
-	light = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
-	light.color.setHSL( 0.6, 1, 0.6 );
-	light.groundColor.setHSL( 0.095, 1, 0.75 );
-	light.position.set( 0, 500, 0 );
+	var ambient	= new THREE.AmbientLight( 0x444444 );
+	scene.add( ambient );
+	
+	var light	= new THREE.DirectionalLight( 0x4444cc, 2 );
+	light.position.set( 1, -1, 1 ).normalize();
 	scene.add( light );
+
+	var spotLight	= new THREE.SpotLight( 0xFFAA88 );
+	spotLight.target.position.set( 0, 2, 0 );
+	spotLight.shadowCameraNear	= 0.01;		
+	spotLight.castShadow		= true;
+	spotLight.shadowDarkness	= 0.5;
+	spotLight.shadowCameraVisible	= true;
+	scene.add( spotLight );	
+
+	onRenderFcts.push(function(){
+		var angle	= Date.now()/1000 * Math.PI;
+// angle	= Math.PI*2
+		spotLight.position.x	= Math.cos(angle*-0.1)*20;
+		spotLight.position.y	= 10 + Math.sin(angle*0.5)*6;
+		spotLight.position.z	= Math.sin(angle*-0.1)*20;		
+	})
 
 	group = new THREE.Object3D();
 
@@ -60,6 +79,8 @@ function init() {
 		);
 
 		mesh1.rotation.x = -Math.PI / 2;
+		mesh1.castShadow = true;
+		mesh1.receiveShadow = true;
 		group.add( mesh1 );
 		scene.add( mesh1 );
 	});
