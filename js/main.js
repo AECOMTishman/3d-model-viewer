@@ -57,7 +57,7 @@ function init() {
 	spotLight.shadowCameraFar = 6000;
 	spotLight.shadowCameraFov = 30;
 	spotLight.shadowCameraVisible = true;
-	scene.add( spotLight );
+	//scene.add( spotLight );
 
 	group = new THREE.Object3D();
 
