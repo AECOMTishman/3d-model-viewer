@@ -119,16 +119,27 @@ function onWindowResize() {
 	render();
 }
 
-$( 'a#layer1' ).addClass('active');
+$( 'input#layer1' ).addClass('active');
 $( 'a#layer2' ).addClass('active');
 $( 'a#layer3' ).addClass('active');
 
-$( 'a#layer1' ).click( function() {
+/*$( 'a#layer1' ).click( function() {
 	if( $( 'a#layer1' ).hasClass('active') ){
 		$( 'a#layer1' ).removeClass('active');
 		scene.remove( mesh1 );
 	} else {
 		$( 'a#layer1' ).addClass('active');
+		scene.add( mesh1 );
+	}
+	render();
+});*/
+
+$( 'input#layer1' ).change( function() {
+	if( $( 'input#layer1' ).hasClass('active') ){
+		$( 'input#layer1' ).removeClass('active');
+		scene.remove( mesh1 );
+	} else {
+		$( 'input#layer1' ).addClass('active');
 		scene.add( mesh1 );
 	}
 	render();
@@ -231,9 +242,4 @@ $( 'a#light3' ).click( function() {
 		scene.add( light3 );
 	}
 	render();
-});
-
-$( 'a.list-group-item' ).click( function() {
-	this.span.removeClass('glyphicon-chevron-down');
-	this.span.addClass('glyphicon-chevron-up');
 });
