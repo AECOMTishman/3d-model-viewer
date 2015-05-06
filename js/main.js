@@ -43,18 +43,6 @@ function init() {
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
 
-	var spotLight = new THREE.SpotLight( 0xffffff );
-	spotLight.position.set( 2000, 4000, -2000 );
-	spotLight.target.position.set( 0, 1000, 0 );
-	spotLight.castShadow = true;
-	spotLight.shadowMapWidth = 100;
-	spotLight.shadowMapHeight = 100;
-	spotLight.shadowCameraNear = 3000;
-	spotLight.shadowCameraFar = 6000;
-	spotLight.shadowCameraFov = 30;
-	spotLight.shadowCameraVisible = true;
-	//scene.add( spotLight );
-
 	group = new THREE.Object3D();
 
 	loader = new THREE.JSONLoader();
@@ -99,7 +87,7 @@ function init() {
 
 	terrain = new THREE.Mesh(
 	new THREE.CubeGeometry(4000, 10, 4000), new THREE.MeshPhongMaterial({
-	    color: 0x00ff00
+	    color: 0x46882c
 	}));
 	terrain.receiveShadow = true;
 	terrain.position.set(0, -10, 0);
