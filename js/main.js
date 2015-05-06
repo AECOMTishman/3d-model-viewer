@@ -47,7 +47,7 @@ function init() {
 	var spotLight = new THREE.SpotLight( 0xffffff );
  	spotLight.position.set( 2000, 4000, -2000 );
  	spotLight.target.position.set( 0, 1000, 0 );
- 	spotLight.castShadow = false;
+ 	spotLight.castShadow = true;
  	spotLight.shadowMapWidth = 100;
  	spotLight.shadowMapHeight = 100;
  	spotLight.shadowCameraNear = 3000;
