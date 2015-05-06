@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, controls, mesh1, mesh2, mesh3, light, loader;
+var container, scene, renderer, camera, controls, mesh1, mesh2, mesh3, light, loader, stats;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -16,6 +16,7 @@ render();
 
 function animate() {
 	controls.update();
+	stats.update();
 }
 
 function init() {
@@ -30,6 +31,8 @@ function init() {
 
 	container = document.getElementById( '3d' );
 	container.appendChild(renderer.domElement);
+	stats = new Stats();
+	container.appendChild( stats.domElement );
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 
