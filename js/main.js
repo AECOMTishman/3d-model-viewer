@@ -26,28 +26,28 @@ function init() {
 
 	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
-	renderer.setSize(WIDTH, HEIGHT);
-	renderer.setClearColor( 0x000000, 0 );
+	renderer.setSize( WIDTH, HEIGHT );
+	renderer.setClearColor( 0xffffff, 0 );
 	renderer.shadowMapEnabled = true;
 	renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
 	container = document.getElementById( '3d' );
-	container.appendChild(renderer.domElement);
+	container.appendChild( renderer.domElement );
 	stats = new Stats();
 	container.appendChild( stats.domElement );
 
-	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
-	controls.target = new THREE.Vector3(0, 500, 0);
+	controls.target = new THREE.Vector3( 0, 500, 0 );
 	controls.minDistance = 200;
 	controls.maxDistance = 8000;
 	controls.minPolarAngle = 0.25 * Math.PI/2;
 	controls.maxPolarAngle = 1.25 * Math.PI/2;
 
-	camera.position.set(2000, 1500, 2000);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
+	camera.position.set( 2000, 1500, 2000 );
+	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
 
 	scene.add(camera);
 
@@ -72,7 +72,7 @@ function init() {
 	spotLight.shadowMapWidth = 100;
 	spotLight.shadowMapHeight = 100;
 	spotLight.shadowCameraNear = 3500;
-	spotLight.shadowCameraFar = 5000;
+	spotLight.shadowCameraFar = 5500;
 	spotLight.shadowCameraFov = 30;
 	spotLight.shadowCameraVisible = true;
 	scene.add( spotLight );
@@ -81,9 +81,9 @@ function init() {
 
 	loader = new THREE.JSONLoader();
 
-	loader.load('sample-concrete.js', function (geometry, materials) {  
+	loader.load('sample-concrete.js', function ( geometry, materials ) {  
 		mesh1 = new THREE.Mesh(
-			geometry, new THREE.MeshFaceMaterial(materials)
+			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh1.rotation.x = -Math.PI / 2;
@@ -93,9 +93,9 @@ function init() {
 		scene.add( mesh1 );
 	});
 
-	loader.load('sample-curtain-wall.js', function (geometry, materials) {  
+	loader.load('sample-curtain-wall.js', function ( geometry, materials ) {  
 		mesh2 = new THREE.Mesh(
-			geometry, new THREE.MeshFaceMaterial(materials)
+			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh2.rotation.x = -Math.PI / 2;
@@ -105,9 +105,9 @@ function init() {
 		scene.add( mesh2 );
 	});
 
-	loader.load('sample-steel.js', function (geometry, materials) {  
+	loader.load('sample-steel.js', function ( geometry, materials ) {  
 		mesh3 = new THREE.Mesh(
-			geometry, new THREE.MeshFaceMaterial(materials)
+			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh3.rotation.x = -Math.PI / 2;
@@ -125,12 +125,12 @@ function init() {
 }
 
 function render() {
-	renderer.render(scene, camera);
+	renderer.render( scene, camera );
 }
 
-function modelLoadedCallback(geometry) {
+function modelLoadedCallback( geometry ) {
     mesh1 = new THREE.Mesh( geometry, material );
-    group.add( mesh1ti );
+    group.add( mesh1 );
     mesh2 = new THREE.Mesh( geometry, material );
     group.add( mesh2 );
     mesh3 = new THREE.Mesh( geometry, material );
@@ -139,69 +139,69 @@ function modelLoadedCallback(geometry) {
 }
 
 function onWindowResize() {
-	var win = $(this); //this = window
+	var win = $( this ); //this = window
 	WIDTH = window.innerWidth;
 	HEIGHT = window.innerHeight;
 	camera.aspect = WIDTH / HEIGHT;
 	camera.updateProjectionMatrix();
-	renderer.setSize(WIDTH, HEIGHT);
+	renderer.setSize( WIDTH, HEIGHT );
 	render();
 }
 
-$( 'input#layer1' ).addClass('active');
-$( 'input#layer2' ).addClass('active');
-$( 'input#layer3' ).addClass('active');
+$( 'input#layer1' ).addClass( 'active' );
+$( 'input#layer2' ).addClass( 'active' );
+$( 'input#layer3' ).addClass( 'active' );
 
 $( 'input#layer1' ).change( function() {
-	if( $( 'input#layer1' ).hasClass('active') ){
-		$( 'input#layer1' ).removeClass('active');
+	if( $( 'input#layer1' ).hasClass( 'active' ) ){
+		$( 'input#layer1' ).removeClass( 'active' );
 		scene.remove( mesh1 );
 	} else {
-		$( 'input#layer1' ).addClass('active');
+		$( 'input#layer1' ).addClass( 'active' );
 		scene.add( mesh1 );
 	}
 	render();
 });
 
 $( 'input#layer2' ).change( function() {
-	if( $( 'input#layer2' ).hasClass('active') ){
-		$( 'input#layer2' ).removeClass('active');
+	if( $( 'input#layer2' ).hasClass( 'active' ) ){
+		$( 'input#layer2' ).removeClass( 'active' );
 		scene.remove( mesh2 );
 	} else {
-		$( 'input#layer2' ).addClass('active');
+		$( 'input#layer2' ).addClass( 'active' );
 		scene.add( mesh2 );
 	}
 	render();
 });
 
 $( 'input#layer3' ).change( function() {
-	if( $( 'input#layer3' ).hasClass('active') ){
-		$( 'input#layer3' ).removeClass('active');
+	if( $( 'input#layer3' ).hasClass( 'active' ) ){
+		$( 'input#layer3' ).removeClass( 'active' );
 		scene.remove( mesh3 );
 	} else {
-		$( 'input#layer3' ).addClass('active');
+		$( 'input#layer3' ).addClass( 'active' );
 		scene.add( mesh3 );
 	}
 	render();
 });
 
 $( 'a#view1' ).click( function() {
-	camera.position.set(0, 1000, 2000);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
-	controls.target = new THREE.Vector3(0, 500, 0);
+	camera.position.set( 0, 1000, 2000 );
+	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
+	controls.target = new THREE.Vector3( 0, 500, 0 );
 	render();
 });
 
 $( 'a#view2' ).click( function() {
-	camera.position.set(200, 500, 200);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
-	controls.target = new THREE.Vector3(0, 500, 0);
+	camera.position.set( 200, 500, 200 );
+	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
+	controls.target = new THREE.Vector3( 0, 500, 0 );
 	render();
 });
 
 $( 'a#view3' ).click( function() {
-	camera.position.set(2000, 1500, 2000);
-	camera.lookAt(new THREE.Vector3(0, 500, 0));
-	controls.target = new THREE.Vector3(0, 500, 0);
+	camera.position.set( 2000, 1500, 2000 );
+	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
+	controls.target = new THREE.Vector3( 0, 500, 0 );
 	render();
 });
