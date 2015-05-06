@@ -58,10 +58,10 @@ function init() {
 	light.position.set( 1500, 1500, 1500 );
 	light.target.position.set( 0, 500, 0 );
 	light.castShadow = true;
-	spotLight.shadowMapWidth = 1000;
-	spotLight.shadowMapHeight = 1000;
-	spotLight.shadowCameraNear = 500;
-	spotLight.shadowCameraFar = 3000;
+	light.shadowMapWidth = 1000;
+	light.shadowMapHeight = 1000;
+	light.shadowCameraNear = 500;
+	light.shadowCameraFar = 3000;
 	light.shadowCameraVisible = true;
 	scene.add( light );
 
