@@ -51,7 +51,7 @@ function init() {
  	spotLight.shadowMapWidth = 500;
  	spotLight.shadowMapHeight = 500;
  	spotLight.shadowCameraNear = 2500;
- 	spotLight.shadowCameraFar = 5000;
+ 	spotLight.shadowCameraFar = 8000;
  	spotLight.shadowCameraFov = 45;
  	spotLight.shadowCameraVisible = true;
  	scene.add( spotLight );
