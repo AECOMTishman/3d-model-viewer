@@ -5,12 +5,15 @@ div.left-nav {
   width: 199px;
   height: 99%;
   border-right: 1px solid #ccc;
+  background-color: #fff;
+  z-index: 0;
 }
 
 div#3d {
   position: absolute;
   top: 0px;
-  left: 201px;
-  width: auto;
+  left: 0px;
+  width: 99%;
   height: 99%;
+  z-index: -1;
 }
