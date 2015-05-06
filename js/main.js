@@ -52,12 +52,12 @@ function init() {
 	scene.add(camera);
 
 	var ambient	= new THREE.AmbientLight( 0xffffff );
-	ambient.shadowCameraVisible = true;
 	scene.add( ambient );
 	
 	var light	= new THREE.DirectionalLight( 0xffffff, 1.0 );
 	light.position.set( 1000, 500, 1000 );
 	light.target.position.set( 0, 500, 0 );
+	light.castShadow = true;
 	light.shadowCameraVisible = true;
 	scene.add( light );
 
