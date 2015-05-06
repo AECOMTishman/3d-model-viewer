@@ -232,3 +232,8 @@ $( 'a#light3' ).click( function() {
 	}
 	render();
 });
+
+$( 'a.list-group-item' ).click( function() {
+	this.span.removeClass('glyphicon-chevron-down');
+	this.span.addClass('glyphicon-chevron-up');
+});
