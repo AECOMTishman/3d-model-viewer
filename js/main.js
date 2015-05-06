@@ -96,8 +96,8 @@ function init() {
 		);
 
 		mesh3.rotation.x = -Math.PI / 2;
-		mesh3.castShadow = true;
-		mesh3.receiveShadow = true;
+		mesh3.castShadow = false;
+		mesh3.receiveShadow = false;
 		group.add( mesh3 )
 		scene.add( mesh3 );
 
