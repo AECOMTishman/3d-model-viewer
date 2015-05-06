@@ -50,13 +50,13 @@ function init() {
 	scene.add( ambient );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
-	spotLight.position.set( 0, 5000, 0 );
-	spotLight.target.position.set( 0, 0, 0 );
+	spotLight.position.set( 2000, 4000, -2000 );
+	spotLight.target.position.set( 0, 1000, 0 );
 	spotLight.castShadow = true;
 	spotLight.shadowMapWidth = 100;
 	spotLight.shadowMapHeight = 100;
-	spotLight.shadowCameraNear = 3500;
-	spotLight.shadowCameraFar = 5500;
+	spotLight.shadowCameraNear = 3000;
+	spotLight.shadowCameraFar = 6000;
 	spotLight.shadowCameraFov = 30;
 	spotLight.shadowCameraVisible = true;
 	scene.add( spotLight );
