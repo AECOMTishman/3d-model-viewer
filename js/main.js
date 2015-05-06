@@ -19,6 +19,7 @@ function init() {
 
 	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 	renderer.setSize( WIDTH, HEIGHT );
+	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setClearColor( 0xd6e7fb, 1.0 );
 	renderer.shadowMapEnabled = true;
 	renderer.shadowMapType = THREE.PCFSoftShadowMap;
