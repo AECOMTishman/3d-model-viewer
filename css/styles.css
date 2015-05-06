@@ -29,6 +29,3 @@ div#3d {
 }
 
 #stats { position: absolute; top:0; right: 0 }
-#stats #fps { background: transparent !important }
-#stats #fps #fpsText { color: #555 !important }
-#stats #fps #fpsGraph { display: none }
