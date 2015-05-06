@@ -115,11 +115,11 @@ function init() {
 	});
 
 	terrain = new THREE.Mesh(
-	new THREE.CubeGeometry(100, 1, 100), new THREE.MeshPhongMaterial({
+	new THREE.CubeGeometry(4000, 1, 4000), new THREE.MeshPhongMaterial({
 	    color: 0x00ff00
 	}));
 	terrain.receiveShadow = true;
-	terrain.position.set(0, -2, 0);
+	terrain.position.set(0, -200, 0);
 	terrain.rotation.set(0, 0, 0);
 	scene.add(terrain);
 
