@@ -5,10 +5,10 @@ a#logo {
 
 div.left-nav {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 200px;
-  height: 99%;
+  top: 20px;
+  left: 20px;
+  width: 180px;
+  height: auto;
   z-index: 0;
   text-align: center;
 }
