@@ -52,24 +52,23 @@ function init() {
 	scene.add(camera);
 
 	var ambient	= new THREE.AmbientLight( 0xffffff );
+	ambient.shadowCameraVisible = true;
 	scene.add( ambient );
 	
 	var light	= new THREE.DirectionalLight( 0xffffff, 1.0 );
 	light.position.set( 0, 500, 0 );
+	light.shadowCameraVisible = true;
 	scene.add( light );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
 	spotLight.position.set( 100, 1000, 100 );
-
 	spotLight.castShadow = true;
-
 	spotLight.shadowMapWidth = 1024;
 	spotLight.shadowMapHeight = 1024;
-
 	spotLight.shadowCameraNear = 500;
 	spotLight.shadowCameraFar = 4000;
 	spotLight.shadowCameraFov = 30;
-
+	spotLight.shadowCameraVisible = true;
 	scene.add( spotLight );
 
 	group = new THREE.Object3D();
