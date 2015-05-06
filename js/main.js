@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var scene, renderer, container, camera, controls, loader, mesh1, mesh2, mesh3;
+var scene, renderer, container, camera, controls, loader, stats, mesh1, mesh2, mesh3;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -96,13 +96,20 @@ function init() {
 
     window.addEventListener( 'resize', onWindowResize, false );
 
+    stats = new Stats();
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.top = '0px';
+    container.appendChild( stats.domElement );
+
     animate();
 }
 
 // HELPER FUNCTIONS
 
 function animate() {
+	requestAnimationFrame( animate );
 	controls.update();
+	stats.update();
 }
 
 function render() {
