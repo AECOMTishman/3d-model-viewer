@@ -39,7 +39,7 @@ function init() {
 	controls.minPolarAngle = 0.25 * Math.PI/2;
 	controls.maxPolarAngle = 1.25 * Math.PI/2;
 
-	camera.position.set(2000, 2000, 2000);
+	camera.position.set(2000, 1500, 2000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 	scene.add(camera);
@@ -172,7 +172,7 @@ $( 'a#view2' ).click( function() {
 });
 
 $( 'a#view3' ).click( function() {
-	camera.position.set(2000, 2000, 2000);
+	camera.position.set(2000, 1500, 2000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 	controls.target = new THREE.Vector3(0, 500, 0);
 	render();
