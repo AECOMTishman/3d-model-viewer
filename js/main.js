@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, controls, clock, mesh1, mesh2, mesh3, ambient, light, spotLight, loader, stats;
+var container, scene, renderer, camera, controls, clock, mesh1, mesh2, mesh3, loader, stats;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -46,8 +46,10 @@ function init() {
 
 	scene.add(camera);
 
-	var ambient	= new THREE.AmbientLight( 0xffffff );
-	scene.add( ambient );
+	light = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
+	light.color.setHSL( 1.0, 1.0, 1.0 );
+	light.groundColor.setHSL( 0.095, 1, 0.75 );
+	light.position.set( 0, 500, 0 );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
 	spotLight.position.set( 2000, 4000, -2000 );
