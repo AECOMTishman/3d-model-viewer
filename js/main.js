@@ -36,7 +36,8 @@ function init() {
 	controls.target = new THREE.Vector3(0, 500, 0);
 	controls.minDistance = 200;
 	controls.maxDistance = 8000;
-	controls.maxPolarAngle = Math.PI/2;
+	controls.minPolarAngle = 0.25 * Math.PI/2;
+	controls.maxPolarAngle = 1.25 * Math.PI/2;
 
 	camera.position.set(2000, 2000, 2000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
