@@ -2,11 +2,10 @@ div.left-nav {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 199px;
+  width: 200px;
   height: 99%;
-  border-right: 1px solid #ccc;
-  background-color: #fff;
   z-index: 0;
+  text-align: center;
 }
 
 div#3d {
