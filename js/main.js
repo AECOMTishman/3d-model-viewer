@@ -110,7 +110,7 @@ function init() {
     window.addEventListener( 'resize', onWindowResize, false );
 
     animate();
-    
+
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
 	stats = new Stats();
@@ -120,10 +120,7 @@ function init() {
 }
 
 function animate() {
-	stats.begin();
 	controls.update();
-	stats.end();
-
 	requestAnimationFrame( update );
 }
 
