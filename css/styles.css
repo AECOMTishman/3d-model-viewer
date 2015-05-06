@@ -26,3 +26,7 @@ div#3d {
   height: 100%;
   z-index: -1;
 }
+
+div.class input {
+  float: right;
+}
