@@ -61,7 +61,7 @@ function init() {
 	light.shadowMapWidth = 100;
 	light.shadowMapHeight = 100;
 	light.shadowCameraNear = 500;
-	light.shadowCameraFar = 3000;
+	light.shadowCameraFar = 4000;
 	light.shadowCameraVisible = true;
 	scene.add( light );
 
@@ -71,7 +71,7 @@ function init() {
 	spotLight.castShadow = true;
 	spotLight.shadowMapWidth = 100;
 	spotLight.shadowMapHeight = 100;
-	spotLight.shadowCameraNear = 3000;
+	spotLight.shadowCameraNear = 3500;
 	spotLight.shadowCameraFar = 5000;
 	spotLight.shadowCameraFov = 30;
 	spotLight.shadowCameraVisible = true;
