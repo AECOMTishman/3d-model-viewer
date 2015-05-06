@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, controls, clock, mesh1, mesh2, mesh3, loader, stats;
+var scene, renderer, container, camera, controls, loader, mesh1, mesh2, mesh3;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -10,10 +10,6 @@ VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 1,
 FAR = 9000;
-
-
-
-var clock = new THREE.Clock();
 
 init();
 render();
@@ -26,6 +22,9 @@ function init() {
 	renderer.setClearColor( 0xffffff, 0 );
 	renderer.shadowMapEnabled = true;
 	renderer.shadowMapType = THREE.PCFSoftShadowMap;
+
+	container = document.getElementById( '3d' );
+	container.appendChild( renderer.domElement );
 
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 
@@ -110,18 +109,12 @@ function init() {
     window.addEventListener( 'resize', onWindowResize, false );
 
     animate();
-
-	container = document.getElementById( '3d' );
-	container.appendChild( renderer.domElement );
-	stats = new Stats();
-	stats.setMode( 1 );
-	container.appendChild( stats.domElement );
-    requestAnimationFrame( update );
 }
+
+// HELPER FUNCTIONS
 
 function animate() {
 	controls.update();
-	requestAnimationFrame( update );
 }
 
 function render() {
@@ -133,10 +126,11 @@ function onWindowResize() {
 	WIDTH = window.innerWidth;
 	HEIGHT = window.innerHeight;
 	camera.aspect = WIDTH / HEIGHT;
-	camera.updateProjectionMatrix();
 	renderer.setSize( WIDTH, HEIGHT );
 	render();
 }
+
+// BUTTONS
 
 $( 'input#layer1' ).addClass( 'active' );
 $( 'input#layer2' ).addClass( 'active' );
