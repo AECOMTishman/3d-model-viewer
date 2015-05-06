@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, scene, renderer, camera, controls, mesh1, mesh2, mesh3, light, loader, stats;
+var container, scene, renderer, camera, controls, clock, mesh1, mesh2, mesh3, ambient, light, spotLight, loader, stats;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -10,6 +10,8 @@ VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 1,
 FAR = 10000;
+
+var clock = new THREE.Clock();
 
 init();
 render();
