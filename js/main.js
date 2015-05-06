@@ -9,17 +9,12 @@ HEIGHT = window.innerHeight;
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 1,
-FAR = 10000;
+FAR = 9000;
 
 var clock = new THREE.Clock();
 
 init();
 render();
-
-function animate() {
-	controls.update();
-	stats.update();
-}
 
 function init() {
 	scene = new THREE.Scene();
@@ -124,19 +119,14 @@ function init() {
     animate();
 }
 
+function animate() {
+	controls.update();
+	stats.update();
+}
+
 function render() {
 	renderer.render( scene, camera );
 }
-
-/*function modelLoadedCallback( geometry ) {
-    mesh1 = new THREE.Mesh( geometry, material );
-    group.add( mesh1 );
-    mesh2 = new THREE.Mesh( geometry, material );
-    group.add( mesh2 );
-    mesh3 = new THREE.Mesh( geometry, material );
-    group.add( mesh3 );
-    scene.add( group );
-}*/
 
 function onWindowResize() {
 	var win = $( this ); //this = window
