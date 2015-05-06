@@ -87,9 +87,6 @@ function init() {
 		scene.add( mesh1 );
 	});
 
-	mesh1.castShadow = true;
-	mesh1.receiveShadow = true;
-
 	loader.load('sample-curtain-wall.js', function ( geometry, materials ) {  
 		mesh2 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
@@ -130,6 +127,9 @@ function init() {
 
     animate();
 }
+
+mesh1.castShadow = true;
+mesh1.receiveShadow = true;
 
 function animate() {
 	controls.update();
