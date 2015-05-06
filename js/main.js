@@ -11,6 +11,12 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 1,
 FAR = 9000;
 
+container = document.getElementById( '3d' );
+container.appendChild( renderer.domElement );
+stats = new Stats();
+stats.setMode( 1 );
+container.appendChild( stats.domElement );
+
 var clock = new THREE.Clock();
 
 init();
@@ -24,11 +30,6 @@ function init() {
 	renderer.setClearColor( 0xffffff, 0 );
 	renderer.shadowMapEnabled = true;
 	renderer.shadowMapType = THREE.PCFSoftShadowMap;
-
-	container = document.getElementById( '3d' );
-	container.appendChild( renderer.domElement );
-	stats = new Stats();
-	container.appendChild( stats.domElement );
 
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 
@@ -113,11 +114,16 @@ function init() {
     window.addEventListener( 'resize', onWindowResize, false );
 
     animate();
+
+    requestAnimationFrame( update );
 }
 
 function animate() {
+	stats.begin();
 	controls.update();
-	stats.update();
+	stats.end();
+
+	requestAnimationFrame( update );
 }
 
 function render() {
