@@ -60,7 +60,7 @@ function init() {
 	spotLight.shadowCameraFar = 6000;
 	spotLight.shadowCameraFov = 30;
 	spotLight.shadowCameraVisible = true;
-	scene.add( spotLight );
+	//scene.add( spotLight );
 
 	group = new THREE.Object3D();
 
@@ -73,7 +73,7 @@ function init() {
 
 		mesh1.rotation.x = -Math.PI / 2;
 		mesh1.castShadow = false;
-		mesh1.receiveShadow = true;
+		mesh1.receiveShadow = false;
 		group.add( mesh1 );
 		scene.add( mesh1 );
 	});
