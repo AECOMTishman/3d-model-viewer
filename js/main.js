@@ -58,8 +58,8 @@ function init() {
 	light.position.set( 1500, 1500, 1500 );
 	light.target.position.set( 0, 500, 0 );
 	light.castShadow = true;
-	light.shadowMapWidth = 1000;
-	light.shadowMapHeight = 1000;
+	light.shadowMapWidth = 100;
+	light.shadowMapHeight = 100;
 	light.shadowCameraNear = 500;
 	light.shadowCameraFar = 3000;
 	light.shadowCameraVisible = true;
@@ -69,7 +69,7 @@ function init() {
 	spotLight.position.set( 0, 5000, 0 );
 	spotLight.target.position.set( 0, 0, 0 );
 	spotLight.castShadow = true;
-	spotLight.shadowMapWidth = 1000;
+	spotLight.shadowMapWidth = 100;
 	spotLight.shadowMapHeight = 100;
 	spotLight.shadowCameraNear = 3000;
 	spotLight.shadowCameraFar = 5000;
