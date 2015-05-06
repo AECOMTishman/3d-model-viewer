@@ -47,7 +47,7 @@ function init() {
 	scene.add(camera);
 
 	var ambient	= new THREE.AmbientLight( 0xffffff );
-	scene.add( ambient );
+	//scene.add( ambient );
 	
 	var light	= new THREE.DirectionalLight( 0xffffff, 1.0 );
 	light.position.set( 1500, 1500, 1500 );
@@ -58,7 +58,7 @@ function init() {
 	light.shadowCameraNear = 500;
 	light.shadowCameraFar = 4000;
 	light.shadowCameraVisible = true;
-	scene.add( light );
+	//scene.add( light );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
 	spotLight.position.set( 0, 5000, 0 );
