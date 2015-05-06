@@ -1,6 +1,7 @@
 a#logo {
   display: block;
   margin-bottom: 14px;
+  text-align: center;
 }
 
 div.left-nav {
@@ -10,7 +11,6 @@ div.left-nav {
   width: 180px;
   height: auto;
   z-index: 0;
-  text-align: center;
 }
 
 div#3d {
