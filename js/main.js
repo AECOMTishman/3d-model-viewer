@@ -82,11 +82,13 @@ function init() {
 		);
 
 		mesh1.rotation.x = -Math.PI / 2;
-		mesh1.castShadow = true;
-		mesh1.receiveShadow = true;
+
 		group.add( mesh1 );
 		scene.add( mesh1 );
 	});
+
+	mesh1.castShadow = true;
+	mesh1.receiveShadow = true;
 
 	loader.load('sample-curtain-wall.js', function ( geometry, materials ) {  
 		mesh2 = new THREE.Mesh(
@@ -113,6 +115,16 @@ function init() {
 
 		render();
 	});
+
+	terrain = new THREE.Mesh(
+	new THREE.CubeGeometry(100, 1, 100), new THREE.MeshPhongMaterial({
+	    color: 0x00ff00
+	}));
+	terrain.receiveShadow = true;
+	terrain.position.set(0, -2, 0);
+	terrain.rotation.set(0, 0, 0);
+
+	scene.add(terrain);
 
     window.addEventListener( 'resize', onWindowResize, false );
 
