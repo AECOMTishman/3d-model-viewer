@@ -185,9 +185,9 @@ $( 'a#view1' ).click( function() {
 });
 
 $( 'a#view2' ).click( function() {
-	camera.position.set( 500, 800, 500 );
-	camera.lookAt(new THREE.Vector3( 500, 800, 0 ));
-	controls.target = new THREE.Vector3( 500, 800, 0 );
+	camera.position.set( 600, 800, 600 );
+	camera.lookAt(new THREE.Vector3( 600, 800, 0 ));
+	controls.target = new THREE.Vector3( 600, 800, 0 );
 	render();
 });
 
