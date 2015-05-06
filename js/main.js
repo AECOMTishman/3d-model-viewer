@@ -82,7 +82,8 @@ function init() {
 		);
 
 		mesh1.rotation.x = -Math.PI / 2;
-
+		mesh1.castShadow = true;
+		mesh1.receiveShadow = true;
 		group.add( mesh1 );
 		scene.add( mesh1 );
 	});
@@ -109,8 +110,6 @@ function init() {
 		mesh3.receiveShadow = true;
 		group.add( mesh3 )
 		scene.add( mesh3 );
-
-		render();
 	});
 
 	terrain = new THREE.Mesh(
@@ -123,13 +122,14 @@ function init() {
 
 	scene.add(terrain);
 
+	render();
+
     window.addEventListener( 'resize', onWindowResize, false );
 
     animate();
 }
 
-mesh1.castShadow = true;
-mesh1.receiveShadow = true;
+
 
 function animate() {
 	controls.update();
