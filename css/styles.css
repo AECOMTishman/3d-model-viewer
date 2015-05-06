@@ -8,8 +8,8 @@ div.left-nav {
   position: absolute;
   top: 0px;
   left: 0px;
-  padding: 20px;
-  width: 180px;
+  padding: 20px 0px 0px 20px;
+  width: 220px;
   height: 100%;
   z-index: 0;
 }
