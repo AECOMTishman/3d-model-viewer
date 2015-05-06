@@ -16,7 +16,7 @@
 "materials": [
 {
 "DbgIndex" : 0,
-"DbgName"  : "01 - Default",
+"DbgName"  : "Steel",
 "colorDiffuse"  : [0.3059, 0.0471, 0.0471],
 "colorAmbient"  : [0.3059, 0.0471, 0.0471],
 "colorSpecular"  : [1.0000, 1.0000, 1.0000],

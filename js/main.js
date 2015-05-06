@@ -44,7 +44,7 @@ function init() {
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
 
-	/* Spotlights, Directional Lights, and Point Lights do not work with MeshFaceMaterial.
+	/* Spot Lights, Directional Lights, and Point Lights do not work with MeshFaceMaterial.
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
  	spotLight.position.set( 2000, 4000, -2000 );

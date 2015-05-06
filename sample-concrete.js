@@ -16,7 +16,7 @@
 "materials": [
 {
 "DbgIndex" : 0,
-"DbgName"  : "01 - Default",
+"DbgName"  : "Concrete",
 "colorDiffuse"  : [0.6784, 0.6784, 0.6784],
 "colorAmbient"  : [0.6784, 0.6784, 0.6784],
 "colorSpecular"  : [1.0000, 1.0000, 1.0000],

@@ -16,7 +16,7 @@
 "materials": [
 {
 "DbgIndex" : 0,
-"DbgName"  : "01 - Default",
+"DbgName"  : "Glass",
 "colorDiffuse"  : [1.0000, 1.0000, 1.0000],
 "colorAmbient"  : [1.0000, 1.0000, 1.0000],
 "colorSpecular"  : [1.0000, 1.0000, 1.0000],
@@ -28,7 +28,7 @@
 
 {
 "DbgIndex" : 1,
-"DbgName"  : "02 - Default",
+"DbgName"  : "Aluminum",
 "colorDiffuse"  : [0.5882, 0.5882, 0.5882],
 "colorAmbient"  : [0.5882, 0.5882, 0.5882],
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
