@@ -22,7 +22,6 @@ function init() {
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setClearColor( 0xd6e7fb, 1.0 );
 	renderer.shadowMapEnabled = true;
-	renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
@@ -45,13 +44,13 @@ function init() {
 	scene.add( light );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
- 	spotLight.position.set( 3000, 3000, 3000 );
+ 	spotLight.position.set( 2000, 2000, 3000 );
  	spotLight.target.position.set( 0, 2000, 0 );
  	spotLight.castShadow = true;
  	spotLight.shadowMapWidth = 500;
  	spotLight.shadowMapHeight = 500;
- 	spotLight.shadowCameraNear = 3500;
- 	spotLight.shadowCameraFar = 8500;
+ 	spotLight.shadowCameraNear = 2500;
+ 	spotLight.shadowCameraFar = 7500;
  	spotLight.shadowCameraFov = 45;
  	spotLight.shadowCameraVisible = false; // turn this to "true" to see light
  	scene.add( spotLight );
