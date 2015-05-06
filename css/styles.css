@@ -28,7 +28,7 @@ div#3d {
   z-index: -1;
 }
 
-#stats { position: absolute; top:0; left: 0 }
+#stats { position: absolute; top:0; right: 0 }
 #stats #fps { background: transparent !important }
 #stats #fps #fpsText { color: #555 !important }
 #stats #fps #fpsGraph { display: none }
