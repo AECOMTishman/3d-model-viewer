@@ -56,12 +56,14 @@ function init() {
 	scene.add( ambient );
 	
 	var light	= new THREE.DirectionalLight( 0xffffff, 1.0 );
-	light.position.set( 0, 500, 0 );
+	light.position.set( 1000, 500, 1000 );
+	light.target.position.set( 0, 500, 0 );
 	light.shadowCameraVisible = true;
 	scene.add( light );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
-	spotLight.position.set( 100, 1000, 100 );
+	spotLight.position.set( 0, 3000, 0 );
+	spotLight.target.position.set( 0, 0, 0 );
 	spotLight.castShadow = true;
 	spotLight.shadowMapWidth = 1024;
 	spotLight.shadowMapHeight = 1024;
