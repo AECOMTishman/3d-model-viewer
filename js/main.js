@@ -48,7 +48,7 @@ function init() {
 	light.color.setHSL( 0.6, 1, 0.6 );
 	light.groundColor.setHSL( 0.095, 1, 0.75 );
 	light.position.set( 0, 500, 0 );
-	scene.add( light1 );
+	scene.add( light );
 
 	group = new THREE.Object3D();
 
