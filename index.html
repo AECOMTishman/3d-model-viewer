@@ -7,8 +7,8 @@
     <title>three.js - Tishman BIM</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-toggle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,6 +43,7 @@
         <div class="list-group panel">
           <a href="#demo3" class="list-group-item" data-toggle="collapse" data-parent="#Menu3">Layers <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
           <div class="collapse" id="demo3">
+            <input type="checkbox" checked data-toggle="toggle" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger">
             <a id="layer1" href="javascript:void(0)" class="list-group-item">Slabs</a>
             <a id="layer2" href="javascript:void(0)" class="list-group-item">Curtain Wall</a>
             <a id="layer3" href="javascript:void(0)" class="list-group-item">Steel</a>
@@ -53,6 +54,7 @@
     <div id="3d"></div>
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-toggle.min.js"></script>
     <script src="js/three.min.js"></script>
 
     <script src="js/Detector.js"></script>
