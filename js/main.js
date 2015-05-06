@@ -51,9 +51,9 @@ function init() {
  	spotLight.shadowMapWidth = 500;
  	spotLight.shadowMapHeight = 500;
  	spotLight.shadowCameraNear = 2500;
- 	spotLight.shadowCameraFar = 8000;
+ 	spotLight.shadowCameraFar = 6500;
  	spotLight.shadowCameraFov = 45;
- 	spotLight.shadowCameraVisible = true;
+ 	spotLight.shadowCameraVisible = false; // turn this to "true" to see light
  	scene.add( spotLight );
 
 	group = new THREE.Object3D();
@@ -78,7 +78,7 @@ function init() {
 		);
 
 		mesh2.rotation.x = -Math.PI / 2;
-		mesh2.castShadow = true;
+		mesh2.castShadow = false;
 		mesh2.receiveShadow = true;
 		group.add( mesh2 )
 		scene.add( mesh2 );
