@@ -111,8 +111,8 @@ function modelLoadedCallback(geometry) {
 
 function onWindowResize() {
 	var win = $(this); //this = window
-	HEIGHT = 0.99 * win.height();
-	WIDTH = 0.99 * win.width();
+	WIDTH = 0.99 * window.innerWidth - 200;
+	HEIGHT = 0.99 * window.innerHeight;
 	camera.aspect = WIDTH / HEIGHT;
 	camera.updateProjectionMatrix();
 	renderer.setSize(WIDTH, HEIGHT);
