@@ -49,7 +49,7 @@ function init() {
 	var ambient	= new THREE.AmbientLight( 0xffffff );
 	//scene.add( ambient );
 	
-	var light	= new THREE.DirectionalLight( 0xffffff, 1.0 );
+	var light	= new THREE.DirectionalLight( 0xffffff, 2.0 );
 	light.position.set( 1500, 1500, 1500 );
 	light.target.position.set( 0, 500, 0 );
 	light.castShadow = true;
@@ -58,7 +58,7 @@ function init() {
 	light.shadowCameraNear = 500;
 	light.shadowCameraFar = 4000;
 	light.shadowCameraVisible = true;
-	//scene.add( light );
+	scene.add( light );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
 	spotLight.position.set( 0, 5000, 0 );
@@ -119,7 +119,7 @@ function init() {
 	    color: 0x00ff00
 	}));
 	terrain.receiveShadow = true;
-	terrain.position.set(0, 40, 0);
+	terrain.position.set(0, 0, 0);
 	terrain.rotation.set(0, 0, 0);
 	scene.add(terrain);
 
