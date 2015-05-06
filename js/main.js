@@ -119,115 +119,115 @@ function onWindowResize() {
 	render();
 }
 
-$( 'button#layer1' ).addClass('active');
-$( 'button#layer2' ).addClass('active');
-$( 'button#layer3' ).addClass('active');
+$( 'a#layer1' ).addClass('active');
+$( 'a#layer2' ).addClass('active');
+$( 'a#layer3' ).addClass('active');
 
-$( 'button#layer1' ).click( function() {
-	if( $( 'button#layer1' ).hasClass('active') ){
-		$( 'button#layer1' ).removeClass('active');
+$( 'a#layer1' ).click( function() {
+	if( $( 'a#layer1' ).hasClass('active') ){
+		$( 'a#layer1' ).removeClass('active');
 		scene.remove( mesh1 );
 	} else {
-		$( 'button#layer1' ).addClass('active');
+		$( 'a#layer1' ).addClass('active');
 		scene.add( mesh1 );
 	}
 	render();
 });
 
-$( 'button#layer2' ).click( function() {
-	if( $( 'button#layer2' ).hasClass('active') ){
-		$( 'button#layer2' ).removeClass('active');
+$( 'a#layer2' ).click( function() {
+	if( $( 'a#layer2' ).hasClass('active') ){
+		$( 'a#layer2' ).removeClass('active');
 		scene.remove( mesh2 );
 	} else {
-		$( 'button#layer2' ).addClass('active');
+		$( 'a#layer2' ).addClass('active');
 		scene.add( mesh2 );
 	}
 	render();
 });
 
-$( 'button#layer3' ).click( function() {
-	if( $( 'button#layer3' ).hasClass('active') ){
-		$( 'button#layer3' ).removeClass('active');
+$( 'a#layer3' ).click( function() {
+	if( $( 'a#layer3' ).hasClass('active') ){
+		$( 'a#layer3' ).removeClass('active');
 		scene.remove( mesh3 );
 	} else {
-		$( 'button#layer3' ).addClass('active');
+		$( 'a#layer3' ).addClass('active');
 		scene.add( mesh3 );
 	}
 	render();
 });
 
-$( 'button#view1' ).click( function() {
+$( 'a#view1' ).click( function() {
 	camera.position.set(0, 2000, 2000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 	controls.target = new THREE.Vector3(0, 500, 0);
 	render();
 });
 
-$( 'button#view2' ).click( function() {
+$( 'a#view2' ).click( function() {
 	camera.position.set(0, 3000, 3000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 	controls.target = new THREE.Vector3(0, 500, 0);
 	render();
 });
 
-$( 'button#view3' ).click( function() {
+$( 'a#view3' ).click( function() {
 	camera.position.set(0, 4000, 4000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 	controls.target = new THREE.Vector3(0, 500, 0);
 	render();
 });
 
-$( 'button#light1a' ).addClass('active')
+$( 'a#light1a' ).addClass('active')
 
-$( 'button#light1a' ).click( function() {
-	$( 'button#light1a' ).addClass('active');
-	$( 'button#light1b' ).removeClass('active');
-	$( 'button#light1c' ).removeClass('active');
+$( 'a#light1a' ).click( function() {
+	$( 'a#light1a' ).addClass('active');
+	$( 'a#light1b' ).removeClass('active');
+	$( 'a#light1c' ).removeClass('active');
 	light1.position.set(0, 500, 0);
 	light1.color.setHSL( 0.6, 1, 0.6 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
 	render();
 });
 
-$( 'button#light1b' ).click( function() {
-	$( 'button#light1a' ).removeClass('active');
-	$( 'button#light1b' ).addClass('active');
-	$( 'button#light1c' ).removeClass('active');
+$( 'a#light1b' ).click( function() {
+	$( 'a#light1a' ).removeClass('active');
+	$( 'a#light1b' ).addClass('active');
+	$( 'a#light1c' ).removeClass('active');
 	light1.position.set(0, 1000, 0);
 	light1.color.setHSL( 0.8, 1, 0.8 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
 	render();
 });
 
-$( 'button#light1c' ).click( function() {
-	$( 'button#light1a' ).removeClass('active');
-	$( 'button#light1b' ).removeClass('active');
-	$( 'button#light1c' ).addClass('active');
+$( 'a#light1c' ).click( function() {
+	$( 'a#light1a' ).removeClass('active');
+	$( 'a#light1b' ).removeClass('active');
+	$( 'a#light1c' ).addClass('active');
 	light1.position.set(0, 2000, 0);
 	light1.color.setHSL( 1, 1, 1 );
 	light1.groundColor.setHSL( 0.095, 1, 0.75 );
 	render();
 });
 
-$( 'button#light2' ).addClass('active')
+$( 'a#light2' ).addClass('active')
 
-$( 'button#light2' ).click( function() {
-	if( $( 'button#light2' ).hasClass('active') ){
-		$( 'button#light2' ).removeClass('active');
+$( 'a#light2' ).click( function() {
+	if( $( 'a#light2' ).hasClass('active') ){
+		$( 'a#light2' ).removeClass('active');
 		scene.remove( light2 );
 	} else {
-		$( 'button#light2' ).addClass('active');
+		$( 'a#light2' ).addClass('active');
 		scene.add( light2 );
 	}
 	render();
 });
 
-$( 'button#light3' ).click( function() {
-	if( $( 'button#light3' ).hasClass('active') ){
-		$( 'button#light3' ).removeClass('active');
+$( 'a#light3' ).click( function() {
+	if( $( 'a#light3' ).hasClass('active') ){
+		$( 'a#light3' ).removeClass('active');
 		scene.remove( light3 );
 	} else {
-		$( 'button#light3' ).addClass('active');
+		$( 'a#light3' ).addClass('active');
 		scene.add( light3 );
 	}
 	render();
