@@ -164,14 +164,14 @@ $( 'a#view1' ).click( function() {
 });
 
 $( 'a#view2' ).click( function() {
-	camera.position.set(0, 3000, 3000);
+	camera.position.set(200, 500, 200);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 	controls.target = new THREE.Vector3(0, 500, 0);
 	render();
 });
 
 $( 'a#view3' ).click( function() {
-	camera.position.set(0, 4000, 4000);
+	camera.position.set(3000, 3000, 3000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 	controls.target = new THREE.Vector3(0, 500, 0);
 	render();
