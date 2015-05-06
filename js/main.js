@@ -128,7 +128,7 @@ function render() {
 	renderer.render( scene, camera );
 }
 
-function modelLoadedCallback( geometry ) {
+/*function modelLoadedCallback( geometry ) {
     mesh1 = new THREE.Mesh( geometry, material );
     group.add( mesh1 );
     mesh2 = new THREE.Mesh( geometry, material );
@@ -136,7 +136,7 @@ function modelLoadedCallback( geometry ) {
     mesh3 = new THREE.Mesh( geometry, material );
     group.add( mesh3 );
     scene.add( group );
-}
+}*/
 
 function onWindowResize() {
 	var win = $( this ); //this = window
