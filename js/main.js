@@ -3,8 +3,8 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 var container, scene, renderer, camera, controls, mesh1, mesh2, mesh3, light1, light2, light3, loader;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
-WIDTH = 0.99 * window.innerWidth;
-HEIGHT = 0.99 * window.innerHeight;
+WIDTH = window.innerWidth;
+HEIGHT = window.innerHeight;
 
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
@@ -112,8 +112,8 @@ function modelLoadedCallback(geometry) {
 
 function onWindowResize() {
 	var win = $(this); //this = window
-	WIDTH = 0.99 * window.innerWidth;
-	HEIGHT = 0.99 * window.innerHeight;
+	WIDTH = window.innerWidth;
+	HEIGHT = window.innerHeight;
 	camera.aspect = WIDTH / HEIGHT;
 	camera.updateProjectionMatrix();
 	renderer.setSize(WIDTH, HEIGHT);
