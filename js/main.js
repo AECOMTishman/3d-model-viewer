@@ -11,11 +11,7 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 1,
 FAR = 9000;
 
-container = document.getElementById( '3d' );
-container.appendChild( renderer.domElement );
-stats = new Stats();
-stats.setMode( 1 );
-container.appendChild( stats.domElement );
+
 
 var clock = new THREE.Clock();
 
@@ -114,7 +110,12 @@ function init() {
     window.addEventListener( 'resize', onWindowResize, false );
 
     animate();
-
+    
+	container = document.getElementById( '3d' );
+	container.appendChild( renderer.domElement );
+	stats = new Stats();
+	stats.setMode( 1 );
+	container.appendChild( stats.domElement );
     requestAnimationFrame( update );
 }
 
