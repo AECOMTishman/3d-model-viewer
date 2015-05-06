@@ -120,19 +120,8 @@ function onWindowResize() {
 }
 
 $( 'input#layer1' ).addClass('active');
-$( 'a#layer2' ).addClass('active');
-$( 'a#layer3' ).addClass('active');
-
-/*$( 'a#layer1' ).click( function() {
-	if( $( 'a#layer1' ).hasClass('active') ){
-		$( 'a#layer1' ).removeClass('active');
-		scene.remove( mesh1 );
-	} else {
-		$( 'a#layer1' ).addClass('active');
-		scene.add( mesh1 );
-	}
-	render();
-});*/
+$( 'input#layer2' ).addClass('active');
+$( 'input#layer3' ).addClass('active');
 
 $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass('active') ){
@@ -145,23 +134,23 @@ $( 'input#layer1' ).change( function() {
 	render();
 });
 
-$( 'a#layer2' ).click( function() {
-	if( $( 'a#layer2' ).hasClass('active') ){
-		$( 'a#layer2' ).removeClass('active');
+$( 'input#layer2' ).change( function() {
+	if( $( 'input#layer2' ).hasClass('active') ){
+		$( 'input#layer2' ).removeClass('active');
 		scene.remove( mesh2 );
 	} else {
-		$( 'a#layer2' ).addClass('active');
+		$( 'input#layer2' ).addClass('active');
 		scene.add( mesh2 );
 	}
 	render();
 });
 
-$( 'a#layer3' ).click( function() {
-	if( $( 'a#layer3' ).hasClass('active') ){
-		$( 'a#layer3' ).removeClass('active');
+$( 'input#layer3' ).change( function() {
+	if( $( 'input#layer3' ).hasClass('active') ){
+		$( 'input#layer3' ).removeClass('active');
 		scene.remove( mesh3 );
 	} else {
-		$( 'a#layer3' ).addClass('active');
+		$( 'input#layer3' ).addClass('active');
 		scene.add( mesh3 );
 	}
 	render();
