@@ -38,7 +38,7 @@ function init() {
 	controls.maxDistance = 8000;
 	controls.maxPolarAngle = Math.PI/2;
 
-	camera.position.set(0, 2000, 2000);
+	camera.position.set(2000, 2000, 2000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 
 	scene.add(camera);
@@ -171,7 +171,7 @@ $( 'a#view2' ).click( function() {
 });
 
 $( 'a#view3' ).click( function() {
-	camera.position.set(3000, 3000, 3000);
+	camera.position.set(2000, 2000, 2000);
 	camera.lookAt(new THREE.Vector3(0, 500, 0));
 	controls.target = new THREE.Vector3(0, 500, 0);
 	render();
