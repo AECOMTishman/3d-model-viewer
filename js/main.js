@@ -20,7 +20,6 @@ function init() {
 	scene = new THREE.Scene();
 
 	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
 	renderer.setSize( WIDTH, HEIGHT );
 	renderer.setClearColor( 0xffffff, 0 );
 	renderer.shadowMapEnabled = true;
@@ -43,13 +42,13 @@ function init() {
 
 	camera.position.set( 2000, 1500, 2000 );
 	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
-
 	scene.add(camera);
 
 	light = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
 	light.color.setHSL( 1.0, 1.0, 1.0 );
 	light.groundColor.setHSL( 0.095, 1, 0.75 );
 	light.position.set( 0, 500, 0 );
+	scene.add( light );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
 	spotLight.position.set( 2000, 4000, -2000 );
@@ -129,7 +128,7 @@ function render() {
 }
 
 function onWindowResize() {
-	var win = $( this ); //this = window
+	var win = $( this );
 	WIDTH = window.innerWidth;
 	HEIGHT = window.innerHeight;
 	camera.aspect = WIDTH / HEIGHT;
