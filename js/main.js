@@ -55,20 +55,24 @@ function init() {
 	scene.add( ambient );
 	
 	var light	= new THREE.DirectionalLight( 0xffffff, 1.0 );
-	light.position.set( 1000, 500, 1000 );
+	light.position.set( 1500, 1500, 1500 );
 	light.target.position.set( 0, 500, 0 );
 	light.castShadow = true;
+	spotLight.shadowMapWidth = 1000;
+	spotLight.shadowMapHeight = 1000;
+	spotLight.shadowCameraNear = 500;
+	spotLight.shadowCameraFar = 3000;
 	light.shadowCameraVisible = true;
 	scene.add( light );
 
 	var spotLight = new THREE.SpotLight( 0xffffff );
-	spotLight.position.set( 0, 3000, 0 );
+	spotLight.position.set( 0, 5000, 0 );
 	spotLight.target.position.set( 0, 0, 0 );
 	spotLight.castShadow = true;
-	spotLight.shadowMapWidth = 1024;
-	spotLight.shadowMapHeight = 1024;
-	spotLight.shadowCameraNear = 500;
-	spotLight.shadowCameraFar = 4000;
+	spotLight.shadowMapWidth = 1000;
+	spotLight.shadowMapHeight = 100;
+	spotLight.shadowCameraNear = 3000;
+	spotLight.shadowCameraFar = 5000;
 	spotLight.shadowCameraFov = 30;
 	spotLight.shadowCameraVisible = true;
 	scene.add( spotLight );
