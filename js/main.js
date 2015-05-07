@@ -36,7 +36,7 @@ spotLight.shadowMapHeight = 1000;
 spotLight.shadowCameraNear = 1500;
 spotLight.shadowCameraFar = 6000;
 spotLight.shadowCameraFov = 45;
-spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
+spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 // BUTTON INITIALIZATIONS
 
