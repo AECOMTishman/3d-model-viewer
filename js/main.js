@@ -12,7 +12,7 @@ HEIGHT = window.innerHeight;
 
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
-NEAR = 200,
+NEAR = 10,
 FAR = 8000;
 
 var cw = true;
@@ -64,9 +64,9 @@ function init() {
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
-	controls.target = new THREE.Vector3( 0, 500, 0 );
+	controls.target = new THREE.Vector3( 0, 400, 0 );
 	controls.minDistance = 500;
-	controls.maxDistance = 7500;
+	controls.maxDistance = 6000;
 	controls.minPolarAngle = 0.3 * Math.PI/2;
 	controls.maxPolarAngle = 1.0 * Math.PI/2;
 
