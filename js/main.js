@@ -8,8 +8,8 @@ HEIGHT = window.innerHeight;
 
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
-NEAR = 1,
-FAR = 9000;
+NEAR = 10,
+FAR = 12000;
 
 init();
 render();
@@ -49,6 +49,7 @@ function init() {
  	spotLight.castShadow = true;
  	spotLight.shadowMapWidth = 500;
  	spotLight.shadowMapHeight = 500;
+ 	spotLight.shadowCameraNear = 2000;
  	spotLight.shadowCameraFar = 7000;
  	spotLight.shadowCameraFov = 45;
  	spotLight.shadowCameraVisible = true; // turn this to "true" to see light boundaries
