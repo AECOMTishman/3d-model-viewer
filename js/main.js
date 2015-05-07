@@ -15,16 +15,16 @@ var cw = false;
 var ccw = false;
 
 var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 500, 0 );
+myTarget.position.set( 0, 400, 0 );
 
 var spotLight = new THREE.SpotLight( 0xffffff );
-spotLight.position.x = 2800;
+spotLight.position.x = 2820;
 spotLight.position.y = 2000;
 spotLight.position.z = 0;
 spotLight.target = myTarget; // I don't think this line is working prperly. A target is a 3D Object, not a position vector.
 spotLight.castShadow = true;
-spotLight.shadowMapWidth = 750;
-spotLight.shadowMapHeight = 750;
+spotLight.shadowMapWidth = 1000;
+spotLight.shadowMapHeight = 1000;
 spotLight.shadowCameraNear = 1500;
 spotLight.shadowCameraFar = 6000;
 spotLight.shadowCameraFov = 45;
@@ -147,12 +147,12 @@ function update() {
 	time = clock.getElapsedTime(); // Not using this line of code at the moment.
  	delta = clock.getDelta();
  	if ( cw ){
-		spotLight.position.x = 2800 * Math.cos( time );
-		spotLight.position.z = 2800 * Math.sin( time );
+		spotLight.position.x = 2820 * Math.cos( time );
+		spotLight.position.z = 2820 * Math.sin( time );
  	}
  	if ( ccw ){
-		spotLight.position.x = 2800 * Math.sin( time );
-		spotLight.position.z = 2800 * Math.cos( time );
+		spotLight.position.x = 2820 * Math.sin( time );
+		spotLight.position.z = 2820 * Math.cos( time );
  	}
 	
 }
