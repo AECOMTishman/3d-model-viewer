@@ -184,9 +184,11 @@ $( 'input#layer3' ).change( function() {
 	if( $( 'input#layer3' ).hasClass( 'active' ) ){
 		$( 'input#layer3' ).removeClass( 'active' );
 		scene.remove( mesh3 );
+		scene.remove( mesh4 );
 	} else {
 		$( 'input#layer3' ).addClass( 'active' );
 		scene.add( mesh3 );
+		scene.add( mesh4 );
 	}
 	render();
 });
