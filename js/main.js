@@ -28,7 +28,7 @@ spotLight.shadowMapHeight = 1000;
 spotLight.shadowCameraNear = 1500;
 spotLight.shadowCameraFar = 6000;
 spotLight.shadowCameraFov = 45;
-spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
+spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 init();
 render();
@@ -144,8 +144,8 @@ function init() {
 // HELPER FUNCTIONS
 
 function update() {
-	time = clock.getElapsedTime(); // Not using this line of code at the moment.
- 	delta = clock.getDelta();
+	time = clock.getElapsedTime();
+ 	// delta = clock.getDelta(); // Not using this line of code at the moment.
  	if ( cw ){
 		spotLight.position.x = 2820 * Math.cos( time );
 		spotLight.position.z = 2820 * Math.sin( time );
