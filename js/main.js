@@ -12,7 +12,7 @@ NEAR = 10,
 FAR = 12000;
 
 var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 2000, 0 );
+myTarget.position.set( 0, 750, 0 );
 
 var spotLight = new THREE.SpotLight( 0xffffff );
 spotLight.position.x = 2800;
@@ -112,6 +112,8 @@ function init() {
 		mesh4.receiveShadow = true;
 		group.add( mesh4 );
 		scene.add( mesh4 );
+
+		render();
 	});
 
 	terrain = new THREE.Mesh(
@@ -132,8 +134,6 @@ function init() {
     stats.domElement.style.top = '0px';
     stats.domElement.style.right = '0px';
     container.appendChild( stats.domElement );
-
-    render();
 
     animate();
 }
