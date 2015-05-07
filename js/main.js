@@ -99,7 +99,7 @@ function init() {
 		);
 
 		mesh2.rotation.x = -Math.PI / 2;
-		mesh2.castShadow = false;
+		mesh2.castShadow = true;
 		mesh2.receiveShadow = true;
 		group.add( mesh2 );
 		scene.add( mesh2 );
@@ -197,9 +197,11 @@ $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass( 'active' ) ){
 		$( 'input#layer1' ).removeClass( 'active' );
 		scene.remove( mesh1 );
+		mesh3.castShadow = true;
 	} else {
 		$( 'input#layer1' ).addClass( 'active' );
 		scene.add( mesh1 );
+		mesh3.castShadow = false;
 	}
 });
 
