@@ -11,6 +11,16 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
 FAR = 12000;
 
+var spotLight = new THREE.SpotLight( 0xffffff );
+spotLight.target.position.set( 0, 2000, 0 );
+spotLight.castShadow = true;
+spotLight.shadowMapWidth = 500;
+spotLight.shadowMapHeight = 500;
+spotLight.shadowCameraNear = 2000;
+spotLight.shadowCameraFar = 7000;
+spotLight.shadowCameraFov = 45;
+spotLight.shadowCameraVisible = true; // turn this to "true" to see light boundaries
+
 init();
 render();
 
@@ -43,8 +53,7 @@ function init() {
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
 
-	var spotLight = new THREE.SpotLight( 0xffffff );
- 	spotLight.position.set( 2000, 2000, 3000 );
+	/* var spotLight = new THREE.SpotLight( 0xffffff );
  	spotLight.target.position.set( 0, 2000, 0 );
  	spotLight.castShadow = true;
  	spotLight.shadowMapWidth = 500;
@@ -53,6 +62,7 @@ function init() {
  	spotLight.shadowCameraFar = 7000;
  	spotLight.shadowCameraFov = 45;
  	spotLight.shadowCameraVisible = true; // turn this to "true" to see light boundaries
+ 	*/
  	scene.add( spotLight );
 
 	group = new THREE.Object3D();
