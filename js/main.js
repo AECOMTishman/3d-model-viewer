@@ -49,8 +49,7 @@ function init() {
  	spotLight.castShadow = true;
  	spotLight.shadowMapWidth = 500;
  	spotLight.shadowMapHeight = 500;
- 	spotLight.shadowCameraNear = 2500;
- 	spotLight.shadowCameraFar = 7500;
+ 	spotLight.shadowCameraFar = 7000;
  	spotLight.shadowCameraFov = 45;
  	spotLight.shadowCameraVisible = true; // turn this to "true" to see light boundaries
  	scene.add( spotLight );
