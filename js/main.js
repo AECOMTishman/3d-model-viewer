@@ -183,7 +183,6 @@ function update() {
  	}
  	if ( fc ){
  		spotLight.position.set( camera.position.x, camera.position.y, camera.position.z );
- 		spotLight.applyQuaternion( camera.quaternion );
  	}
 }
 
