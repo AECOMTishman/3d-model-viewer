@@ -154,30 +154,33 @@ function init() {
 
 // HELPER FUNCTIONS
 
-function update() {
-	time = clock.getElapsedTime();
- 	// delta = clock.getDelta(); // Not using this line of code at the moment.
- 	if ( cw ){
-		spotLight.position.x = 2820 * Math.cos( time/10 );
-		spotLight.position.z = 2820 * Math.sin( time/10 );
-		// I want to make this additive, not based on absolute time.
-		// spotLight.position.x += 2820 * Math.cos( 1Math.acos(spotLight.position.x/2820) );
- 	}
- 	if ( ccw ){
-		spotLight.position.x = 2820 * Math.sin( time/10 );
-		spotLight.position.z = 2820 * Math.cos( time/10 );
- 	}
- 	if ( fc ){
- 		spotLight.position = camera.position;
- 	}
-}
-
 function animate() {
 	requestAnimationFrame( animate );
 	controls.update();
 	update();
 	render();
 	stats.update();
+}
+
+function update() {
+ 	// time = clock.getElapsedTime(); // Just keeping this for reference.
+ 	// delta = clock.getDelta(); // Not using this line of code at the moment.
+ 	if ( cw ){
+		time = clock.getElapsedTime();
+		spotLight.position.x = 2820 * Math.cos( time/10 );
+		spotLight.position.z = 2820 * Math.sin( time/10 );
+		// I want to make this additive, not based on absolute time.
+		// spotLight.position.x += 2820 * Math.cos( 1Math.acos(spotLight.position.x/2820) );
+ 	}
+ 	if ( ccw ){
+		time = clock.getElapsedTime();
+		spotLight.position.x = 2820 * Math.sin( time/10 );
+		spotLight.position.z = 2820 * Math.cos( time/10 );
+ 	}
+ 	if ( fc ){
+ 		console.log(camera.position);
+ 		spotLight.position = camera.position;
+ 	}
 }
 
 function render() {
