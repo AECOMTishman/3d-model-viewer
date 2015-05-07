@@ -213,3 +213,30 @@ $( 'a#view3' ).click( function() {
 	controls.target = new THREE.Vector3( 0, 500, 0 );
 	render();
 });
+
+$( 'button#lighta' ).click( function() {
+	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
+		$( 'button#lighta' ).addClass( 'active' );
+		$( 'button#lightb' ).removeClass( 'active' );
+		$( 'button#lightc' ).removeClass( 'active' );
+		// light trigger goes here
+	}
+});
+
+$( 'button#lightb' ).click( function() {
+	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
+		$( 'button#lighta' ).removeClass( 'active' );
+		$( 'button#lightb' ).addClass( 'active' );
+		$( 'button#lightc' ).removeClass( 'active' );
+		// light trigger goes here
+	}
+});
+
+$( 'button#lightc' ).click( function() {
+	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
+		$( 'button#lighta' ).removeClass( 'active' );
+		$( 'button#lightb' ).removeClass( 'active' );
+		$( 'button#lightc' ).addClass( 'active' );
+		// light trigger goes here
+	}
+});
