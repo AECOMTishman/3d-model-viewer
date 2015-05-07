@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var scene, renderer, container, camera, controls, loader, stats, mesh1, mesh2, mesh3, mesh4;
+var scene, renderer, container, camera, controls, loader, stats, spotLight, mesh1, mesh2, mesh3, mesh4;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
