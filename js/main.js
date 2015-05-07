@@ -12,6 +12,7 @@ NEAR = 10,
 FAR = 12000;
 
 var spotLight = new THREE.SpotLight( 0xffffff );
+spotLight.position.y = 2000
 spotLight.target.position.set( 0, 2000, 0 );
 spotLight.castShadow = true;
 spotLight.shadowMapWidth = 500;
