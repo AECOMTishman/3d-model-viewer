@@ -31,6 +31,12 @@ div#LayersMenu div#layersmenu.collapse.in {
   padding: 10px 15px 10px 15px;
 }
 
-div.toggle.btn.btn-success {
-  float: right;
+div.menu-toggle-button {
+  display:block;
+  clear: both;
+  margin-bottom: 4px;
+}
+
+div.menu-toggle-button {
+  
 }
