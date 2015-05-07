@@ -275,19 +275,3 @@ $( 'button#lightc' ).click( function() {
 		ccw = true;
 	}
 });
-
-$( 'button#controla' ).click( function() {
-	if( !$( 'button#controla' ).hasClass( 'active' ) ){
-		$( 'button#controla' ).addClass( 'active' );
-		$( 'button#controlb' ).removeClass( 'active' );
-		// control trigger goes here
-	}
-});
-
-$( 'button#controlb' ).click( function() {
-	if( !$( 'button#controlb' ).hasClass( 'active' ) ){
-		$( 'button#controla' ).removeClass( 'active' );
-		$( 'button#controlb' ).addClass( 'active' );
-		// control trigger goes here
-	}
-});
