@@ -3,19 +3,19 @@ body{
   overflow: hidden;
 }
 
-a#logo {
-  display: block;
-  margin-bottom: 14px;
-}
-
 div.left-nav {
   position: absolute;
   top: 0px;
   left: 0px;
   padding: 20px 0px 0px 20px;
-  width: 190px;
+  width: 200px;
   height: 100%;
   z-index: 0;
+}
+
+a#logo {
+  display: block;
+  margin-bottom: 14px;
 }
 
 div#3d {
