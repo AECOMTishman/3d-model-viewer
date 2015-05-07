@@ -21,8 +21,8 @@
 "colorAmbient"  : [1.0000, 1.0000, 1.0000],
 "colorSpecular"  : [1.0000, 1.0000, 1.0000],
 "transparent": true,
-"transparency"  : 0.25,
-"specularCoef"  : 40.0,
+"transparency"  : 1.00,
+"specularCoef"  : 300.0,
 "vertexColors" : false
 },
 
