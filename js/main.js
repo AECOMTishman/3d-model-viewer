@@ -11,7 +11,8 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
 FAR = 12000;
 
-var spotLight = new THREE.SpotLight( 0xffffff );
+myTarget = new THREE.Object3D();
+spotLight = new THREE.SpotLight( 0xffffff );
 
 init();
 render();
@@ -45,7 +46,6 @@ function init() {
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
 
-	var myTarget = new THREE.Object3D();
 	myTarget.position.set( 0, 2000, 0 );
 
 	spotLight.position.set = ( 2800, 2000, 0 );
