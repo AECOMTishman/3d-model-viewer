@@ -19,6 +19,10 @@ var cw = true;
 var ccw = false;
 var fc = false;
 
+camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
+camera.position.set( 2000, 1500, 2000 );
+camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
+
 var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 400, 0 );
 
@@ -58,8 +62,6 @@ function init() {
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
 
-	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
 	controls.target = new THREE.Vector3( 0, 500, 0 );
@@ -68,8 +70,6 @@ function init() {
 	controls.minPolarAngle = 0.3 * Math.PI/2;
 	controls.maxPolarAngle = 1.0 * Math.PI/2;
 
-	camera.position.set( 2000, 1500, 2000 );
-	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
 	scene.add(camera);
 
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
