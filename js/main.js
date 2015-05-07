@@ -17,7 +17,6 @@ FAR = 15000;
 
 var cw = true;
 var ccw = false;
-var fc = false;
 
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 camera.position.set( 2000, 1500, 2000 );
@@ -163,15 +162,13 @@ function animate() {
 }
 
 function update() {
- 	// time = clock.getElapsedTime(); // Just keeping this for reference.
  	// delta = clock.getDelta(); // Not using this line of code at the moment.
  	if ( cw ){
 		time = clock.getElapsedTime();
 		spotLight.position.x = 2820 * Math.cos( time/10 );
 		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.sin( time/10 );
-		// I want to make this additive, not based on absolute time.
-		// spotLight.position.x += 2820 * Math.cos( 1Math.acos(spotLight.position.x/2820) );
+
  	}
  	if ( ccw ){
 		time = clock.getElapsedTime();
@@ -179,11 +176,6 @@ function update() {
 		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.cos( time/10 );
  	}
- 	/* LEAVE OUT THE FOLLOW CAMERA LIGHT FOR NOW
- 	if ( fc ){
- 		spotLight.position.set( camera.position.x, camera.position.y, camera.position.z );
- 	}
- 	*/
 }
 
 function render() {
@@ -254,56 +246,36 @@ $( 'a#view3' ).click( function() {
 	controls.target = myTarget.position;
 });
 
-/* LEAVE OUT THE FOLLOW CAMERA LIGHT FOR NOW
-$( 'button#followcamera' ).click( function() {
-	if( !$( 'button#followcamera' ).hasClass( 'active' ) ){
-		$( 'button#followcamera' ).addClass( 'active' );
-		$( 'button#lighta' ).removeClass( 'active' );
-		$( 'button#lightb' ).removeClass( 'active' );
-		$( 'button#lightc' ).removeClass( 'active' );
-
-		cw = false;
-		ccw = false;
-		fc = true;
-	}
-});
-*/
 
 $( 'button#lighta' ).click( function() {
 	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
-		$( 'button#followcamera' ).removeClass( 'active' );
 		$( 'button#lighta' ).addClass( 'active' );
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
 
 		cw = true;
 		ccw = false;
-		fc = false;
 	}
 });
 
 $( 'button#lightb' ).click( function() {
 	if( !$( 'button#lightb' ).hasClass( 'active' ) ){
-		$( 'button#followcamera' ).removeClass( 'active' );
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).addClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
 
 		cw = false;
 		ccw = false;
-		fc = false;
 	}
 });
 
 $( 'button#lightc' ).click( function() {
 	if( !$( 'button#lightc' ).hasClass( 'active' ) ){
-		$( 'button#followcamera' ).removeClass( 'active' );
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).addClass( 'active' );
 
 		cw = false;
 		ccw = true;
-		fc = false;
 	}
 });
