@@ -181,6 +181,7 @@ function update() {
  	}
  	if ( fc ){
  		spotLight.position.set( camera.position.x, camera.position.y, camera.position.z );
+ 		spotLight.target.position.set( camera.target.position.x, camera.target.position.y, camera.target.position.z );
  	}
 }
 
