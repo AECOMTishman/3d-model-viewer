@@ -52,7 +52,7 @@ function init() {
  	spotLight.shadowCameraNear = 2500;
  	spotLight.shadowCameraFar = 7500;
  	spotLight.shadowCameraFov = 45;
- 	spotLight.shadowCameraVisible = false; // turn this to "true" to see light
+ 	spotLight.shadowCameraVisible = true; // turn this to "true" to see light boundaries
  	scene.add( spotLight );
 
 	group = new THREE.Object3D();
