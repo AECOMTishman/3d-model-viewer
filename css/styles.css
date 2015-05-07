@@ -40,6 +40,7 @@ div.menu-toggle-button {
 span.toggle-label {
   display: inline-block;
   width: 120px;
+  line-height: 34px;
 }
 
 div.menu-toggle-button div.toggle {
