@@ -151,8 +151,8 @@ function update() {
 		spotLight.position.z = 2800 * Math.sin( time );
  	}
  	if ( ccw ){
-		spotLight.position.x = -2800 * Math.cos( time );
-		spotLight.position.z = -2800 * Math.sin( time );
+		spotLight.position.x = 2800 * Math.sin( time );
+		spotLight.position.z = 2800 * Math.cos( time );
  	}
 	
 }
