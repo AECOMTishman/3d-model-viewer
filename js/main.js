@@ -11,8 +11,11 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
 FAR = 12000;
 
+var cw = false;
+var ccw = false;
+
 var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 750, 0 );
+myTarget.position.set( 0, 500, 0 );
 
 var spotLight = new THREE.SpotLight( 0xffffff );
 spotLight.position.x = 2800;
@@ -141,10 +144,17 @@ function init() {
 // HELPER FUNCTIONS
 
 function update() {
-	time = clock.getElapsedTime();
- 	// delta = clock.getDelta(); // Not using this line of code at the moment.
-	spotLight.position.x = 2800 * Math.cos( time );
-	spotLight.position.z = 2800 * Math.sin( time );
+	// time = clock.getElapsedTime(); // Not using this line of code at the moment.
+ 	delta = clock.getDelta();
+ 	if ( cw ){
+		spotLight.position.x += 2800 * Math.cos( delta );
+		spotLight.position.z += 2800 * Math.sin( delta );
+ 	}
+ 	if ( ccw ){
+		spotLight.position.x += -2800 * Math.cos( delta );
+		spotLight.position.z += -2800 * Math.sin( delta );
+ 	}
+	
 }
 
 function animate() {
@@ -237,7 +247,9 @@ $( 'button#lighta' ).click( function() {
 		$( 'button#lighta' ).addClass( 'active' );
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
-		// light trigger goes here
+
+		cw = true;
+		ccw = false;
 	}
 });
 
@@ -246,7 +258,9 @@ $( 'button#lightb' ).click( function() {
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).addClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
-		// light trigger goes here
+
+		cw = false;
+		ccw = false;
 	}
 });
 
@@ -255,7 +269,9 @@ $( 'button#lightc' ).click( function() {
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).addClass( 'active' );
-		// light trigger goes here
+
+		cw = false;
+		ccw = true;
 	}
 });
 
