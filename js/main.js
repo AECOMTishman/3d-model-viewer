@@ -12,7 +12,18 @@ NEAR = 10,
 FAR = 12000;
 
 myTarget = new THREE.Object3D();
+myTarget.position.set( 0, 2000, 0 );
+
 spotLight = new THREE.SpotLight( 0xffffff );
+spotLight.position.set = ( 2800, 2000, 0 );
+spotLight.target = myTarget; // I don't think this line is working prperly. A target is a 3D Object, not a position vector.
+spotLight.castShadow = true;
+spotLight.shadowMapWidth = 500;
+spotLight.shadowMapHeight = 500;
+spotLight.shadowCameraNear = 1500;
+spotLight.shadowCameraFar = 6000;
+spotLight.shadowCameraFov = 45;
+spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
 init();
 render();
@@ -46,18 +57,7 @@ function init() {
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
 
-	myTarget.position.set( 0, 2000, 0 );
-
-	spotLight.position.set = ( 2800, 2000, 0 );
-	spotLight.target = myTarget; // I don't think this line is working prperly. A target is a 3D Object, not a position vector.
-	spotLight.castShadow = true;
-	spotLight.shadowMapWidth = 500;
-	spotLight.shadowMapHeight = 500;
-	spotLight.shadowCameraNear = 1500;
-	spotLight.shadowCameraFar = 6000;
-	spotLight.shadowCameraFov = 45;
-	spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
-
+	scene.add( myTarget );
  	scene.add( spotLight );
 
 	group = new THREE.Object3D();
