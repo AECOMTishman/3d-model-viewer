@@ -13,7 +13,7 @@ HEIGHT = window.innerHeight;
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
-FAR = 15000;
+FAR = 8000;
 
 var cw = true;
 var ccw = false;
@@ -34,7 +34,7 @@ spotLight.castShadow = true;
 spotLight.shadowMapWidth = 1500;
 spotLight.shadowMapHeight = 1000;
 spotLight.shadowCameraNear = 500;
-spotLight.shadowCameraFar = 7500;
+spotLight.shadowCameraFar = 6000;
 spotLight.shadowCameraFov = 45;
 spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
