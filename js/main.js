@@ -12,7 +12,7 @@ HEIGHT = window.innerHeight;
 
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
-NEAR = 100,
+NEAR = 200,
 FAR = 8000;
 
 var cw = true;
@@ -21,7 +21,7 @@ var fc = false;
 
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 camera.position.set( 2000, 1500, 2000 );
-camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
+camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
 
 var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 400, 0 );
@@ -231,8 +231,8 @@ $( 'input#layer3' ).change( function() {
 
 $( 'a#view1' ).click( function() {
 	camera.position.set( 0, 1000, 2000 );
-	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
-	controls.target = new THREE.Vector3( 0, 500, 0 );
+	camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
+	controls.target = new THREE.Vector3( 0, 400, 0 );
 });
 
 $( 'a#view2' ).click( function() {
@@ -243,8 +243,8 @@ $( 'a#view2' ).click( function() {
 
 $( 'a#view3' ).click( function() {
 	camera.position.set( 2000, 1500, 2000 );
-	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
-	controls.target = new THREE.Vector3( 0, 500, 0 );
+	camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
+	controls.target = new THREE.Vector3( 0, 400, 0 );
 });
 
 $( 'button#followcamera' ).click( function() {
