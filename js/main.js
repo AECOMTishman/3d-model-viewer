@@ -13,7 +13,7 @@ HEIGHT = window.innerHeight;
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
-FAR = 18000;
+FAR = 15000;
 
 var cw = true;
 var ccw = false;
@@ -34,10 +34,10 @@ spotLight.target = myTarget;
 spotLight.castShadow = true;
 spotLight.shadowMapWidth = 1500;
 spotLight.shadowMapHeight = 1000;
-spotLight.shadowCameraNear = 5;
-spotLight.shadowCameraFar = 7500;
+spotLight.shadowCameraNear = 10;
+spotLight.shadowCameraFar = 20000;
 spotLight.shadowCameraFov = 45;
-spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
+spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 // BUTTON INITIALIZATIONS
 
@@ -66,7 +66,7 @@ function init() {
 	controls.addEventListener( 'change', render );
 	controls.target = new THREE.Vector3( 0, 400, 0 );
 	controls.minDistance = 500;
-	controls.maxDistance = 6000;
+	controls.maxDistance = 5000;
 	controls.minPolarAngle = 0.3 * Math.PI/2;
 	controls.maxPolarAngle = 1.0 * Math.PI/2;
 
