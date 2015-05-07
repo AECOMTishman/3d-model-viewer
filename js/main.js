@@ -170,7 +170,6 @@ function update() {
 		spotLight.position.x = 2820 * Math.cos( time/10 );
 		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.sin( time/10 );
-		myTarget.position.set( 0, 400, 0 );
 		// I want to make this additive, not based on absolute time.
 		// spotLight.position.x += 2820 * Math.cos( 1Math.acos(spotLight.position.x/2820) );
  	}
@@ -179,7 +178,6 @@ function update() {
 		spotLight.position.x = 2820 * Math.sin( time/10 );
 		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.cos( time/10 );
-		myTarget.position.set( 0, 400, 0 );
  	}
  	if ( fc ){
  		spotLight.position.set( camera.position.x, camera.position.y, camera.position.z );
