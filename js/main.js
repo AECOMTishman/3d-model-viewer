@@ -20,9 +20,7 @@ var ccw = false;
 var fc = false;
 
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-camera.position.x = 2000;
-camera.position.y = 1500;
-camera.position.z = 2000;
+camera.position.set( 2000, 1500, 2000 );
 camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
 
 var myTarget = new THREE.Object3D();
@@ -180,7 +178,7 @@ function update() {
 		spotLight.position.z = 2820 * Math.cos( time/10 );
  	}
  	if ( fc ){
- 		spotLight.position.set( camera.position,x, camera.position.y, camera.position.z );
+ 		spotLight.position.set( camera.position.x, camera.position.y, camera.position.z );
  	}
 }
 
