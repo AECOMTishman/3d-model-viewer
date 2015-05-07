@@ -64,7 +64,7 @@ function init() {
 
 	controls = new THREE.OrbitControls( camera );
 	controls.addEventListener( 'change', render );
-	controls.target = new THREE.Vector3( 0, 400, 0 );
+	controls.target = myTarget.position;
 	controls.minDistance = 500;
 	controls.maxDistance = 5000;
 	controls.minPolarAngle = 0.3 * Math.PI/2;
