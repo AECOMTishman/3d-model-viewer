@@ -27,6 +27,10 @@ div#3d {
   z-index: -1;
 }
 
-div.class input {
+div#LayersMenu div#layersmenu.collapse.in {
+  padding: 10px 15px 10px 15px;
+}
+
+div.toggle.btn.btn-success {
   float: right;
 }
