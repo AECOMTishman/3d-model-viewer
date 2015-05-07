@@ -17,6 +17,7 @@ FAR = 12000;
 
 var cw = true;
 var ccw = false;
+var fc = false;
 
 var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 400, 0 );
@@ -166,6 +167,9 @@ function update() {
 		spotLight.position.x = 2820 * Math.sin( time/10 );
 		spotLight.position.z = 2820 * Math.cos( time/10 );
  	}
+ 	if ( fc ){
+ 		spotLight.position = camera.position;
+ 	}
 }
 
 function animate() {
@@ -241,35 +245,54 @@ $( 'a#view3' ).click( function() {
 	controls.target = new THREE.Vector3( 0, 500, 0 );
 });
 
+$( 'button#followcamera' ).click( function() {
+	if( !$( 'button#followcamera' ).hasClass( 'active' ) ){
+		$( 'button#followcamera' ).addClass( 'active' );
+		$( 'button#lighta' ).removeClass( 'active' );
+		$( 'button#lightb' ).removeClass( 'active' );
+		$( 'button#lightc' ).removeClass( 'active' );
+
+		cw = false;
+		ccw = false;
+		fc = true;
+	}
+});
+
 $( 'button#lighta' ).click( function() {
 	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
+		$( 'button#followcamera' ).removeClass( 'active' );
 		$( 'button#lighta' ).addClass( 'active' );
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
 
 		cw = true;
 		ccw = false;
+		fc = false;
 	}
 });
 
 $( 'button#lightb' ).click( function() {
 	if( !$( 'button#lightb' ).hasClass( 'active' ) ){
+		$( 'button#followcamera' ).removeClass( 'active' );
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).addClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
 
 		cw = false;
 		ccw = false;
+		fc = false;
 	}
 });
 
 $( 'button#lightc' ).click( function() {
 	if( !$( 'button#lightc' ).hasClass( 'active' ) ){
+		$( 'button#followcamera' ).removeClass( 'active' );
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).addClass( 'active' );
 
 		cw = false;
 		ccw = true;
+		fc = false;
 	}
 });
