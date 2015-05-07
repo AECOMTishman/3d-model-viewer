@@ -20,7 +20,9 @@ var ccw = false;
 var fc = false;
 
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-camera.position.set( 2000, 1500, 2000 );
+camera.position.x = 2000;
+camera.position.y = 1500;
+camera.position.z = 2000;
 camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
 
 var myTarget = new THREE.Object3D();
