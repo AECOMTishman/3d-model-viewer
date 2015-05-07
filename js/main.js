@@ -236,20 +236,23 @@ $( 'input#layer3' ).change( function() {
 
 $( 'a#view1' ).click( function() {
 	camera.position.set( 0, 1000, 2000 );
-	camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
-	controls.target = new THREE.Vector3( 0, 400, 0 );
+	myTarget.position.set( 0, 400, 0 );
+	camera.lookAt( myTarget.position );
+	controls.target = myTarget.position;
 });
 
 $( 'a#view2' ).click( function() {
 	camera.position.set( 600, 800, 600 );
-	camera.lookAt(new THREE.Vector3( 600, 800, 0 ));
-	controls.target = new THREE.Vector3( 600, 800, 0 );
+	myTarget.position.set( 600, 800, 0 );
+	camera.lookAt( myTarget.position );
+	controls.target = myTarget.position;
 });
 
 $( 'a#view3' ).click( function() {
 	camera.position.set( 2000, 1500, 2000 );
-	camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
-	controls.target = new THREE.Vector3( 0, 400, 0 );
+	myTarget.position.set( 0, 400, 0 );
+	camera.lookAt( myTarget.position );
+	controls.target = myTarget.position;
 });
 
 $( 'button#followcamera' ).click( function() {
