@@ -178,7 +178,7 @@ function update() {
 		spotLight.position.z = 2820 * Math.cos( time/10 );
  	}
  	if ( fc ){
- 		spotLight.position.set( camera.position.x + 10, camera.position.y + 500, camera.position.z + 10 );
+ 		spotLight.position.set( 2 * camera.position.x, 2 * camera.position.y, 2 * camera.position.z );
  	}
 }
 
