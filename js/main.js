@@ -40,7 +40,7 @@ spotLight.shadowCameraVisible = false; // Turn this to "true" to see light bound
 
 var sphere = new THREE.SphereGeometry( 100, 16, 8 );
 var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-orb_mesh.scale.set( 100, 100, 100 );
+orb_mesh.scale.set( 1, 1, 1 );
 spotLight.add( orb_mesh );
 
 // BUTTON INITIALIZATIONS
