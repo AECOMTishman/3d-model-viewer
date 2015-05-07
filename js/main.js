@@ -157,6 +157,8 @@ function onWindowResize() {
 $( 'input#layer1' ).addClass( 'active' );
 $( 'input#layer2' ).addClass( 'active' );
 $( 'input#layer3' ).addClass( 'active' );
+$( 'button#lightb' ).addClass( 'active' );
+$( 'button#controlb' ).addClass( 'active' );
 
 $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass( 'active' ) ){

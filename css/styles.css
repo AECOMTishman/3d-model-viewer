@@ -56,3 +56,7 @@ div#ControlsMenu div#controlsmenu {
   padding: 10px 15px 10px 15px;
   text-align: center;
 }
+
+button#controla {
+  margin-bottom: 4px;
+}
