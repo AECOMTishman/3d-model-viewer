@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var scene, renderer, container, camera, controls, loader, clock, stats, myTarget, spotLight, mesh1, mesh2, mesh3, mesh4;
+var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -11,10 +11,10 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
 FAR = 12000;
 
-myTarget = new THREE.Object3D();
+var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 2000, 0 );
 
-spotLight = new THREE.SpotLight( 0xffffff );
+var spotLight = new THREE.SpotLight( 0xffffff );
 spotLight.position.set = ( 2800, 2000, 0 );
 spotLight.target = myTarget; // I don't think this line is working prperly. A target is a 3D Object, not a position vector.
 spotLight.castShadow = true;
