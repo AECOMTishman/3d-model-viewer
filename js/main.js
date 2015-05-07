@@ -37,7 +37,7 @@ spotLight.shadowMapHeight = 1000;
 spotLight.shadowCameraNear = 10;
 spotLight.shadowCameraFar = 20000;
 spotLight.shadowCameraFov = 45;
-spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
 // BUTTON INITIALIZATIONS
 
@@ -179,9 +179,11 @@ function update() {
 		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.cos( time/10 );
  	}
+ 	/* LEAVE OUT THE FOLLOW CAMERA LIGHT FOR NOW
  	if ( fc ){
  		spotLight.position.set( camera.position.x, camera.position.y, camera.position.z );
  	}
+ 	*/
 }
 
 function render() {
@@ -252,6 +254,7 @@ $( 'a#view3' ).click( function() {
 	controls.target = myTarget.position;
 });
 
+/* LEAVE OUT THE FOLLOW CAMERA LIGHT FOR NOW
 $( 'button#followcamera' ).click( function() {
 	if( !$( 'button#followcamera' ).hasClass( 'active' ) ){
 		$( 'button#followcamera' ).addClass( 'active' );
@@ -264,6 +267,7 @@ $( 'button#followcamera' ).click( function() {
 		fc = true;
 	}
 });
+*/
 
 $( 'button#lighta' ).click( function() {
 	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
