@@ -160,6 +160,7 @@ function onWindowResize() {
 	WIDTH = window.innerWidth;
 	HEIGHT = window.innerHeight;
 	camera.aspect = WIDTH / HEIGHT;
+	camera.updateProjectionMatrix();
 	renderer.setSize( WIDTH, HEIGHT );
 	render();
 }
