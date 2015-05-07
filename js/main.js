@@ -11,6 +11,8 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
 FAR = 12000;
 
+var spotLight = new THREE.SpotLight( 0xffffff );
+
 init();
 render();
 
@@ -46,8 +48,7 @@ function init() {
 	var myTarget = new THREE.Object3D();
 	myTarget.position.set( 0, 2000, 0 );
 
-	var spotLight = new THREE.SpotLight( 0xffffff );
-	spotLight.position.y = 2000
+	spotLight.position.set = ( 2800, 2000, 0 );
 	spotLight.target = myTarget; // I don't think this line is working prperly. A target is a 3D Object, not a position vector.
 	spotLight.castShadow = true;
 	spotLight.shadowMapWidth = 500;
