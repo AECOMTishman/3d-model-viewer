@@ -1,4 +1,8 @@
+// WebGL DETECTOR
+
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+// GLOBAL VARIABLES
 
 var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
@@ -11,7 +15,7 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
 FAR = 12000;
 
-var cw = false;
+var cw = true;
 var ccw = false;
 
 var myTarget = new THREE.Object3D();
@@ -21,7 +25,7 @@ var spotLight = new THREE.SpotLight( 0xffffff );
 spotLight.position.x = 2820;
 spotLight.position.y = 2000;
 spotLight.position.z = 0;
-spotLight.target = myTarget; // I don't think this line is working prperly. A target is a 3D Object, not a position vector.
+spotLight.target = myTarget;
 spotLight.castShadow = true;
 spotLight.shadowMapWidth = 1500;
 spotLight.shadowMapHeight = 1000;
@@ -29,6 +33,15 @@ spotLight.shadowCameraNear = 1500;
 spotLight.shadowCameraFar = 6000;
 spotLight.shadowCameraFov = 45;
 spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+
+// BUTTON INITIALIZATIONS
+
+$( 'input#layer1' ).addClass( 'active' );
+$( 'input#layer2' ).addClass( 'active' );
+$( 'input#layer3' ).addClass( 'active' );
+$( 'button#lighta' ).addClass( 'active' );
+
+// MAIN FUNCTION
 
 init();
 
@@ -172,16 +185,9 @@ function onWindowResize() {
 	camera.aspect = WIDTH / HEIGHT;
 	camera.updateProjectionMatrix();
 	renderer.setSize( WIDTH, HEIGHT );
-	render();
 }
 
 // BUTTONS
-
-$( 'input#layer1' ).addClass( 'active' );
-$( 'input#layer2' ).addClass( 'active' );
-$( 'input#layer3' ).addClass( 'active' );
-$( 'button#lightb' ).addClass( 'active' );
-$( 'button#controlb' ).addClass( 'active' );
 
 $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass( 'active' ) ){
