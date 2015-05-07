@@ -11,7 +11,7 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
 FAR = 12000;
 
-var target = new Object3D();
+var target = new THREE.Object3D();
 target.position.set( 0, 2000, 0);
 
 var spotLight = new THREE.SpotLight( 0xffffff );
