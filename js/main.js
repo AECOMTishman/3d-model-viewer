@@ -13,7 +13,7 @@ HEIGHT = window.innerHeight;
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 100,
-FAR = 10000;
+FAR = 8000;
 
 var cw = true;
 var ccw = false;
