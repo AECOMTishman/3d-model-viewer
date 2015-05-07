@@ -142,8 +142,6 @@ function update() {
  	// delta = clock.getDelta(); // Not using this line of code at the moment.
 	spotLight.position.x = 2800 * Math.cos( time );
 	spotLight.position.z = 2800 * Math.sin( time );
-	render();
-	update();
 }
 
 function animate() {
@@ -153,6 +151,7 @@ function animate() {
 }
 
 function render() {
+	update();
 	renderer.render( scene, camera );
 }
 
