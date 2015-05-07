@@ -27,7 +27,7 @@ div#3d {
   z-index: -1;
 }
 
-div#LayersMenu div#layersmenu.collapse.in {
+div#LayersMenu div#layersmenu {
   padding: 10px 15px 10px 15px;
 }
 
@@ -37,6 +37,6 @@ div.menu-toggle-button {
   margin-bottom: 4px;
 }
 
-div.menu-toggle-button {
-  
+div.menu-toggle-button div.toggle {
+  float: right;
 }
