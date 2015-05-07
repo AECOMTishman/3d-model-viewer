@@ -93,7 +93,7 @@ function init() {
 		scene.add( mesh1 );
 	});
 
-	loader.load('sturcture.js', function ( geometry, materials ) {  
+	loader.load('structure.js', function ( geometry, materials ) {  
 		mesh2 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
