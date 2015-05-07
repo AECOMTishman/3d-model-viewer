@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var scene, renderer, container, camera, controls, loader, stats, spotLight, mesh1, mesh2, mesh3, mesh4;
+var scene, renderer, container, camera, controls, loader, clock, stats, spotLight, mesh1, mesh2, mesh3, mesh4;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -126,6 +126,8 @@ function init() {
 
     window.addEventListener( 'resize', onWindowResize, false );
 
+    clock = new THREE.Clock();
+
     stats = new Stats();
     stats.domElement.style.position = 'absolute';
     stats.domElement.style.top = '0px';
@@ -139,16 +141,17 @@ function init() {
 
 function animate() {
 	requestAnimationFrame( animate );
+	
+	time = clock.getElapsedTime();
+ 	delta = clock.getDelta();
+	spotLight.position.x = 2800 * Math.cos( time );
+	spotLight.position.z = 2800 * Math.sin( time );
+
 	controls.update();
 	stats.update();
 }
 
 function render() {
-	var timer = -0.0002 * Date.now();
-
-	spotLight.position.x = 2800 * Math.cos( timer );
-	spotLight.position.z = 2800 * Math.sin( timer );
-
 	renderer.render( scene, camera );
 }
 
