@@ -144,15 +144,15 @@ function init() {
 // HELPER FUNCTIONS
 
 function update() {
-	// time = clock.getElapsedTime(); // Not using this line of code at the moment.
+	time = clock.getElapsedTime(); // Not using this line of code at the moment.
  	delta = clock.getDelta();
  	if ( cw ){
-		spotLight.position.x += 2800 * Math.cos( delta );
-		spotLight.position.z += 2800 * Math.sin( delta );
+		spotLight.position.x = 2800 * Math.cos( time );
+		spotLight.position.z = 2800 * Math.sin( time );
  	}
  	if ( ccw ){
-		spotLight.position.x += -2800 * Math.cos( delta );
-		spotLight.position.z += -2800 * Math.sin( delta );
+		spotLight.position.x = -2800 * Math.cos( time );
+		spotLight.position.z = -2800 * Math.sin( time );
  	}
 	
 }
