@@ -224,7 +224,7 @@ $( 'button#lighta' ).click( function() {
 });
 
 $( 'button#lightb' ).click( function() {
-	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
+	if( !$( 'button#lightb' ).hasClass( 'active' ) ){
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).addClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
@@ -233,7 +233,7 @@ $( 'button#lightb' ).click( function() {
 });
 
 $( 'button#lightc' ).click( function() {
-	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
+	if( !$( 'button#lightc' ).hasClass( 'active' ) ){
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).addClass( 'active' );

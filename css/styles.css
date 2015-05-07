@@ -46,3 +46,11 @@ span.toggle-label {
 div.menu-toggle-button div.toggle {
   float: right;
 }
+
+div#LightsMenu div#lightsmenu {
+  text-align: center;
+}
+
+div#ControlsMenu div#controlsmenu {
+  padding: 10px 15px 10px 15px;
+}
