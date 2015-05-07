@@ -81,43 +81,43 @@ function init() {
 
 	loader = new THREE.JSONLoader();
 
-	loader.load('sample-concrete.js', function ( geometry, materials ) {  
+	loader.load('environment.js', function ( geometry, materials ) {  
 		mesh1 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh1.rotation.x = -Math.PI / 2;
-		mesh1.castShadow = true;
+		mesh1.castShadow = false;
 		mesh1.receiveShadow = true;
 		group.add( mesh1 );
 		scene.add( mesh1 );
 	});
 
-	loader.load('sample-curtain-wall.js', function ( geometry, materials ) {  
+	loader.load('sturcture.js', function ( geometry, materials ) {  
 		mesh2 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh2.rotation.x = -Math.PI / 2;
-		mesh2.castShadow = false;
+		mesh2.castShadow = true;
 		mesh2.receiveShadow = true;
 		group.add( mesh2 );
 		scene.add( mesh2 );
 	});
 
-	loader.load('sample-steel-beams.js', function ( geometry, materials ) {  
+	loader.load('facade.js', function ( geometry, materials ) {  
 		mesh3 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh3.rotation.x = -Math.PI / 2;
-		mesh3.castShadow = false;
+		mesh3.castShadow = true;
 		mesh3.receiveShadow = true;
 		group.add( mesh3 );
 		scene.add( mesh3 );
 	});
 
-	loader.load('sample-steel-columns.js', function ( geometry, materials ) {  
+	loader.load('interior.js', function ( geometry, materials ) {  
 		mesh4 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -128,15 +128,6 @@ function init() {
 		group.add( mesh4 );
 		scene.add( mesh4 );
 	});
-
-	terrain = new THREE.Mesh(
-	new THREE.CubeGeometry(4000, 10, 4000), new THREE.MeshPhongMaterial({
-	    color: 0x46882c
-	}));
-	terrain.receiveShadow = true;
-	terrain.position.set(0, -10, 0);
-	terrain.rotation.set(0, 0, 0);
-	scene.add(terrain);
 
     window.addEventListener( 'resize', onWindowResize, false );
 
@@ -196,31 +187,29 @@ function onWindowResize() {
 $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass( 'active' ) ){
 		$( 'input#layer1' ).removeClass( 'active' );
-		scene.remove( mesh1 );
+		scene.remove( mesh2 );
 	} else {
 		$( 'input#layer1' ).addClass( 'active' );
-		scene.add( mesh1 );
+		scene.add( mesh2 );
 	}
 });
 
 $( 'input#layer2' ).change( function() {
 	if( $( 'input#layer2' ).hasClass( 'active' ) ){
 		$( 'input#layer2' ).removeClass( 'active' );
-		scene.remove( mesh2 );
+		scene.remove( mesh3 );
 	} else {
 		$( 'input#layer2' ).addClass( 'active' );
-		scene.add( mesh2 );
+		scene.add( mesh3 );
 	}
 });
 
 $( 'input#layer3' ).change( function() {
 	if( $( 'input#layer3' ).hasClass( 'active' ) ){
 		$( 'input#layer3' ).removeClass( 'active' );
-		scene.remove( mesh3 );
 		scene.remove( mesh4 );
 	} else {
 		$( 'input#layer3' ).addClass( 'active' );
-		scene.add( mesh3 );
 		scene.add( mesh4 );
 	}
 });
