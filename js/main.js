@@ -131,8 +131,9 @@ function init() {
     stats.domElement.style.right = '0px';
     container.appendChild( stats.domElement );
 
+    render();
+
     animate();
-    update();
 }
 
 // HELPER FUNCTIONS
