@@ -157,12 +157,14 @@ function update() {
 	time = clock.getElapsedTime();
  	// delta = clock.getDelta(); // Not using this line of code at the moment.
  	if ( cw ){
-		spotLight.position.x = 2820 * Math.cos( time );
-		spotLight.position.z = 2820 * Math.sin( time );
+		spotLight.position.x = 2820 * Math.cos( time/10 );
+		spotLight.position.z = 2820 * Math.sin( time/10 );
+		// I want to make this additive, not based on absolute time.
+		// spotLight.position.x += 2820 * Math.cos( 1Math.acos(spotLight.position.x/2820) );
  	}
  	if ( ccw ){
-		spotLight.position.x = 2820 * Math.sin( time );
-		spotLight.position.z = 2820 * Math.cos( time );
+		spotLight.position.x = 2820 * Math.sin( time/10 );
+		spotLight.position.z = 2820 * Math.cos( time/10 );
  	}
 }
 
