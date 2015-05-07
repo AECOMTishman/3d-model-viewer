@@ -168,6 +168,7 @@ function update() {
  	if ( cw ){
 		time = clock.getElapsedTime();
 		spotLight.position.x = 2820 * Math.cos( time/10 );
+		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.sin( time/10 );
 		// I want to make this additive, not based on absolute time.
 		// spotLight.position.x += 2820 * Math.cos( 1Math.acos(spotLight.position.x/2820) );
@@ -175,6 +176,7 @@ function update() {
  	if ( ccw ){
 		time = clock.getElapsedTime();
 		spotLight.position.x = 2820 * Math.sin( time/10 );
+		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.cos( time/10 );
  	}
  	if ( fc ){
