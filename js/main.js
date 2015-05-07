@@ -140,6 +140,11 @@ function animate() {
 }
 
 function render() {
+	var timer = -0.0002 * Date.now();
+
+	spotLight.position.x = 2800 * Math.cos( timer );
+	spotLight.position.z = 2800 * Math.sin( timer );
+
 	renderer.render( scene, camera );
 }
 
