@@ -1,6 +1,6 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var scene, renderer, container, camera, controls, loader, clock, stats, spotLight, mesh1, mesh2, mesh3, mesh4;
+var scene, renderer, container, camera, controls, loader, clock, stats, myTarget, spotLight, mesh1, mesh2, mesh3, mesh4;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -10,20 +10,6 @@ VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
 FAR = 12000;
-
-var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 2000, 0 );
-
-var spotLight = new THREE.SpotLight( 0xffffff );
-spotLight.position.y = 2000
-spotLight.target = myTarget; // I don't think this line is working prperly. A target is a 3D Object, not a position vector.
-spotLight.castShadow = true;
-spotLight.shadowMapWidth = 500;
-spotLight.shadowMapHeight = 500;
-spotLight.shadowCameraNear = 1500;
-spotLight.shadowCameraFar = 6000;
-spotLight.shadowCameraFov = 45;
-spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
 init();
 render();
@@ -56,6 +42,20 @@ function init() {
 
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
+
+	var myTarget = new THREE.Object3D();
+	myTarget.position.set( 0, 2000, 0 );
+
+	var spotLight = new THREE.SpotLight( 0xffffff );
+	spotLight.position.y = 2000
+	spotLight.target = myTarget; // I don't think this line is working prperly. A target is a 3D Object, not a position vector.
+	spotLight.castShadow = true;
+	spotLight.shadowMapWidth = 500;
+	spotLight.shadowMapHeight = 500;
+	spotLight.shadowCameraNear = 1500;
+	spotLight.shadowCameraFar = 6000;
+	spotLight.shadowCameraFov = 45;
+	spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
  	scene.add( spotLight );
 
@@ -97,8 +97,6 @@ function init() {
 		mesh3.receiveShadow = true;
 		group.add( mesh3 );
 		scene.add( mesh3 );
-
-		render();
 	});
 
 	loader.load('sample-steel-columns.js', function ( geometry, materials ) {  
@@ -111,8 +109,6 @@ function init() {
 		mesh4.receiveShadow = true;
 		group.add( mesh4 );
 		scene.add( mesh4 );
-
-		render();
 	});
 
 	terrain = new THREE.Mesh(
@@ -135,18 +131,22 @@ function init() {
     container.appendChild( stats.domElement );
 
     animate();
+    update();
 }
 
 // HELPER FUNCTIONS
 
-function animate() {
-	requestAnimationFrame( animate );
-	
+function update() {
 	time = clock.getElapsedTime();
- 	delta = clock.getDelta();
+ 	// delta = clock.getDelta(); // Not using this line of code at the moment.
 	spotLight.position.x = 2800 * Math.cos( time );
 	spotLight.position.z = 2800 * Math.sin( time );
+	render();
+	update();
+}
 
+function animate() {
+	requestAnimationFrame( animate );
 	controls.update();
 	stats.update();
 }
