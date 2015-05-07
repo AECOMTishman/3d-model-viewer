@@ -31,7 +31,6 @@ spotLight.shadowCameraFov = 45;
 spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 init();
-render();
 
 function init() {
 	scene = new THREE.Scene();
@@ -115,8 +114,6 @@ function init() {
 		mesh4.receiveShadow = true;
 		group.add( mesh4 );
 		scene.add( mesh4 );
-
-		render();
 	});
 
 	terrain = new THREE.Mesh(
@@ -154,18 +151,17 @@ function update() {
 		spotLight.position.x = 2820 * Math.sin( time );
 		spotLight.position.z = 2820 * Math.cos( time );
  	}
-	
 }
 
 function animate() {
 	requestAnimationFrame( animate );
 	controls.update();
+	update();
 	render();
 	stats.update();
 }
 
 function render() {
-	update();
 	renderer.render( scene, camera );
 }
 
@@ -195,7 +191,6 @@ $( 'input#layer1' ).change( function() {
 		$( 'input#layer1' ).addClass( 'active' );
 		scene.add( mesh1 );
 	}
-	render();
 });
 
 $( 'input#layer2' ).change( function() {
@@ -206,7 +201,6 @@ $( 'input#layer2' ).change( function() {
 		$( 'input#layer2' ).addClass( 'active' );
 		scene.add( mesh2 );
 	}
-	render();
 });
 
 $( 'input#layer3' ).change( function() {
@@ -219,28 +213,24 @@ $( 'input#layer3' ).change( function() {
 		scene.add( mesh3 );
 		scene.add( mesh4 );
 	}
-	render();
 });
 
 $( 'a#view1' ).click( function() {
 	camera.position.set( 0, 1000, 2000 );
 	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
 	controls.target = new THREE.Vector3( 0, 500, 0 );
-	render();
 });
 
 $( 'a#view2' ).click( function() {
 	camera.position.set( 600, 800, 600 );
 	camera.lookAt(new THREE.Vector3( 600, 800, 0 ));
 	controls.target = new THREE.Vector3( 600, 800, 0 );
-	render();
 });
 
 $( 'a#view3' ).click( function() {
 	camera.position.set( 2000, 1500, 2000 );
 	camera.lookAt(new THREE.Vector3( 0, 500, 0 ));
 	controls.target = new THREE.Vector3( 0, 500, 0 );
-	render();
 });
 
 $( 'button#lighta' ).click( function() {
