@@ -33,8 +33,8 @@ spotLight.target = myTarget;
 spotLight.castShadow = true;
 spotLight.shadowMapWidth = 1500;
 spotLight.shadowMapHeight = 1000;
-spotLight.shadowCameraNear = 10;
-spotLight.shadowCameraFar = 20000;
+spotLight.shadowCameraNear = 500;
+spotLight.shadowCameraFar = 7500;
 spotLight.shadowCameraFov = 45;
 spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
