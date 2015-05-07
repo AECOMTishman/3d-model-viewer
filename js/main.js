@@ -38,9 +38,10 @@ spotLight.shadowCameraFar = 6000;
 spotLight.shadowCameraFov = 45;
 spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
-var orb = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-orb.scale.set( 100, 100, 100 );
-spotLight.add( orb );
+var sphere = new THREE.SphereGeometry( 100, 16, 8 );
+var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+orb_mesh.scale.set( 100, 100, 100 );
+spotLight.add( orb_mesh );
 
 // BUTTON INITIALIZATIONS
 
