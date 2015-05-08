@@ -27,7 +27,21 @@ div.list-group.panel {
 }
 
 a.list-group-item {
+  font-size: 14px;
+  background-color: #eee;
   text-align: center;
+}
+
+a.list-group-item span {
+  float: left;
+}
+
+a.list-group-item.collpased {
+  background-color: #fff;
+}
+
+a.list-group-item:hover {
+  background-color: #ddd;
 }
 
 a#logo {
