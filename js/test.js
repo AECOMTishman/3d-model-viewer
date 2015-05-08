@@ -22,11 +22,11 @@ var lights_cw = true;
 var lights_ccw = false;
 
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-camera.position.set( 2000, 1500, 3000 );
-camera.lookAt(new THREE.Vector3( 0, 200, 1000 ));
+camera.position.set( 3000, 1500, 2000 );
+camera.lookAt(new THREE.Vector3( 1000, 200, 0 ));
 
 var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 200, 1000 );
+myTarget.position.set( 1000, 200, 0 );
 
 var spotLight = new THREE.SpotLight( 0xffffff );
 spotLight.position.x = 2820;
@@ -261,8 +261,8 @@ $( 'input#layer3' ).change( function() {
 });
 
 $( 'a#view1' ).click( function() {
-	camera.position.set( 0, 1000, 3000 );
-	myTarget.position.set( 0, 200, 1000 );
+	camera.position.set( 1000, 1000, 2000 );
+	myTarget.position.set( 1000, 200, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 
@@ -289,8 +289,8 @@ $( 'a#view2' ).click( function() {
 });
 
 $( 'a#view3' ).click( function() {
-	camera.position.set( 2000, 1500, 3000 );
-	myTarget.position.set( 0, 200, 1000 );
+	camera.position.set( 3000, 1500, 2000 );
+	myTarget.position.set( 1000, 200, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 
