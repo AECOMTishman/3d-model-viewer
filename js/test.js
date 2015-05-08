@@ -90,31 +90,31 @@ function init() {
 
 	loader = new THREE.JSONLoader();
 
-	loader.load('sample-concrete.js', function ( geometry, materials ) {  
+	loader.load('rac-environment.js', function ( geometry, materials ) {  
 		mesh1 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh1.rotation.x = -Math.PI / 2;
-		mesh1.castShadow = true;
+		mesh1.castShadow = false;
 		mesh1.receiveShadow = true;
 		group.add( mesh1 );
 		scene.add( mesh1 );
 	});
 
-	loader.load('sample-facade-windows.js', function ( geometry, materials ) {  
+	loader.load('rac-environment-grass.js', function ( geometry, materials ) {  
 		mesh2 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh2.rotation.x = -Math.PI / 2;
-		mesh2.castShadow = false;
+		mesh2.castShadow = true;
 		mesh2.receiveShadow = true;
 		group.add( mesh2 );
 		scene.add( mesh2 );
 	});
 
-	loader.load('sample-facade-mullion.js', function ( geometry, materials ) {  
+	loader.load('rac-structure.js', function ( geometry, materials ) {  
 		mesh3 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -126,28 +126,40 @@ function init() {
 		scene.add( mesh3 );
 	});
 
-	loader.load('sample-steel-beams.js', function ( geometry, materials ) {  
+	loader.load('rac-facade.js', function ( geometry, materials ) {  
 		mesh4 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh4.rotation.x = -Math.PI / 2;
-		mesh4.castShadow = false;
+		mesh4.castShadow = true;
 		mesh4.receiveShadow = true;
 		group.add( mesh4 );
 		scene.add( mesh4 );
 	});
 
-	loader.load('sample-steel-columns.js', function ( geometry, materials ) {  
+	loader.load('rac-facade-glass.js', function ( geometry, materials ) {  
 		mesh5 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh5.rotation.x = -Math.PI / 2;
-		mesh5.castShadow = true;
+		mesh5.castShadow = false;
 		mesh5.receiveShadow = true;
 		group.add( mesh5 );
 		scene.add( mesh5 );
+	});
+
+	loader.load('rac-interior.js', function ( geometry, materials ) {  
+		mesh6 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial( materials )
+		);
+
+		mesh6.rotation.x = -Math.PI / 2;
+		mesh6.castShadow = true;
+		mesh6.receiveShadow = true;
+		group.add( mesh6 );
+		scene.add( mesh6 );
 	});
 
 	terrain = new THREE.Mesh(
@@ -226,36 +238,32 @@ function onWindowResize() {
 $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass( 'active' ) ){
 		$( 'input#layer1' ).removeClass( 'active' );
-		scene.remove( mesh1 );
-		mesh3.castShadow = true;
+		scene.remove( mesh3 );
 	} else {
 		$( 'input#layer1' ).addClass( 'active' );
-		scene.add( mesh1 );
-		mesh3.castShadow = false;
+		scene.add( mesh3 );
 	}
 });
 
 $( 'input#layer2' ).change( function() {
 	if( $( 'input#layer2' ).hasClass( 'active' ) ){
 		$( 'input#layer2' ).removeClass( 'active' );
-		scene.remove( mesh2 );
-		scene.remove( mesh3 );
+		scene.remove( mesh4 );
+		scene.remove( mesh5 );
 	} else {
 		$( 'input#layer2' ).addClass( 'active' );
-		scene.add( mesh2 );
-		scene.add( mesh3 );
+		scene.add( mesh4 );
+		scene.add( mesh5 );
 	}
 });
 
 $( 'input#layer3' ).change( function() {
 	if( $( 'input#layer3' ).hasClass( 'active' ) ){
 		$( 'input#layer3' ).removeClass( 'active' );
-		scene.remove( mesh4 );
-		scene.remove( mesh5 );
+		scene.remove( mesh6 );
 	} else {
 		$( 'input#layer3' ).addClass( 'active' );
-		scene.add( mesh4 );
-		scene.add( mesh5 );
+		scene.add( mesh6 );
 	}
 });
 
