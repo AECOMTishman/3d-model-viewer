@@ -15,8 +15,11 @@ ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
 FAR = 8000;
 
-var cw = true;
-var ccw = false;
+var camera-cw = false;
+var camera-ccw = false;
+
+var lights-cw = true;
+var lights-ccw = false;
 
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 camera.position.set( 2000, 1500, 2000 );
@@ -167,16 +170,25 @@ function animate() {
 }
 
 function update() {
+ 	time = clock.getElapsedTime();
  	// delta = clock.getDelta(); // Not using this line of code at the moment.
- 	if ( cw ){
-		time = clock.getElapsedTime();
+ 	if ( camera-cw ){	
+		camera.position.x = 2820 * Math.cos( time/10 );
+		camera.position.y = 2000;
+		camera.position.z = 2820 * Math.sin( time/10 );
+ 	}
+ 	if ( camera-ccw ){
+		camera.position.x = 2820 * Math.sin( time/10 );
+		camera.position.y = 2000;
+		camera.position.z = 2820 * Math.cos( time/10 );
+ 	}
+ 	if ( lights-cw ){
 		spotLight.position.x = 2820 * Math.cos( time/10 );
 		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.sin( time/10 );
 
  	}
- 	if ( ccw ){
-		time = clock.getElapsedTime();
+ 	if ( lights-ccw ){
 		spotLight.position.x = 2820 * Math.sin( time/10 );
 		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.cos( time/10 );
@@ -237,6 +249,9 @@ $( 'a#view1' ).click( function() {
 	myTarget.position.set( 0, 400, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
+
+	camera-cw = false;
+	camera-ccw = false;
 });
 
 $( 'a#view2' ).click( function() {
@@ -244,6 +259,9 @@ $( 'a#view2' ).click( function() {
 	myTarget.position.set( 600, 800, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
+
+	camera-cw = false;
+	camera-ccw = false;
 });
 
 $( 'a#view3' ).click( function() {
@@ -251,8 +269,43 @@ $( 'a#view3' ).click( function() {
 	myTarget.position.set( 0, 400, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
+
+	camera-cw = false;
+	camera-ccw = false;
 });
 
+$( 'button#cameraa' ).click( function() {
+	if( !$( 'button#cameraa' ).hasClass( 'active' ) ){
+		$( 'button#cameraa' ).addClass( 'active' );
+		$( 'button#camerab' ).removeClass( 'active' );
+		$( 'button#camerac' ).removeClass( 'active' );
+
+		camera-cw = true;
+		camera-ccw = false;
+	}
+});
+
+$( 'button#camerab' ).click( function() {
+	if( !$( 'button#camerab' ).hasClass( 'active' ) ){
+		$( 'button#cameraa' ).removeClass( 'active' );
+		$( 'button#camerab' ).addClass( 'active' );
+		$( 'button#camerac' ).removeClass( 'active' );
+
+		camera-cw = false;
+		camera-ccw = false;
+	}
+});
+
+$( 'button#camerac' ).click( function() {
+	if( !$( 'button#camerac' ).hasClass( 'active' ) ){
+		$( 'button#cameraa' ).removeClass( 'active' );
+		$( 'button#camerab' ).removeClass( 'active' );
+		$( 'button#camerac' ).addClass( 'active' );
+
+		camera-cw = false;
+		camera-ccw = true;
+	}
+});
 
 $( 'button#lighta' ).click( function() {
 	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
@@ -260,8 +313,8 @@ $( 'button#lighta' ).click( function() {
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
 
-		cw = true;
-		ccw = false;
+		lights-cw = true;
+		lights-ccw = false;
 	}
 });
 
@@ -271,8 +324,8 @@ $( 'button#lightb' ).click( function() {
 		$( 'button#lightb' ).addClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
 
-		cw = false;
-		ccw = false;
+		lights-cw = false;
+		lights-ccw = false;
 	}
 });
 
@@ -282,7 +335,7 @@ $( 'button#lightc' ).click( function() {
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).addClass( 'active' );
 
-		cw = false;
-		ccw = true;
+		lights-cw = false;
+		lights-ccw = true;
 	}
 });
