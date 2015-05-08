@@ -37,7 +37,7 @@ a.list-group-item span {
 }
 
 a.list-group-item.collpased {
-  background-color: #fff;
+  background-color: #fff!important;
 }
 
 a.list-group-item:hover {
