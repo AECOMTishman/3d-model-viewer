@@ -3,13 +3,13 @@ body{
   overflow: hidden;
 }
 
-div.left-nav {
+div#myNav {
   position: absolute;
   top: 0px;
   left: 0px;
   padding: 20px 0px 0px 20px;
   width: 200px;
-  height: 100%;
+  height: auto;
   z-index: 0;
 }
 
@@ -25,6 +25,11 @@ div#3d {
   width: 100%;
   height: 100%;
   z-index: -1;
+}
+
+div#LightsMenu div#lightsmenu {
+  padding: 10px 15px 10px 15px;
+  text-align: center;
 }
 
 div#LayersMenu div#layersmenu {
@@ -47,7 +52,3 @@ div.menu-toggle-button div.toggle {
   float: right;
 }
 
-div#LightsMenu div#lightsmenu {
-  padding: 10px 15px 10px 15px;
-  text-align: center;
-}

@@ -15,8 +15,21 @@
     <![endif]-->
   </head>
   <body>
-    <div class="left-nav">
+    <div id="myNav">
       <a id="logo" target="_blank" href="http://www.aecom.com/What+We+Do/Construction+Services"><img src="TishmanLogo.png"></a>
+      <div id="LightsMenu">
+        <div class="list-group panel">
+          <a href="#lightsmenu" class="list-group-item" data-toggle="collapse" data-parent="#LightsMenu"><span class="glyphicon glyphicon-lamp" aria-hidden="true"></span> Lights</a>
+          <div class="collapse" id="lightsmenu">
+            Rotate
+            <div class="btn-group" role="group" aria-label="...">
+              <button id="lighta" type="button" class="btn btn-default"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button>
+              <button id="lightb" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></button>
+              <button id="lightc" type="button" class="btn btn-default"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="CameraMenu">
         <div class="list-group panel">
           <a href="#cameramenu" class="list-group-item" data-toggle="collapse" data-parent="#CameraMenu"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Camera</a>
@@ -42,19 +55,6 @@
             <div class="menu-toggle-button">
               <span class="toggle-label">Steel</span>
               <input id="layer3" type="checkbox" checked data-toggle="toggle" data-on="On" data-off="Off" data-onstyle="success" data-offstyle="danger">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="LightsMenu">
-        <div class="list-group panel">
-          <a href="#lightsmenu" class="list-group-item" data-toggle="collapse" data-parent="#LightsMenu"><span class="glyphicon glyphicon-lamp" aria-hidden="true"></span> Lights</a>
-          <div class="collapse" id="lightsmenu">
-            Rotate
-            <div class="btn-group" role="group" aria-label="...">
-              <button id="lighta" type="button" class="btn btn-default"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button>
-              <button id="lightb" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></button>
-              <button id="lightc" type="button" class="btn btn-default"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
             </div>
           </div>
         </div>
