@@ -102,7 +102,7 @@ function init() {
 		scene.add( mesh1 );
 	});
 
-	loader.load('sample-curtain-wall.js', function ( geometry, materials ) {  
+	loader.load('sample-facade-windows.js', function ( geometry, materials ) {  
 		mesh2 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -114,6 +114,18 @@ function init() {
 		scene.add( mesh2 );
 	});
 
+	loader.load('sample-facade-mullion.js', function ( geometry, materials ) {  
+		mesh2 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial( materials )
+		);
+
+		mesh2.rotation.x = -Math.PI / 2;
+		mesh2.castShadow = true;
+		mesh2.receiveShadow = true;
+		group.add( mesh3 );
+		scene.add( mesh3 );
+	});
+
 	loader.load('sample-steel-beams.js', function ( geometry, materials ) {  
 		mesh3 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
@@ -122,8 +134,8 @@ function init() {
 		mesh3.rotation.x = -Math.PI / 2;
 		mesh3.castShadow = false;
 		mesh3.receiveShadow = true;
-		group.add( mesh3 );
-		scene.add( mesh3 );
+		group.add( mesh4 );
+		scene.add( mesh4 );
 	});
 
 	loader.load('sample-steel-columns.js', function ( geometry, materials ) {  
@@ -134,8 +146,8 @@ function init() {
 		mesh4.rotation.x = -Math.PI / 2;
 		mesh4.castShadow = true;
 		mesh4.receiveShadow = true;
-		group.add( mesh4 );
-		scene.add( mesh4 );
+		group.add( mesh5 );
+		scene.add( mesh5 );
 	});
 
 	terrain = new THREE.Mesh(
@@ -227,21 +239,23 @@ $( 'input#layer2' ).change( function() {
 	if( $( 'input#layer2' ).hasClass( 'active' ) ){
 		$( 'input#layer2' ).removeClass( 'active' );
 		scene.remove( mesh2 );
+		scene.remove( mesh3 );
 	} else {
 		$( 'input#layer2' ).addClass( 'active' );
 		scene.add( mesh2 );
+		scene.add( mesh3 );
 	}
 });
 
 $( 'input#layer3' ).change( function() {
 	if( $( 'input#layer3' ).hasClass( 'active' ) ){
 		$( 'input#layer3' ).removeClass( 'active' );
-		scene.remove( mesh3 );
 		scene.remove( mesh4 );
+		scene.remove( mesh5 );
 	} else {
 		$( 'input#layer3' ).addClass( 'active' );
-		scene.add( mesh3 );
 		scene.add( mesh4 );
+		scene.add( mesh5 );
 	}
 });
 
