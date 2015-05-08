@@ -28,12 +28,12 @@ div#3d {
 }
 
 div#LightsMenu div#lightsmenu, div#CameraMenu div#cameramenu {
-  padding: 10px 15px 10px 15px;
+  padding: 5px;
   text-align: center;
 }
 
 div#LayersMenu div#layersmenu {
-  padding: 10px 15px 10px 15px;
+  padding: 5px;
 }
 
 div.menu-toggle-button {
