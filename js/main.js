@@ -278,6 +278,10 @@ $( 'a#view3' ).click( function() {
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 
+	$( 'button#cameraa' ).removeClass( 'active' );
+	$( 'button#camerab' ).addClass( 'active' );
+	$( 'button#camerac' ).removeClass( 'active' );
+
 	camera_cw = false;
 	camera_ccw = false;
 });
