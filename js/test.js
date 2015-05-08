@@ -13,7 +13,7 @@ HEIGHT = window.innerHeight;
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
-FAR = 8000;
+FAR = 12000;
 
 var camera_cw = false;
 var camera_ccw = false;
@@ -23,10 +23,10 @@ var lights_ccw = false;
 
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 camera.position.set( 2000, 1500, 2000 );
-camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
+camera.lookAt(new THREE.Vector3( 0, 200, 500 ));
 
 var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 400, 0 );
+myTarget.position.set( 0, 200, 500 );
 
 var spotLight = new THREE.SpotLight( 0xffffff );
 spotLight.position.x = 2820;
@@ -36,8 +36,8 @@ spotLight.target = myTarget;
 spotLight.castShadow = true;
 spotLight.shadowMapWidth = 1500;
 spotLight.shadowMapHeight = 1000;
-spotLight.shadowCameraNear = 1500;
-spotLight.shadowCameraFar = 6000;
+spotLight.shadowCameraNear = 1000;
+spotLight.shadowCameraFar = 8000;
 spotLight.shadowCameraFov = 45;
 spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
@@ -262,7 +262,7 @@ $( 'input#layer3' ).change( function() {
 
 $( 'a#view1' ).click( function() {
 	camera.position.set( 0, 1000, 2000 );
-	myTarget.position.set( 0, 400, 0 );
+	myTarget.position.set( 0, 200, 500 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 
@@ -290,7 +290,7 @@ $( 'a#view2' ).click( function() {
 
 $( 'a#view3' ).click( function() {
 	camera.position.set( 2000, 1500, 2000 );
-	myTarget.position.set( 0, 400, 0 );
+	myTarget.position.set( 0, 200, 500 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 
