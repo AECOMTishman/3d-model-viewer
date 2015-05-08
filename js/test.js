@@ -138,7 +138,7 @@ function init() {
 		scene.add( mesh4 );
 	});
 
-	loader.load('rac-facade-glass.js', function ( geometry, materials ) {  
+	loader.load('rac-facade-windows.js', function ( geometry, materials ) {  
 		mesh5 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
