@@ -4,7 +4,7 @@ body{
 }
 
 .glyphicon {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 div#3d {
@@ -31,17 +31,13 @@ div.list-group.panel {
 }
 
 a.list-group-item {
-  font-size: 14px;
-  background-color: #eee;
+  font-size: 16px;
+  
   text-align: center;
 }
 
 a.list-group-item span {
   float: left;
-}
-
-a.list-group-item.collpased {
-  background-color: #fff!important;
 }
 
 a.list-group-item:hover {
