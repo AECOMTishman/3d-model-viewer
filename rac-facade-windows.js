@@ -20,6 +20,7 @@
 "colorDiffuse"  : [0.8667, 0.9882, 0.9882],
 "colorAmbient"  : [0.8667, 0.9882, 0.9882],
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
+"transparent"  : true,
 "transparency"  : 0.25,
 "specularCoef"  : 10.0,
 "vertexColors" : false

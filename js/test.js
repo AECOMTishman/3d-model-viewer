@@ -22,11 +22,11 @@ var lights_cw = true;
 var lights_ccw = false;
 
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-camera.position.set( 2000, 1500, 2000 );
-camera.lookAt(new THREE.Vector3( 0, 200, 500 ));
+camera.position.set( 2000, 1500, 3000 );
+camera.lookAt(new THREE.Vector3( 0, 200, 1000 ));
 
 var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 200, 500 );
+myTarget.position.set( 0, 200, 1000 );
 
 var spotLight = new THREE.SpotLight( 0xffffff );
 spotLight.position.x = 2820;
@@ -191,23 +191,23 @@ function update() {
  	time = clock.getElapsedTime();
  	// delta = clock.getDelta(); // Not using this line of code at the moment.
  	if ( camera_cw ){	
-		camera.position.x = 2820 * Math.cos( time/10 );
+		camera.position.x = 2820 * Math.cos( time/10 ) + 1000;
 		camera.position.y = 2000;
 		camera.position.z = 2820 * Math.sin( time/10 );
  	}
  	if ( camera_ccw ){
-		camera.position.x = 2820 * Math.sin( time/10 );
+		camera.position.x = 2820 * Math.sin( time/10 ) + 1000;
 		camera.position.y = 2000;
 		camera.position.z = 2820 * Math.cos( time/10 );
  	}
  	if ( lights_cw ){
-		spotLight.position.x = 2820 * Math.cos( time/10 );
+		spotLight.position.x = 2820 * Math.cos( time/10 ) + 1000;
 		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.sin( time/10 );
 
  	}
  	if ( lights_ccw ){
-		spotLight.position.x = 2820 * Math.sin( time/10 );
+		spotLight.position.x = 2820 * Math.sin( time/10 ) + 1000;
 		spotLight.position.y = 2000;
 		spotLight.position.z = 2820 * Math.cos( time/10 );
  	}
@@ -261,8 +261,8 @@ $( 'input#layer3' ).change( function() {
 });
 
 $( 'a#view1' ).click( function() {
-	camera.position.set( 0, 1000, 2000 );
-	myTarget.position.set( 0, 200, 500 );
+	camera.position.set( 0, 1000, 3000 );
+	myTarget.position.set( 0, 200, 1000 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 
@@ -289,8 +289,8 @@ $( 'a#view2' ).click( function() {
 });
 
 $( 'a#view3' ).click( function() {
-	camera.position.set( 2000, 1500, 2000 );
-	myTarget.position.set( 0, 200, 500 );
+	camera.position.set( 2000, 1500, 3000 );
+	myTarget.position.set( 0, 200, 1000 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 
