@@ -3,7 +3,7 @@ body{
   overflow: hidden;
 }
 
-div#myNav {
+div.left-nav {
   position: absolute;
   top: 0px;
   left: 0px;
