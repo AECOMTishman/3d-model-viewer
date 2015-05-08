@@ -162,15 +162,6 @@ function init() {
 		scene.add( mesh6 );
 	});
 
-	terrain = new THREE.Mesh(
-	new THREE.CubeGeometry(4000, 10, 4000), new THREE.MeshPhongMaterial({
-	    color: 0x46882c
-	}));
-	terrain.receiveShadow = true;
-	terrain.position.set(0, -10, 0);
-	terrain.rotation.set(0, 0, 0);
-	scene.add(terrain);
-
     window.addEventListener( 'resize', onWindowResize, false );
 
     clock = new THREE.Clock();
