@@ -160,6 +160,8 @@ function init() {
 		mesh6.receiveShadow = true;
 		group.add( mesh6 );
 		scene.add( mesh6 );
+
+		render();
 	});
 
     window.addEventListener( 'resize', onWindowResize, false );

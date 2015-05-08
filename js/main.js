@@ -148,6 +148,8 @@ function init() {
 		mesh5.receiveShadow = true;
 		group.add( mesh5 );
 		scene.add( mesh5 );
+
+		render();
 	});
 
 	terrain = new THREE.Mesh(
