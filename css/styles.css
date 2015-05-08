@@ -44,6 +44,10 @@ a.list-group-item:hover {
   background-color: #ddd;
 }
 
+a.list-group-item:active {
+  background-color: #ccc;
+}
+
 a#logo {
   display: block;
   margin-bottom: 14px;
