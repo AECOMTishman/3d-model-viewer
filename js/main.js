@@ -4,7 +4,7 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 // GLOBAL VARIABLES
 
-var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4;
+var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4, mesh5;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -115,37 +115,37 @@ function init() {
 	});
 
 	loader.load('sample-facade-mullion.js', function ( geometry, materials ) {  
-		mesh2 = new THREE.Mesh(
-			geometry, new THREE.MeshFaceMaterial( materials )
-		);
-
-		mesh2.rotation.x = -Math.PI / 2;
-		mesh2.castShadow = true;
-		mesh2.receiveShadow = true;
-		group.add( mesh3 );
-		scene.add( mesh3 );
-	});
-
-	loader.load('sample-steel-beams.js', function ( geometry, materials ) {  
 		mesh3 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh3.rotation.x = -Math.PI / 2;
-		mesh3.castShadow = false;
+		mesh3.castShadow = true;
 		mesh3.receiveShadow = true;
-		group.add( mesh4 );
-		scene.add( mesh4 );
+		group.add( mesh3 );
+		scene.add( mesh3 );
 	});
 
-	loader.load('sample-steel-columns.js', function ( geometry, materials ) {  
+	loader.load('sample-steel-beams.js', function ( geometry, materials ) {  
 		mesh4 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
 
 		mesh4.rotation.x = -Math.PI / 2;
-		mesh4.castShadow = true;
+		mesh4.castShadow = false;
 		mesh4.receiveShadow = true;
+		group.add( mesh4 );
+		scene.add( mesh4 );
+	});
+
+	loader.load('sample-steel-columns.js', function ( geometry, materials ) {  
+		mesh5 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial( materials )
+		);
+
+		mesh5.rotation.x = -Math.PI / 2;
+		mesh5.castShadow = true;
+		mesh5.receiveShadow = true;
 		group.add( mesh5 );
 		scene.add( mesh5 );
 	});
