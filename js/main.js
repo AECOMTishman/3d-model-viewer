@@ -52,6 +52,7 @@ $( 'input#layer1' ).addClass( 'active' );
 $( 'input#layer2' ).addClass( 'active' );
 $( 'input#layer3' ).addClass( 'active' );
 $( 'button#lighta' ).addClass( 'active' );
+$( 'button#camerab' ).addClass( 'active' );
 
 // MAIN FUNCTION
 
