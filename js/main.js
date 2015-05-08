@@ -250,6 +250,10 @@ $( 'a#view1' ).click( function() {
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 
+	$( 'button#cameraa' ).removeClass( 'active' );
+	$( 'button#camerab' ).addClass( 'active' );
+	$( 'button#camerac' ).removeClass( 'active' );
+
 	camera_cw = false;
 	camera_ccw = false;
 });
@@ -259,6 +263,10 @@ $( 'a#view2' ).click( function() {
 	myTarget.position.set( 600, 800, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
+
+	$( 'button#cameraa' ).removeClass( 'active' );
+	$( 'button#camerab' ).addClass( 'active' );
+	$( 'button#camerac' ).removeClass( 'active' );
 
 	camera_cw = false;
 	camera_ccw = false;
