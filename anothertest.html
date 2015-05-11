@@ -28,33 +28,48 @@
   // This will draw what the camera sees onto the screen:
   var renderer = new THREE.CanvasRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMapEnabled = true;
   document.body.appendChild(renderer.domElement);
   document.body.style.backgroundColor = '#ffffff';
 
-var myTarget = new THREE.Object3D();
+  var myTarget = new THREE.Object3D();
+  myTarget.position.set( 0, 0, 0 );
 
-var spotLight = new THREE.SpotLight( 0xffffff );
-spotLight.target = myTarget;
-spotLight.castShadow = true;
-spotLight.shadowMapWidth = 1500;
-spotLight.shadowMapHeight = 1000;
-spotLight.shadowCameraNear = 1500;
-spotLight.shadowCameraFar = 6000;
-spotLight.shadowCameraFov = 45;
-spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+  var spotLight = new THREE.SpotLight( 0xffffff );
+  spotLight.position.x = 0;
+  spotLight.position.y = 1000;
+  spotLight.position.z = 0;
+  spotLight.target = myTarget;
+  spotLight.castShadow = true;
+  spotLight.shadowMapWidth = 1500;
+  spotLight.shadowMapHeight = 1000;
+  spotLight.shadowCameraNear = 1500;
+  spotLight.shadowCameraFar = 6000;
+  spotLight.shadowCameraFov = 45;
+  spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
-var sphere = new THREE.SphereGeometry( 100, 16, 8 );
-var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-orb_mesh.scale.set( 1, 1, 1 );
-spotLight.add( orb_mesh );
+  var sphere = new THREE.SphereGeometry( 100, 16, 8 );
+  var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+  orb_mesh.scale.set( 1, 1, 1 );
+  spotLight.add( orb_mesh );
 
   // ******** START CODING ON THE NEXT LINE ********
 
   var m1 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x00ff00}));
+  m1.castShadow = true;
+  m1.receiveShadow = true;
   var m2 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0xff0000}));
+  m2.castShadow = true;
+  m2.receiveShadow = true;
   var m3 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x0000ff}));
+  m3.castShadow = true;
+  m3.receiveShadow = true;
   var m4 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x000000}));
-  var ground = new Physijs.BoxMesh(new THREE.CubeGeometry(1000, 10, 1000), new THREE.MeshBasicMaterial({color:0xdddddd}), 0);  
+  m4.castShadow = true;
+  m4.receiveShadow = true;
+  var ground = new Physijs.BoxMesh(new THREE.CubeGeometry(1000, 10, 1000), new THREE.MeshBasicMaterial({color:0xdddddd}), 0);
+  ground.castShadow = false;
+  m1.receiveShadow = true;  
 
   m1.__dirtyPosition = true;
   m1.__dirtyRotation = true;
@@ -83,8 +98,8 @@ spotLight.add( orb_mesh );
 
   scene.add(ground);
 
-scene.add( myTarget );
-scene.add( spotLight );
+  scene.add( myTarget );
+  scene.add( spotLight );
 
   m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
 
