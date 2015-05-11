@@ -21,7 +21,7 @@
   //   -width/2, width/2, height/2, -height/2, 1, 10000
   // );
 
-  camera.position.set( 200, 200, 400 );
+  camera.position.set( 200, 200, 600 );
   camera.lookAt(new THREE.Vector3(0,-100,0));
   scene.add(camera);
 
@@ -37,7 +37,7 @@
 
   var spotLight = new THREE.SpotLight( 0xffffff );
   spotLight.position.x = 0;
-  spotLight.position.y = 1000;
+  spotLight.position.y = 800;
   spotLight.position.z = 0;
   spotLight.target = myTarget;
   spotLight.castShadow = true;
