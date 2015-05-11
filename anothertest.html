@@ -57,7 +57,7 @@
       new THREE.Vector3( 0, 10, 0 ) // point in the scene to apply the constraint
   );
 
-  scene.addConstraint( constraint );
+ // scene.addConstraint( constraint );
 
   scene.add(m1);
   scene.add(m2);
@@ -65,6 +65,8 @@
   scene.add(m4);
 
   scene.add(ground);
+
+  m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
 
   document.addEventListener('keydown', function(event) {
     switch(event.keyCode) {
