@@ -31,6 +31,23 @@
   document.body.appendChild(renderer.domElement);
   document.body.style.backgroundColor = '#ffffff';
 
+var myTarget = new THREE.Object3D();
+
+var spotLight = new THREE.SpotLight( 0xffffff );
+spotLight.target = myTarget;
+spotLight.castShadow = true;
+spotLight.shadowMapWidth = 1500;
+spotLight.shadowMapHeight = 1000;
+spotLight.shadowCameraNear = 1500;
+spotLight.shadowCameraFar = 6000;
+spotLight.shadowCameraFov = 45;
+spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+
+var sphere = new THREE.SphereGeometry( 100, 16, 8 );
+var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+orb_mesh.scale.set( 1, 1, 1 );
+spotLight.add( orb_mesh );
+
   // ******** START CODING ON THE NEXT LINE ********
 
   var m1 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x00ff00}));
@@ -65,6 +82,9 @@
   scene.add(m4);
 
   scene.add(ground);
+
+scene.add( myTarget );
+scene.add( spotLight );
 
   m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
 
