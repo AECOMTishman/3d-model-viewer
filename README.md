@@ -131,7 +131,7 @@ spotLight.shadowCameraFar = 6000;
 spotLight.shadowCameraFov = 45;
 spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 ```
-The final step is to create some views. Edit the buttons at the bottom of the file. The camera's position and myTarget's position are all you nede to edit, unless you want to add other custom stuff to your preset view (like lighting).
+The final step is to create some views. Edit the buttons at the bottom of the file. The camera's position and myTarget's position are all you need to edit, unless you want to add other custom stuff to your preset view (like lighting).
 ```
 $( 'a#view1' ).click( function() {
 	camera.position.set( 0, 1000, 2000 );
