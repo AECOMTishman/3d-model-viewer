@@ -56,11 +56,8 @@
   m3.castShadow = true;
   m3.receiveShadow = true;
   var m4 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x000000}));
-  m4.castShadow = true;
-  m4.receiveShadow = true;
+
   var ground = new Physijs.BoxMesh(new THREE.CubeGeometry(1000, 10, 1000), new THREE.MeshBasicMaterial({color:0xdddddd}), 0);
-  ground.castShadow = false;
-  ground.receiveShadow = true;  
 
   m1.__dirtyPosition = true;
   m1.__dirtyRotation = true;
@@ -82,8 +79,6 @@
 
   scene.addConstraint( constraint );*/
 
-  m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
-
   scene.add(m1);
   scene.add(m2);
   scene.add(m3);
@@ -93,6 +88,12 @@
 
   scene.add( myTarget );
   scene.add( spotLight );
+
+  m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
+  m4.castShadow = true;
+  m4.receiveShadow = true;
+  ground.castShadow = false;
+  ground.receiveShadow = true;
 
   document.addEventListener('keydown', function(event) {
     switch(event.keyCode) {
