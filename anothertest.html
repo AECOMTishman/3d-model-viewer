@@ -50,18 +50,19 @@
   m4.position.x = 30;
   ground.__dirtyPosition = true;
   ground.position.y = -300;
- 
-  scene.add(m1);
-  scene.add(m2);
-  scene.add(m3);
-  scene.add(m4);
 
   var constraint = new Physijs.PointConstraint(
       m1, // First object to be constrained
       m2, // OPTIONAL second object - if omitted then physijs_mesh_1 will be constrained to the scene
       new THREE.Vector3( 0, 10, 0 ) // point in the scene to apply the constraint
   );
+  
   scene.addConstraint( constraint );
+
+  scene.add(m1);
+  scene.add(m2);
+  scene.add(m3);
+  scene.add(m4);
 
   scene.add(ground);
 
