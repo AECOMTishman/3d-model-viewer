@@ -4,28 +4,21 @@
 <script src="http://gamingJS.com/ChromeFixes.js"></script>
 
 <script>
-  // Physics settings
   Physijs.scripts.ammo = 'http://gamingJS.com/ammo.js';
   Physijs.scripts.worker = 'js/physijs_worker.js';
 
-  // This is where stuff in our game will happen:
   var scene = new Physijs.Scene({ fixedTimeStep: 2 / 60 });
   scene.setGravity(new THREE.Vector3( 0, -100, 0 ));
 
-  // This is what sees the stuff:
   var width = window.innerWidth,
       height = window.innerHeight,
       aspect_ratio = width / height;
   var camera = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 10000);
-  // var camera = new THREE.OrthographicCamera(
-  //   -width/2, width/2, height/2, -height/2, 1, 10000
-  // );
 
   camera.position.set( 200, 200, 600 );
   camera.lookAt(new THREE.Vector3(0,-100,0));
   scene.add(camera);
 
-  // This will draw what the camera sees onto the screen:
   var renderer = new THREE.CanvasRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.shadowMapEnabled = true;
@@ -37,7 +30,7 @@
 
   var spotLight = new THREE.SpotLight( 0xffffff );
   spotLight.position.x = 0;
-  spotLight.position.y = 800;
+  spotLight.position.y = 400;
   spotLight.position.z = 0;
   spotLight.target = myTarget;
   spotLight.castShadow = true;
@@ -46,14 +39,12 @@
   spotLight.shadowCameraNear = 50;
   spotLight.shadowCameraFar = 2000;
   spotLight.shadowCameraFov = 45;
-  spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
+  spotLight.shadowCameraVisible = true;
 
   var sphere = new THREE.SphereGeometry( 100, 16, 8 );
   var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
   orb_mesh.scale.set( 1, 1, 1 );
   spotLight.add( orb_mesh );
-
-  // ******** START CODING ON THE NEXT LINE ********
 
   var m1 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x00ff00}));
   m1.castShadow = true;
@@ -69,7 +60,7 @@
   m4.receiveShadow = true;
   var ground = new Physijs.BoxMesh(new THREE.CubeGeometry(1000, 10, 1000), new THREE.MeshBasicMaterial({color:0xdddddd}), 0);
   ground.castShadow = false;
-  m1.receiveShadow = true;  
+  ground.receiveShadow = true;  
 
   m1.__dirtyPosition = true;
   m1.__dirtyRotation = true;
