@@ -82,6 +82,8 @@
 
   scene.addConstraint( constraint );*/
 
+  m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
+
   scene.add(m1);
   scene.add(m2);
   scene.add(m3);
@@ -91,8 +93,6 @@
 
   scene.add( myTarget );
   scene.add( spotLight );
-
-  m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
 
   document.addEventListener('keydown', function(event) {
     switch(event.keyCode) {
