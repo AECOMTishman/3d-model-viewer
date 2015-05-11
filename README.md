@@ -50,7 +50,7 @@ PLEASE NOTE - if you want to have a facade with mullions that cast a shadow, but
 
 #### Link the new .json files in a new .js script. Create a new .html file and link the .js script to it.
 Put all of your new .json files in a new folder. Copy the sample .html and .js file (index.html, main.js) and rename them (e.x. myPage.html, myScript.js).
-  - Now edit and copy the load function for each .json file you have.
+Now edit and copy the load function for each .json file you have.
 ```
 	loader.load('sample-model-json/sample-concrete.js', function ( geometry, materials ) {  
 		mesh1 = new THREE.Mesh(
