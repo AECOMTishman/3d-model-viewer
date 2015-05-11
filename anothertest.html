@@ -21,8 +21,7 @@
   //   -width/2, width/2, height/2, -height/2, 1, 10000
   // );
 
-  camera.position.z = 500;
-  camera.position.x = 200;
+  camera.position.set( 200, 200, 400 );
   camera.lookAt(new THREE.Vector3(0,-100,0));
   scene.add(camera);
 
@@ -43,6 +42,7 @@
   var tars = new THREE.Object3D();
 
   m1.__dirtyPosition = true;
+  m1.__dirtyRotation = true;
   m1.position.x = -30;
   m2.__dirtyPosition = true;
   m2.position.x = -10;
