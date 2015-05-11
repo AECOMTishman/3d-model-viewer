@@ -39,8 +39,6 @@
   var m4 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x000000}));
   var ground = new Physijs.BoxMesh(new THREE.CubeGeometry(5e2, 10, 5e2), new THREE.MeshBasicMaterial({color:0x0000ff}), 0);  
 
-  var tars = new THREE.Object3D();
-
   m1.__dirtyPosition = true;
   m1.__dirtyRotation = true;
   m1.position.x = -30;
@@ -52,15 +50,18 @@
   m4.position.x = 30;
   ground.__dirtyPosition = true;
   ground.position.y = -300;
-  m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
-  tars.add(m1);
-  tars.add(m2);
-  tars.add(m3);
-  tars.add(m4);
+ 
+  scene.add(m1);
+  scene.add(m2);
+  scene.add(m3);
+  scene.add(m4);
 
-  scene.add(tars); // If I add Tars the Avatar, below at the document add listener, m1.setAngularVelocity(...) will not actually rotate the m1 block
-
-
+  var constraint = new Physijs.PointConstraint(
+      m1, // First object to be constrained
+      m2, // OPTIONAL second object - if omitted then physijs_mesh_1 will be constrained to the scene
+      new THREE.Vector3( 0, 10, 0 ) // point in the scene to apply the constraint
+  );
+  scene.addConstraint( constraint );
 
   scene.add(ground);
 
