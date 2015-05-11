@@ -41,12 +41,12 @@
   spotLight.position.z = 0;
   spotLight.target = myTarget;
   spotLight.castShadow = true;
-  spotLight.shadowMapWidth = 1500;
+  spotLight.shadowMapWidth = 1000;
   spotLight.shadowMapHeight = 1000;
-  spotLight.shadowCameraNear = 1500;
-  spotLight.shadowCameraFar = 6000;
+  spotLight.shadowCameraNear = 50;
+  spotLight.shadowCameraFar = 2000;
   spotLight.shadowCameraFov = 45;
-  spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+  spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
   var sphere = new THREE.SphereGeometry( 100, 16, 8 );
   var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
