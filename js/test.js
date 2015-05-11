@@ -90,7 +90,7 @@ function init() {
 
 	loader = new THREE.JSONLoader();
 
-	loader.load('rac-environment.js', function ( geometry, materials ) {  
+	loader.load('rac-model-json/rac-environment.js', function ( geometry, materials ) {  
 		mesh1 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -102,7 +102,7 @@ function init() {
 		scene.add( mesh1 );
 	});
 
-	loader.load('rac-environment-grass.js', function ( geometry, materials ) {  
+	loader.load('rac-model-json/rac-environment-grass.js', function ( geometry, materials ) {  
 		mesh2 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -114,7 +114,7 @@ function init() {
 		scene.add( mesh2 );
 	});
 
-	loader.load('rac-structure.js', function ( geometry, materials ) {  
+	loader.load('rac-model-json/rac-structure.js', function ( geometry, materials ) {  
 		mesh3 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -126,7 +126,7 @@ function init() {
 		scene.add( mesh3 );
 	});
 
-	loader.load('rac-facade.js', function ( geometry, materials ) {  
+	loader.load('rac-model-json/rac-facade.js', function ( geometry, materials ) {  
 		mesh4 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -138,7 +138,7 @@ function init() {
 		scene.add( mesh4 );
 	});
 
-	loader.load('rac-facade-windows.js', function ( geometry, materials ) {  
+	loader.load('rac-model-json/rac-facade-windows.js', function ( geometry, materials ) {  
 		mesh5 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -150,7 +150,7 @@ function init() {
 		scene.add( mesh5 );
 	});
 
-	loader.load('rac-interior.js', function ( geometry, materials ) {  
+	loader.load('rac-model-json/rac-interior.js', function ( geometry, materials ) {  
 		mesh6 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);

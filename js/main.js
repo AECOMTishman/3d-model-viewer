@@ -90,7 +90,7 @@ function init() {
 
 	loader = new THREE.JSONLoader();
 
-	loader.load('sample-concrete.js', function ( geometry, materials ) {  
+	loader.load('sample-model-json/sample-concrete.js', function ( geometry, materials ) {  
 		mesh1 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -102,7 +102,7 @@ function init() {
 		scene.add( mesh1 );
 	});
 
-	loader.load('sample-facade-windows.js', function ( geometry, materials ) {  
+	loader.load('sample-model-json/sample-facade-windows.js', function ( geometry, materials ) {  
 		mesh2 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -114,7 +114,7 @@ function init() {
 		scene.add( mesh2 );
 	});
 
-	loader.load('sample-facade-mullion.js', function ( geometry, materials ) {  
+	loader.load('sample-model-json/sample-facade-mullion.js', function ( geometry, materials ) {  
 		mesh3 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -126,7 +126,7 @@ function init() {
 		scene.add( mesh3 );
 	});
 
-	loader.load('sample-steel-beams.js', function ( geometry, materials ) {  
+	loader.load('sample-model-json/sample-steel-beams.js', function ( geometry, materials ) {  
 		mesh4 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
@@ -138,7 +138,7 @@ function init() {
 		scene.add( mesh4 );
 	});
 
-	loader.load('sample-steel-columns.js', function ( geometry, materials ) {  
+	loader.load('sample-model-json/sample-steel-columns.js', function ( geometry, materials ) {  
 		mesh5 = new THREE.Mesh(
 			geometry, new THREE.MeshFaceMaterial( materials )
 		);
