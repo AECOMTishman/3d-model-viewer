@@ -2,7 +2,7 @@
 This read me file documents how to set up a 3d model viewer, similiar to the one found here:  [3d model viewer, sample model](http://tishmanconstruction.github.io/3d-model-viewer/).
 
 ## What is it?
-This techonology is built with the WebGL API, which is based on OpenGL. Specifically, it uses the [three.js](http://threejs.org/) library of WebGL functions. three.js offers a variety of powerful features, as well as cross-browser and mobile functionality.
+This website is built with the WebGL API, which is based on OpenGL. Specifically, it uses the [three.js](http://threejs.org/) library of WebGL functions. three.js offers a variety of powerful features, as well as cross-browser and mobile functionality.
 
 ## Potential applications
 The best part of this viewer is that all you need to do is send a link to your colleague and you are done. No training. No software downloads.
