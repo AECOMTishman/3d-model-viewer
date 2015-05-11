@@ -23,7 +23,7 @@
 
   camera.position.z = 500;
   camera.position.x = 200;
-  camera.target.position.set(0,-100,0);
+  camera.lookAt.position.set(0,-100,0);
   scene.add(camera);
 
   // This will draw what the camera sees onto the screen:
@@ -52,7 +52,7 @@
   m4.position.x = 30;
   ground.__dirtyPosition = true;
   ground.position.y = -300;
-
+  m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
   tars.add(m1);
   tars.add(m2);
   tars.add(m3);
@@ -60,7 +60,7 @@
 
   scene.add(tars); // If I add Tars the Avatar, below at the document add listener, m1.setAngularVelocity(...) will not actually rotate the m1 block
 
-  m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
+
 
   scene.add(ground);
 
