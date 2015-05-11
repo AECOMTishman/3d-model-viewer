@@ -8,6 +8,7 @@ This techonology is built with the WebGL API, which is based on OpenGL. Specific
 The best part of this viewer is that all you need to do is send a link to your colleague and you are done. No training. No software downloads.
 
 This model viewer has two main applications.
+
 1. Sharing designs with ownership and stakeholders.
 2. Collaborating on designs within the design team. Communicating specific issues in 3d.
 
