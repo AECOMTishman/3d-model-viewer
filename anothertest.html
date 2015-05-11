@@ -38,7 +38,7 @@
   var m4 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x0000ff}));
   var ground = new Physijs.BoxMesh(new THREE.CubeGeometry(5e2, 10, 5e2), new THREE.MeshBasicMaterial({color:0x0000ff}), 0);  
 
-  var tars = new Physijs.BoxMesh(new THREE.CubeGeometry(1, 1, 1), new THREE.MeshBasicMaterial());
+  var tars = new Object3d();
 
   m1.__dirtyPosition = true;
   m1.position.x = -30;
