@@ -1,0 +1,97 @@
+<body></body>
+<script src="http://gamingJS.com/Three.js"></script>
+<script src="http://gamingJS.com/physi.js"></script>
+<script src="http://gamingJS.com/ChromeFixes.js"></script>
+
+<script>
+  // Physics settings
+  Physijs.scripts.ammo = 'http://gamingJS.com/ammo.js';
+  Physijs.scripts.worker = 'http://gamingJS.com/physijs_worker.js';
+
+  // This is where stuff in our game will happen:
+  var scene = new Physijs.Scene({ fixedTimeStep: 2 / 60 });
+  scene.setGravity(new THREE.Vector3( 0, -100, 0 ));
+
+  // This is what sees the stuff:
+  var width = window.innerWidth,
+      height = window.innerHeight,
+      aspect_ratio = width / height;
+  var camera = new THREE.PerspectiveCamera(75, aspect_ratio, 1, 10000);
+  // var camera = new THREE.OrthographicCamera(
+  //   -width/2, width/2, height/2, -height/2, 1, 10000
+  // );
+
+  camera.position.z = 500;
+  scene.add(camera);
+
+  // This will draw what the camera sees onto the screen:
+  var renderer = new THREE.CanvasRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+  document.body.style.backgroundColor = '#ffffff';
+
+  // ******** START CODING ON THE NEXT LINE ********
+
+  var m1 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x000000}));
+  var m2 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x000000}));
+  var m3 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x000000}));
+  var m4 = new Physijs.BoxMesh(new THREE.CubeGeometry(20, 150, 20), new THREE.MeshBasicMaterial({color:0x000000}));
+  var ground = new Physijs.BoxMesh(new THREE.CubeGeometry(5e2, 10, 5e2), new THREE.MeshBasicMaterial({color:0x0000ff}), 0);  
+
+  var tars = new Physijs.BoxMesh(new THREE.CubeGeometry(1, 1, 1), new THREE.MeshBasicMaterial());
+
+  m1.__dirtyPosition = true;
+  m1.position.x = -30;
+  m2.__dirtyPosition = true;
+  m2.position.x = -10;
+  m3.__dirtyPosition = true;
+  m3.position.x = 10;
+  m4.__dirtyPosition = true;
+  m4.position.x = 30;
+  ground.__dirtyPosition = true;
+  ground.position.y = -300;
+
+  tars.add(m1);
+  tars.add(m2);
+  tars.add(m3);
+  tars.add(m4);
+
+  scene.add(tars); // If I add Tars the Avatar, below at the document add listener, m1.setAngularVelocity(...) will not actually rotate the m1 block
+
+  scene.add(ground);
+
+  document.addEventListener('keydown', function(event) {
+    switch(event.keyCode) {
+      case 13:
+        m1.setAngularVelocity(new THREE.Vector3(1, 0, 0));
+        break;
+
+      case 100:
+        m2.setAngularVelocity(new THREE.Vector3(1, 0, 0));
+        break;
+
+      case 101:
+        m3.setAngularVelocity(new THREE.Vector3(1, 0, 0));
+        break;
+
+      case 102:
+        m4.setAngularVelocity(new THREE.Vector3(1, 0, 0));
+        break;
+    }
+  });
+
+  // Animate motion in the game
+  function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Run physics
+  function gameStep() {
+    scene.simulate();
+    // Update physics 60 times a second so that motion is smooth
+    setTimeout(gameStep, 1000/60);
+  }
+  gameStep();
+</script>
