@@ -375,27 +375,33 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
 
-		var MODE = { ORBIT: 1, FLY: 0 };
+	    var prevCamera = camera;
 
-		switch( mode ) {
+	    camera = new THREE.PerspectiveCamera(...);
+	    camera.position.copy( prevCamera.position );
+	    camera.rotation.copy( prevCamera.rotation );
 
-		    case MODE.FLY:
+	    var MODE = { TRACKBALL: 0, FLY: 1 };
 
-		        controls = new THREE.OrbitControls( camera );
+	    switch( mode ) {
 
-		        mode = MODE.ORBIT;
+	        case MODE.FLY:
 
-		        break;
+	            controls = new THREE.TrackballControls( camera );
 
-		    case MODE.ORBIT:
+	            mode = MODE.TRACKBALL;
 
-		        controls = new THREE.FlyControls( camera );
+	            break;
 
-		        mode = MODE.FLY;
+	        case MODE.TRACKBALL:
 
-		        break;
+	            controls = new THREE.FlyControls( camera );
 
-		}
+	            mode = MODE.FLY;
+
+	            break;
+
+	    }
 	}
 });
 
@@ -404,26 +410,32 @@ $( 'button#controlb' ).click( function() {
 		$( 'button#controla' ).removeClass( 'active' );
 		$( 'button#controlb' ).addClass( 'active' );
 
-		var MODE = { ORBIT: 1, FLY: 0 };
+	    var prevCamera = camera;
 
-		switch( mode ) {
+	    camera = new THREE.PerspectiveCamera(...);
+	    camera.position.copy( prevCamera.position );
+	    camera.rotation.copy( prevCamera.rotation );
 
-		    case MODE.FLY:
+	    var MODE = { TRACKBALL: 0, FLY: 1 };
 
-		        controls = new THREE.OrbitControls( camera );
+	    switch( mode ) {
 
-		        mode = MODE.ORBIT;
+	        case MODE.FLY:
 
-		        break;
+	            controls = new THREE.TrackballControls( camera );
 
-		    case MODE.ORBIT:
+	            mode = MODE.TRACKBALL;
 
-		        controls = new THREE.FlyControls( camera );
+	            break;
 
-		        mode = MODE.FLY;
+	        case MODE.TRACKBALL:
 
-		        break;
+	            controls = new THREE.FlyControls( camera );
 
-		}
+	            mode = MODE.FLY;
+
+	            break;
+
+	    }
 	}
 });
