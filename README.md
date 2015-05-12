@@ -13,6 +13,7 @@ This model viewer has two main applications.
 
 1. Sharing designs with ownership and stakeholders.
 2. Collaborating on designs within the design team. Communicating specific issues in 3d.
+3. A future application is to create a duplicate page, formatted for a virtual reality headset. VR headests are being adopted very slowly still, so this is of no immediate use (May 2015).
 
 ## How can you use it?
 You will need to make a 3d model or download one. The only file type requirement is that you must be able to convert it to a 3ds Max (.max) file. From there, you will add materials to the model and export it as a custom .json three.js 3d data file using a 3ds Max plugin. Then you are ready to load it onto a website and view. The website link at the top is a free Github pages hosted site. I recommend using [GitHub](https://github.com/) to manage version control.
