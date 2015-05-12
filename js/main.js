@@ -1,7 +1,3 @@
-// WebGL DETECTOR
-
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-
 // GLOBAL VARIABLES
 
 var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4, mesh5;
@@ -68,13 +64,20 @@ $( 'button#controlb' ).addClass( 'active' );
 init();
 
 function init() {
-	scene = new THREE.Scene();
-
-	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+	if( Detector.webgl ){
+		renderer = new THREE.WebGLRenderer({
+			antialias: true,				// to get smoother output
+			preserveDrawingBuffer: true		// to allow screenshot
+		});
+		renderer.setClearColor( 0xd6e7fb, 1.0 );
+	} else {
+		renderer = new THREE.CanvasRenderer();
+	}
 	renderer.setSize( WIDTH, HEIGHT );
 	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setClearColor( 0xd6e7fb, 1.0 );
 	renderer.shadowMapEnabled = true;
+	
+	scene = new THREE.Scene();
 
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
