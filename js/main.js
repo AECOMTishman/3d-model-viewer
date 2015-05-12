@@ -53,6 +53,7 @@ $( 'input#layer2' ).addClass( 'active' );
 $( 'input#layer3' ).addClass( 'active' );
 $( 'button#lighta' ).addClass( 'active' );
 $( 'button#camerab' ).addClass( 'active' );
+$( 'button#controlb' ).addClass( 'active' );
 
 // MAIN FUNCTION
 
@@ -261,6 +262,72 @@ $( 'input#layer3' ).change( function() {
 	}
 });
 
+$( 'button#lighta' ).click( function() {
+	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
+		$( 'button#lighta' ).addClass( 'active' );
+		$( 'button#lightb' ).removeClass( 'active' );
+		$( 'button#lightc' ).removeClass( 'active' );
+
+		lights_cw = true;
+		lights_ccw = false;
+	}
+});
+
+$( 'button#lightb' ).click( function() {
+	if( !$( 'button#lightb' ).hasClass( 'active' ) ){
+		$( 'button#lighta' ).removeClass( 'active' );
+		$( 'button#lightb' ).addClass( 'active' );
+		$( 'button#lightc' ).removeClass( 'active' );
+
+		lights_cw = false;
+		lights_ccw = false;
+	}
+});
+
+$( 'button#lightc' ).click( function() {
+	if( !$( 'button#lightc' ).hasClass( 'active' ) ){
+		$( 'button#lighta' ).removeClass( 'active' );
+		$( 'button#lightb' ).removeClass( 'active' );
+		$( 'button#lightc' ).addClass( 'active' );
+
+		lights_cw = false;
+		lights_ccw = true;
+	}
+});
+
+$( 'button#cameraa' ).click( function() {
+	if( !$( 'button#cameraa' ).hasClass( 'active' ) ){
+		$( 'button#cameraa' ).addClass( 'active' );
+		$( 'button#camerab' ).removeClass( 'active' );
+		$( 'button#camerac' ).removeClass( 'active' );
+
+		camera_cw = true;
+		camera_ccw = false;
+	}
+});
+
+$( 'button#camerab' ).click( function() {
+	if( !$( 'button#camerab' ).hasClass( 'active' ) ){
+		$( 'button#cameraa' ).removeClass( 'active' );
+		$( 'button#camerab' ).addClass( 'active' );
+		$( 'button#camerac' ).removeClass( 'active' );
+
+		camera_cw = false;
+		camera_ccw = false;
+	}
+});
+
+$( 'button#camerac' ).click( function() {
+	if( !$( 'button#camerac' ).hasClass( 'active' ) ){
+		$( 'button#cameraa' ).removeClass( 'active' );
+		$( 'button#camerab' ).removeClass( 'active' );
+		$( 'button#camerac' ).addClass( 'active' );
+
+		camera_cw = false;
+		camera_ccw = true;
+	}
+});
+
 $( 'a#view1' ).click( function() {
 	camera.position.set( 0, 1000, 2000 );
 	myTarget.position.set( 0, 400, 0 );
@@ -303,68 +370,18 @@ $( 'a#view3' ).click( function() {
 	camera_ccw = false;
 });
 
-$( 'button#cameraa' ).click( function() {
-	if( !$( 'button#cameraa' ).hasClass( 'active' ) ){
-		$( 'button#cameraa' ).addClass( 'active' );
-		$( 'button#camerab' ).removeClass( 'active' );
-		$( 'button#camerac' ).removeClass( 'active' );
+$( 'button#controla' ).click( function() {
+	if( !$( 'button#controla' ).hasClass( 'active' ) ){
+		$( 'button#controla' ).addClass( 'active' );
+		$( 'button#controlb' ).removeClass( 'active' );
 
-		camera_cw = true;
-		camera_ccw = false;
 	}
 });
 
-$( 'button#camerab' ).click( function() {
-	if( !$( 'button#camerab' ).hasClass( 'active' ) ){
-		$( 'button#cameraa' ).removeClass( 'active' );
-		$( 'button#camerab' ).addClass( 'active' );
-		$( 'button#camerac' ).removeClass( 'active' );
+$( 'button#controlb' ).click( function() {
+	if( !$( 'button#controlb' ).hasClass( 'active' ) ){
+		$( 'button#controla' ).removeClass( 'active' );
+		$( 'button#controlb' ).addClass( 'active' );
 
-		camera_cw = false;
-		camera_ccw = false;
-	}
-});
-
-$( 'button#camerac' ).click( function() {
-	if( !$( 'button#camerac' ).hasClass( 'active' ) ){
-		$( 'button#cameraa' ).removeClass( 'active' );
-		$( 'button#camerab' ).removeClass( 'active' );
-		$( 'button#camerac' ).addClass( 'active' );
-
-		camera_cw = false;
-		camera_ccw = true;
-	}
-});
-
-$( 'button#lighta' ).click( function() {
-	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
-		$( 'button#lighta' ).addClass( 'active' );
-		$( 'button#lightb' ).removeClass( 'active' );
-		$( 'button#lightc' ).removeClass( 'active' );
-
-		lights_cw = true;
-		lights_ccw = false;
-	}
-});
-
-$( 'button#lightb' ).click( function() {
-	if( !$( 'button#lightb' ).hasClass( 'active' ) ){
-		$( 'button#lighta' ).removeClass( 'active' );
-		$( 'button#lightb' ).addClass( 'active' );
-		$( 'button#lightc' ).removeClass( 'active' );
-
-		lights_cw = false;
-		lights_ccw = false;
-	}
-});
-
-$( 'button#lightc' ).click( function() {
-	if( !$( 'button#lightc' ).hasClass( 'active' ) ){
-		$( 'button#lighta' ).removeClass( 'active' );
-		$( 'button#lightb' ).removeClass( 'active' );
-		$( 'button#lightc' ).addClass( 'active' );
-
-		lights_cw = false;
-		lights_ccw = true;
 	}
 });
