@@ -21,6 +21,8 @@ var camera_ccw = false;
 var lights_cw = true;
 var lights_ccw = false;
 
+var mode;
+
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 camera.position.set( 2000, 1500, 2000 );
 camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
