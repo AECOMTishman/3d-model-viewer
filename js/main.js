@@ -1,3 +1,6 @@
+// DETECT WebGL
+if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
 // GLOBAL VARIABLES
 
 var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4, mesh5;
