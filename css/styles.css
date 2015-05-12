@@ -53,16 +53,12 @@ a#logo {
   margin-bottom: 14px;
 }
 
-div#LightsMenu div#lightsmenu, div#CameraMenu div#cameramenu {
+div#LightsMenu div#lightsmenu, div#CameraMenu div#cameramenu, div#ControlsMenu div#controlsmenu {
   padding: 10px;
   text-align: center;
 }
 
 div#LayersMenu div#layersmenu {
-  padding: 10px;
-}
-
-div#ControlsMenu div#controlsmenu {
   padding: 10px;
 }
 
