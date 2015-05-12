@@ -21,8 +21,6 @@ var camera_ccw = false;
 var lights_cw = true;
 var lights_ccw = false;
 
-var mode;
-
 camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 camera.position.set( 2000, 1500, 2000 );
 camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
@@ -377,33 +375,6 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
 
-	    var prevCamera = camera;
-
-	    camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	    camera.position.copy( prevCamera.position );
-	    camera.rotation.copy( prevCamera.rotation );
-
-	    var MODE = { TRACKBALL: 0, FLY: 1 };
-
-	    switch( mode ) {
-
-	        case MODE.FLY:
-
-	            controls = new THREE.TrackballControls( camera );
-
-	            mode = MODE.TRACKBALL;
-
-	            break;
-
-	        case MODE.TRACKBALL:
-
-	            controls = new THREE.FlyControls( camera );
-
-	            mode = MODE.FLY;
-
-	            break;
-
-	    }
 	}
 });
 
@@ -412,32 +383,5 @@ $( 'button#controlb' ).click( function() {
 		$( 'button#controla' ).removeClass( 'active' );
 		$( 'button#controlb' ).addClass( 'active' );
 
-	    var prevCamera = camera;
-
-	    camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	    camera.position.copy( prevCamera.position );
-	    camera.rotation.copy( prevCamera.rotation );
-
-	    var MODE = { TRACKBALL: 0, FLY: 1 };
-
-	    switch( mode ) {
-
-	        case MODE.FLY:
-
-	            controls = new THREE.TrackballControls( camera );
-
-	            mode = MODE.TRACKBALL;
-
-	            break;
-
-	        case MODE.TRACKBALL:
-
-	            controls = new THREE.FlyControls( camera );
-
-	            mode = MODE.FLY;
-
-	            break;
-
-	    }
 	}
 });
