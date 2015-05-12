@@ -62,6 +62,10 @@ div#LayersMenu div#layersmenu {
   padding: 10px;
 }
 
+div#ControlsMenu div#controlsmenu {
+  padding: 10px;
+}
+
 div.menu-toggle-button {
   display:block;
   clear: both;
