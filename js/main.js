@@ -375,6 +375,27 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
 
+		var MODE = { ORBIT: 1, FLY: 0 };
+
+		switch( mode ) {
+
+		    case MODE.FLY:
+
+		        controls = new THREE.OrbitControls( camera );
+
+		        mode = MODE.ORBIT;
+
+		        break;
+
+		    case MODE.ORBIT:
+
+		        controls = new THREE.FlyControls( camera );
+
+		        mode = MODE.FLY;
+
+		        break;
+
+		}
 	}
 });
 
@@ -383,5 +404,26 @@ $( 'button#controlb' ).click( function() {
 		$( 'button#controla' ).removeClass( 'active' );
 		$( 'button#controlb' ).addClass( 'active' );
 
+		var MODE = { ORBIT: 1, FLY: 0 };
+
+		switch( mode ) {
+
+		    case MODE.FLY:
+
+		        controls = new THREE.OrbitControls( camera );
+
+		        mode = MODE.ORBIT;
+
+		        break;
+
+		    case MODE.ORBIT:
+
+		        controls = new THREE.FlyControls( camera );
+
+		        mode = MODE.FLY;
+
+		        break;
+
+		}
 	}
 });
