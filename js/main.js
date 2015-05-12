@@ -412,7 +412,7 @@ $( 'button#controlb' ).click( function() {
 
 	    var prevCamera = camera;
 
-	    camera = new THREE.PerspectiveCamera(...);
+	    camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	    camera.position.copy( prevCamera.position );
 	    camera.rotation.copy( prevCamera.rotation );
 
