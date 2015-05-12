@@ -25,6 +25,14 @@ camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 camera.position.set( 2000, 1500, 2000 );
 camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
 
+controls = new THREE.OrbitControls( camera );
+controls.addEventListener( 'change', render );
+controls.target = myTarget.position;
+controls.minDistance = 500;
+controls.maxDistance = 5000;
+controls.minPolarAngle = 0.3 * Math.PI/2;
+controls.maxPolarAngle = 1.0 * Math.PI/2;
+
 var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 400, 0 );
 
@@ -70,14 +78,6 @@ function init() {
 
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
-
-	controls = new THREE.OrbitControls( camera );
-	controls.addEventListener( 'change', render );
-	controls.target = myTarget.position;
-	controls.minDistance = 500;
-	controls.maxDistance = 5000;
-	controls.minPolarAngle = 0.3 * Math.PI/2;
-	controls.maxPolarAngle = 1.0 * Math.PI/2;
 
 	scene.add(camera);
 
