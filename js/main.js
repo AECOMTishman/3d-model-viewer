@@ -375,6 +375,12 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
 
+    var prevCamera = camera;
+
+    camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
+    camera.position.copy( prevCamera.position );
+    camera.rotation.copy( prevCamera.rotation );
+
         var controls = new THREE.FirstPersonControls(camera);
         controls.lookSpeed = 0.4;
         controls.movementSpeed = 20;
@@ -392,6 +398,12 @@ $( 'button#controlb' ).click( function() {
 	if( !$( 'button#controlb' ).hasClass( 'active' ) ){
 		$( 'button#controla' ).removeClass( 'active' );
 		$( 'button#controlb' ).addClass( 'active' );
+
+    var prevCamera = camera;
+
+    camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
+    camera.position.copy( prevCamera.position );
+    camera.rotation.copy( prevCamera.rotation );
 
 		controls = new THREE.OrbitControls( camera );
 		controls.addEventListener( 'change', render );
