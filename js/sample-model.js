@@ -21,7 +21,7 @@ FAR = 8000;
 var camera_cw = false;
 var camera_ccw = false;
 
-var lights_cw = true;
+var lights_cw = false;
 var lights_ccw = false;
 
 // BUTTON INITIALIZATIONS
