@@ -100,48 +100,8 @@ function init() {
 
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
+
 	scene = new THREE.Scene();
-
-	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	camera.position.set( 2000, 1500, 2000 );
-	camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
-
-	var myTarget = new THREE.Object3D();
-	myTarget.position.set( 0, 400, 0 );
-
-	controls = new THREE.OrbitControls( camera );
-	controls.addEventListener( 'change', render );
-	controls.target = myTarget.position;
-	controls.minDistance = 500;
-	controls.maxDistance = 5000;
-	controls.minPolarAngle = 0.3 * Math.PI/2;
-	controls.maxPolarAngle = 1.0 * Math.PI/2;
-
-	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
-	scene.add( light );
-
-	var spotLight = new THREE.SpotLight( 0xffffff );
-	spotLight.position.x = 2820;
-	spotLight.position.y = 2000;
-	spotLight.position.z = 0;
-	spotLight.target = myTarget;
-	spotLight.castShadow = true;
-	spotLight.shadowMapWidth = 1500;
-	spotLight.shadowMapHeight = 1000;
-	spotLight.shadowCameraNear = 1500;
-	spotLight.shadowCameraFar = 6000;
-	spotLight.shadowCameraFov = 45;
-	spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
-
-	var sphere = new THREE.SphereGeometry( 100, 16, 8 );
-	var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-	orb_mesh.scale.set( 1, 1, 1 );
-	spotLight.add( orb_mesh );
-
-	scene.add(camera);
-
- 	scene.add( spotLight );
- 	scene.add( myTarget );
 
 	loader = new THREE.JSONLoader();
 
@@ -210,6 +170,47 @@ function init() {
 	terrain.position.set(0, -10, 0);
 	terrain.rotation.set(0, 0, 0);
 	scene.add(terrain);
+	
+	var myTarget = new THREE.Object3D();
+	myTarget.position.set( 0, 400, 0 );
+
+	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
+	camera.position.set( 2000, 1500, 2000 );
+	camera.lookAt( myTarget.position );
+
+	controls = new THREE.OrbitControls( camera );
+	controls.addEventListener( 'change', render );
+	controls.target = myTarget.position;
+	controls.minDistance = 500;
+	controls.maxDistance = 5000;
+	controls.minPolarAngle = 0.3 * Math.PI/2;
+	controls.maxPolarAngle = 1.0 * Math.PI/2;
+
+	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
+	scene.add( light );
+
+	var spotLight = new THREE.SpotLight( 0xffffff );
+	spotLight.position.x = 2820;
+	spotLight.position.y = 2000;
+	spotLight.position.z = 0;
+	spotLight.target = myTarget;
+	spotLight.castShadow = true;
+	spotLight.shadowMapWidth = 1500;
+	spotLight.shadowMapHeight = 1000;
+	spotLight.shadowCameraNear = 1500;
+	spotLight.shadowCameraFar = 6000;
+	spotLight.shadowCameraFov = 45;
+	spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
+
+	var sphere = new THREE.SphereGeometry( 100, 16, 8 );
+	var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+	orb_mesh.scale.set( 1, 1, 1 );
+	spotLight.add( orb_mesh );
+
+	scene.add(camera);
+
+ 	scene.add( spotLight );
+ 	scene.add( myTarget );
 
     window.addEventListener( 'resize', onWindowResize, false );
 
