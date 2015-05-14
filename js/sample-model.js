@@ -3,7 +3,7 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 // GLOBAL VARIABLES
 
-var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4, mesh5;
+var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4, mesh5, spotLight;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -20,38 +20,7 @@ var camera_ccw = false;
 var lights_cw = true;
 var lights_ccw = false;
 
-camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-camera.position.set( 2000, 1500, 2000 );
-camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
 
-var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 400, 0 );
-
-controls = new THREE.OrbitControls( camera );
-controls.addEventListener( 'change', render );
-controls.target = myTarget.position;
-controls.minDistance = 500;
-controls.maxDistance = 5000;
-controls.minPolarAngle = 0.3 * Math.PI/2;
-controls.maxPolarAngle = 1.0 * Math.PI/2;
-
-var spotLight = new THREE.SpotLight( 0xffffff );
-spotLight.position.x = 2820;
-spotLight.position.y = 2000;
-spotLight.position.z = 0;
-spotLight.target = myTarget;
-spotLight.castShadow = true;
-spotLight.shadowMapWidth = 1500;
-spotLight.shadowMapHeight = 1000;
-spotLight.shadowCameraNear = 1500;
-spotLight.shadowCameraFar = 6000;
-spotLight.shadowCameraFov = 45;
-spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
-
-var sphere = new THREE.SphereGeometry( 100, 16, 8 );
-var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-orb_mesh.scale.set( 1, 1, 1 );
-spotLight.add( orb_mesh );
 
 // BUTTON INITIALIZATIONS
 
@@ -86,6 +55,39 @@ function init() {
 
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
+
+	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
+	camera.position.set( 2000, 1500, 2000 );
+	camera.lookAt(new THREE.Vector3( 0, 400, 0 ));
+
+	var myTarget = new THREE.Object3D();
+	myTarget.position.set( 0, 400, 0 );
+
+	controls = new THREE.OrbitControls( camera );
+	controls.addEventListener( 'change', render );
+	controls.target = myTarget.position;
+	controls.minDistance = 500;
+	controls.maxDistance = 5000;
+	controls.minPolarAngle = 0.3 * Math.PI/2;
+	controls.maxPolarAngle = 1.0 * Math.PI/2;
+
+	var spotLight = new THREE.SpotLight( 0xffffff );
+	spotLight.position.x = 2820;
+	spotLight.position.y = 2000;
+	spotLight.position.z = 0;
+	spotLight.target = myTarget;
+	spotLight.castShadow = true;
+	spotLight.shadowMapWidth = 1500;
+	spotLight.shadowMapHeight = 1000;
+	spotLight.shadowCameraNear = 1500;
+	spotLight.shadowCameraFar = 6000;
+	spotLight.shadowCameraFov = 45;
+	spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
+
+	var sphere = new THREE.SphereGeometry( 100, 16, 8 );
+	var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+	orb_mesh.scale.set( 1, 1, 1 );
+	spotLight.add( orb_mesh );
 
 	scene.add(camera);
 
@@ -377,15 +379,6 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controlb' ).removeClass( 'active' );
 
         var controls = new THREE.FirstPersonControls(camera);
-        controls.lookSpeed = 0.4;
-        controls.movementSpeed = 20;
-        controls.noFly = true;
-        controls.lookVertical = true;
-        controls.constrainVertical = true;
-        controls.verticalMin = 1.0;
-        controls.verticalMax = 2.0;
-        controls.lon = -150;
-        controls.lat = 120;
 	}
 });
 
@@ -395,12 +388,6 @@ $( 'button#controlb' ).click( function() {
 		$( 'button#controlb' ).addClass( 'active' );
 
 		controls = new THREE.OrbitControls( camera );
-		controls.addEventListener( 'change', render );
-		controls.target = myTarget.position;
-		controls.minDistance = 500;
-		controls.maxDistance = 5000;
-		controls.minPolarAngle = 0.3 * Math.PI/2;
-		controls.maxPolarAngle = 1.0 * Math.PI/2;
 	}
 });
 
