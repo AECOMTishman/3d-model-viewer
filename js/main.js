@@ -81,7 +81,6 @@ function init() {
 	renderer.shadowMapEnabled = true;
 	
 	scene = new THREE.Scene();
-	group = new THREE.Object3D();
 
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
@@ -91,7 +90,6 @@ function init() {
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
 
-	group.add( myTarget );
 	scene.add( myTarget );
  	scene.add( spotLight );
 
@@ -105,7 +103,6 @@ function init() {
 		mesh1.rotation.x = -Math.PI / 2;
 		mesh1.castShadow = true;
 		mesh1.receiveShadow = true;
-		group.add( mesh1 );
 		scene.add( mesh1 );
 	});
 
@@ -117,7 +114,6 @@ function init() {
 		mesh2.rotation.x = -Math.PI / 2;
 		mesh2.castShadow = false;
 		mesh2.receiveShadow = true;
-		group.add( mesh2 );
 		scene.add( mesh2 );
 	});
 
@@ -129,7 +125,6 @@ function init() {
 		mesh3.rotation.x = -Math.PI / 2;
 		mesh3.castShadow = true;
 		mesh3.receiveShadow = true;
-		group.add( mesh3 );
 		scene.add( mesh3 );
 	});
 
@@ -141,7 +136,6 @@ function init() {
 		mesh4.rotation.x = -Math.PI / 2;
 		mesh4.castShadow = false;
 		mesh4.receiveShadow = true;
-		group.add( mesh4 );
 		scene.add( mesh4 );
 	});
 
@@ -153,7 +147,6 @@ function init() {
 		mesh5.rotation.x = -Math.PI / 2;
 		mesh5.castShadow = true;
 		mesh5.receiveShadow = true;
-		group.add( mesh5 );
 		scene.add( mesh5 );
 
 		render();
@@ -236,11 +229,11 @@ $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass( 'active' ) ){
 		$( 'input#layer1' ).removeClass( 'active' );
 		scene.remove( mesh1 );
-		mesh3.castShadow = true;
+		mesh4.castShadow = true;
 	} else {
 		$( 'input#layer1' ).addClass( 'active' );
 		scene.add( mesh1 );
-		mesh3.castShadow = false;
+		mesh4.castShadow = false;
 	}
 });
 
