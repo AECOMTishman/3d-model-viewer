@@ -81,6 +81,7 @@ function init() {
 	renderer.shadowMapEnabled = true;
 	
 	scene = new THREE.Scene();
+	group = new THREE.Object3D();
 
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
@@ -90,10 +91,9 @@ function init() {
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
 
+	group.add( myTarget );
 	scene.add( myTarget );
  	scene.add( spotLight );
-
-	group = new THREE.Object3D();
 
 	loader = new THREE.JSONLoader();
 
