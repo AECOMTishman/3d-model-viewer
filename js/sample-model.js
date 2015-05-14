@@ -97,11 +97,10 @@ function init() {
 	renderer.setSize( WIDTH, HEIGHT );
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.shadowMapEnabled = true;
-	
-	scene = new THREE.Scene();
 
 	container = document.getElementById( '3d' );
 	container.appendChild( renderer.domElement );
+	scene = new THREE.Scene();
 
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	camera.position.set( 2000, 1500, 2000 );
@@ -204,7 +203,7 @@ function init() {
 	});
 
 	terrain = new THREE.Mesh(
-	new THREE.CubeGeometry(4000, 10, 4000), new THREE.MeshPhongMaterial({
+	new THREE.BoxGeometry(4000, 10, 4000), new THREE.MeshPhongMaterial({
 	    color: 0x46882c
 	}));
 	terrain.receiveShadow = true;
