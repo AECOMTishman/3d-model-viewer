@@ -117,6 +117,9 @@ function init() {
 	controls.minPolarAngle = 0.3 * Math.PI/2;
 	controls.maxPolarAngle = 1.0 * Math.PI/2;
 
+	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
+	scene.add( light );
+
 	var spotLight = new THREE.SpotLight( 0xffffff );
 	spotLight.position.x = 2820;
 	spotLight.position.y = 2000;
@@ -137,11 +140,8 @@ function init() {
 
 	scene.add(camera);
 
-	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
-	scene.add( light );
-
  	scene.add( spotLight );
- 	spotLight.add( myTarget );
+ 	scene.add( myTarget );
 
 	loader = new THREE.JSONLoader();
 
