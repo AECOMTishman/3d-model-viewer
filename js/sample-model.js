@@ -22,12 +22,15 @@ var lights_ccw = false;
 
 // BUTTON INITIALIZATIONS
 
-$( 'button#lighta' ).addClass( 'active' );
+$( 'button#lightb' ).addClass( 'active' );
+
 $( 'button#camerab' ).addClass( 'active' );
-$( 'button#controlb' ).addClass( 'active' );
+
 $( 'input#layer1' ).addClass( 'active' );
 $( 'input#layer2' ).addClass( 'active' );
 $( 'input#layer3' ).addClass( 'active' );
+
+$( 'button#controlb' ).addClass( 'active' );
 $( 'input#shadows' ).addClass( 'active' );
 $( 'input#vr-mode' ).addClass( 'active' );
 
@@ -74,6 +77,27 @@ function animate() {
 	render();
 	stats.update();
 }
+
+function toScreenPosition(obj, camera)
+{
+    var vector = new THREE.Vector3();
+
+    var widthHalf = 0.5*renderer.context.canvas.width;
+    var heightHalf = 0.5*renderer.context.canvas.height;
+
+    obj.updateMatrixWorld();
+    vector.setFromMatrixPosition(obj.matrixWorld);
+    vector.project(camera);
+
+    vector.x = ( vector.x * widthHalf ) + widthHalf;
+    vector.y = - ( vector.y * heightHalf ) + heightHalf;
+
+    return { 
+        x: vector.x,
+        y: vector.y
+    };
+
+};
 
 function onWindowResize() {
 	var win = $( this );
@@ -202,9 +226,7 @@ function init() {
 	spotLight.shadowCameraFov = 45;
 	spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
-	var sphere = new THREE.SphereGeometry( 100, 16, 8 );
-	var orb_mesh = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-	orb_mesh.scale.set( 1, 1, 1 );
+	var orb_mesh = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 	spotLight.add( orb_mesh );
 
 	scene.add(camera);
@@ -379,8 +401,10 @@ $( 'button#controla' ).click( function() {
 		var prevCamera = camera;
 
 		camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-		camera.position.copy( prevCamera.position );
-		camera.rotation.copy( prevCamera.rotation );
+		camera.position.set( 2000, 1500, 2000 );
+		camera.lookAt( myTarget.position );
+		//camera.position.copy( prevCamera.position );
+		//camera.rotation.copy( prevCamera.rotation );
 
         controls = new THREE.FirstPersonControls(camera);
 	}
@@ -394,8 +418,10 @@ $( 'button#controlb' ).click( function() {
 		var prevCamera = camera;
 
 		camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-		camera.position.copy( prevCamera.position );
-		camera.rotation.copy( prevCamera.rotation );
+		camera.position.set( 2000, 1500, 2000 );
+		camera.lookAt( myTarget.position );
+		//camera.position.copy( prevCamera.position );
+		//camera.rotation.copy( prevCamera.rotation );
 
 		controls = new THREE.OrbitControls( camera );
 	}
