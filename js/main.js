@@ -55,12 +55,13 @@ spotLight.add( orb_mesh );
 
 // BUTTON INITIALIZATIONS
 
-$( 'input#layer1' ).addClass( 'active' );
-$( 'input#layer2' ).addClass( 'active' );
-$( 'input#layer3' ).addClass( 'active' );
 $( 'button#lighta' ).addClass( 'active' );
 $( 'button#camerab' ).addClass( 'active' );
 $( 'button#controlb' ).addClass( 'active' );
+$( 'input#layer1' ).addClass( 'active' );
+$( 'input#layer2' ).addClass( 'active' );
+$( 'input#layer3' ).addClass( 'active' );
+$( 'input#shadows' ).addClass( 'active' );
 
 // MAIN FUNCTION
 
@@ -225,42 +226,6 @@ function onWindowResize() {
 
 // BUTTONS
 
-$( 'input#layer1' ).change( function() {
-	if( $( 'input#layer1' ).hasClass( 'active' ) ){
-		$( 'input#layer1' ).removeClass( 'active' );
-		scene.remove( mesh1 );
-		mesh4.castShadow = true;
-	} else {
-		$( 'input#layer1' ).addClass( 'active' );
-		scene.add( mesh1 );
-		mesh4.castShadow = false;
-	}
-});
-
-$( 'input#layer2' ).change( function() {
-	if( $( 'input#layer2' ).hasClass( 'active' ) ){
-		$( 'input#layer2' ).removeClass( 'active' );
-		scene.remove( mesh2 );
-		scene.remove( mesh3 );
-	} else {
-		$( 'input#layer2' ).addClass( 'active' );
-		scene.add( mesh2 );
-		scene.add( mesh3 );
-	}
-});
-
-$( 'input#layer3' ).change( function() {
-	if( $( 'input#layer3' ).hasClass( 'active' ) ){
-		$( 'input#layer3' ).removeClass( 'active' );
-		scene.remove( mesh4 );
-		scene.remove( mesh5 );
-	} else {
-		$( 'input#layer3' ).addClass( 'active' );
-		scene.add( mesh4 );
-		scene.add( mesh5 );
-	}
-});
-
 $( 'button#lighta' ).click( function() {
 	if( !$( 'button#lighta' ).hasClass( 'active' ) ){
 		$( 'button#lighta' ).addClass( 'active' );
@@ -369,6 +334,42 @@ $( 'a#view3' ).click( function() {
 	camera_ccw = false;
 });
 
+$( 'input#layer1' ).change( function() {
+	if( $( 'input#layer1' ).hasClass( 'active' ) ){
+		$( 'input#layer1' ).removeClass( 'active' );
+		scene.remove( mesh1 );
+		mesh4.castShadow = true;
+	} else {
+		$( 'input#layer1' ).addClass( 'active' );
+		scene.add( mesh1 );
+		mesh4.castShadow = false;
+	}
+});
+
+$( 'input#layer2' ).change( function() {
+	if( $( 'input#layer2' ).hasClass( 'active' ) ){
+		$( 'input#layer2' ).removeClass( 'active' );
+		scene.remove( mesh2 );
+		scene.remove( mesh3 );
+	} else {
+		$( 'input#layer2' ).addClass( 'active' );
+		scene.add( mesh2 );
+		scene.add( mesh3 );
+	}
+});
+
+$( 'input#layer3' ).change( function() {
+	if( $( 'input#layer3' ).hasClass( 'active' ) ){
+		$( 'input#layer3' ).removeClass( 'active' );
+		scene.remove( mesh4 );
+		scene.remove( mesh5 );
+	} else {
+		$( 'input#layer3' ).addClass( 'active' );
+		scene.add( mesh4 );
+		scene.add( mesh5 );
+	}
+});
+
 $( 'button#controla' ).click( function() {
 	if( !$( 'button#controla' ).hasClass( 'active' ) ){
 		$( 'button#controla' ).addClass( 'active' );
@@ -411,5 +412,15 @@ $( 'button#controlb' ).click( function() {
 		controls.maxDistance = 5000;
 		controls.minPolarAngle = 0.3 * Math.PI/2;
 		controls.maxPolarAngle = 1.0 * Math.PI/2;
+	}
+});
+
+$( 'input#shadows' ).change( function() {
+	if( $( 'input#shadows' ).hasClass( 'active' ) ){
+		$( 'input#shadows' ).removeClass( 'active' );
+		renderer.shadowMapEnabled = false;
+	} else {
+		$( 'input#shadows' ).addClass( 'active' );
+		renderer.shadowMapEnabled = true;
 	}
 });
