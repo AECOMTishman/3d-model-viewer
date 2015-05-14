@@ -419,8 +419,10 @@ $( 'input#shadows' ).change( function() {
 	if( $( 'input#shadows' ).hasClass( 'active' ) ){
 		$( 'input#shadows' ).removeClass( 'active' );
 		renderer.shadowMapEnabled = false;
+		spotLight.castShadow = false;
 	} else {
 		$( 'input#shadows' ).addClass( 'active' );
 		renderer.shadowMapEnabled = true;
+		spotLight.castShadow = true;
 	}
 });
