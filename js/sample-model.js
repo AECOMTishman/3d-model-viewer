@@ -140,8 +140,8 @@ function init() {
 	light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 	scene.add( light );
 
-	camera.add( myTarget );
- 	camera.add( spotLight );
+ 	scene.add( spotLight );
+ 	spotLight.add( myTarget );
 
 	loader = new THREE.JSONLoader();
 
