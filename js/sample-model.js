@@ -382,7 +382,7 @@ $( 'button#controla' ).click( function() {
 		camera.position.copy( prevCamera.position );
 		camera.rotation.copy( prevCamera.rotation );
 
-        var controls = new THREE.FirstPersonControls(camera);
+        controls = new THREE.FirstPersonControls(camera);
 	}
 });
 
