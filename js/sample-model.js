@@ -3,7 +3,7 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 // GLOBAL VARIABLES
 
-var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4, mesh5, spotLight;
+var renderer, container, scene, loader, mesh1, mesh2, mesh3, mesh4, mesh5, terrain, myTarget, camera, controls, spotLight, clock, stats;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
