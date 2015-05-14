@@ -1,10 +1,6 @@
 // DETECT WebGL
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-// MAIN PROGRAM
-
-init();
-
 // GLOBAL VARIABLES
 
 var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4, mesh5, spotLight;
@@ -34,6 +30,10 @@ $( 'input#layer2' ).addClass( 'active' );
 $( 'input#layer3' ).addClass( 'active' );
 $( 'input#shadows' ).addClass( 'active' );
 $( 'input#vr-mode' ).addClass( 'active' );
+
+// MAIN PROGRAM
+
+init();
 
 // FUNCTIONS
 
