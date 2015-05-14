@@ -1,6 +1,10 @@
 // DETECT WebGL
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
+// MAIN PROGRAM
+
+init();
+
 // GLOBAL VARIABLES
 
 var scene, renderer, container, camera, controls, loader, clock, stats, mesh1, mesh2, mesh3, mesh4, mesh5, spotLight;
@@ -20,8 +24,6 @@ var camera_ccw = false;
 var lights_cw = true;
 var lights_ccw = false;
 
-
-
 // BUTTON INITIALIZATIONS
 
 $( 'button#lighta' ).addClass( 'active' );
@@ -33,9 +35,54 @@ $( 'input#layer3' ).addClass( 'active' );
 $( 'input#shadows' ).addClass( 'active' );
 $( 'input#vr-mode' ).addClass( 'active' );
 
-// MAIN FUNCTION
+// FUNCTIONS
 
-init();
+function render() {
+	renderer.render( scene, camera );
+}
+
+function update() {
+ 	time = clock.getElapsedTime();
+ 	// delta = clock.getDelta(); // Not using this line of code at the moment.
+ 	if ( camera_cw ){	
+		camera.position.x = 2820 * Math.cos( time/10 );
+		camera.position.y = 2000;
+		camera.position.z = 2820 * Math.sin( time/10 );
+ 	}
+ 	if ( camera_ccw ){
+		camera.position.x = 2820 * Math.sin( time/10 );
+		camera.position.y = 2000;
+		camera.position.z = 2820 * Math.cos( time/10 );
+ 	}
+ 	if ( lights_cw ){
+		spotLight.position.x = 2820 * Math.cos( time/10 );
+		spotLight.position.y = 2000;
+		spotLight.position.z = 2820 * Math.sin( time/10 );
+
+ 	}
+ 	if ( lights_ccw ){
+		spotLight.position.x = 2820 * Math.sin( time/10 );
+		spotLight.position.y = 2000;
+		spotLight.position.z = 2820 * Math.cos( time/10 );
+ 	}
+}
+
+function animate() {
+	requestAnimationFrame( animate );
+	controls.update();
+	update();
+	render();
+	stats.update();
+}
+
+function onWindowResize() {
+	var win = $( this );
+	WIDTH = window.innerWidth;
+	HEIGHT = window.innerHeight;
+	camera.aspect = WIDTH / HEIGHT;
+	camera.updateProjectionMatrix();
+	renderer.setSize( WIDTH, HEIGHT );
+}
 
 function init() {
 	if( Detector.webgl ){
@@ -176,55 +223,6 @@ function init() {
     container.appendChild( stats.domElement );
 
     animate();
-}
-
-// HELPER FUNCTIONS
-
-function animate() {
-	requestAnimationFrame( animate );
-	controls.update();
-	update();
-	render();
-	stats.update();
-}
-
-function update() {
- 	time = clock.getElapsedTime();
- 	// delta = clock.getDelta(); // Not using this line of code at the moment.
- 	if ( camera_cw ){	
-		camera.position.x = 2820 * Math.cos( time/10 );
-		camera.position.y = 2000;
-		camera.position.z = 2820 * Math.sin( time/10 );
- 	}
- 	if ( camera_ccw ){
-		camera.position.x = 2820 * Math.sin( time/10 );
-		camera.position.y = 2000;
-		camera.position.z = 2820 * Math.cos( time/10 );
- 	}
- 	if ( lights_cw ){
-		spotLight.position.x = 2820 * Math.cos( time/10 );
-		spotLight.position.y = 2000;
-		spotLight.position.z = 2820 * Math.sin( time/10 );
-
- 	}
- 	if ( lights_ccw ){
-		spotLight.position.x = 2820 * Math.sin( time/10 );
-		spotLight.position.y = 2000;
-		spotLight.position.z = 2820 * Math.cos( time/10 );
- 	}
-}
-
-function render() {
-	renderer.render( scene, camera );
-}
-
-function onWindowResize() {
-	var win = $( this );
-	WIDTH = window.innerWidth;
-	HEIGHT = window.innerHeight;
-	camera.aspect = WIDTH / HEIGHT;
-	camera.updateProjectionMatrix();
-	renderer.setSize( WIDTH, HEIGHT );
 }
 
 // BUTTONS
