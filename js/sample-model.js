@@ -201,7 +201,6 @@ camera.position.set( 2000, 1500, 2000 );
 camera.lookAt( myTarget.position );
 
 controls = new THREE.FlyControls( camera );
-controls.addEventListener( 'change', render );
 
 /*controls = new THREE.OrbitControls( camera );
 controls.addEventListener( 'change', render );
