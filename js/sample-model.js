@@ -202,11 +202,11 @@ camera.lookAt( myTarget.position );
 
 controls = new THREE.OrbitControls( camera );
 controls.addEventListener( 'change', render );
-/*controls.target = myTarget.position;
+controls.target = myTarget.position;
 controls.minDistance = 500;
 controls.maxDistance = 5000;
 controls.minPolarAngle = 0.3 * Math.PI/2;
-controls.maxPolarAngle = 1.0 * Math.PI/2;*/
+controls.maxPolarAngle = 1.0 * Math.PI/2;
 
 light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 scene.add( light );
