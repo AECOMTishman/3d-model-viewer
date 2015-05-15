@@ -17,12 +17,12 @@ FAR = 8000;
 var camera_cw = false;
 var camera_ccw = false;
 
-var lights_cw = false;
+var lights_cw = true;
 var lights_ccw = false;
 
 // BUTTON INITIALIZATIONS
 
-$( 'button#lightb' ).addClass( 'active' );
+$( 'button#lighta' ).addClass( 'active' );
 
 $( 'button#camerab' ).addClass( 'active' );
 
@@ -222,7 +222,7 @@ spotLight.shadowMapHeight = 1000;
 spotLight.shadowCameraNear = 1500;
 spotLight.shadowCameraFar = 6000;
 spotLight.shadowCameraFov = 45;
-spotLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
+spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 var orb_mesh = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 spotLight.add( orb_mesh );
