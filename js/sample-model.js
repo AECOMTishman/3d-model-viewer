@@ -437,15 +437,19 @@ $( 'input#shadows' ).change( function() {
 	if( $( 'input#shadows' ).hasClass( 'active' ) ){
 		$( 'input#shadows' ).removeClass( 'active' );
 
+		renderer.shadowMapAutoUpdate = false;
+		renderer.clearTarget( spotLight.shadowMap );
 	} else {
 		$( 'input#shadows' ).addClass( 'active' );
 
+		renderer.shadowMapAutoUpdate = true;
 	}
 });
 
 $( 'input#vr-mode' ).change( function() {
 	if( $( 'input#vr-mode' ).hasClass( 'active' ) ){
 		$( 'input#vr-mode' ).removeClass( 'active' );
+
 
 	} else {
 		$( 'input#vr-mode' ).addClass( 'active' );
