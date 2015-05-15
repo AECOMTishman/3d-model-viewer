@@ -398,8 +398,8 @@ $( 'button#controla' ).click( function() {
 		var prevCamera = camera;
 
 		camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-		camera.lookAt( myTarget.position );
-		camera.position.copy( prevCamera.position );
+		camera.lookAt( 0, 0, 1 );
+		camera.position.set( 0, 0, 0 );
 		camera.rotation.copy( prevCamera.rotation );
 
         controls = new THREE.FirstPersonControls(camera);
