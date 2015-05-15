@@ -36,7 +36,7 @@ a.list-group-item {
   text-align: center;
 }
 
-a.list-group-item span {
+a.list-group-item span.glyphicon {
   float: left;
 }
 
