@@ -200,7 +200,10 @@ camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 camera.position.set( 2000, 1500, 2000 );
 camera.lookAt( myTarget.position );
 
-controls = new THREE.FlyControls( camera );
+controls = new THREE.FlyControls( camera, container );
+controls.dragToLook = true;
+controls.movementSpeed = 5;
+controls.rollSpeed = 0.5;
 
 /*controls = new THREE.OrbitControls( camera );
 controls.addEventListener( 'change', render );
