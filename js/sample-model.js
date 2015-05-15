@@ -395,14 +395,13 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
 
-/*		var prevCamera = camera;
+		var prevCamera = camera;
 
 		camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-		camera.position.set( 2000, 1500, 2000 );
 		camera.lookAt( myTarget.position );
 		camera.position.copy( prevCamera.position );
 		camera.rotation.copy( prevCamera.rotation );
-*/
+
         controls = new THREE.FirstPersonControls(camera);
 	}
 });
@@ -412,13 +411,12 @@ $( 'button#controlb' ).click( function() {
 		$( 'button#controla' ).removeClass( 'active' );
 		$( 'button#controlb' ).addClass( 'active' );
 
-/*		var prevCamera = camera;
+		var prevCamera = camera;
 
 		camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-		camera.position.set( 2000, 1500, 2000 );
 		camera.lookAt( myTarget.position );
 		camera.position.copy( prevCamera.position );
-		camera.rotation.copy( prevCamera.rotation );*/
+		camera.rotation.copy( prevCamera.rotation );
 
 		controls = new THREE.OrbitControls( camera );
 	}
