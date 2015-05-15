@@ -438,7 +438,7 @@ $( 'input#shadows' ).change( function() {
 		$( 'input#shadows' ).removeClass( 'active' );
 
 		renderer.shadowMapAutoUpdate = false;
-		renderer.clearTarget( spotLight.shadowMap );
+		renderer.clearTarget( light.shadowMap );
 	} else {
 		$( 'input#shadows' ).addClass( 'active' );
 
