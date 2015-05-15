@@ -33,9 +33,7 @@ $( 'input#layer3' ).addClass( 'active' );
 $( 'button#controlb' ).addClass( 'active' );
 $( 'input#shadows' ).addClass( 'active' );
 
-function toggleOff() {
-  $('input#vr-mode').bootstrapToggle('off')  
-}
+$('input#vr-mode').bootstrapToggle('off');
 
 // FUNCTIONS
 
