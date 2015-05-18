@@ -77,13 +77,13 @@ function animate() {
 
 function setupControls() {
     cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	cam1.position.set( 300, 300, 300 );
+	cam1.position.set( 300, 800, 300 );
 	con1 = new THREE.FirstPersonControls( cam1 );
 	con1.lookSpeed = 0.05;
 	con1.movementSpeed = 50;
   
     cam2 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	cam2.position.set( 300, 300, 300 );
+	cam2.position.set( 300, 800, 300 );
 	con2 = new THREE.OrbitControls( cam2 );
 }
 
