@@ -63,7 +63,7 @@ function update() {
 		camera.position.z = 2820 * Math.sin( camRadIncrement );
  	}
  	if ( lights_cw ){
- 		lightRadIncrement -= delta * rad;
+ 		lightRadIncrement += delta * rad;
 
 		spotLight.position.x = 2820 * Math.cos( lightRadIncrement );
 		spotLight.position.y = 2000;
@@ -71,7 +71,7 @@ function update() {
 
  	}
  	if ( lights_ccw ){
-		lightRadIncrement += delta * rad;
+		lightRadIncrement -= delta * rad;
 
 		spotLight.position.x = 2820 * Math.cos( lightRadIncrement );
 		spotLight.position.y = 2000;
