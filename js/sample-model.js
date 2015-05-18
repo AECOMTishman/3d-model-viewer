@@ -462,7 +462,7 @@ $( 'button#controlb' ).click( function() {
 $( 'input#light1' ).change( function() {
 	if( $( 'input#light1' ).hasClass( 'active' ) ){
 		$( 'input#light1' ).removeClass( 'active' );
-		spotLight1.intensity = 0.0;
+		spotLight1.intensity = 0.1;
 	} else {
 		$( 'input#light1' ).addClass( 'active' );
 		spotLight1.intensity = 1.0;
@@ -472,7 +472,7 @@ $( 'input#light1' ).change( function() {
 $( 'input#light2' ).change( function() {
 	if( $( 'input#light2' ).hasClass( 'active' ) ){
 		$( 'input#light2' ).removeClass( 'active' );
-		spotLight2.intensity = 0.0;
+		spotLight2.intensity = 0.1;
 	} else {
 		$( 'input#light2' ).addClass( 'active' );
 		spotLight2.intensity = 1.0;
@@ -482,7 +482,7 @@ $( 'input#light2' ).change( function() {
 $( 'input#light3' ).change( function() {
 	if( $( 'input#light3' ).hasClass( 'active' ) ){
 		$( 'input#light3' ).removeClass( 'active' );
-		spotLight3.intensity = 0.0;
+		spotLight3.intensity = 0.1;
 	} else {
 		$( 'input#light3' ).addClass( 'active' );
 		spotLight3.intensity = 1.0;
