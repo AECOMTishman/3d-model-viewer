@@ -62,7 +62,7 @@ function update() {
 		camera.position.y = 2000;
 		camera.position.z = 2820 * Math.sin( camRadIncrement );
  	}
- 	if ( lights_cw ){
+ 	if ( lights_cw && $( 'input#light1' ).hasClass( 'active' ) ){
  		lightRadIncrement += delta * rad;
 
 		spotLight.position.x = 2820 * Math.cos( lightRadIncrement );
@@ -70,7 +70,7 @@ function update() {
 		spotLight.position.z = 2820 * Math.sin( lightRadIncrement );
 
  	}
- 	if ( lights_ccw ){
+ 	if ( lights_ccw && $( 'input#light1' ).hasClass( 'active' ) ){
 		lightRadIncrement -= delta * rad;
 
 		spotLight.position.x = 2820 * Math.cos( lightRadIncrement );
@@ -90,6 +90,7 @@ function animate() {
 function setupControls() {
     cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	con1 = new THREE.FirstPersonControls( cam1 );
+	con1.dragToLook = true;
 	con1.lookSpeed = 0.10;
 	con1.movementSpeed = 1000;
   
