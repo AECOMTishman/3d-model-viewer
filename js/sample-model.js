@@ -4,7 +4,7 @@ if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 // GLOBAL VARIABLES
 
-var renderer, container, scene, loader, mesh1, mesh2, mesh3, mesh4, mesh5, terrain, myTarget, camera, cam1, cam2, con1, con2, spotLight1, spotLight2, spotLight3, clock, stats;
+var renderer, container, scene, loader, mesh1, mesh2, mesh3, mesh4, mesh5, terrain, myTarget, camera, cam1, cam2, con1, con2, whiteLight, yellowLight, redLight, clock, stats;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -79,17 +79,17 @@ function update() {
 }
 
 function updateLights() {
-	spotLight1.position.x = 2820 * Math.cos( lightRadIncrement );
-	spotLight1.position.y = 2000;
-	spotLight1.position.z = 2820 * Math.sin( lightRadIncrement );
+	whiteLight.position.x = 2820 * Math.cos( lightRadIncrement );
+	whiteLight.position.y = 2000;
+	whiteLight.position.z = 2820 * Math.sin( lightRadIncrement );
 
-	spotLight2.position.x = 2820 * Math.cos( lightRadIncrement + 1000*120*2*Math.PI/360 );
-	spotLight2.position.y = 2000;
-	spotLight2.position.z = 2820 * Math.sin( lightRadIncrement + 1000*120*2*Math.PI/360 );
+	yellowLight.position.x = 2820 * Math.cos( lightRadIncrement + 1000*120*2*Math.PI/360 );
+	yellowLight.position.y = 2000;
+	yellowLight.position.z = 2820 * Math.sin( lightRadIncrement + 1000*120*2*Math.PI/360 );
 
-	spotLight3.position.x = 2820 * Math.cos( lightRadIncrement + 1000*240*2*Math.PI/360 );
-	spotLight3.position.y = 2000;
-	spotLight3.position.z = 2820 * Math.sin( lightRadIncrement + 1000*240*2*Math.PI/360 );
+	redLight.position.x = 2820 * Math.cos( lightRadIncrement + 1000*240*2*Math.PI/360 );
+	redLight.position.y = 2000;
+	redLight.position.z = 2820 * Math.sin( lightRadIncrement + 1000*240*2*Math.PI/360 );
 }
 
 function animate() {
@@ -103,8 +103,8 @@ function animate() {
 function setupControls() {
     cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	con1 = new THREE.FirstPersonControls( cam1 );
-	con1.verticalMin = -Math.PI/8;
-	con1.verticalMax = 3*Math.PI/8;
+	// con1.verticalMin = -Math.PI/8; what do?
+	// con1.verticalMax = 3*Math.PI/8;
 	con1.lookSpeed = 0.10;
 	con1.movementSpeed = 1000;
   
@@ -238,52 +238,52 @@ myTarget.position.set( 0, 400, 0 );
 light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 scene.add( light );
 
-var spotLight1 = new THREE.SpotLight( 0xffffff, 1.0 );
-spotLight1.position.x = 2820;
-spotLight1.position.y = 2000;
-spotLight1.position.z = 0;
-spotLight1.target = myTarget;
-spotLight1.castShadow = true;
-spotLight1.shadowDarkness = 0.5;
-spotLight1.shadowMapWidth = 1500;
-spotLight1.shadowMapHeight = 1000;
-spotLight1.shadowCameraNear = 1500;
-spotLight1.shadowCameraFar = 6000;
-spotLight1.shadowCameraFov = 45;
-spotLight1.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+var whiteLight = new THREE.SpotLight( 0xffffff, 1.0 );
+whiteLight.position.x = 2820;
+whiteLight.position.y = 2000;
+whiteLight.position.z = 0;
+whiteLight.target = myTarget;
+whiteLight.castShadow = true;
+whiteLight.shadowDarkness = 0.5;
+whiteLight.shadowMapWidth = 1500;
+whiteLight.shadowMapHeight = 1000;
+whiteLight.shadowCameraNear = 1500;
+whiteLight.shadowCameraFar = 6000;
+whiteLight.shadowCameraFov = 45;
+whiteLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-spotLight1.add( orb_mesh1 );
+whiteLight.add( orb_mesh1 );
 
-var spotLight2 = new THREE.SpotLight( 0xffffff, 0.0 );
-spotLight2.position.x = 2820;
-spotLight2.position.y = 2000;
-spotLight2.position.z = 0;
-spotLight2.target = myTarget;
-spotLight2.castShadow = true;
-spotLight2.shadowDarkness = 0.0;
-spotLight2.shadowMapWidth = 1500;
-spotLight2.shadowMapHeight = 1000;
-spotLight2.shadowCameraNear = 1500;
-spotLight2.shadowCameraFar = 6000;
-spotLight2.shadowCameraFov = 45;
-spotLight2.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+var yellowLight = new THREE.SpotLight( 0xffffd5, 0.0 );
+yellowLight.position.x = 2820;
+yellowLight.position.y = 2000;
+yellowLight.position.z = 0;
+yellowLight.target = myTarget;
+yellowLight.castShadow = true;
+yellowLight.shadowDarkness = 0.0;
+yellowLight.shadowMapWidth = 1500;
+yellowLight.shadowMapHeight = 1000;
+yellowLight.shadowCameraNear = 1500;
+yellowLight.shadowCameraFar = 6000;
+yellowLight.shadowCameraFov = 45;
+yellowLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 var orb_mesh2 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 
-var spotLight3 = new THREE.SpotLight( 0xffffff, 0.0 );
-spotLight3.position.x = 2820;
-spotLight3.position.y = 2000;
-spotLight3.position.z = 0;
-spotLight3.target = myTarget;
-spotLight3.castShadow = true;
-spotLight3.shadowDarkness = 0.0;
-spotLight3.shadowMapWidth = 1500;
-spotLight3.shadowMapHeight = 1000;
-spotLight3.shadowCameraNear = 1500;
-spotLight3.shadowCameraFar = 6000;
-spotLight3.shadowCameraFov = 45;
-spotLight3.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+var redLight = new THREE.SpotLight( 0xffc1c1, 0.0 );
+redLight.position.x = 2820;
+redLight.position.y = 2000;
+redLight.position.z = 0;
+redLight.target = myTarget;
+redLight.castShadow = true;
+redLight.shadowDarkness = 0.0;
+redLight.shadowMapWidth = 1500;
+redLight.shadowMapHeight = 1000;
+redLight.shadowCameraNear = 1500;
+redLight.shadowCameraFar = 6000;
+redLight.shadowCameraFov = 45;
+redLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 var orb_mesh3 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 
@@ -294,9 +294,9 @@ $( 'div#instructions p' ).replaceWith("<p>left mouse: rotate<br>middle mouse: zo
 
 scene.add( myTarget );
 scene.add( camera );
-scene.add( spotLight1 );
-scene.add( spotLight2 );
-scene.add( spotLight3 );
+scene.add( whiteLight );
+scene.add( yellowLight );
+scene.add( redLight );
 
 window.addEventListener( 'resize', onWindowResize, false );
 
@@ -465,42 +465,42 @@ $( 'button#controlb' ).click( function() {
 $( 'input#light1' ).change( function() {
 	if( $( 'input#light1' ).hasClass( 'active' ) ){
 		$( 'input#light1' ).removeClass( 'active' );
-		spotLight1.intensity = 0.0;
-		spotLight1.shadowDarkness = 0.0;
-		spotLight1.remove(orb_mesh1);
+		whiteLight.intensity = 0.0;
+		whiteLight.shadowDarkness = 0.0;
+		whiteLight.remove(orb_mesh1);
 	} else {
 		$( 'input#light1' ).addClass( 'active' );
-		spotLight1.intensity = 1.0;
-		spotLight1.shadowDarkness = 0.5;
-		spotLight1.add(orb_mesh1);
+		whiteLight.intensity = 1.0;
+		whiteLight.shadowDarkness = 0.5;
+		whiteLight.add(orb_mesh1);
 	}
 });
 
 $( 'input#light2' ).change( function() {
 	if( $( 'input#light2' ).hasClass( 'active' ) ){
 		$( 'input#light2' ).removeClass( 'active' );
-		spotLight2.intensity = 0.0;
-		spotLight2.shadowDarkness = 0.0;
-		spotLight2.remove(orb_mesh2);
+		yellowLight.intensity = 0.0;
+		yellowLight.shadowDarkness = 0.0;
+		yellowLight.remove(orb_mesh2);
 	} else {
 		$( 'input#light2' ).addClass( 'active' );
-		spotLight2.intensity = 1.0;
-		spotLight2.shadowDarkness = 0.5;
-		spotLight2.add(orb_mesh2);
+		yellowLight.intensity = 1.0;
+		yellowLight.shadowDarkness = 0.5;
+		yellowLight.add(orb_mesh2);
 	}
 });
 
 $( 'input#light3' ).change( function() {
 	if( $( 'input#light3' ).hasClass( 'active' ) ){
 		$( 'input#light3' ).removeClass( 'active' );
-		spotLight3.intensity = 0.0;
-		spotLight3.shadowDarkness = 0.0;
-		spotLight3.remove(orb_mesh3);
+		redLight.intensity = 0.0;
+		redLight.shadowDarkness = 0.0;
+		redLight.remove(orb_mesh3);
 	} else {
 		$( 'input#light3' ).addClass( 'active' );
-		spotLight3.intensity = 1.0;
-		spotLight3.shadowDarkness = 0.5;
-		spotLight3.add(orb_mesh3);
+		redLight.intensity = 1.0;
+		redLight.shadowDarkness = 0.5;
+		redLight.add(orb_mesh3);
 	}
 });
 
