@@ -12,113 +12,6 @@
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script type="text/javascript">	var css, info, stats, renderer, scene, camera, controls, cam1, cam2, con1, con2;
 	var geometry, material, mesh;
-
-	var clock = new THREE.Clock();
-
-	init();
-	animate();
-
-	function init() {
-        info = document.body.appendChild( document.createElement( 'div' ) );
-		info.style.cssText = 'margin: 20px; position: absolute; ';
-		info.innerHTML = 
-			'<p><button onclick=setControlsFirstPerson(); >First Person Controls</button> ' +
-				'<button onclick=setControlsOrbit(); >Orbit Controls</button></p>' +
-			'<div id=msg ></div>';
-
-		stats = new Stats();
-		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; z-index: 100; ';
-		document.body.appendChild( stats.domElement );
-
-		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
-		renderer.setSize( window.innerWidth, window.innerHeight );
-		document.body.appendChild( renderer.domElement );
-		scene = new THREE.Scene();
-		scene.add( new THREE.AxisHelper( 50 ) );
-
-		// MAIN PROGRAM
-
-		loader = new THREE.JSONLoader();
-
-		loader.load('sample-model-json/sample-concrete.js', function ( geometry, materials ) {  
-			mesh1 = new THREE.Mesh(
-				geometry, new THREE.MeshFaceMaterial( materials )
-			);
-
-			mesh1.rotation.x = -Math.PI / 2;
-			mesh1.castShadow = true;
-			mesh1.receiveShadow = true;
-			scene.add( mesh1 );
-		});
-
-		loader.load('sample-model-json/sample-facade-windows.js', function ( geometry, materials ) {  
-			mesh2 = new THREE.Mesh(
-				geometry, new THREE.MeshFaceMaterial( materials )
-			);
-
-			mesh2.rotation.x = -Math.PI / 2;
-			mesh2.castShadow = false;
-			mesh2.receiveShadow = true;
-			scene.add( mesh2 );
-		});
-
-		loader.load('sample-model-json/sample-facade-mullion.js', function ( geometry, materials ) {  
-			mesh3 = new THREE.Mesh(
-				geometry, new THREE.MeshFaceMaterial( materials )
-			);
-
-			mesh3.rotation.x = -Math.PI / 2;
-			mesh3.castShadow = true;
-			mesh3.receiveShadow = true;
-			scene.add( mesh3 );
-		});
-
-		loader.load('sample-model-json/sample-steel-beams.js', function ( geometry, materials ) {  
-			mesh4 = new THREE.Mesh(
-				geometry, new THREE.MeshFaceMaterial( materials )
-			);
-
-			mesh4.rotation.x = -Math.PI / 2;
-			mesh4.castShadow = false;
-			mesh4.receiveShadow = true;
-			scene.add( mesh4 );
-		});
-
-		loader.load('sample-model-json/sample-steel-columns.js', function ( geometry, materials ) {  
-			mesh5 = new THREE.Mesh(
-				geometry, new THREE.MeshFaceMaterial( materials )
-			);
-
-			mesh5.rotation.x = -Math.PI / 2;
-			mesh5.castShadow = true;
-			mesh5.receiveShadow = true;
-			scene.add( mesh5 );
-
-			render();
-		});
-
-		terrain = new THREE.Mesh(
-		new THREE.BoxGeometry(4000, 10, 4000), new THREE.MeshPhongMaterial({
-		    color: 0x46882c
-		}));
-		terrain.receiveShadow = true;
-		terrain.position.set(0, -10, 0);
-		terrain.rotation.set(0, 0, 0);
-		scene.add(terrain);
-      
-        setupControls();
-        setControlsOrbit();
-	}
-
-	function animate() {
-
-		requestAnimationFrame( animate );
-		controls.update( clock.getDelta() );
-		stats.update();
-		renderer.render( scene, camera );
-
-	}
-
 	var renderer, container, scene, loader, mesh1, mesh2, mesh3, mesh4, mesh5, terrain, myTarget, camera, cam1, cam2, con1, con2, spotLight, clock, stats;
 	var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
@@ -130,17 +23,111 @@
 	NEAR = 10,
 	FAR = 8000;
 
+	var clock = new THREE.Clock();
+	
+    info = document.body.appendChild( document.createElement( 'div' ) );
+	info.style.cssText = 'margin: 20px; position: absolute; ';
+	info.innerHTML = 
+		'<p><button onclick=setControlsFirstPerson(); >First Person Controls</button> ' +
+			'<button onclick=setControlsOrbit(); >Orbit Controls</button></p>' +
+		'<div id=msg ></div>';
+
+	stats = new Stats();
+	stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; z-index: 100; ';
+	document.body.appendChild( stats.domElement );
+
+	renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
+	scene = new THREE.Scene();
+	scene.add( new THREE.AxisHelper( 50 ) );
+
+	// MAIN PROGRAM
+
+	loader = new THREE.JSONLoader();
+
+	loader.load('sample-model-json/sample-concrete.js', function ( geometry, materials ) {  
+		mesh1 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial( materials )
+		);
+
+		mesh1.rotation.x = -Math.PI / 2;
+		mesh1.castShadow = true;
+		mesh1.receiveShadow = true;
+		scene.add( mesh1 );
+	});
+
+	loader.load('sample-model-json/sample-facade-windows.js', function ( geometry, materials ) {  
+		mesh2 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial( materials )
+		);
+
+		mesh2.rotation.x = -Math.PI / 2;
+		mesh2.castShadow = false;
+		mesh2.receiveShadow = true;
+		scene.add( mesh2 );
+	});
+
+	loader.load('sample-model-json/sample-facade-mullion.js', function ( geometry, materials ) {  
+		mesh3 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial( materials )
+		);
+
+		mesh3.rotation.x = -Math.PI / 2;
+		mesh3.castShadow = true;
+		mesh3.receiveShadow = true;
+		scene.add( mesh3 );
+	});
+
+	loader.load('sample-model-json/sample-steel-beams.js', function ( geometry, materials ) {  
+		mesh4 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial( materials )
+		);
+
+		mesh4.rotation.x = -Math.PI / 2;
+		mesh4.castShadow = false;
+		mesh4.receiveShadow = true;
+		scene.add( mesh4 );
+	});
+
+	loader.load('sample-model-json/sample-steel-columns.js', function ( geometry, materials ) {  
+		mesh5 = new THREE.Mesh(
+			geometry, new THREE.MeshFaceMaterial( materials )
+		);
+
+		mesh5.rotation.x = -Math.PI / 2;
+		mesh5.castShadow = true;
+		mesh5.receiveShadow = true;
+		scene.add( mesh5 );
+
+		render();
+	});
+
+	terrain = new THREE.Mesh(
+	new THREE.BoxGeometry(4000, 10, 4000), new THREE.MeshPhongMaterial({
+	    color: 0x46882c
+	}));
+	terrain.receiveShadow = true;
+	terrain.position.set(0, -10, 0);
+	terrain.rotation.set(0, 0, 0);
+	scene.add(terrain);
+  
+    setupControls();
+    setControlsOrbit();
+
+	function animate() {
+
+		requestAnimationFrame( animate );
+		controls.update( clock.getDelta() );
+		stats.update();
+		renderer.render( scene, camera );
+
+	}
+
 	// FUNCTIONS
 
 	function render() {
 		renderer.render( scene, camera );
-	}
-
-	function animate() {
-		requestAnimationFrame( animate );
-		controls.update();
-		render();
-		stats.update();
 	}
 
 	function setupControls() {
@@ -177,6 +164,8 @@
 		camera.updateProjectionMatrix();
 		renderer.setSize( WIDTH, HEIGHT );
 	}
+
+	animate();
 </script>
 </body>
 </html>
