@@ -534,3 +534,27 @@ $( 'input#vr-mode' ).change( function() {
 		$( 'input#vr-mode' ).addClass( 'active' );
 	}
 });
+
+$( 'div#LightsMenu' ).click( function() {
+	$( 'div#CameraMenu' ).collapse( 'hide' );
+	$( 'div#LayersMenu' ).collapse( 'hide' );
+	$( 'div#ControlsMenu' ).collapse( 'hide' );
+});
+
+$( 'div#CameraMenu' ).click( function() {
+	$( 'div#LightsMenu' ).collapse( 'hide' );
+	$( 'div#LayersMenu' ).collapse( 'hide' );
+	$( 'div#ControlsMenu' ).collapse( 'hide' );
+});
+
+$( 'div#LayersMenu' ).click( function() {
+	$( 'div#CameraMenu' ).collapse( 'hide' );
+	$( 'div#LightsMenu' ).collapse( 'hide' );
+	$( 'div#ControlsMenu' ).collapse( 'hide' );
+});
+
+$( 'div#ControlsMenu' ).click( function() {
+	$( 'div#CameraMenu' ).collapse( 'hide' );
+	$( 'div#LayersMenu' ).collapse( 'hide' );
+	$( 'div#LightsMenu' ).collapse( 'hide' );
+});
