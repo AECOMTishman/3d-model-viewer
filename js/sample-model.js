@@ -206,7 +206,6 @@ scene.add(terrain);
 
 var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 400, 0 );
-scene.add( myTarget );
 
 setupControls();
 setControlsOrbit();
