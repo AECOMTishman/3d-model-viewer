@@ -83,10 +83,10 @@ hr {
 a#logo img { width: 25%; height: 25%; }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { a#logo img { width: 50%!important; height: 50%!important; } }
+@media (min-width: 768px) { a#logo img { width: 50%; height: 50%; } }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) { a#logo img { width: 75%!important; height: 75%!important; } }
+@media (min-width: 992px) { a#logo img { width: 75%; height: 75%; } }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { a#logo img { width: 100%!important; height: 100%!important; } }
+@media (min-width: 1200px) { a#logo img { width: 100%; height: 100%; } }
