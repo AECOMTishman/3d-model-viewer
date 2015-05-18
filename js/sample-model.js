@@ -95,9 +95,11 @@ function setControlsFirstPerson() {
 	var prevCamera = camera;
 	cam1.position.copy( prevCamera.position );
     camera = cam1;
-
-    con1.lon = prevCamera.rotation;
+    con1.lon = 180;
     controls = con1;
+
+    console.log( "prevCamera.rotation = " prevCamera.rotation );
+    console.log( "con1.lon = " con1.lon );
 }
 
 function setControlsOrbit() {
