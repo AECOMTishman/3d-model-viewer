@@ -43,14 +43,14 @@ function render() {
 var axis = new THREE.Vector3( 0, 1, 0 );
 var camRadIncrement = 0;
 var lightRadIncrement = 0;
-var rad = 2*Math.PI/360;
+var rad = 10*Math.PI/360;
 
 function update() {
  	delta = clock.getDelta();
  
  	if ( camera_cw ){	
  		camRadIncrement += delta * rad;
- 
+
 		camera.position.x = 2820 * Math.cos( camRadIncrement );
 		camera.position.y = 2000;
 		camera.position.z = 2820 * Math.sin( camRadIncrement );
