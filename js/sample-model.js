@@ -25,21 +25,24 @@ var lights_ccw = false;
 $( 'input#light1' ).addClass( 'active' );
 $( 'input#light1' ).bootstrapToggle('on');
 $( 'input#light2' ).addClass( 'active' );
-$( 'input#light2' ).bootstrapToggle('off');
+$( 'input#light2' ).bootstrapToggle('on');
 $( 'input#light3' ).addClass( 'active' );
-$( 'input#light3' ).bootstrapToggle('off');
+$( 'input#light3' ).bootstrapToggle('on');
 
 $( 'button#lighta' ).addClass( 'active' );
 
 $( 'button#camerab' ).addClass( 'active' );
 
 $( 'input#layer1' ).addClass( 'active' );
+$( 'input#vr-mode' ).bootstrapToggle('on');
 $( 'input#layer2' ).addClass( 'active' );
+$( 'input#vr-mode' ).bootstrapToggle('on');
 $( 'input#layer3' ).addClass( 'active' );
+$( 'input#vr-mode' ).bootstrapToggle('on');
 
 $( 'button#controlb' ).addClass( 'active' );
 
-$( 'input#vr-mode' ).addClass( 'active' );
+//$( 'input#vr-mode' ).addClass( 'active' );
 $( 'input#vr-mode' ).bootstrapToggle('off');
 
 // FUNCTIONS
