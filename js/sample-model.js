@@ -24,8 +24,8 @@ var lights_ccw = false;
 // BUTTON INITIALIZATIONS
 
 $( 'input#light1' ).addClass( 'active' );
-$( 'input#light2' ).addClass( 'active' );
-$( 'input#light3' ).addClass( 'active' );
+$( 'input#light2' ).bootstrapToggle('off');
+$( 'input#light3' ).bootstrapToggle('off');
 
 $( 'button#lighta' ).addClass( 'active' );
 
@@ -37,7 +37,6 @@ $( 'input#layer3' ).addClass( 'active' );
 
 $( 'button#controlb' ).addClass( 'active' );
 
-//$( 'input#vr-mode' ).addClass( 'active' );
 $( 'input#vr-mode' ).bootstrapToggle('off');
 
 // FUNCTIONS
@@ -122,7 +121,7 @@ function setControlsFirstPerson() {
 	var prevCamera = camera;
 	cam1.position.copy( prevCamera.position );
     camera = cam1;
-    con1.lon = 180+360*prevCamera.rotation.y/(2*Math.PI);
+    con1.lon = 360*prevCamera.rotation.y/(2*Math.PI);
     controls = con1;
 }
 
@@ -255,7 +254,7 @@ spotLight1.shadowCameraVisible = false; // Turn this to "true" to see light boun
 var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 spotLight1.add( orb_mesh1 );
 
-var spotLight2 = new THREE.SpotLight( 0xffffff, 1.0 );
+var spotLight2 = new THREE.SpotLight( 0xffffff, 0.0 );
 spotLight2.position.x = 2820;
 spotLight2.position.y = 2000;
 spotLight2.position.z = 0;
@@ -272,7 +271,7 @@ spotLight2.shadowCameraVisible = false; // Turn this to "true" to see light boun
 var orb_mesh2 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 spotLight2.add( orb_mesh2 );
 
-var spotLight3 = new THREE.SpotLight( 0xffffff, 1.0 );
+var spotLight3 = new THREE.SpotLight( 0xffffff, 0.0 );
 spotLight3.position.x = 2820;
 spotLight3.position.y = 2000;
 spotLight3.position.z = 0;
