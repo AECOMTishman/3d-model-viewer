@@ -43,6 +43,7 @@ function render() {
 var axis = new THREE.Vector3( 0, 1, 0 );
 var camRadIncrement = 0;
 var lightRadIncrement = 0;
+var rad = 1000*(2*Math.PI/360);
 
 function update() {
  	delta = clock.getDelta();
