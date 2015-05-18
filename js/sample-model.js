@@ -24,7 +24,9 @@ var lights_ccw = false;
 
 $( 'input#light1' ).addClass( 'active' );
 $( 'input#light1' ).bootstrapToggle('on');
+$( 'input#light2' ).addClass( 'active' );
 $( 'input#light2' ).bootstrapToggle('off');
+$( 'input#light3' ).addClass( 'active' );
 $( 'input#light3' ).bootstrapToggle('off');
 
 $( 'button#lighta' ).addClass( 'active' );
@@ -293,6 +295,8 @@ controls = con2;
 scene.add( myTarget );
 scene.add( camera );
 scene.add( spotLight1 );
+scene.add( spotLight2 );
+scene.add( spotLight3 );
 
 window.addEventListener( 'resize', onWindowResize, false );
 
