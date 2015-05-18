@@ -252,7 +252,7 @@ spotLight1.shadowCameraFov = 45;
 spotLight1.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-spotLight1.add( orb_mesh );
+spotLight1.add( orb_mesh1 );
 
 var spotLight2 = new THREE.SpotLight( 0xffffff );
 spotLight2.position.x = 2820;
@@ -267,8 +267,8 @@ spotLight2.shadowCameraFar = 6000;
 spotLight2.shadowCameraFov = 45;
 spotLight2.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
-var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-spotLight2.add( orb_mesh );
+var orb_mesh2 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+spotLight2.add( orb_mesh2 );
 
 var spotLight3 = new THREE.SpotLight( 0xffffff );
 spotLight3.position.x = 2820;
@@ -284,7 +284,7 @@ spotLight3.shadowCameraFov = 45;
 spotLight3.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 var orb_mesh3 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-spotLight3.add( orb_mesh );
+spotLight3.add( orb_mesh3 );
 
 setupControls();
 camera = cam2;
