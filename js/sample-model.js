@@ -1,9 +1,10 @@
 // DETECT WebGL
+
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 // GLOBAL VARIABLES
 
-var renderer, container, scene, loader, mesh1, mesh2, mesh3, mesh4, mesh5, terrain, myTarget, camera, cam1, cam2, con1, con2, spotLight, clock, stats;
+var renderer, container, scene, loader, mesh1, mesh2, mesh3, mesh4, mesh5, terrain, myTarget, camera, cam1, cam2, con1, con2, spotLight1, spotLight2, spotLight3, clock, stats;
 var WIDTH, HEIGHT, VIEW_ANGLE, ASPECT, NEAR, FAR;
 
 WIDTH = window.innerWidth;
@@ -243,7 +244,7 @@ myTarget.position.set( 0, 400, 0 );
 light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 scene.add( light );
 
-var spotLight1 = new THREE.SpotLight( 0xffffff );
+var spotLight1 = new THREE.SpotLight( 0xffffff, 1.0 );
 spotLight1.position.x = 2820;
 spotLight1.position.y = 2000;
 spotLight1.position.z = 0;
@@ -259,7 +260,7 @@ spotLight1.shadowCameraVisible = false; // Turn this to "true" to see light boun
 var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 spotLight1.add( orb_mesh1 );
 
-var spotLight2 = new THREE.SpotLight( 0xffffff );
+var spotLight2 = new THREE.SpotLight( 0xffffff, 1.0 );
 spotLight2.position.x = 2820;
 spotLight2.position.y = 2000;
 spotLight2.position.z = 0;
@@ -275,7 +276,7 @@ spotLight2.shadowCameraVisible = false; // Turn this to "true" to see light boun
 var orb_mesh2 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 spotLight2.add( orb_mesh2 );
 
-var spotLight3 = new THREE.SpotLight( 0xffffff );
+var spotLight3 = new THREE.SpotLight( 0xffffff, 1.0 );
 spotLight3.position.x = 2820;
 spotLight3.position.y = 2000;
 spotLight3.position.z = 0;
@@ -481,11 +482,11 @@ $( 'input#light1' ).change( function() {
 	if( $( 'input#light1' ).hasClass( 'active' ) ){
 		$( 'input#light1' ).removeClass( 'active' );
 
-		scene.remove( spotLight1 );
+		spotLight1.intensity = 0.0;
 	} else {
 		$( 'input#light1' ).addClass( 'active' );
 
-		scene.add( spotLight1 );
+		spotLight1.intensity = 1.0;
 	}
 });
 
@@ -493,11 +494,11 @@ $( 'input#light2' ).change( function() {
 	if( $( 'input#light2' ).hasClass( 'active' ) ){
 		$( 'input#light2' ).removeClass( 'active' );
 
-		scene.remove( spotLight2 );
+		spotLight2.intensity = 0.0;
 	} else {
 		$( 'input#light2' ).addClass( 'active' );
 
-		scene.add( spotLight2 );
+		spotLight2.intensity = 1.0;
 	}
 });
 
@@ -505,11 +506,11 @@ $( 'input#light3' ).change( function() {
 	if( $( 'input#light3' ).hasClass( 'active' ) ){
 		$( 'input#light3' ).removeClass( 'active' );
 
-		scene.remove( spotLight3 );
+		spotLight3.intensity = 0.0;
 	} else {
 		$( 'input#light3' ).addClass( 'active' );
 
-		scene.add( spotLight3 );
+		spotLight3.intensity = 1.0;
 	}
 });
 
