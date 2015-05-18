@@ -76,13 +76,13 @@ function animate() {
 }
 
 function setupControls() {
-    cam1 = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+    cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	cam1.position.set( 300, 300, 300 );
 	con1 = new THREE.FirstPersonControls( cam1 );
 	con1.lookSpeed = 0.05;
 	con1.movementSpeed = 50;
   
-    cam2 = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+    cam2 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	cam2.position.set( 300, 300, 300 );
 	con2 = new THREE.OrbitControls( cam2 );
 }
@@ -197,9 +197,9 @@ scene.add(terrain);
 var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 400, 0 );
 
-camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-camera.position.set( 2000, 1500, 2000 );
-camera.lookAt( myTarget.position );
+//camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
+//camera.position.set( 2000, 1500, 2000 );
+//camera.lookAt( myTarget.position );
 
 setupControls();
 setControlsOrbit();
