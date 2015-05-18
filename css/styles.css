@@ -53,13 +53,9 @@ a#logo {
   margin-bottom: 14px;
 }
 
-div#LightsMenu div#lightsmenu, div#CameraMenu div#cameramenu {
+div#LightsMenu div#lightsmenu, div#CameraMenu div#cameramenu, div#LayersMenu div#layersmenu, div#ControlsMenu div#controlsmenu {
   padding: 10px;
-  text-align: center;
-}
 
-div#LayersMenu div#layersmenu, div#ControlsMenu div#controlsmenu {
-  padding: 10px;
 }
 
 div.menu-toggle-button {
