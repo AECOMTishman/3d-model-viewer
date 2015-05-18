@@ -41,25 +41,27 @@ function render() {
 }
 
 var axis = new THREE.Vector3( 0, 1, 0 );
-var radIncrement;
+var camRadIncrement;
+var lightRadIncrement;
 var rad = 2*Math.PI/360;
 
 function update() {
  	time = clock.getElapsedTime();
  	delta = clock.getDelta(); // Not using this line of code at the moment.
- 	radIncrement += delta * rad;
+ 
  	if ( camera_cw ){	
+ 		camRadIncrement += delta * rad;
  		camera.rotateOnAxis( axis, radIncrement );
 		// camera.position.x = 2820 * Math.cos( time/10 );
 		// camera.position.y = 2000;
 		// camera.position.z = 2820 * Math.sin( time/10 );
  	}
  	if ( camera_ccw ){
-		camera.position.x = 2820 * Math.sin( time/10 );
-		camera.position.y = 2000;
-		camera.position.z = 2820 * Math.cos( time/10 );
+ 		camRadIncrement -= delta * rad;
+		camera.rotateOnAxis( axis, radIncrement );
  	}
  	if ( lights_cw ){
+ 		lightRadIncrement += delta * rad;
  		spotLight.rotateOnAxis( axis, radIncrement );
 		// spotLight.position.x = 2820 * Math.cos( time/10 );
 		// spotLight.position.y = 2000;
@@ -67,9 +69,8 @@ function update() {
 
  	}
  	if ( lights_ccw ){
-		spotLight.position.x = 2820 * Math.sin( time/10 );
-		spotLight.position.y = 2000;
-		spotLight.position.z = 2820 * Math.cos( time/10 );
+		lightRadIncrement -= delta * rad;
+		spotLight.rotateOnAxis( axis, radIncrement );
  	}
 }
 
