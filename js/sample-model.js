@@ -466,10 +466,12 @@ $( 'input#light1' ).change( function() {
 		$( 'input#light1' ).removeClass( 'active' );
 		spotLight1.intensity = 0.0;
 		spotLight1.shadowDarkness = 0.0;
+		spotLight1.remove(orb_mesh1);
 	} else {
 		$( 'input#light1' ).addClass( 'active' );
 		spotLight1.intensity = 1.0;
 		spotLight1.shadowDarkness = 0.5;
+		spotLight1.add(orb_mesh1);
 	}
 });
 
@@ -478,10 +480,12 @@ $( 'input#light2' ).change( function() {
 		$( 'input#light2' ).removeClass( 'active' );
 		spotLight2.intensity = 0.0;
 		spotLight2.shadowDarkness = 0.0;
+		spotLight2.remove(orb_mesh2);
 	} else {
 		$( 'input#light2' ).addClass( 'active' );
 		spotLight2.intensity = 1.0;
 		spotLight2.shadowDarkness = 0.5;
+		spotLight2.add(orb_mesh2);
 	}
 });
 
@@ -490,10 +494,12 @@ $( 'input#light3' ).change( function() {
 		$( 'input#light3' ).removeClass( 'active' );
 		spotLight3.intensity = 0.0;
 		spotLight3.shadowDarkness = 0.0;
+		spotLight3.remove(orb_mesh3);
 	} else {
 		$( 'input#light3' ).addClass( 'active' );
 		spotLight3.intensity = 1.0;
 		spotLight3.shadowDarkness = 0.5;
+		spotLight3.add(orb_mesh3);
 	}
 });
 
