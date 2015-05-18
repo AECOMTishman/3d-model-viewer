@@ -103,8 +103,8 @@ function animate() {
 function setupControls() {
     cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	con1 = new THREE.FirstPersonControls( cam1 );
-	con1.verticalMin = Math.PI/8;
-	con1.verticalMax = 5*Math.PI/8;
+	con1.verticalMin = -Math.PI/8;
+	con1.verticalMax = 3*Math.PI/8;
 	con1.lookSpeed = 0.10;
 	con1.movementSpeed = 1000;
   
