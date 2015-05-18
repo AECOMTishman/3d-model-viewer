@@ -118,6 +118,27 @@ function setupControls() {
 	con2.maxPolarAngle = 5*Math.PI/8;
 }
 
+function toggleControls() {
+	if ( $( 'button#controla' ).hasClass( 'active' ) ) {
+		setControlsOrbit();
+		$( 'div#instructions p' ).replaceWith(
+			"<p>left mouse: rotate<br>
+			middle mouse: zoom
+			<br>right mouse: pan</p>");
+		}
+	};
+	if ( $( 'button#controlb' ).hasClass( 'active' ) ) {
+		setControlsFirstPerson();
+		$( 'div#instructions p' ).replaceWith(
+			"<p>left mouse: forward<br>
+			right mouse: back<br>
+			WASD: forward/left/back/right<br>
+			RF: up/down</p>");
+		}
+	};
+
+
+
 function setControlsFirstPerson() {
 	var prevCamera = camera;
 	cam1.position.copy( prevCamera.position );
@@ -143,6 +164,20 @@ function onWindowResize() {
 	camera.updateProjectionMatrix();
 	renderer.setSize( WIDTH, HEIGHT );
 }
+
+// Cool stuff
+
+this.onKeyDown = function ( event ) {
+
+	//event.preventDefault();
+
+	switch ( event.keyCode ) {
+
+		case 67: /*C*/ toggleControls();
+
+	}
+
+};
 
 // MAIN PROGRAM
 
@@ -446,21 +481,17 @@ $( 'input#layer3' ).change( function() {
 
 $( 'button#controla' ).click( function() {
 	if( !$( 'button#controla' ).hasClass( 'active' ) ){
+		toggleControls();
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
-		setControlsFirstPerson();
-		// move the cursor to the center
-		
-		$( 'div#instructions p' ).replaceWith("<p>left mouse: forward<br>right mouse: back<br>WASD: forward/left/back/right<br>RF: up/down</p>");
 	}
 });
 
 $( 'button#controlb' ).click( function() {
 	if( !$( 'button#controlb' ).hasClass( 'active' ) ){
+		toggleControls();
 		$( 'button#controla' ).removeClass( 'active' );
 		$( 'button#controlb' ).addClass( 'active' );
-		setControlsOrbit();
-		$( 'div#instructions p' ).replaceWith("<p>left mouse: rotate<br>middle mouse: zoom<br>right mouse: pan</p>");
 	}
 });
 
