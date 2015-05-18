@@ -449,6 +449,8 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
 		setControlsFirstPerson();
+		// move the cursor to the center
+		
 		$( 'div#instructions p' ).replaceWith("<p>left mouse: forward<br>right mouse: back<br>WASD: forward/left/back/right<br>RF: up/down</p>");
 	}
 });
