@@ -46,31 +46,36 @@ var lightRadIncrement = 0;
 var rad = 2*Math.PI/360;
 
 function update() {
- 	time = clock.getElapsedTime();
- 	delta = clock.getDelta(); // Not using this line of code at the moment.
+ 	delta = clock.getDelta();
  
  	if ( camera_cw ){	
  		camRadIncrement += delta * rad;
- 		camera.rotateOnAxis( axis, camRadIncrement );
-		// camera.position.x = 2820 * Math.cos( time/10 );
-		// camera.position.y = 2000;
-		// camera.position.z = 2820 * Math.sin( time/10 );
+ 
+		camera.position.x = 2820 * Math.cos( camRadIncrement );
+		camera.position.y = 2000;
+		camera.position.z = 2820 * Math.sin( time/10 );
  	}
  	if ( camera_ccw ){
  		camRadIncrement -= delta * rad;
-		camera.rotateOnAxis( axis, camRadIncrement );
+
+		camera.position.x = 2820 * Math.cos( camRadIncrement );
+		camera.position.y = 2000;
+		camera.position.z = 2820 * Math.sin( time/10 );
  	}
  	if ( lights_cw ){
  		lightRadIncrement += delta * rad;
- 		spotLight.rotateOnAxis( axis, lightRadIncrement );
-		// spotLight.position.x = 2820 * Math.cos( time/10 );
-		// spotLight.position.y = 2000;
-		// spotLight.position.z = 2820 * Math.sin( time/10 );
+
+		spotLight.position.x = 2820 * Math.cos( time/10 );
+		spotLight.position.y = 2000;
+		spotLight.position.z = 2820 * Math.sin( time/10 );
 
  	}
  	if ( lights_ccw ){
 		lightRadIncrement -= delta * rad;
-		spotLight.rotateOnAxis( axis, lightRadIncrement );
+
+		spotLight.position.x = 2820 * Math.cos( time/10 );
+		spotLight.position.y = 2000;
+		spotLight.position.z = 2820 * Math.sin( time/10 );
  	}
 }
 
