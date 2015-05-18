@@ -244,7 +244,7 @@ spotLight1.position.y = 2000;
 spotLight1.position.z = 0;
 spotLight1.target = myTarget;
 spotLight1.castShadow = true;
-spotLight1.shadowDarkness = 1.0;
+spotLight1.shadowDarkness = 0.5;
 spotLight1.shadowMapWidth = 1500;
 spotLight1.shadowMapHeight = 1000;
 spotLight1.shadowCameraNear = 1500;
@@ -261,7 +261,7 @@ spotLight2.position.y = 2000;
 spotLight2.position.z = 0;
 spotLight2.target = myTarget;
 spotLight2.castShadow = true;
-spotLight2.shadowDarkness = 1.0;
+spotLight2.shadowDarkness = 0.5;
 spotLight2.shadowMapWidth = 1500;
 spotLight2.shadowMapHeight = 1000;
 spotLight2.shadowCameraNear = 1500;
@@ -278,7 +278,7 @@ spotLight3.position.y = 2000;
 spotLight3.position.z = 0;
 spotLight3.target = myTarget;
 spotLight3.castShadow = true;
-spotLight3.shadowDarkness = 1.0;
+spotLight3.shadowDarkness = 0.5;
 spotLight3.shadowMapWidth = 1500;
 spotLight3.shadowMapHeight = 1000;
 spotLight3.shadowCameraNear = 1500;
@@ -465,36 +465,36 @@ $( 'button#controlb' ).click( function() {
 $( 'input#light1' ).change( function() {
 	if( $( 'input#light1' ).hasClass( 'active' ) ){
 		$( 'input#light1' ).removeClass( 'active' );
-		spotLight1.intensity = 0.1;
-		spotLight1.shadowDarkness = 0.1;
+		spotLight1.intensity = 0.0;
+		spotLight1.shadowDarkness = 0.0;
 	} else {
 		$( 'input#light1' ).addClass( 'active' );
 		spotLight1.intensity = 1.0;
-		spotLight1.shadowDarkness = 1.0;
+		spotLight1.shadowDarkness = 0.5;
 	}
 });
 
 $( 'input#light2' ).change( function() {
 	if( $( 'input#light2' ).hasClass( 'active' ) ){
 		$( 'input#light2' ).removeClass( 'active' );
-		spotLight2.intensity = 0.1;
-		spotLight2.shadowDarkness = 0.1;
+		spotLight2.intensity = 0.0;
+		spotLight2.shadowDarkness = 0.0;
 	} else {
 		$( 'input#light2' ).addClass( 'active' );
 		spotLight2.intensity = 1.0;
-		spotLight2.shadowDarkness = 1.0;
+		spotLight2.shadowDarkness = 0.5;
 	}
 });
 
 $( 'input#light3' ).change( function() {
 	if( $( 'input#light3' ).hasClass( 'active' ) ){
 		$( 'input#light3' ).removeClass( 'active' );
-		spotLight3.intensity = 0.1;
-		spotLight3.shadowDarkness = 0.1;
+		spotLight3.intensity = 0.0;
+		spotLight3.shadowDarkness = 0.0;
 	} else {
 		$( 'input#light3' ).addClass( 'active' );
 		spotLight3.intensity = 1.0;
-		spotLight3.shadowDarkness = 1.0;
+		spotLight3.shadowDarkness = 0.5;
 	}
 });
 
