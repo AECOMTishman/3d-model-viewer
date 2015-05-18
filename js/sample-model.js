@@ -91,6 +91,7 @@ function setControlsFirstPerson() {
 	cam1.position.set( 2000, 1500, 2000 );
 	cam1.lookAt( myTarget.position );
     camera = cam1;
+    con1.lon = 180;
     controls = con1;
 }
 
