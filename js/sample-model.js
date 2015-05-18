@@ -40,13 +40,17 @@ function render() {
 	renderer.render( scene, camera );
 }
 
+axis = new THREE.Vector3( 0, 1, 0 );
+rad += radIncrement;
+
 function update() {
  	time = clock.getElapsedTime();
  	// delta = clock.getDelta(); // Not using this line of code at the moment.
  	if ( camera_cw ){	
-		camera.position.x = 2820 * Math.cos( time/10 );
-		camera.position.y = 2000;
-		camera.position.z = 2820 * Math.sin( time/10 );
+ 		camera.rotateOnAxis( axis, rad );
+		// camera.position.x = 2820 * Math.cos( time/10 );
+		// camera.position.y = 2000;
+		// camera.position.z = 2820 * Math.sin( time/10 );
  	}
  	if ( camera_ccw ){
 		camera.position.x = 2820 * Math.sin( time/10 );
@@ -54,9 +58,10 @@ function update() {
 		camera.position.z = 2820 * Math.cos( time/10 );
  	}
  	if ( lights_cw ){
-		spotLight.position.x = 2820 * Math.cos( time/10 );
-		spotLight.position.y = 2000;
-		spotLight.position.z = 2820 * Math.sin( time/10 );
+ 		SpotLight.rotateOnAxis( axis, rad );
+		// spotLight.position.x = 2820 * Math.cos( time/10 );
+		// spotLight.position.y = 2000;
+		// spotLight.position.z = 2820 * Math.sin( time/10 );
 
  	}
  	if ( lights_ccw ){
