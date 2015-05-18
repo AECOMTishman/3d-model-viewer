@@ -40,14 +40,16 @@ function render() {
 	renderer.render( scene, camera );
 }
 
-axis = new THREE.Vector3( 0, 1, 0 );
-rad += radIncrement;
+var axis = new THREE.Vector3( 0, 1, 0 );
+var radIncrement;
+var rad = 2*Math.PI/360;
 
 function update() {
  	time = clock.getElapsedTime();
- 	// delta = clock.getDelta(); // Not using this line of code at the moment.
+ 	delta = clock.getDelta(); // Not using this line of code at the moment.
+ 	radIncrement += delta * rad;
  	if ( camera_cw ){	
- 		camera.rotateOnAxis( axis, rad );
+ 		camera.rotateOnAxis( axis, radIncrement );
 		// camera.position.x = 2820 * Math.cos( time/10 );
 		// camera.position.y = 2000;
 		// camera.position.z = 2820 * Math.sin( time/10 );
@@ -58,7 +60,7 @@ function update() {
 		camera.position.z = 2820 * Math.cos( time/10 );
  	}
  	if ( lights_cw ){
- 		SpotLight.rotateOnAxis( axis, rad );
+ 		SpotLight.rotateOnAxis( axis, radIncrement );
 		// spotLight.position.x = 2820 * Math.cos( time/10 );
 		// spotLight.position.y = 2000;
 		// spotLight.position.z = 2820 * Math.sin( time/10 );
