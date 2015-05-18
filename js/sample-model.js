@@ -88,11 +88,15 @@ function setupControls() {
 }
 
 function setControlsFirstPerson() {
+	cam1.position.set( 2000, 1500, 2000 );
+	cam1.lookAt( myTarget.position );
     camera = cam1;
     controls = con1;
 }
 
 function setControlsOrbit() {
+	cam2.position.set( 2000, 1500, 2000 );
+	cam2.lookAt( myTarget.position );
     camera = cam2;
     controls = con2;
 }
