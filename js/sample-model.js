@@ -98,8 +98,8 @@ function setControlsFirstPerson() {
     con1.lon = 180;
     controls = con1;
 
-    console.log( "prevCamera.rotation = " prevCamera.rotation );
-    console.log( "con1.lon = " con1.lon );
+    console.log( "prevCamera.rotation = " + prevCamera.rotation );
+    console.log( "con1.lon = " + con1.lon );
 }
 
 function setControlsOrbit() {
