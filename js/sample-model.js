@@ -289,6 +289,7 @@ var orb_mesh3 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THRE
 setupControls();
 camera = cam2;
 controls = con2;
+$( 'div#instructions p' ).replaceWith("<p>left mouse: rotate<br>middle mouse: zoom<br>right mouse: pan</p>");
 
 scene.add( myTarget );
 scene.add( camera );
@@ -447,7 +448,7 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
 		setControlsFirstPerson();
-		$( 'div#instructions p' ).replaceWith("left mouse: forward<br>right mouse: back<br>WASD: forward/left/back/right<br>RF: up/down");
+		$( 'div#instructions p' ).replaceWith("<p>left mouse: forward<br>right mouse: back<br>WASD: forward/left/back/right<br>RF: up/down</p>");
 	}
 });
 
@@ -456,7 +457,7 @@ $( 'button#controlb' ).click( function() {
 		$( 'button#controla' ).removeClass( 'active' );
 		$( 'button#controlb' ).addClass( 'active' );
 		setControlsOrbit();
-		$( 'div#instructions p' ).replaceWith("left mouse: rotate<br>middle mouse: zoom<br>right mouse: pan");
+		$( 'div#instructions p' ).replaceWith("<p>left mouse: rotate<br>middle mouse: zoom<br>right mouse: pan</p>");
 	}
 });
 
