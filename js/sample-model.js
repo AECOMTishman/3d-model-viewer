@@ -51,18 +51,18 @@ function update() {
  
  	if ( camera_cw ){	
  		camRadIncrement += delta * rad;
- 		camera.rotateOnAxis( axis, radIncrement );
+ 		camera.rotateOnAxis( axis, camRadIncrement );
 		// camera.position.x = 2820 * Math.cos( time/10 );
 		// camera.position.y = 2000;
 		// camera.position.z = 2820 * Math.sin( time/10 );
  	}
  	if ( camera_ccw ){
  		camRadIncrement -= delta * rad;
-		camera.rotateOnAxis( axis, radIncrement );
+		camera.rotateOnAxis( axis, camRadIncrement );
  	}
  	if ( lights_cw ){
  		lightRadIncrement += delta * rad;
- 		spotLight.rotateOnAxis( axis, radIncrement );
+ 		spotLight.rotateOnAxis( axis, lightRadIncrement );
 		// spotLight.position.x = 2820 * Math.cos( time/10 );
 		// spotLight.position.y = 2000;
 		// spotLight.position.z = 2820 * Math.sin( time/10 );
@@ -70,7 +70,7 @@ function update() {
  	}
  	if ( lights_ccw ){
 		lightRadIncrement -= delta * rad;
-		spotLight.rotateOnAxis( axis, radIncrement );
+		spotLight.rotateOnAxis( axis, lightRadIncrement );
  	}
 }
 
