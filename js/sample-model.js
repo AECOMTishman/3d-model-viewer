@@ -94,11 +94,10 @@ function setControlsFirstPerson() {
 	var prevCamera = camera;
 	cam1.position.copy( prevCamera.position );
     camera = cam1;
-    con1
     con1.lon = 180;
     controls = con1;
 
-    console.log( "prevCamera.rotation = " + prevCamera.rotation );
+    console.log( "prevCamera.rotation.y = " + prevCamera.rotation.y );
     console.log( "con1.lon = " + con1.lon );
 }
 
