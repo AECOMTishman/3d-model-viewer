@@ -83,7 +83,7 @@ function setupControls() {
 	con1.movementSpeed = 50;
   
     cam2 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	cam2.position.set( 300, 800, 300 );
+	cam2.position.set( 300, 400, 300 );
 	con2 = new THREE.OrbitControls( cam2 );
 }
 
