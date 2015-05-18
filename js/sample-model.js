@@ -77,7 +77,6 @@ function animate() {
 
 function setupControls() {
     cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-
 	cam1.position.set( 200, 400, 200 );
 	con1 = new THREE.FirstPersonControls( cam1 );
 	con1.lookSpeed = 0.10;
@@ -87,6 +86,10 @@ function setupControls() {
 	cam2.position.set( 2000, 1500, 2000 );
 	cam2.lookAt( myTarget.position );
 	con2 = new THREE.OrbitControls( cam2 );
+	con2.minDistance = 50;
+	con2.maxDistance = 7000;
+	con2.minPolarAngle = -Math.Pi/4;
+	con2.maxPolarAngle = Math.PI/2;
 }
 
 function setControlsFirstPerson() {
@@ -203,8 +206,7 @@ scene.add(terrain);
 
 var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 400, 0 );
-
-
+scene.add( myTarget );
 
 setupControls();
 setControlsOrbit();
