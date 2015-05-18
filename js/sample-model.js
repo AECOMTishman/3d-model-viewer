@@ -35,11 +35,11 @@ $( 'button#lighta' ).addClass( 'active' );
 $( 'button#camerab' ).addClass( 'active' );
 
 $( 'input#layer1' ).addClass( 'active' );
-$( 'input#vr-mode' ).bootstrapToggle('on');
+$( 'input#layer1' ).bootstrapToggle('on');
 $( 'input#layer2' ).addClass( 'active' );
-$( 'input#vr-mode' ).bootstrapToggle('on');
+$( 'input#layer2' ).bootstrapToggle('on');
 $( 'input#layer3' ).addClass( 'active' );
-$( 'input#vr-mode' ).bootstrapToggle('on');
+$( 'input#layer3' ).bootstrapToggle('on');
 
 $( 'button#controlb' ).addClass( 'active' );
 
@@ -427,10 +427,14 @@ $( 'a#view3' ).click( function() {
 $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass( 'active' ) ){
 		$( 'input#layer1' ).removeClass( 'active' );
+
+		$( 'input#layer1' ).bootstrapToggle('off');
 		scene.remove( mesh1 );
 		mesh4.castShadow = true;
 	} else {
 		$( 'input#layer1' ).addClass( 'active' );
+
+		$( 'input#layer1' ).bootstrapToggle('on');
 		scene.add( mesh1 );
 		mesh4.castShadow = false;
 	}
@@ -439,10 +443,14 @@ $( 'input#layer1' ).change( function() {
 $( 'input#layer2' ).change( function() {
 	if( $( 'input#layer2' ).hasClass( 'active' ) ){
 		$( 'input#layer2' ).removeClass( 'active' );
+
+		$( 'input#layer2' ).bootstrapToggle('off');
 		scene.remove( mesh2 );
 		scene.remove( mesh3 );
 	} else {
 		$( 'input#layer2' ).addClass( 'active' );
+
+		$( 'input#layer2' ).bootstrapToggle('on');
 		scene.add( mesh2 );
 		scene.add( mesh3 );
 	}
@@ -451,10 +459,14 @@ $( 'input#layer2' ).change( function() {
 $( 'input#layer3' ).change( function() {
 	if( $( 'input#layer3' ).hasClass( 'active' ) ){
 		$( 'input#layer3' ).removeClass( 'active' );
+
+		$( 'input#layer3' ).bootstrapToggle('off');
 		scene.remove( mesh4 );
 		scene.remove( mesh5 );
 	} else {
 		$( 'input#layer3' ).addClass( 'active' );
+
+		$( 'input#layer3' ).bootstrapToggle('on');
 		scene.add( mesh4 );
 		scene.add( mesh5 );
 	}
@@ -482,10 +494,12 @@ $( 'input#light1' ).change( function() {
 	if( $( 'input#light1' ).hasClass( 'active' ) ){
 		$( 'input#light1' ).removeClass( 'active' );
 
+		$( 'input#light1' ).bootstrapToggle('off');
 		spotLight1.intensity = 0.0;
 	} else {
 		$( 'input#light1' ).addClass( 'active' );
 
+		$( 'input#light1' ).bootstrapToggle('on');
 		spotLight1.intensity = 1.0;
 	}
 });
@@ -494,10 +508,12 @@ $( 'input#light2' ).change( function() {
 	if( $( 'input#light2' ).hasClass( 'active' ) ){
 		$( 'input#light2' ).removeClass( 'active' );
 
+		$( 'input#light2' ).bootstrapToggle('off');
 		spotLight2.intensity = 0.0;
 	} else {
 		$( 'input#light2' ).addClass( 'active' );
 
+		$( 'input#light2' ).bootstrapToggle('on');
 		spotLight2.intensity = 1.0;
 	}
 });
@@ -506,10 +522,12 @@ $( 'input#light3' ).change( function() {
 	if( $( 'input#light3' ).hasClass( 'active' ) ){
 		$( 'input#light3' ).removeClass( 'active' );
 
+		$( 'input#light3' ).bootstrapToggle('off');
 		spotLight3.intensity = 0.0;
 	} else {
 		$( 'input#light3' ).addClass( 'active' );
 
+		$( 'input#light3' ).bootstrapToggle('on');
 		spotLight3.intensity = 1.0;
 	}
 });
@@ -518,9 +536,10 @@ $( 'input#vr-mode' ).change( function() {
 	if( $( 'input#vr-mode' ).hasClass( 'active' ) ){
 		$( 'input#vr-mode' ).removeClass( 'active' );
 
-
+		$( 'input#vr-mode' ).bootstrapToggle('off');
 	} else {
 		$( 'input#vr-mode' ).addClass( 'active' );
 
+		$( 'input#vr-mode' ).bootstrapToggle('on');
 	}
 });
