@@ -447,6 +447,7 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
 		setControlsFirstPerson();
+		$( 'div#instructions' ).innerHTML("left mouse: forward<br>right mouse: back<br>WASD: forward/left/back/right<br>RF: up/down");
 	}
 });
 
@@ -454,8 +455,8 @@ $( 'button#controlb' ).click( function() {
 	if( !$( 'button#controlb' ).hasClass( 'active' ) ){
 		$( 'button#controla' ).removeClass( 'active' );
 		$( 'button#controlb' ).addClass( 'active' );
-
 		setControlsOrbit();
+		$( 'div#instructions' ).innerHTML("left mouse: rotate<br>middle mouse: zoom<br>right mouse: pan");
 	}
 });
 

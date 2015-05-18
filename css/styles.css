@@ -78,6 +78,11 @@ hr {
   margin: 10px;
 }
 
+div#instructions {
+  font-size: 10px;
+  color: #000;
+}
+
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 a#logo img { width: 25%; height: 25%; }
