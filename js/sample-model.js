@@ -60,7 +60,7 @@ function update() {
 		camera.position.z = 2820 * Math.cos( time/10 );
  	}
  	if ( lights_cw ){
- 		SpotLight.rotateOnAxis( axis, radIncrement );
+ 		spotLight.rotateOnAxis( axis, radIncrement );
 		// spotLight.position.x = 2820 * Math.cos( time/10 );
 		// spotLight.position.y = 2000;
 		// spotLight.position.z = 2820 * Math.sin( time/10 );
