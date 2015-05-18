@@ -87,8 +87,8 @@ function setupControls() {
 	cam2.lookAt( myTarget.position );
 	con2 = new THREE.OrbitControls( cam2 );
 	con2.minDistance = 50;
-	con2.maxDistance = 7000;
-	con2.minPolarAngle = -Math.Pi/4;
+	con2.maxDistance = 8000;
+	//con2.minPolarAngle = Math.PI/2;
 	con2.maxPolarAngle = Math.PI/2;
 }
 
