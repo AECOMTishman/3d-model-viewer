@@ -80,8 +80,8 @@ function setupControls() {
 
 	cam1.position.set( 200, 400, 200 );
 	con1 = new THREE.FirstPersonControls( cam1 );
-	con1.lookSpeed = 0.15;
-	con1.movementSpeed = 200;
+	con1.lookSpeed = 0.10;
+	con1.movementSpeed = 500;
   
     cam2 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	cam2.position.set( 2000, 1500, 2000 );
