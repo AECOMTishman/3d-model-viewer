@@ -277,7 +277,7 @@ whiteLight.shadowCameraFar = 6000;
 whiteLight.shadowCameraFov = 45;
 whiteLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
-var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffffff } ) );
 whiteLight.add( orb_mesh1 );
 
 var yellowLight = new THREE.SpotLight( 0xffff00, 0.0 );
@@ -294,7 +294,7 @@ yellowLight.shadowCameraFar = 6000;
 yellowLight.shadowCameraFov = 45;
 yellowLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
-var orb_mesh2 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+var orb_mesh2 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffff00 } ) );
 
 var redLight = new THREE.SpotLight( 0xff0000, 0.0 );
 redLight.position.x = 2820;
@@ -310,7 +310,7 @@ redLight.shadowCameraFar = 6000;
 redLight.shadowCameraFov = 45;
 redLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
-var orb_mesh3 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+var orb_mesh3 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xff0000 } ) );
 
 setupControls();
 camera = cam2;
