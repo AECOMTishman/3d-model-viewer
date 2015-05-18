@@ -79,6 +79,7 @@ function setupControls() {
     cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	con1 = new THREE.FirstPersonControls( cam1 );
 	con1.mouseDragOn = true;
+	con1.noFly = true;
 	con1.lookSpeed = 0.00;
 	con1.movementSpeed = 1000;
   
