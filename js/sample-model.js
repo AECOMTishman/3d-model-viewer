@@ -128,7 +128,7 @@ function setControlsFirstPerson() {
 	var prevCamera = camera;
 	cam1.position.copy( prevCamera.position );
     camera = cam1;
-    con1.lon = 360*prevCamera.rotation.y/(2*Math.PI);
+    con1.lon = 180+360*prevCamera.rotation.y/(2*Math.PI);
     controls = con1;
 }
 
