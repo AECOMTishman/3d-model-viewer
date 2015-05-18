@@ -78,11 +78,9 @@ function animate() {
 function setupControls() {
     cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	con1 = new THREE.FirstPersonControls( cam1 );
-	con1.mouseDragOn = true;
+	con1.noFly = true;
 	con1.lookSpeed = 0.10;
-	con1.movementSpeed = 500;
-	con1.verticalMin = 0;
-	con1.verticalMax = Math.PI/2;
+	con1.movementSpeed = 1000;
   
     cam2 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	cam2.position.set( 2000, 1500, 2000 );
@@ -90,8 +88,8 @@ function setupControls() {
 	con2 = new THREE.OrbitControls( cam2 );
 	con2.minDistance = 50;
 	con2.maxDistance = 6000;
-	con2.minPolarAngle = 0;
-	con2.maxPolarAngle = Math.PI/2;
+	con2.minPolarAngle = Math.PI/8;
+	con2.maxPolarAngle = 5*Math.PI/8;
 }
 
 function setControlsFirstPerson() {
