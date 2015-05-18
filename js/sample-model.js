@@ -53,29 +53,29 @@ function update() {
  
 		camera.position.x = 2820 * Math.cos( camRadIncrement );
 		camera.position.y = 2000;
-		camera.position.z = 2820 * Math.sin( time/10 );
+		camera.position.z = 2820 * Math.sin( camRadIncrement );
  	}
  	if ( camera_ccw ){
  		camRadIncrement -= delta * rad;
 
 		camera.position.x = 2820 * Math.cos( camRadIncrement );
 		camera.position.y = 2000;
-		camera.position.z = 2820 * Math.sin( time/10 );
+		camera.position.z = 2820 * Math.sin( camRadIncrement );
  	}
  	if ( lights_cw ){
  		lightRadIncrement += delta * rad;
 
-		spotLight.position.x = 2820 * Math.cos( time/10 );
+		spotLight.position.x = 2820 * Math.cos( lightRadIncrement );
 		spotLight.position.y = 2000;
-		spotLight.position.z = 2820 * Math.sin( time/10 );
+		spotLight.position.z = 2820 * Math.sin( lightRadIncrement );
 
  	}
  	if ( lights_ccw ){
 		lightRadIncrement -= delta * rad;
 
-		spotLight.position.x = 2820 * Math.cos( time/10 );
+		spotLight.position.x = 2820 * Math.cos( lightRadIncrement );
 		spotLight.position.y = 2000;
-		spotLight.position.z = 2820 * Math.sin( time/10 );
+		spotLight.position.z = 2820 * Math.sin( lightRadIncrement );
  	}
 }
 
