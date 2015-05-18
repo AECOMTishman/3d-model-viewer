@@ -24,22 +24,16 @@ var lights_ccw = false;
 // BUTTON INITIALIZATIONS
 
 $( 'input#light1' ).addClass( 'active' );
-$( 'input#light1' ).bootstrapToggle('on');
 $( 'input#light2' ).addClass( 'active' );
-$( 'input#light2' ).bootstrapToggle('on');
 $( 'input#light3' ).addClass( 'active' );
-$( 'input#light3' ).bootstrapToggle('on');
 
 $( 'button#lighta' ).addClass( 'active' );
 
 $( 'button#camerab' ).addClass( 'active' );
 
 $( 'input#layer1' ).addClass( 'active' );
-$( 'input#layer1' ).bootstrapToggle('on');
 $( 'input#layer2' ).addClass( 'active' );
-$( 'input#layer2' ).bootstrapToggle('on');
 $( 'input#layer3' ).addClass( 'active' );
-$( 'input#layer3' ).bootstrapToggle('on');
 
 $( 'button#controlb' ).addClass( 'active' );
 
@@ -321,7 +315,6 @@ $( 'button#lighta' ).click( function() {
 		$( 'button#lighta' ).addClass( 'active' );
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
-
 		lights_cw = true;
 		lights_ccw = false;
 	}
@@ -332,7 +325,6 @@ $( 'button#lightb' ).click( function() {
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).addClass( 'active' );
 		$( 'button#lightc' ).removeClass( 'active' );
-
 		lights_cw = false;
 		lights_ccw = false;
 	}
@@ -343,7 +335,6 @@ $( 'button#lightc' ).click( function() {
 		$( 'button#lighta' ).removeClass( 'active' );
 		$( 'button#lightb' ).removeClass( 'active' );
 		$( 'button#lightc' ).addClass( 'active' );
-
 		lights_cw = false;
 		lights_ccw = true;
 	}
@@ -354,7 +345,6 @@ $( 'button#cameraa' ).click( function() {
 		$( 'button#cameraa' ).addClass( 'active' );
 		$( 'button#camerab' ).removeClass( 'active' );
 		$( 'button#camerac' ).removeClass( 'active' );
-
 		camera_cw = true;
 		camera_ccw = false;
 	}
@@ -365,7 +355,6 @@ $( 'button#camerab' ).click( function() {
 		$( 'button#cameraa' ).removeClass( 'active' );
 		$( 'button#camerab' ).addClass( 'active' );
 		$( 'button#camerac' ).removeClass( 'active' );
-
 		camera_cw = false;
 		camera_ccw = false;
 	}
@@ -376,7 +365,6 @@ $( 'button#camerac' ).click( function() {
 		$( 'button#cameraa' ).removeClass( 'active' );
 		$( 'button#camerab' ).removeClass( 'active' );
 		$( 'button#camerac' ).addClass( 'active' );
-
 		camera_cw = false;
 		camera_ccw = true;
 	}
@@ -387,11 +375,9 @@ $( 'a#view1' ).click( function() {
 	myTarget.position.set( 0, 400, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
-
 	$( 'button#cameraa' ).removeClass( 'active' );
 	$( 'button#camerab' ).addClass( 'active' );
 	$( 'button#camerac' ).removeClass( 'active' );
-
 	camera_cw = false;
 	camera_ccw = false;
 });
@@ -401,11 +387,9 @@ $( 'a#view2' ).click( function() {
 	myTarget.position.set( 600, 800, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
-
 	$( 'button#cameraa' ).removeClass( 'active' );
 	$( 'button#camerab' ).addClass( 'active' );
 	$( 'button#camerac' ).removeClass( 'active' );
-
 	camera_cw = false;
 	camera_ccw = false;
 });
@@ -415,11 +399,9 @@ $( 'a#view3' ).click( function() {
 	myTarget.position.set( 0, 400, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
-
 	$( 'button#cameraa' ).removeClass( 'active' );
 	$( 'button#camerab' ).addClass( 'active' );
 	$( 'button#camerac' ).removeClass( 'active' );
-
 	camera_cw = false;
 	camera_ccw = false;
 });
@@ -427,14 +409,10 @@ $( 'a#view3' ).click( function() {
 $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass( 'active' ) ){
 		$( 'input#layer1' ).removeClass( 'active' );
-
-		$( 'input#layer1' ).bootstrapToggle('off');
 		scene.remove( mesh1 );
 		mesh4.castShadow = true;
 	} else {
 		$( 'input#layer1' ).addClass( 'active' );
-
-		$( 'input#layer1' ).bootstrapToggle('on');
 		scene.add( mesh1 );
 		mesh4.castShadow = false;
 	}
@@ -443,14 +421,10 @@ $( 'input#layer1' ).change( function() {
 $( 'input#layer2' ).change( function() {
 	if( $( 'input#layer2' ).hasClass( 'active' ) ){
 		$( 'input#layer2' ).removeClass( 'active' );
-
-		$( 'input#layer2' ).bootstrapToggle('off');
 		scene.remove( mesh2 );
 		scene.remove( mesh3 );
 	} else {
 		$( 'input#layer2' ).addClass( 'active' );
-
-		$( 'input#layer2' ).bootstrapToggle('on');
 		scene.add( mesh2 );
 		scene.add( mesh3 );
 	}
@@ -459,14 +433,10 @@ $( 'input#layer2' ).change( function() {
 $( 'input#layer3' ).change( function() {
 	if( $( 'input#layer3' ).hasClass( 'active' ) ){
 		$( 'input#layer3' ).removeClass( 'active' );
-
-		$( 'input#layer3' ).bootstrapToggle('off');
 		scene.remove( mesh4 );
 		scene.remove( mesh5 );
 	} else {
 		$( 'input#layer3' ).addClass( 'active' );
-
-		$( 'input#layer3' ).bootstrapToggle('on');
 		scene.add( mesh4 );
 		scene.add( mesh5 );
 	}
@@ -476,7 +446,6 @@ $( 'button#controla' ).click( function() {
 	if( !$( 'button#controla' ).hasClass( 'active' ) ){
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
-
 		setControlsFirstPerson();
 	}
 });
@@ -493,13 +462,9 @@ $( 'button#controlb' ).click( function() {
 $( 'input#light1' ).change( function() {
 	if( $( 'input#light1' ).hasClass( 'active' ) ){
 		$( 'input#light1' ).removeClass( 'active' );
-
-		$( 'input#light1' ).bootstrapToggle('off');
 		spotLight1.intensity = 0.0;
 	} else {
 		$( 'input#light1' ).addClass( 'active' );
-
-		$( 'input#light1' ).bootstrapToggle('on');
 		spotLight1.intensity = 1.0;
 	}
 });
@@ -507,13 +472,9 @@ $( 'input#light1' ).change( function() {
 $( 'input#light2' ).change( function() {
 	if( $( 'input#light2' ).hasClass( 'active' ) ){
 		$( 'input#light2' ).removeClass( 'active' );
-
-		$( 'input#light2' ).bootstrapToggle('off');
 		spotLight2.intensity = 0.0;
 	} else {
 		$( 'input#light2' ).addClass( 'active' );
-
-		$( 'input#light2' ).bootstrapToggle('on');
 		spotLight2.intensity = 1.0;
 	}
 });
@@ -521,13 +482,9 @@ $( 'input#light2' ).change( function() {
 $( 'input#light3' ).change( function() {
 	if( $( 'input#light3' ).hasClass( 'active' ) ){
 		$( 'input#light3' ).removeClass( 'active' );
-
-		$( 'input#light3' ).bootstrapToggle('off');
 		spotLight3.intensity = 0.0;
 	} else {
 		$( 'input#light3' ).addClass( 'active' );
-
-		$( 'input#light3' ).bootstrapToggle('on');
 		spotLight3.intensity = 1.0;
 	}
 });
@@ -535,11 +492,7 @@ $( 'input#light3' ).change( function() {
 $( 'input#vr-mode' ).change( function() {
 	if( $( 'input#vr-mode' ).hasClass( 'active' ) ){
 		$( 'input#vr-mode' ).removeClass( 'active' );
-
-		$( 'input#vr-mode' ).bootstrapToggle('off');
 	} else {
 		$( 'input#vr-mode' ).addClass( 'active' );
-
-		$( 'input#vr-mode' ).bootstrapToggle('on');
 	}
 });
