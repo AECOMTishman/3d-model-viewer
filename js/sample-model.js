@@ -69,7 +69,7 @@ function update() {
 
 function animate() {
 	requestAnimationFrame( animate );
-	controls.update();
+	controls.update( clock.getDelta() );
 	update();
 	render();
 	stats.update();
