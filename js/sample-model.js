@@ -22,6 +22,7 @@ var lights_ccw = false;
 
 // BUTTON INITIALIZATIONS
 
+$( 'input#light1' ).addClass( 'active' );
 $( 'button#lighta' ).addClass( 'active' );
 
 $( 'button#camerab' ).addClass( 'active' );
@@ -31,8 +32,6 @@ $( 'input#layer2' ).addClass( 'active' );
 $( 'input#layer3' ).addClass( 'active' );
 
 $( 'button#controlb' ).addClass( 'active' );
-$( 'input#shadows' ).addClass( 'active' );
-
 $('input#vr-mode').bootstrapToggle('off');
 
 // FUNCTIONS
