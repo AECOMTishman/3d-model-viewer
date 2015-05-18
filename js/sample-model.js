@@ -255,7 +255,7 @@ whiteLight.shadowCameraVisible = false; // Turn this to "true" to see light boun
 var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 whiteLight.add( orb_mesh1 );
 
-var yellowLight = new THREE.SpotLight( 0xffffd5, 0.0 );
+var yellowLight = new THREE.SpotLight( 0xffff00, 0.0 );
 yellowLight.position.x = 2820;
 yellowLight.position.y = 2000;
 yellowLight.position.z = 0;
@@ -271,7 +271,7 @@ yellowLight.shadowCameraVisible = false; // Turn this to "true" to see light bou
 
 var orb_mesh2 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
 
-var redLight = new THREE.SpotLight( 0xffc1c1, 0.0 );
+var redLight = new THREE.SpotLight( 0xff0000, 0.0 );
 redLight.position.x = 2820;
 redLight.position.y = 2000;
 redLight.position.z = 0;
