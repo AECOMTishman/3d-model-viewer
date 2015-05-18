@@ -122,13 +122,12 @@ function toggleControls() {
 	if ( $( 'button#controla' ).hasClass( 'active' ) ) {
 		setControlsOrbit();
 		$( 'div#instructions p' ).replaceWith("<p>left mouse: rotate<br>middle mouse: zoom<br>right mouse: pan</p>");
-		}
-	};
+	}
 	if ( $( 'button#controlb' ).hasClass( 'active' ) ) {
 		setControlsFirstPerson();
 		$( 'div#instructions p' ).replaceWith("<p>left mouse: forward<br>right mouse: back<br>WASD: forward/left/back/right<br>RF: up/down</p>");
-		}
-	};
+	}
+}
 
 function setControlsFirstPerson() {
 	var prevCamera = camera;
