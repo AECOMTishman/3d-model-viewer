@@ -75,26 +75,27 @@ function animate() {
 	stats.update();
 }
 
-function toScreenPosition(obj, camera)
-{
-    var vector = new THREE.Vector3();
+function setupControls() {
+    cam1 = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+	cam1.position.set( -150, 20, 0 );
+	con1 = new THREE.FirstPersonControls( cam1 );
+	con1.lookSpeed = 0.05;
+	con1.movementSpeed = 50;
+  
+    cam2 = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+	cam2.position.set( 100, 100, 100 );
+	con2 = new THREE.OrbitControls( cam2 );
+}
 
-    var widthHalf = 0.5*renderer.context.canvas.width;
-    var heightHalf = 0.5*renderer.context.canvas.height;
+function setControlsFirstPerson() {
+    camera = cam1;
+    controls = con1;
+}
 
-    obj.updateMatrixWorld();
-    vector.setFromMatrixPosition(obj.matrixWorld);
-    vector.project(camera);
-
-    vector.x = ( vector.x * widthHalf ) + widthHalf;
-    vector.y = - ( vector.y * heightHalf ) + heightHalf;
-
-    return { 
-        x: vector.x,
-        y: vector.y
-    };
-
-};
+function setControlsOrbit() {
+    camera = cam2;
+    controls = con2;
+}
 
 function onWindowResize() {
 	var win = $( this );
@@ -200,13 +201,8 @@ camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 camera.position.set( 2000, 1500, 2000 );
 camera.lookAt( myTarget.position );
 
-controls = new THREE.OrbitControls( camera );
-controls.addEventListener( 'change', render );
-controls.target = myTarget.position;
-controls.minDistance = 500;
-controls.maxDistance = 5000;
-controls.minPolarAngle = 0.3 * Math.PI/2;
-controls.maxPolarAngle = 1.0 * Math.PI/2;
+setupControls();
+setControlsOrbit();
 
 light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 scene.add( light );
@@ -395,12 +391,7 @@ $( 'button#controla' ).click( function() {
 		$( 'button#controla' ).addClass( 'active' );
 		$( 'button#controlb' ).removeClass( 'active' );
 
-		camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-		camera.position.set( 100, 100, 100 );
-
-        controls = new THREE.FirstPersonControls(camera);
-        controls.lookSpeed = 0.05;
-    	controls.movementSpeed = 50;
+		setControlsFirstPerson();
 	}
 });
 
@@ -409,10 +400,7 @@ $( 'button#controlb' ).click( function() {
 		$( 'button#controla' ).removeClass( 'active' );
 		$( 'button#controlb' ).addClass( 'active' );
 
-		camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-		camera.position.set( 100, 100, 100 );
-
-		controls = new THREE.OrbitControls( camera );
+		setControlsOrbit();
 	}
 });
 
