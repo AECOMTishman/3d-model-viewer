@@ -416,16 +416,15 @@ $( 'button#controlb' ).click( function() {
 	}
 });
 
-$( 'input#shadows' ).change( function() {
-	if( $( 'input#shadows' ).hasClass( 'active' ) ){
-		$( 'input#shadows' ).removeClass( 'active' );
+$( 'input#light1' ).change( function() {
+	if( $( 'input#light1' ).hasClass( 'active' ) ){
+		$( 'input#light1' ).removeClass( 'active' );
 
-		renderer.shadowMapAutoUpdate = false;
-		renderer.clearTarget( light.shadowMap );
+		scene.remove( spotLight );
 	} else {
-		$( 'input#shadows' ).addClass( 'active' );
+		$( 'input#light1' ).addClass( 'active' );
 
-		renderer.shadowMapAutoUpdate = true;
+		scene.add( spotLight );
 	}
 });
 
