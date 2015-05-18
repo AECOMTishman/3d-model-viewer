@@ -77,7 +77,7 @@ function animate() {
 
 function setupControls() {
     cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	cam1.position.set( 300, 800, 300 );
+	cam1.position.set( 200, 400, 200 );
 	con1 = new THREE.FirstPersonControls( cam1 );
 	con1.lookSpeed = 0.05;
 	con1.movementSpeed = 50;
@@ -88,7 +88,7 @@ function setupControls() {
 }
 
 function setControlsFirstPerson() {
-	cam1.position.set( 2000, 1500, 2000 );
+	cam1.position.set( 200, 400, 200 );
 	cam1.lookAt( myTarget.position );
     camera = cam1;
     con1.lon = 180;
