@@ -23,6 +23,10 @@ var lights_ccw = false;
 // BUTTON INITIALIZATIONS
 
 $( 'input#light1' ).addClass( 'active' );
+$( 'input#light1' ).bootstrapToggle('on');
+$( 'input#light2' ).bootstrapToggle('off');
+$( 'input#light3' ).bootstrapToggle('off');
+
 $( 'button#lighta' ).addClass( 'active' );
 
 $( 'button#camerab' ).addClass( 'active' );
@@ -32,7 +36,9 @@ $( 'input#layer2' ).addClass( 'active' );
 $( 'input#layer3' ).addClass( 'active' );
 
 $( 'button#controlb' ).addClass( 'active' );
-$('input#vr-mode').bootstrapToggle('off');
+
+$( 'input#vr-mode' ).addClass( 'active' );
+$( 'input#vr-mode' ).bootstrapToggle('off');
 
 // FUNCTIONS
 
@@ -62,21 +68,29 @@ function update() {
 		camera.position.y = 2000;
 		camera.position.z = 2820 * Math.sin( camRadIncrement );
  	}
- 	if ( lights_cw && $( 'input#light1' ).hasClass( 'active' ) ){
+ 	if ( lights_cw ){
  		lightRadIncrement += delta * rad;
-
-		spotLight.position.x = 2820 * Math.cos( lightRadIncrement );
-		spotLight.position.y = 2000;
-		spotLight.position.z = 2820 * Math.sin( lightRadIncrement );
+ 		updateLights();
 
  	}
- 	if ( lights_ccw && $( 'input#light1' ).hasClass( 'active' ) ){
+ 	if ( lights_ccw ){
 		lightRadIncrement -= delta * rad;
-
-		spotLight.position.x = 2820 * Math.cos( lightRadIncrement );
-		spotLight.position.y = 2000;
-		spotLight.position.z = 2820 * Math.sin( lightRadIncrement );
+		updateLights();
  	}
+}
+
+function updateLights() {
+	spotLight1.position.x = 2820 * Math.cos( lightRadIncrement );
+	spotLight1.position.y = 2000;
+	spotLight1.position.z = 2820 * Math.sin( lightRadIncrement );
+
+	spotLight2.position.x = 2820 * Math.cos( lightRadIncrement + 1000*120*2*Math.PI/360 );
+	spotLight2.position.y = 2000;
+	spotLight2.position.z = 2820 * Math.sin( lightRadIncrement + 1000*120*2*Math.PI/360 );
+
+	spotLight3.position.x = 2820 * Math.cos( lightRadIncrement + 1000*240*2*Math.PI/360 );
+	spotLight3.position.y = 2000;
+	spotLight3.position.z = 2820 * Math.sin( lightRadIncrement + 1000*240*2*Math.PI/360 );
 }
 
 function animate() {
@@ -221,33 +235,64 @@ scene.add(terrain);
 var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 400, 0 );
 
+light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
+scene.add( light );
+
+var spotLight1 = new THREE.SpotLight( 0xffffff );
+spotLight1.position.x = 2820;
+spotLight1.position.y = 2000;
+spotLight1.position.z = 0;
+spotLight1.target = myTarget;
+spotLight1.castShadow = true;
+spotLight1.shadowMapWidth = 1500;
+spotLight1.shadowMapHeight = 1000;
+spotLight1.shadowCameraNear = 1500;
+spotLight1.shadowCameraFar = 6000;
+spotLight1.shadowCameraFov = 45;
+spotLight1.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+
+var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+spotLight1.add( orb_mesh );
+
+var spotLight2 = new THREE.SpotLight( 0xffffff );
+spotLight2.position.x = 2820;
+spotLight2.position.y = 2000;
+spotLight2.position.z = 0;
+spotLight2.target = myTarget;
+spotLight2.castShadow = true;
+spotLight2.shadowMapWidth = 1500;
+spotLight2.shadowMapHeight = 1000;
+spotLight2.shadowCameraNear = 1500;
+spotLight2.shadowCameraFar = 6000;
+spotLight2.shadowCameraFov = 45;
+spotLight2.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+
+var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+spotLight2.add( orb_mesh );
+
+var spotLight3 = new THREE.SpotLight( 0xffffff );
+spotLight3.position.x = 2820;
+spotLight3.position.y = 2000;
+spotLight3.position.z = 0;
+spotLight3.target = myTarget;
+spotLight3.castShadow = true;
+spotLight3.shadowMapWidth = 1500;
+spotLight3.shadowMapHeight = 1000;
+spotLight3.shadowCameraNear = 1500;
+spotLight3.shadowCameraFar = 6000;
+spotLight3.shadowCameraFov = 45;
+spotLight3.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+
+var orb_mesh3 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
+spotLight3.add( orb_mesh );
+
 setupControls();
 camera = cam2;
 controls = con2;
 
-light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
-scene.add( light );
-
-var spotLight = new THREE.SpotLight( 0xffffff );
-spotLight.position.x = 2820;
-spotLight.position.y = 2000;
-spotLight.position.z = 0;
-spotLight.target = myTarget;
-spotLight.castShadow = true;
-spotLight.shadowMapWidth = 1500;
-spotLight.shadowMapHeight = 1000;
-spotLight.shadowCameraNear = 1500;
-spotLight.shadowCameraFar = 6000;
-spotLight.shadowCameraFov = 45;
-spotLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
-
-var orb_mesh = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffaa00 } ) );
-spotLight.add( orb_mesh );
-
-scene.add(camera);
-
-	scene.add( spotLight );
-	scene.add( myTarget );
+scene.add( myTarget );
+scene.add( camera );
+scene.add( spotLight1 );
 
 window.addEventListener( 'resize', onWindowResize, false );
 
@@ -429,11 +474,35 @@ $( 'input#light1' ).change( function() {
 	if( $( 'input#light1' ).hasClass( 'active' ) ){
 		$( 'input#light1' ).removeClass( 'active' );
 
-		scene.remove( spotLight );
+		scene.remove( spotLight1 );
 	} else {
 		$( 'input#light1' ).addClass( 'active' );
 
-		scene.add( spotLight );
+		scene.add( spotLight1 );
+	}
+});
+
+$( 'input#light2' ).change( function() {
+	if( $( 'input#light2' ).hasClass( 'active' ) ){
+		$( 'input#light2' ).removeClass( 'active' );
+
+		scene.remove( spotLight2 );
+	} else {
+		$( 'input#light2' ).addClass( 'active' );
+
+		scene.add( spotLight2 );
+	}
+});
+
+$( 'input#light3' ).change( function() {
+	if( $( 'input#light3' ).hasClass( 'active' ) ){
+		$( 'input#light3' ).removeClass( 'active' );
+
+		scene.remove( spotLight3 );
+	} else {
+		$( 'input#light3' ).addClass( 'active' );
+
+		scene.add( spotLight3 );
 	}
 });
 
