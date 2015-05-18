@@ -210,7 +210,8 @@ var myTarget = new THREE.Object3D();
 myTarget.position.set( 0, 400, 0 );
 
 setupControls();
-setControlsOrbit();
+camera = cam2;
+controls = con2;
 
 light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 scene.add( light );
