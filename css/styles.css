@@ -93,6 +93,10 @@ div.left-nav {
   width: 50px;
 }
 
+span.no-mobile {
+  display: none;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   a#logo img { width: 50%; height: 50%; }
