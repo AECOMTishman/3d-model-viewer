@@ -33,7 +33,7 @@ a.list-group-item {
 }
 
 a.list-group-item span.glyphicon {
-  color: #aaa;
+  color: #666;
 }
 
 a.list-group-item:hover {
@@ -201,7 +201,7 @@ button#btn span.glyphicon {
   }
 
   a.list-group-item {
-    line-height: 30px;
+    line-height: 38px;
     font-size: 16px;
   }
 
