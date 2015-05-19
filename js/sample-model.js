@@ -535,25 +535,25 @@ $( 'input#vr-mode' ).change( function() {
 	}
 });
 
-$( 'a#lightsmenu' ).click( function() {
+$( 'div#LightsMenu' ).click( function() {
 	$( 'div#cameramenu' ).collapse('hide');
 	$( 'div#layersmenu' ).collapse('hide');
 	$( 'div#controlsmenu' ).collapse('hide');
 });
 
-$( 'a#cameramenu' ).click( function() {
+$( 'div#CameraMenu' ).click( function() {
 	$( 'div#lightsmenu' ).collapse('hide');
 	$( 'div#layersmenu' ).collapse('hide');
 	$( 'div#controlsmenu' ).collapse('hide');
 });
 
-$( 'a#layersmenu' ).click( function() {
+$( 'a#LayersMenu' ).click( function() {
 	$( 'div#cameramenu' ).collapse('hide');
 	$( 'div#lightsmenu' ).collapse('hide');
 	$( 'div#controlsmenu' ).collapse('hide');
 });
 
-$( 'a#controlsmenu' ).click( function() {
+$( 'a#ControlsMenu' ).click( function() {
 	$( 'div#cameramenu' ).collapse('hide');
 	$( 'div#layersmenu' ).collapse('hide');
 	$( 'div#lightsmenu' ).collapse('hide');
