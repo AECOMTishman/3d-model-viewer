@@ -156,18 +156,10 @@ function onWindowResize() {
 }
 
 // Cool stuff
-
-this.onKeyDown = function ( event ) {
-
-	//event.preventDefault();
-
-	switch ( event.keyCode ) {
-
-		case 67: /*C*/ toggleControls();
-
-	}
-
-};
+if(e.keyCode == 67){
+    toggleControls();
+  }
+})
 
 // MAIN PROGRAM
 
