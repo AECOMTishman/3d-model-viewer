@@ -104,6 +104,10 @@ a.list-group-item {
   line-height: 36px;
 }
 
+a#logo {
+  display: none;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   /* a#logo img { width: 50%; height: 50%; } */
@@ -126,6 +130,10 @@ a.list-group-item {
 
   a.list-group-item {
     line-height: 24px;
+  }
+
+  a#logo {
+    width: 160px;
   }
 }
 
@@ -152,6 +160,10 @@ a.list-group-item {
   a.list-group-item {
     line-height: 24px;
   }
+
+  a#logo {
+    width: 160px;
+  }
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -176,5 +188,9 @@ a.list-group-item {
 
   a.list-group-item {
     line-height: 30px;
+  }
+
+  a#logo {
+    width: 200px;
   }
 }
