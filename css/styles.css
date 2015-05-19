@@ -95,14 +95,15 @@ div.left-nav {
 }
 
 a.list-group-item {
-  line-height: 16px;
-  font-size: 16px;
+  line-height: 12px;
+  font-size: 12px;
   padding: 4px;
 }
 
 a.list-group-item span.glyphicon {
   float: none;
   font-size: 16px;
+  padding: 4px;
 }
 
 a#logo {
@@ -129,13 +130,14 @@ button#btn span.glyphicon {
 
   a.list-group-item {
     font-size: 14px;
-    line-height: 24px;
+    line-height: 14px;
     padding: 2px;
   }
 
   a.list-group-item span.glyphicon {
     float: left;
     font-size: 24px;
+    padding: 2px;
   }
 
   a#logo {
@@ -166,13 +168,14 @@ button#btn span.glyphicon {
 
   a.list-group-item {
     font-size: 14px;
-    line-height: 24px;
+    line-height: 14px;
     padding: 2px;
   }
 
   a.list-group-item span.glyphicon {
     font-size: 24px;
     float: left;
+    padding: 2px;
   }
 
   a#logo {
@@ -202,12 +205,13 @@ button#btn span.glyphicon {
   }
 
   a.list-group-item {
-    line-height: 38px;
-    font-size: 16px;
+    line-height: 18px;
+    font-size: 18px;
     padding: 4px;
   }
 
   a.list-group-item span.glyphicon {
+    padding: 4px;
     font-size: 30px;
     float: left;
   }
