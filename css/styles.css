@@ -93,7 +93,7 @@ div.left-nav {
   width: 100px;
 }
 
-span.no-mobile {
+.no-mobile {
   display: none;
 }
 
@@ -112,7 +112,7 @@ span.glyphicon {
     width: 100px;
   }
 
-  span.no-mobile {
+  .no-mobile {
     display: inline;
   }
 
@@ -132,7 +132,7 @@ span.glyphicon {
     width: 150px;
   }
 
-  span.no-mobile {
+  .no-mobile {
     display: inline;
   }
 
@@ -152,7 +152,7 @@ span.glyphicon {
     width: 200px;
   }
 
-  span.no-mobile {
+  .no-mobile {
     display: inline;
   }
 
