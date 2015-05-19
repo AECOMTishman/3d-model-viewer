@@ -95,7 +95,7 @@ div.left-nav {
 }
 
 a.list-group-item {
-  line-height: 12px;
+  line-height: 16px;
   font-size: 12px;
   padding: 4px;
 }
@@ -130,7 +130,7 @@ button#btn span.glyphicon {
 
   a.list-group-item {
     font-size: 14px;
-    line-height: 14px;
+    line-height: 24px;
     padding: 2px;
   }
 
@@ -168,7 +168,7 @@ button#btn span.glyphicon {
 
   a.list-group-item {
     font-size: 14px;
-    line-height: 14px;
+    line-height: 24px;
     padding: 2px;
   }
 
@@ -205,7 +205,7 @@ button#btn span.glyphicon {
   }
 
   a.list-group-item {
-    line-height: 18px;
+    line-height: 30px;
     font-size: 18px;
     padding: 4px;
   }
