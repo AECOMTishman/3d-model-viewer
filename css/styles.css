@@ -129,7 +129,7 @@ button#btn span.glyphicon {
   }
 
   a.list-group-item {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 24px;
   }
 
@@ -141,7 +141,7 @@ button#btn span.glyphicon {
 
   a#logo {
     display: block;
-    width: 160px;
+    width: 65%;
   }
 
   button#btn span.glyphicon {
@@ -165,7 +165,7 @@ button#btn span.glyphicon {
   }
 
   a.list-group-item {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 24px;
   }
 
@@ -177,7 +177,7 @@ button#btn span.glyphicon {
 
   a#logo {
     display: block;
-    width: 160px;
+    width: 65%;
   }
 
   button#btn span.glyphicon {
@@ -201,8 +201,8 @@ button#btn span.glyphicon {
   }
 
   a.list-group-item {
-    line-height: 30px;
-    font-size: 16px;
+    line-height: 20px;
+    font-size: 20px;
   }
 
   a.list-group-item span.glyphicon {
