@@ -25,13 +25,6 @@ div.list-group.panel {
   margin-bottom: 10px;
 }
 
-a.list-group-item {
-  font-size: 16px;
-  text-align: center;
-  overflow: auto;
-  width: 100%;
-}
-
 a.list-group-item span.glyphicon {
   color: #666;
 }
@@ -86,7 +79,7 @@ div#instructions {
 div.left-nav {
   bottom: 0px;
   font-size: 9px;
-  padding: 5px 0px 0px 5px;
+  padding: 10px 0px 0px 10px;
   width: 120px;
 }
 
@@ -141,6 +134,7 @@ button#btn span.glyphicon {
 
   a#logo {
     display: block;
+    height: 65%;
     width: 65%;
   }
 
@@ -177,6 +171,7 @@ button#btn span.glyphicon {
 
   a#logo {
     display: block;
+    height: 65%;
     width: 65%;
   }
 
