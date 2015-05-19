@@ -536,25 +536,25 @@ $( 'input#vr-mode' ).change( function() {
 });
 
 $( 'a#lightsmenu' ).click( function() {
-	$( 'div#cameramenu' ).collapse( 'hide' );
-	$( 'div#layersmenu' ).collapse( 'hide' );
-	$( 'div#controlsmenu' ).collapse( 'hide' );
+	$( 'div#cameramenu' ).collapse('hide');
+	$( 'div#layersmenu' ).collapse('hide');
+	$( 'div#controlsmenu' ).collapse('hide');
 });
 
 $( 'a#cameramenu' ).click( function() {
-	$( 'div#lightsmenu' ).collapse( 'hide' );
-	$( 'div#layersmenu' ).collapse( 'hide' );
-	$( 'div#controlsmenu' ).collapse( 'hide' );
+	$( 'div#lightsmenu' ).collapse('hide');
+	$( 'div#layersmenu' ).collapse('hide');
+	$( 'div#controlsmenu' ).collapse('hide');
 });
 
 $( 'a#layersmenu' ).click( function() {
-	$( 'div#cameramenu' ).collapse( 'hide' );
-	$( 'div#lightsmenu' ).collapse( 'hide' );
-	$( 'div#controlsmenu' ).collapse( 'hide' );
+	$( 'div#cameramenu' ).collapse('hide');
+	$( 'div#lightsmenu' ).collapse('hide');
+	$( 'div#controlsmenu' ).collapse('hide');
 });
 
 $( 'a#controlsmenu' ).click( function() {
-	$( 'div#cameramenu' ).collapse( 'hide' );
-	$( 'div#layersmenu' ).collapse( 'hide' );
-	$( 'div#lightsmenu' ).collapse( 'hide' );
+	$( 'div#cameramenu' ).collapse('hide');
+	$( 'div#layersmenu' ).collapse('hide');
+	$( 'div#lightsmenu' ).collapse('hide');
 });
