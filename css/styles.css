@@ -24,6 +24,7 @@ div.list-group.panel {
 }
 
 a.list-group-item {
+  text-align: center;
   overflow: auto;
   width: 100%;
 }
