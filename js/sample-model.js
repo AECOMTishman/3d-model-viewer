@@ -156,6 +156,7 @@ function onWindowResize() {
 }
 
 // Cool stuff
+$('body').keyup( function ( e ) {
 if(e.keyCode == 67){
     toggleControls();
   }
