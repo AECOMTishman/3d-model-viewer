@@ -101,6 +101,7 @@ span.glyphicon {
 
 a.list-group-item {
   line-height: 36px;
+  font-size: 30px;
 }
 
 a.list-group-item span.glyphicon {
@@ -131,6 +132,7 @@ a#logo {
   }
 
   a.list-group-item {
+    font-size: 20px;
     line-height: 24px;
   }
 
@@ -139,6 +141,7 @@ a#logo {
   }
 
   a#logo {
+    display: block;
     width: 160px;
   }
 }
@@ -164,6 +167,7 @@ a#logo {
   }
 
   a.list-group-item {
+    font-size: 20px;
     line-height: 24px;
   }
 
@@ -172,6 +176,7 @@ a#logo {
   }
 
   a#logo {
+    display: block;
     width: 160px;
   }
 }
@@ -198,6 +203,7 @@ a#logo {
 
   a.list-group-item {
     line-height: 30px;
+    font-size: 24px;
   }
 
   a.list-group-item span.glyphicon {
@@ -205,6 +211,7 @@ a#logo {
   }
 
   a#logo {
+    display: block;
     width: 200px;
   }
 }
