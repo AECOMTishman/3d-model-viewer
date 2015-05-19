@@ -86,8 +86,8 @@ div#instructions {
 div.left-nav {
   bottom: 0px;
   font-size: 9px;
-  padding: 5px 0px 0px 5px;
-  width: 120px;
+  padding: 10px 10px 0px 10px;
+  width: 160px;
 }
 
 .no-mobile {
@@ -120,7 +120,6 @@ button#btn span.glyphicon {
   div.left-nav {
     top: 0px;
     font-size: 10px;
-    padding: 10px 0px 0px 10px;
     width: 160px;
   }
 
@@ -141,7 +140,8 @@ button#btn span.glyphicon {
 
   a#logo {
     display: block;
-    width: 65%;
+    width: 160px;
+    height: auto;
   }
 
   button#btn span.glyphicon {
@@ -156,8 +156,8 @@ button#btn span.glyphicon {
   div.left-nav {
     top: 0px;
     font-size: 10px;
-    padding: 10px 0px 0px 10px;
     width: 160px;
+    height: auto;
   }
 
   .no-mobile {
@@ -177,7 +177,8 @@ button#btn span.glyphicon {
 
   a#logo {
     display: block;
-    width: 65%;
+    width: 160px;
+    height: auto;
   }
 
   button#btn span.glyphicon {
@@ -192,7 +193,7 @@ button#btn span.glyphicon {
   div.left-nav {
     top: 0px;
     font-size: 12px;
-    padding: 20px 0px 0px 20px;
+    padding: 20px 0px 20px 20px;
     width: 200px;
   }
 
@@ -214,6 +215,7 @@ button#btn span.glyphicon {
   a#logo {
     display: block;
     width: 200px;
+    height: auto;
   }
 
   button#btn span.glyphicon {
