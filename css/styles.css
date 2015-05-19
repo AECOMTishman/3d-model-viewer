@@ -90,7 +90,7 @@ div.left-nav {
   bottom: 0px;
   font-size: 9px;
   padding: 5px 0px 0px 5px;
-  width: 100px;
+  width: 150px;
 }
 
 .no-mobile {
@@ -102,6 +102,10 @@ span.glyphicon {
   padding: 4px;
 }
 
+a.list-group-item span.glyphicon {
+  float: center;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   /* a#logo img { width: 50%; height: 50%; } */
@@ -109,7 +113,7 @@ span.glyphicon {
   div.left-nav {
     font-size: 10px;
     padding: 10px 0px 0px 10px;
-    width: 100px;
+    width: 150px;
   }
 
   .no-mobile {
