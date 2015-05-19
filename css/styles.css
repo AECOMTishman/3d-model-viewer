@@ -33,7 +33,7 @@ a.list-group-item {
 }
 
 a.list-group-item span.glyphicon {
-  float: left;
+  color: #dddddd;
 }
 
 a.list-group-item:hover {
