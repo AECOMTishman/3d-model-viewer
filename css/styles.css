@@ -112,6 +112,10 @@ a#logo {
   display: none;
 }
 
+button#btn span.glyphicon {
+  font-size: 10px;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   /* a#logo img { width: 50%; height: 50%; } */
@@ -132,7 +136,7 @@ a#logo {
   }
 
   a.list-group-item {
-    font-size: 20px;
+    font-size: 12px;
     line-height: 24px;
   }
 
@@ -143,6 +147,10 @@ a#logo {
   a#logo {
     display: block;
     width: 160px;
+  }
+
+  button#btn span.glyphicon {
+    font-size: 12px;
   }
 }
 
@@ -167,7 +175,7 @@ a#logo {
   }
 
   a.list-group-item {
-    font-size: 20px;
+    font-size: 12px;
     line-height: 24px;
   }
 
@@ -178,6 +186,10 @@ a#logo {
   a#logo {
     display: block;
     width: 160px;
+  }
+
+  button#btn span.glyphicon {
+    font-size: 12px;
   }
 }
 
@@ -203,7 +215,7 @@ a#logo {
 
   a.list-group-item {
     line-height: 30px;
-    font-size: 24px;
+    font-size: 16px;
   }
 
   a.list-group-item span.glyphicon {
@@ -213,5 +225,9 @@ a#logo {
   a#logo {
     display: block;
     width: 200px;
+  }
+
+  button#btn span.glyphicon {
+    font-size: 18px;
   }
 }
