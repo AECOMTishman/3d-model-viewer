@@ -15,6 +15,8 @@ div#3d {
 div.left-nav {
   position: absolute;
   left: 0px;
+  padding: 20px 0px 0px 20px;
+  width: 200px;
   height: auto;
   z-index: 0;
 }
@@ -24,6 +26,7 @@ div.list-group.panel {
 }
 
 a.list-group-item {
+  font-size: 16px;
   text-align: center;
   overflow: auto;
   width: 100%;
@@ -139,7 +142,6 @@ button#btn span.glyphicon {
   a#logo {
     display: block;
     width: 65%;
-    height: 65%;
   }
 
   button#btn span.glyphicon {
@@ -176,7 +178,6 @@ button#btn span.glyphicon {
   a#logo {
     display: block;
     width: 65%;
-    height: 65%;
   }
 
   button#btn span.glyphicon {
