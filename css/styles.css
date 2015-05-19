@@ -97,14 +97,11 @@ div.left-nav {
 span.glyphicon {
   font-size: 36px;
   padding: 4px;
+  float: none;
 }
 
 a.list-group-item {
   line-height: 36px;
-}
-
-a.list-group-item span.glyphicon {
-  float: none;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -124,6 +121,7 @@ a.list-group-item span.glyphicon {
   span.glyphicon {
     font-size: 24px;
     padding: 2px;
+    float: left;
   }
 
   a.list-group-item {
@@ -148,6 +146,7 @@ a.list-group-item span.glyphicon {
   span.glyphicon {
     font-size: 24px;
     padding: 2px;
+    float: left;
   }
 
   a.list-group-item {
@@ -172,6 +171,7 @@ a.list-group-item span.glyphicon {
   span.glyphicon {
     font-size: 30px;
     padding: 4px;
+    float: left;
   }
 
   a.list-group-item {
