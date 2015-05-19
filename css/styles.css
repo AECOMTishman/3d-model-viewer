@@ -106,6 +106,10 @@ span.no-mobile {
     padding: 10px 0px 0px 10px;
     width: 100px;
   }
+
+  span.no-mobile {
+    display: inline;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -117,6 +121,10 @@ span.no-mobile {
     padding: 15px 0px 0px 15px;
     width: 150px;
   }
+
+  span.no-mobile {
+    display: inline;
+  }
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -127,5 +135,9 @@ span.no-mobile {
     font-size: 12px;
     padding: 20px 0px 0px 20px;
     width: 200px;
+  }
+
+  span.no-mobile {
+    display: inline;
   }
 }
