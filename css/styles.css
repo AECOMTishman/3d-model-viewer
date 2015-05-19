@@ -101,6 +101,11 @@ span.no-mobile {
   display: none;
 }
 
+span.glyphicon {
+  font-size: 14px;
+  padding: 4px;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   /* a#logo img { width: 50%; height: 50%; } */
@@ -113,6 +118,11 @@ span.no-mobile {
 
   span.no-mobile {
     display: inline;
+  }
+
+  span.glyphicon {
+    font-size: 14px;
+    padding: 4px;
   }
 }
 
@@ -129,6 +139,11 @@ span.no-mobile {
   span.no-mobile {
     display: inline;
   }
+
+  span.glyphicon {
+    font-size: 10px;
+    padding: 2px;
+  }
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -143,5 +158,10 @@ span.no-mobile {
 
   span.no-mobile {
     display: inline;
+  }
+
+  span.glyphicon {
+    font-size: 14px;
+    padding: 4px;
   }
 }
