@@ -547,13 +547,13 @@ $( 'div#CameraMenu' ).click( function() {
 	$( 'div#controlsmenu' ).collapse('hide');
 });
 
-$( 'a#LayersMenu' ).click( function() {
+$( 'div#LayersMenu' ).click( function() {
 	$( 'div#cameramenu' ).collapse('hide');
 	$( 'div#lightsmenu' ).collapse('hide');
 	$( 'div#controlsmenu' ).collapse('hide');
 });
 
-$( 'a#ControlsMenu' ).click( function() {
+$( 'div#ControlsMenu' ).click( function() {
 	$( 'div#cameramenu' ).collapse('hide');
 	$( 'div#layersmenu' ).collapse('hide');
 	$( 'div#lightsmenu' ).collapse('hide');
