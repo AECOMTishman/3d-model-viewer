@@ -142,10 +142,13 @@ button#btn span.glyphicon {
     padding-left: 6px;
   }
 
-  a#logo {
-    display: block;
+  a#logo img {
     width: 160px;
     height: auto;
+  }
+
+  a#logo {
+    display: block;
   }
 
   button#btn span.glyphicon {
@@ -183,6 +186,9 @@ button#btn span.glyphicon {
 
   a#logo {
     display: block;
+  }
+
+  a#logo img {
     width: 160px;
     height: auto;
   }
@@ -222,6 +228,9 @@ button#btn span.glyphicon {
 
   a#logo {
     display: block;
+  }
+
+  a#logo img {
     width: 200px;
     height: auto;
   }
