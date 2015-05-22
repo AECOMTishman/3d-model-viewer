@@ -139,7 +139,7 @@ button#btn span.glyphicon {
     line-height: 20px;
     float: left;
     font-size: 20px;
-    padding-left: 2px;
+    padding-left: 6px;
   }
 
   a#logo {
@@ -178,7 +178,7 @@ button#btn span.glyphicon {
     line-height: 20px;
     font-size: 20px;
     float: left;
-    padding-left: 2px;
+    padding-left: 6px;
   }
 
   a#logo {
@@ -215,7 +215,7 @@ button#btn span.glyphicon {
 
   a.list-group-item span.glyphicon {
     line-height: 26px;
-    padding-left: 4px;
+    padding-left: 8px;
     font-size: 24px;
     float: left;
   }
