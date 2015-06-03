@@ -255,7 +255,7 @@ terrain.rotation.set(0, 0, 0);
 scene.add(terrain);
 
 var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 400, 0 );
+myTarget.position.set( 0, 400, 400 );
 
 light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 scene.add( light );
@@ -272,7 +272,7 @@ whiteLight.shadowMapHeight = 1000;
 whiteLight.shadowCameraNear = 1500;
 whiteLight.shadowCameraFar = 6000;
 whiteLight.shadowCameraFov = 45;
-whiteLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
+whiteLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
 
 var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffffff } ) );
 whiteLight.add( orb_mesh1 );
@@ -396,7 +396,7 @@ $( 'button#camerac' ).click( function() {
 
 $( 'a#view1' ).click( function() {
 	camera.position.set( 0, 1000, 2000 );
-	myTarget.position.set( 0, 400, 0 );
+	myTarget.position.set( 0, 400, 400 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 	$( 'button#cameraa' ).removeClass( 'active' );
@@ -408,7 +408,7 @@ $( 'a#view1' ).click( function() {
 
 $( 'a#view2' ).click( function() {
 	camera.position.set( 600, 800, 600 );
-	myTarget.position.set( 600, 800, 0 );
+	myTarget.position.set( 600, 800, 400 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 	$( 'button#cameraa' ).removeClass( 'active' );
@@ -420,7 +420,7 @@ $( 'a#view2' ).click( function() {
 
 $( 'a#view3' ).click( function() {
 	camera.position.set( 2000, 1500, 2000 );
-	myTarget.position.set( 0, 400, 0 );
+	myTarget.position.set( 0, 400, 400 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 	$( 'button#cameraa' ).removeClass( 'active' );
@@ -433,36 +433,32 @@ $( 'a#view3' ).click( function() {
 $( 'input#layer1' ).change( function() {
 	if( $( 'input#layer1' ).hasClass( 'active' ) ){
 		$( 'input#layer1' ).removeClass( 'active' );
-		scene.remove( mesh1 );
-		mesh4.castShadow = true;
+		scene.remove( mesh3 );
 	} else {
 		$( 'input#layer1' ).addClass( 'active' );
-		scene.add( mesh1 );
-		mesh4.castShadow = false;
+		scene.add( mesh3 );
 	}
 });
 
 $( 'input#layer2' ).change( function() {
 	if( $( 'input#layer2' ).hasClass( 'active' ) ){
 		$( 'input#layer2' ).removeClass( 'active' );
-		scene.remove( mesh2 );
-		scene.remove( mesh3 );
+		scene.remove( mesh4 );
+		scene.remove( mesh5 );
 	} else {
 		$( 'input#layer2' ).addClass( 'active' );
-		scene.add( mesh2 );
-		scene.add( mesh3 );
+		scene.add( mesh4 );
+		scene.add( mesh5 );
 	}
 });
 
 $( 'input#layer3' ).change( function() {
 	if( $( 'input#layer3' ).hasClass( 'active' ) ){
 		$( 'input#layer3' ).removeClass( 'active' );
-		scene.remove( mesh4 );
-		scene.remove( mesh5 );
+		scene.remove( mesh6 );
 	} else {
 		$( 'input#layer3' ).addClass( 'active' );
-		scene.add( mesh4 );
-		scene.add( mesh5 );
+		scene.add( mesh6 );
 	}
 });
 
