@@ -52,8 +52,8 @@ var rad = 1000*(2*Math.PI/360);
 
 function update() {
  	delta = clock.getDelta();
- 
- 	if ( camera_cw ){	
+
+ 	if ( camera_cw ){
  		camRadIncrement += delta * rad;
 
 		camera.position.x = 2820 * Math.cos( camRadIncrement );
@@ -107,7 +107,7 @@ function setupControls() {
 	// con1.verticalMax = 3*Math.PI/8;
 	con1.lookSpeed = 0.10;
 	con1.movementSpeed = 1000;
-  
+
     cam2 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	cam2.position.set( 2000, 1500, 2000 );
 	cam2.lookAt( myTarget.position );
@@ -155,13 +155,6 @@ function onWindowResize() {
 	renderer.setSize( WIDTH, HEIGHT );
 }
 
-// Cool stuff
-$('body').keyup( function ( e ) {
-if(e.keyCode == 67){
-    toggleControls();
-  }
-})
-
 // MAIN PROGRAM
 
 if( Detector.webgl ){
@@ -184,7 +177,7 @@ scene = new THREE.Scene();
 
 loader = new THREE.JSONLoader();
 
-loader.load('sample-model-json/sample-concrete.js', function ( geometry, materials ) {  
+loader.load('sample-model-json/sample-concrete.js', function ( geometry, materials ) {
 	mesh1 = new THREE.Mesh(
 		geometry, new THREE.MeshFaceMaterial( materials )
 	);
@@ -195,7 +188,7 @@ loader.load('sample-model-json/sample-concrete.js', function ( geometry, materia
 	scene.add( mesh1 );
 });
 
-loader.load('sample-model-json/sample-facade-windows.js', function ( geometry, materials ) {  
+loader.load('sample-model-json/sample-facade-windows.js', function ( geometry, materials ) {
 	mesh2 = new THREE.Mesh(
 		geometry, new THREE.MeshFaceMaterial( materials )
 	);
@@ -206,7 +199,7 @@ loader.load('sample-model-json/sample-facade-windows.js', function ( geometry, m
 	scene.add( mesh2 );
 });
 
-loader.load('sample-model-json/sample-facade-mullion.js', function ( geometry, materials ) {  
+loader.load('sample-model-json/sample-facade-mullion.js', function ( geometry, materials ) {
 	mesh3 = new THREE.Mesh(
 		geometry, new THREE.MeshFaceMaterial( materials )
 	);
@@ -217,7 +210,7 @@ loader.load('sample-model-json/sample-facade-mullion.js', function ( geometry, m
 	scene.add( mesh3 );
 });
 
-loader.load('sample-model-json/sample-steel-beams.js', function ( geometry, materials ) {  
+loader.load('sample-model-json/sample-steel-beams.js', function ( geometry, materials ) {
 	mesh4 = new THREE.Mesh(
 		geometry, new THREE.MeshFaceMaterial( materials )
 	);
@@ -228,7 +221,7 @@ loader.load('sample-model-json/sample-steel-beams.js', function ( geometry, mate
 	scene.add( mesh4 );
 });
 
-loader.load('sample-model-json/sample-steel-columns.js', function ( geometry, materials ) {  
+loader.load('sample-model-json/sample-steel-columns.js', function ( geometry, materials ) {
 	mesh5 = new THREE.Mesh(
 		geometry, new THREE.MeshFaceMaterial( materials )
 	);
