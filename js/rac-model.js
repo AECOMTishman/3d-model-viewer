@@ -396,7 +396,7 @@ $( 'button#camerac' ).click( function() {
 
 $( 'a#view1' ).click( function() {
 	camera.position.set( 0, 1000, 2000 );
-	myTarget.position.set( 600, 400, 0 );
+	myTarget.position.set( 1200, 400, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 	$( 'button#cameraa' ).removeClass( 'active' );
@@ -407,8 +407,8 @@ $( 'a#view1' ).click( function() {
 });
 
 $( 'a#view2' ).click( function() {
-	camera.position.set( 600, 800, 600 );
-	myTarget.position.set( 1200, 800, 0 );
+	camera.position.set( 600, 200, 200 );
+	myTarget.position.set( 1800, 200, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 	$( 'button#cameraa' ).removeClass( 'active' );
@@ -419,7 +419,7 @@ $( 'a#view2' ).click( function() {
 });
 
 $( 'a#view3' ).click( function() {
-	camera.position.set( 2000, 1500, 2000 );
+	camera.position.set( 2600, 1500, 2000 );
 	myTarget.position.set( 600, 400, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
