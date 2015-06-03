@@ -255,7 +255,7 @@ terrain.rotation.set(0, 0, 0);
 scene.add(terrain);
 
 var myTarget = new THREE.Object3D();
-myTarget.position.set( 0, 400, 400 );
+myTarget.position.set( 600, 400, 0 );
 
 light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 scene.add( light );
@@ -396,7 +396,7 @@ $( 'button#camerac' ).click( function() {
 
 $( 'a#view1' ).click( function() {
 	camera.position.set( 0, 1000, 2000 );
-	myTarget.position.set( 0, 400, 400 );
+	myTarget.position.set( 600, 400, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 	$( 'button#cameraa' ).removeClass( 'active' );
@@ -408,7 +408,7 @@ $( 'a#view1' ).click( function() {
 
 $( 'a#view2' ).click( function() {
 	camera.position.set( 600, 800, 600 );
-	myTarget.position.set( 600, 800, 400 );
+	myTarget.position.set( 1200, 800, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 	$( 'button#cameraa' ).removeClass( 'active' );
@@ -420,7 +420,7 @@ $( 'a#view2' ).click( function() {
 
 $( 'a#view3' ).click( function() {
 	camera.position.set( 2000, 1500, 2000 );
-	myTarget.position.set( 0, 400, 400 );
+	myTarget.position.set( 600, 400, 0 );
 	camera.lookAt( myTarget.position );
 	controls.target = myTarget.position;
 	$( 'button#cameraa' ).removeClass( 'active' );
