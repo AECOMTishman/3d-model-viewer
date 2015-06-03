@@ -13,7 +13,7 @@ HEIGHT = window.innerHeight;
 VIEW_ANGLE = 60,
 ASPECT = WIDTH / HEIGHT,
 NEAR = 10,
-FAR = 10000;
+FAR = 12000;
 
 var camera_cw = false;
 var camera_ccw = false;
@@ -56,16 +56,16 @@ function update() {
  	if ( camera_cw ){
  		camRadIncrement += delta * rad;
 
-		camera.position.x = 2820 * Math.cos( camRadIncrement );
+		camera.position.x = 3820 * Math.cos( camRadIncrement );
 		camera.position.y = 2000;
-		camera.position.z = 2820 * Math.sin( camRadIncrement );
+		camera.position.z = 3820 * Math.sin( camRadIncrement );
  	}
  	if ( camera_ccw ){
  		camRadIncrement -= delta * rad;
 
-		camera.position.x = 2820 * Math.cos( camRadIncrement );
+		camera.position.x = 3820 * Math.cos( camRadIncrement );
 		camera.position.y = 2000;
-		camera.position.z = 2820 * Math.sin( camRadIncrement );
+		camera.position.z = 3820 * Math.sin( camRadIncrement );
  	}
  	if ( lights_cw ){
  		lightRadIncrement += delta * rad;
@@ -79,17 +79,17 @@ function update() {
 }
 
 function updateLights() {
-	whiteLight.position.x = 2820 * Math.cos( lightRadIncrement );
+	whiteLight.position.x = 3820 * Math.cos( lightRadIncrement );
 	whiteLight.position.y = 2000;
-	whiteLight.position.z = 2820 * Math.sin( lightRadIncrement );
+	whiteLight.position.z = 3820 * Math.sin( lightRadIncrement );
 
-	yellowLight.position.x = 2820 * Math.cos( lightRadIncrement + 1000*120*2*Math.PI/360 );
+	yellowLight.position.x = 3820 * Math.cos( lightRadIncrement + 1000*120*2*Math.PI/360 );
 	yellowLight.position.y = 2000;
-	yellowLight.position.z = 2820 * Math.sin( lightRadIncrement + 1000*120*2*Math.PI/360 );
+	yellowLight.position.z = 3820 * Math.sin( lightRadIncrement + 1000*120*2*Math.PI/360 );
 
-	redLight.position.x = 2820 * Math.cos( lightRadIncrement + 1000*240*2*Math.PI/360 );
+	redLight.position.x = 3820 * Math.cos( lightRadIncrement + 1000*240*2*Math.PI/360 );
 	redLight.position.y = 2000;
-	redLight.position.z = 2820 * Math.sin( lightRadIncrement + 1000*240*2*Math.PI/360 );
+	redLight.position.z = 3820 * Math.sin( lightRadIncrement + 1000*240*2*Math.PI/360 );
 }
 
 function animate() {
@@ -109,7 +109,7 @@ function setupControls() {
 	con1.movementSpeed = 1000;
 
     cam2 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	cam2.position.set( 2000, 1500, 2000 );
+	cam2.position.set( 2600, 1500, 2000 );
 	cam2.lookAt( myTarget.position );
 	con2 = new THREE.OrbitControls( cam2 );
 	con2.minDistance = 50;
@@ -245,15 +245,6 @@ loader.load('rac-model-json/rac-interior.js', function ( geometry, materials ) {
 	render();
 });
 
-terrain = new THREE.Mesh(
-new THREE.BoxGeometry(4000, 10, 4000), new THREE.MeshPhongMaterial({
-    color: 0x46882c
-}));
-terrain.receiveShadow = true;
-terrain.position.set(0, -10, 0);
-terrain.rotation.set(0, 0, 0);
-scene.add(terrain);
-
 var myTarget = new THREE.Object3D();
 myTarget.position.set( 600, 400, 0 );
 
@@ -261,7 +252,7 @@ light = new THREE.HemisphereLight( 0xffffff, 0xd6e7fb, 1.0 );
 scene.add( light );
 
 var whiteLight = new THREE.SpotLight( 0xffffff, 1.0 );
-whiteLight.position.x = 2820;
+whiteLight.position.x = 3820;
 whiteLight.position.y = 2000;
 whiteLight.position.z = 0;
 whiteLight.target = myTarget;
@@ -278,7 +269,7 @@ var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THRE
 whiteLight.add( orb_mesh1 );
 
 var yellowLight = new THREE.SpotLight( 0xffff00, 0.0 );
-yellowLight.position.x = 2820;
+yellowLight.position.x = 3820;
 yellowLight.position.y = 2000;
 yellowLight.position.z = 0;
 yellowLight.target = myTarget;
@@ -294,7 +285,7 @@ yellowLight.shadowCameraVisible = false; // Turn this to "true" to see light bou
 var orb_mesh2 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffff00 } ) );
 
 var redLight = new THREE.SpotLight( 0xff0000, 0.0 );
-redLight.position.x = 2820;
+redLight.position.x = 3820;
 redLight.position.y = 2000;
 redLight.position.z = 0;
 redLight.target = myTarget;
