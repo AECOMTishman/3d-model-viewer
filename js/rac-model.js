@@ -263,7 +263,7 @@ whiteLight.shadowMapHeight = 1000;
 whiteLight.shadowCameraNear = 1500;
 whiteLight.shadowCameraFar = 6000;
 whiteLight.shadowCameraFov = 45;
-whiteLight.shadowCameraVisible = true; // Turn this to "true" to see light boundaries.
+whiteLight.shadowCameraVisible = false; // Turn this to "true" to see light boundaries.
 
 var orb_mesh1 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffffff } ) );
 whiteLight.add( orb_mesh1 );
