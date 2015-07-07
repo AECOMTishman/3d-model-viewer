@@ -1,7 +1,3 @@
-// DETECT WebGL
-
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-
 // GLOBAL VARIABLES
 
 var renderer, container, scene, loader, mesh1, mesh2, mesh3, mesh4, mesh5, terrain, myTarget, camera, cam1, cam2, con1, con2, whiteLight, yellowLight, redLight, clock, stats;
@@ -42,6 +38,7 @@ $( 'input#vr-mode' ).bootstrapToggle('off');
 // FUNCTIONS
 
 function render() {
+	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
 }
 
@@ -93,10 +90,10 @@ function updateLights() {
 }
 
 function animate() {
-	requestAnimationFrame( animate );
+	//requestAnimationFrame( animate );
 	controls.update( clock.getDelta() );
-	update();
 	render();
+	update();
 	stats.update();
 }
 
@@ -157,6 +154,7 @@ function onWindowResize() {
 
 // MAIN PROGRAM
 
+if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 if( Detector.webgl ){
 	renderer = new THREE.WebGLRenderer({
 		antialias: true,				// to get smoother output
