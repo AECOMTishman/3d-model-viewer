@@ -97,10 +97,10 @@ function updateLights() {
 }
 
 function animate() {
-	requestAnimationFrame( animate );
+	//requestAnimationFrame( animate );
 	controls.update( clock.getDelta() );
-	update();
 	render();
+	update();
 	stats.update();
 }
 
