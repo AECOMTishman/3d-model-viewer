@@ -1,10 +1,3 @@
-/* INDEX
-
-1. Global variables, seetings, and buttons.
-2. Animate loop
-
-*/
-
 // GLOBAL VARIABLES
 
 var renderer, container, scene, loader, mesh1, mesh2, mesh3, mesh4, mesh5, terrain, myTarget, camera, cam1, cam2, con1, con2, whiteLight, yellowLight, redLight, clock, stats;
@@ -44,11 +37,6 @@ $( 'input#vr-mode' ).bootstrapToggle('off');
 
 // FUNCTIONS
 
-function render() {
-	requestAnimationFrame( animate );
-	renderer.render( scene, camera );
-}
-
 var axis = new THREE.Vector3( 0, 1, 0 );
 var camRadIncrement = 0;
 var lightRadIncrement = 0;
@@ -71,18 +59,12 @@ function update() {
 		camera.position.y = 2000;
 		camera.position.z = 2820 * Math.sin( camRadIncrement );
  	}
- 	if ( lights_cw ){
+	if ( lights_cw ){
  		lightRadIncrement += delta * rad;
- 		updateLights();
-
  	}
  	if ( lights_ccw ){
 		lightRadIncrement -= delta * rad;
-		updateLights();
  	}
-}
-
-function updateLights() {
 	whiteLight.position.x = 2820 * Math.cos( lightRadIncrement );
 	whiteLight.position.y = 2000;
 	whiteLight.position.z = 2820 * Math.sin( lightRadIncrement );
@@ -97,9 +79,9 @@ function updateLights() {
 }
 
 function animate() {
-	//requestAnimationFrame( animate );
+	requestAnimationFrame( animate );
+	renderer.render( scene, camera );
 	controls.update( clock.getDelta() );
-	render();
 	update();
 	stats.update();
 }
@@ -217,8 +199,6 @@ loader.load('sample-model-json/sample-steel-columns.js', function ( geometry, ma
 	mesh5.castShadow = true;
 	mesh5.receiveShadow = true;
 	scene.add( mesh5 );
-
-	render();
 });
 
 terrain = new THREE.Mesh(
