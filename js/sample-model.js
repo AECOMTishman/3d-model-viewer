@@ -42,6 +42,7 @@ $( 'input#vr-mode' ).bootstrapToggle('off');
 // FUNCTIONS
 
 function render() {
+	requestAnimationFrame( render );
 	renderer.render( scene, camera );
 }
 
