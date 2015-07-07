@@ -63,10 +63,12 @@ function update() {
 
 function animate() {
 	requestAnimationFrame( animate );
+	stats.begin();
 	renderer.render( scene, camera );
 	controls.update( clock.getDelta() );
 	update();
-	stats.update();
+	stats.end();
+	//stats.update();
 }
 
 function toggleControls() {
