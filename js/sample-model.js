@@ -1,6 +1,9 @@
-// DETECT WebGL
+/* INDEX
 
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+1. Global variables, seetings, and buttons.
+2. Animate loop
+
+*/
 
 // GLOBAL VARIABLES
 
@@ -42,7 +45,7 @@ $( 'input#vr-mode' ).bootstrapToggle('off');
 // FUNCTIONS
 
 function render() {
-	requestAnimationFrame( render );
+	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
 }
 
@@ -101,24 +104,6 @@ function animate() {
 	stats.update();
 }
 
-function setupControls() {
-    cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	con1 = new THREE.FirstPersonControls( cam1 );
-	// con1.verticalMin = -Math.PI/8; what do?
-	// con1.verticalMax = 3*Math.PI/8;
-	con1.lookSpeed = 0.10;
-	con1.movementSpeed = 1000;
-
-    cam2 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	cam2.position.set( 2000, 1500, 2000 );
-	cam2.lookAt( myTarget.position );
-	con2 = new THREE.OrbitControls( cam2 );
-	con2.minDistance = 50;
-	con2.maxDistance = 6000;
-	con2.minPolarAngle = Math.PI/8;
-	con2.maxPolarAngle = 5*Math.PI/8;
-}
-
 function toggleControls() {
 	if ( $( 'button#controla' ).hasClass( 'active' ) ) {
 		setControlsOrbit();
@@ -158,6 +143,7 @@ function onWindowResize() {
 
 // MAIN PROGRAM
 
+if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 if( Detector.webgl ){
 	renderer = new THREE.WebGLRenderer({
 		antialias: true,				// to get smoother output
@@ -299,7 +285,19 @@ redLight.shadowCameraVisible = false; // Turn this to "true" to see light bounda
 
 var orb_mesh3 = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xff0000 } ) );
 
-setupControls();
+cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
+con1 = new THREE.FirstPersonControls( cam1 );
+con1.lookSpeed = 0.10;
+con1.movementSpeed = 1000;
+
+cam2 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
+cam2.position.set( 2000, 1500, 2000 );
+cam2.lookAt( myTarget.position );
+con2 = new THREE.OrbitControls( cam2 );
+con2.minDistance = 50;
+con2.maxDistance = 6000;
+con2.minPolarAngle = Math.PI/8;
+con2.maxPolarAngle = 5*Math.PI/8;
 camera = cam2;
 controls = con2;
 $( 'div#instructions p' ).replaceWith("<p>left mouse: rotate<br>middle mouse: zoom<br>right mouse: pan</p>");
@@ -319,8 +317,6 @@ stats.domElement.style.position = 'absolute';
 stats.domElement.style.top = '0px';
 stats.domElement.style.right = '0px';
 container.appendChild( stats.domElement );
-
-animate();
 
 // BUTTONS
 
