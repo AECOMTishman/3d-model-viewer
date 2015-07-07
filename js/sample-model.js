@@ -80,10 +80,11 @@ function update() {
 
 function animate() {
 	requestAnimationFrame( animate );
+	stats.begin();
 	renderer.render( scene, camera );
 	controls.update( clock.getDelta() );
 	update();
-	stats.update();
+	stats.end();
 }
 
 function toggleControls() {
@@ -297,6 +298,8 @@ stats.domElement.style.position = 'absolute';
 stats.domElement.style.top = '0px';
 stats.domElement.style.right = '0px';
 container.appendChild( stats.domElement );
+
+animte();
 
 // BUTTONS
 
