@@ -37,11 +37,6 @@ $( 'input#vr-mode' ).bootstrapToggle('off');
 
 // FUNCTIONS
 
-function render() {
-	requestAnimationFrame( animate );
-	renderer.render( scene, camera );
-}
-
 var axis = new THREE.Vector3( 0, 1, 0 );
 var camRadIncrement = 0;
 var lightRadIncrement = 0;
@@ -64,18 +59,16 @@ function update() {
 		camera.position.y = 2000;
 		camera.position.z = 3820 * Math.sin( camRadIncrement );
  	}
- 	if ( lights_cw ){
- 		lightRadIncrement += delta * rad;
- 		updateLights();
-
- 	}
- 	if ( lights_ccw ){
-		lightRadIncrement -= delta * rad;
-		updateLights();
- 	}
+ 	updateLights();
 }
 
 function updateLights() {
+ 	if ( lights_cw ){
+ 		lightRadIncrement += delta * rad;
+ 	}
+ 	if ( lights_ccw ){
+		lightRadIncrement -= delta * rad;
+ 	}
 	whiteLight.position.x = 3820 * Math.cos( lightRadIncrement );
 	whiteLight.position.y = 2000;
 	whiteLight.position.z = 3820 * Math.sin( lightRadIncrement );
@@ -90,9 +83,9 @@ function updateLights() {
 }
 
 function animate() {
-	//requestAnimationFrame( animate );
+	requestAnimationFrame( animate );
+	renderer.render( scene, camera );
 	controls.update( clock.getDelta() );
-	render();
 	update();
 	stats.update();
 }
@@ -100,8 +93,6 @@ function animate() {
 function setupControls() {
     cam1 = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	con1 = new THREE.FirstPersonControls( cam1 );
-	// con1.verticalMin = -Math.PI/8; what do?
-	// con1.verticalMax = 3*Math.PI/8;
 	con1.lookSpeed = 0.10;
 	con1.movementSpeed = 1000;
 
