@@ -1,0 +1,2 @@
+videos/*.mp4 filter=lfs diff=lfs merge=lfs -crlf
+images/*.jpg filter=lfs diff=lfs merge=lfs -crlf
